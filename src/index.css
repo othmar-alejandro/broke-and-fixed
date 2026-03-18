@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Barlow Condensed', 'Oswald', Impact, sans-serif;
+  --color-cream: #F8F9FC;
+  --color-cream-dark: #EEF0F3;
+  --color-espresso: #0F1F35;
+  --color-espresso-light: #152D4A;
+  --color-sage: #1E3A5F;
+  --color-sage-light: #2A4F7F;
+  --color-sage-muted: #F5943D;
+  --color-warm-gray: #5A6A7A;
+  --color-warm-gray-light: #8A9BB0;
+  --color-warm-gray-lighter: #B0BEC5;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-cream);
+  color: #1A1A2E;
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background-color: #F07A1A;
+  color: white;
+}

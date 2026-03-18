@@ -1,0 +1,86 @@
+{
+  "brand": "Broke & Fixed Home Solutions",
+  "version": "1.0.0",
+  "extracted_from": "logo.jpg",
+  "colors": {
+    "primary": {
+      "name": "Shield Navy",
+      "description": "Core brand color. Drawn from the shield and wordmark. Conveys trust, depth, and professionalism.",
+      "shades": {
+        "deeper": "#0F1F35",
+        "dark":   "#152D4A",
+        "base":   "#1E3A5F",
+        "light":  "#2A4F7F",
+        "muted":  "rgba(30, 58, 95, 0.12)"
+      }
+    },
+    "accent": {
+      "name": "Trade Orange",
+      "description": "Energy and urgency. Used on roofline, ampersand, and vertical divider bar. Classic trades/construction accent.",
+      "shades": {
+        "dark":  "#D4670F",
+        "base":  "#F07A1A",
+        "light": "#F5943D",
+        "muted": "rgba(240, 122, 26, 0.12)"
+      }
+    },
+    "success": {
+      "name": "Approval Green",
+      "description": "Trust signal. The checkmark on the F. Represents completion, quality, and positive outcomes.",
+      "shades": {
+        "dark":  "#388E3C",
+        "base":  "#4CAF50",
+        "light": "#81C784",
+        "muted": "rgba(76, 175, 80, 0.12)"
+      }
+    },
+    "neutral": {
+      "white":       { "hex": "#FFFFFF", "role": "Foreground, button text, icon fills" },
+      "surface":     { "hex": "#D9DDE3", "role": "Logo background, light section fills, card backgrounds" },
+      "surfaceAlt":  { "hex": "#EEF0F3", "role": "Alternate light surface, zebra striping" },
+      "border":      { "hex": "#B0BEC5", "role": "Concrete texture, dividers, input borders" },
+      "borderDark":  { "hex": "#8A9BB0", "role": "Stronger borders, focused input outlines" },
+      "text":        { "hex": "#1A1A2E", "role": "Primary body text, headings on light backgrounds" },
+      "textMuted":   { "hex": "#5A6A7A", "role": "Secondary text, captions, metadata" },
+      "textSubtle":  { "hex": "#8A9BB0", "role": "Placeholder text, disabled states" }
+    },
+    "semantic": {
+      "error":   { "hex": "#E53935", "role": "Error states, urgent alerts" },
+      "warning": { "hex": "#F07A1A", "role": "Shares Trade Orange — warnings, in-progress states" },
+      "info":    { "hex": "#1E88E5", "role": "Informational callouts, links" }
+    }
+  },
+  "tailwind_extend": {
+    "colors": {
+      "navy": {
+        "50":  "#EEF3F9",
+        "100": "#D0DDEF",
+        "200": "#A3BBDE",
+        "300": "#6E93C8",
+        "400": "#3E6BAE",
+        "500": "#1E3A5F",
+        "600": "#152D4A",
+        "700": "#0F1F35",
+        "800": "#091423",
+        "900": "#040A12"
+      },
+      "orange": {
+        "50":  "#FEF3E7",
+        "100": "#FDE1C0",
+        "200": "#FBCB96",
+        "300": "#F8AE64",
+        "400": "#F5943D",
+        "500": "#F07A1A",
+        "600": "#D4670F",
+        "700": "#A8510A",
+        "800": "#7A3B07",
+        "900": "#4E2503"
+      },
+      "green": {
+        "500": "#4CAF50",
+        "600": "#43A047",
+        "700": "#388E3C"
+      }
+    }
+  }
+}
