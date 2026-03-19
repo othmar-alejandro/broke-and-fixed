@@ -29,9 +29,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-12 md:gap-8 mb-16">
           <div>
-            <a href="#" className="flex items-center gap-3 mb-4">
-              <img src="/broke-and-fixed-final-logo-Picsart-BackgroundRemover.jpeg" alt="Broke & Fixed" className="h-11 w-auto" />
-              <span className="font-display font-bold text-2xl uppercase tracking-wide text-espresso">Broke <span className="text-sage-muted">&amp;</span> Fixed</span>
+            <a href="#" className="mb-4 inline-block">
+              <img src="/broke-and-fixed-final-logo-Picsart-BackgroundRemover.png" alt="Broke & Fixed" className="h-[78px] w-auto" />
             </a>
             <p className="text-warm-gray text-sm leading-relaxed max-w-[38ch] mb-6">
               Home remodeling &amp; renovation in South Miami-Dade.
@@ -39,8 +38,10 @@ export default function Footer() {
             </p>
             <div className="flex gap-3">
               <a
-                href="#"
-                className="w-10 h-10 rounded-xl bg-espresso/5 flex items-center justify-center transition-colors duration-300 hover:bg-sage/10"
+                href="https://www.instagram.com/brokeandfixed/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-xl bg-espresso/5 flex items-center justify-center transition-colors duration-300 hover:bg-sage/10 hover:scale-105"
                 aria-label="Instagram"
               >
                 <InstagramLogo weight="regular" size={18} className="text-warm-gray" />

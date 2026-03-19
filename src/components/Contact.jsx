@@ -57,25 +57,25 @@ export default function Contact() {
 
             <div className="flex flex-col gap-5">
               <ScrollReveal delay={0.15}>
-                <a href="tel:+13128471928" className="flex items-center gap-4 group">
-                  <div className="w-11 h-11 rounded-2xl bg-white/5 ring-1 ring-white/10 flex items-center justify-center transition-colors duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:bg-sage/20">
-                    <Phone weight="light" size={20} className="text-white/60" />
+                <a href="tel:+13053405282" className="flex items-center gap-4 group">
+                  <div className="w-12 h-12 rounded-2xl bg-sage/10 flex items-center justify-center shrink-0 group-hover:bg-sage/20 transition-colors">
+                    <Phone weight="light" size={24} className="text-sage" />
                   </div>
                   <div>
-                    <p className="text-white/40 text-xs uppercase tracking-wider mb-0.5">Phone</p>
-                    <p className="text-white font-medium text-sm">+1 (312) 847-1928</p>
+                    <h3 className="font-display text-lg font-semibold text-white">Call Us</h3>
+                    <p className="text-white font-medium text-sm">305-340-5282</p>
                   </div>
                 </a>
               </ScrollReveal>
 
               <ScrollReveal delay={0.2}>
-                <a href="mailto:hello@brokeandfixed.com" className="flex items-center gap-4 group">
-                  <div className="w-11 h-11 rounded-2xl bg-white/5 ring-1 ring-white/10 flex items-center justify-center transition-colors duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:bg-sage/20">
-                    <Envelope weight="light" size={20} className="text-white/60" />
+                <a href="mailto:brokeandfixed305@gmail.com" className="flex items-center gap-4 group">
+                  <div className="w-12 h-12 rounded-2xl bg-sage/10 flex items-center justify-center shrink-0 group-hover:bg-sage/20 transition-colors">
+                    <Envelope weight="light" size={24} className="text-sage" />
                   </div>
                   <div>
-                    <p className="text-white/40 text-xs uppercase tracking-wider mb-0.5">Email</p>
-                    <p className="text-white font-medium text-sm">hello@brokeandfixed.com</p>
+                    <h3 className="font-display text-lg font-semibold text-white">Email Us</h3>
+                    <p className="text-white font-medium text-sm">brokeandfixed305@gmail.com</p>
                   </div>
                 </a>
               </ScrollReveal>
@@ -135,7 +135,7 @@ export default function Contact() {
                       value={formState.phone}
                       onChange={handleChange}
                       className="bg-white/5 ring-1 ring-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/20 focus:outline-none focus:ring-2 focus:ring-sage/50 transition-all duration-300"
-                      placeholder="+1 (773) 555-0142"
+                      placeholder="305-340-5282"
                     />
                   </div>
                   <div className="flex flex-col gap-2">
@@ -171,7 +171,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="group flex items-center gap-3 bg-sage text-white rounded-full pl-7 pr-2 py-2.5 text-sm font-semibold transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-sage-light active:scale-[0.98] w-full sm:w-auto justify-center sm:justify-start"
+                  className="group flex items-center gap-3 bg-sage text-white rounded-full pl-7 pr-2 py-2.5 text-sm font-semibold transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-sage-light hover:scale-105 active:scale-[0.98] w-full sm:w-auto justify-center sm:justify-start"
                 >
                   <span>Send Request</span>
                   <span className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5 group-hover:-translate-y-px group-hover:scale-105">

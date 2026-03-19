@@ -91,7 +91,7 @@ export default function Services() {
                         src={service.image}
                         alt={service.title}
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
-                      />
+                       loading="lazy" />
                     </div>
                   </div>
                 </div>

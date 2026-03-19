@@ -11,7 +11,7 @@ const projects = [
     image: '/kitchen rennovation - south miami heights /IMG_1852.jpeg',
     description: 'Complete gut and remodel including new custom cabinetry, quartz countertops, and a modern subway tile backsplash. Upgraded lighting and plumbing fixtures to breathe new life into the heart of this South Miami Heights home.',
     additionalImages: [
-      '/kitchen rennovation - south miami heights /IMG_1850.jpeg',
+      '/kitchen rennovation - south miami heights /IMG_1482.jpeg',
       '/kitchen rennovation - south miami heights /IMG_1851.jpeg'
     ],
     span: 'row-span-2',
@@ -22,7 +22,7 @@ const projects = [
     image: '/Home Remodeling - South Miami Heights /IMG_2009.jpeg',
     description: 'Comprehensive interior renovation featuring modernized living spaces, updated flooring, and fresh aesthetic touches throughout. Delivered exactly to the client\'s specifications and completely transformed the property.',
     additionalImages: [
-      '/Home Remodeling - South Miami Heights /IMG_1916.jpeg',
+      '/Home Remodeling - South Miami Heights /IMG_1494.jpeg',
       '/Home Remodeling - South Miami Heights /IMG_1917.jpeg'
     ],
     span: '',
@@ -54,7 +54,7 @@ const projects = [
     image: '/chimney removal - The Crossings/IMG_0984.jpeg',
     description: 'Safe and structural chimney demolition. We carefully removed the old masonry, patched the roof and ceiling, and seamlessly integrated the interior and exterior finishes to look like a chimney was never there.',
     additionalImages: [
-      '/chimney removal - The Crossings/IMG_0983.jpeg',
+      '/chimney removal - The Crossings/IMG_0975.jpeg',
       '/chimney removal - The Crossings/IMG_0980.jpeg'
     ],
     span: 'row-span-2',
@@ -66,7 +66,7 @@ const projects = [
     description: 'Another successful exterior transformation in The Hammocks. Thorough pressure washing, crack sealing, and precise application of top-tier exterior paint for a flawless, lasting finish.',
     additionalImages: [
       '/exterior painting - the hammocks/IMG_1344.jpeg',
-      '/exterior painting - the hammocks/IMG_1345.jpeg'
+      '/exterior painting - the hammocks/IMG_1244.jpeg'
     ],
     span: '',
   },
@@ -116,7 +116,7 @@ export default function Gallery() {
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
-                  />
+                   loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-espresso/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">
                     <p className="text-white/60 text-xs uppercase tracking-widest mb-1">{project.category}</p>
@@ -161,7 +161,7 @@ export default function Gallery() {
                   src={selected.image}
                   alt={selected.title}
                   className="w-full h-full object-cover"
-                />
+                 loading="lazy" />
               </div>
 
               {/* Sidebar Info Area */}
@@ -184,7 +184,7 @@ export default function Gallery() {
                             src={img} 
                             alt={`${selected.title} detail ${idx + 1}`} 
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                          />
+                           loading="lazy" />
                           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
                         </div>
                       ))}

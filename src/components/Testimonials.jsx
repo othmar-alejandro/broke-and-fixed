@@ -4,24 +4,24 @@ import ScrollReveal from './ScrollReveal'
 
 const testimonials = [
   {
-    quote: 'They remodeled our master bathroom from top to bottom in West Kendall. Walk-in shower, new tile, the whole thing. Finished on time and left the place spotless every evening.',
-    name: 'Maria L.',
-    location: 'West Kendall, FL',
-    project: 'Bathroom Remodel',
+    quote: 'We brought Broke & Fixed in to prep one of our Airbnb properties for the season — full bathroom refresh, kitchen update, interior paint throughout, and new lighting in every room. They treated it like it was their own home. Everything was done on schedule, the quality was excellent, and our guests have been raving ever since. We already have two more properties lined up with them.',
+    name: 'Airbnb Property Solutions',
+    location: 'Miami-Dade, FL',
+    project: 'Full Interior Remodel',
     rating: 5,
   },
   {
-    quote: 'Got three quotes for our kitchen. Broke & Fixed was the only crew that walked us through exactly what we were paying for, piece by piece. The result was better than anything we imagined.',
-    name: 'Carlos R.',
-    location: 'Kendall Lakes, FL',
-    project: 'Kitchen Remodel',
+    quote: 'We hired them for a rental property in The Crossings that needed serious attention — power washing the roof, driveway, and backyard, plus tile repairs up top. They found damage we hadn\'t even noticed and handled everything without us having to micromanage. Professional outfit, fair pricing, and they left the property looking better than it has in years.',
+    name: '11510 Investment LLC',
+    location: 'The Crossings, FL',
+    project: 'Roof Repair & Power Washing',
     rating: 5,
   },
   {
-    quote: 'Hired them to repaint the exterior and fix some stucco cracks near the garage. They found a water issue two other guys missed. Honest, fast, and fully insured. That matters out here in Miami-Dade.',
-    name: 'Yolanda M.',
-    location: 'Palmetto Bay, FL',
-    project: 'Exterior Painting & Repair',
+    quote: 'They painted the entire exterior of my home in The Hammocks and it came out beautiful. From the first call to the final coat, everything was smooth. They prepped every surface properly, the color is exactly what I asked for, and the cleanup was perfect. My neighbors keep asking who did the work.',
+    name: 'Alma R.',
+    location: 'The Hammocks, FL',
+    project: 'Exterior Painting',
     rating: 5,
   },
 ]

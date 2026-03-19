@@ -61,7 +61,7 @@ export default function About() {
                     src="/services/bathroom.png"
                     alt="Broke & Fixed newly remodeled modern bathroom"
                     className="w-full h-[320px] md:h-[380px] object-cover"
-                  />
+                   loading="lazy" />
                 </div>
               </div>
             </ScrollReveal>

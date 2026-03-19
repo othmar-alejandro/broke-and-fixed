@@ -181,8 +181,8 @@ export default function Hero() {
           style={{ opacity: 0, transform: 'translateY(30px)' }}
         >
           <a
-            href="#contact"
-            className="group flex items-center gap-3 bg-white text-espresso rounded-full pl-7 pr-2 py-2.5 text-base font-semibold transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-cream active:scale-[0.98]"
+            href="tel:3053405282"
+            className="group flex items-center gap-3 bg-white text-espresso rounded-full pl-7 pr-2 py-2.5 text-base font-semibold transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-cream hover:scale-105 active:scale-[0.98]"
           >
             <span>Schedule a Consultation</span>
             <span className="w-9 h-9 rounded-full bg-espresso/5 flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5 group-hover:-translate-y-px group-hover:scale-105">
@@ -191,7 +191,7 @@ export default function Hero() {
           </a>
           <a
             href="#gallery"
-            className="flex items-center gap-2.5 rounded-full border border-white/50 bg-transparent backdrop-blur-sm px-6 py-2.5 text-sm font-semibold text-sage-muted tracking-wide transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-white/80 hover:text-white active:scale-[0.98]"
+            className="flex items-center gap-2.5 rounded-full border border-white/50 bg-transparent backdrop-blur-sm px-6 py-2.5 text-sm font-semibold text-sage-muted tracking-wide transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-white/80 hover:text-white hover:scale-105 active:scale-[0.98]"
           >
             See our projects
           </a>
