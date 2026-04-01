@@ -66,7 +66,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <LangToggle />
             <a
-              href="tel:3053405282"
+              href="tel:7863637039"
               className="hidden lg:inline-flex items-center justify-center h-10 px-5 text-sm font-semibold tracking-wide text-white bg-sage rounded-full hover:bg-sage-dark transition-colors duration-300 hover:scale-105 transform ease-[cubic-bezier(0.32,0.72,0,1)] shadow-[0_4px_12px_rgba(111,135,116,0.3)] hover:shadow-[0_6px_16px_rgba(111,135,116,0.4)]"
             >
               {t('nav.callNow')}
@@ -118,7 +118,7 @@ export default function Navbar() {
                 </motion.button>
               ))}
               <motion.a
-                href="tel:3053405282"
+                href="tel:7863637039"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
@@ -128,7 +128,7 @@ export default function Navbar() {
                 }}
                 className="mt-4 flex items-center gap-2.5 bg-sage text-white rounded-full pl-6 pr-2 py-2.5 text-lg font-semibold hover:bg-sage-light hover:scale-105 active:scale-[0.98] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]"
               >
-                <span>305-340-5282</span>
+                <span>786-363-7039</span>
                 <span className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center">
                   <Phone weight="bold" size={16} />
                 </span>

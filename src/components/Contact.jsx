@@ -38,13 +38,13 @@ export default function Contact() {
 
             <div className="flex flex-col gap-5">
               <ScrollReveal delay={0.15}>
-                <a href="tel:+13053405282" className="flex items-center gap-4 group">
+                <a href="tel:+17863637039" className="flex items-center gap-4 group">
                   <div className="w-12 h-12 rounded-2xl bg-sage/10 flex items-center justify-center shrink-0 group-hover:bg-sage/20 transition-colors">
                     <Phone weight="light" size={24} className="text-sage" />
                   </div>
                   <div>
                     <h3 className="font-display text-lg font-semibold text-white">{t('contact.callUs')}</h3>
-                    <p className="text-white font-medium text-sm">305-340-5282</p>
+                    <p className="text-white font-medium text-sm">786-363-7039</p>
                   </div>
                 </a>
               </ScrollReveal>
@@ -93,7 +93,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
                   <div className="flex flex-col gap-2">
                     <label className="text-white/40 text-xs uppercase tracking-wider font-medium">{t('contact.form.phone')}</label>
-                    <input type="tel" name="phone" value={formState.phone} onChange={handleChange} className="bg-white/5 ring-1 ring-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/20 focus:outline-none focus:ring-2 focus:ring-sage/50 transition-all duration-300" placeholder="305-340-5282" />
+                    <input type="tel" name="phone" value={formState.phone} onChange={handleChange} className="bg-white/5 ring-1 ring-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder:text-white/20 focus:outline-none focus:ring-2 focus:ring-sage/50 transition-all duration-300" placeholder="786-363-7039" />
                   </div>
                   <div className="flex flex-col gap-2">
                     <label className="text-white/40 text-xs uppercase tracking-wider font-medium">{t('contact.form.service')}</label>

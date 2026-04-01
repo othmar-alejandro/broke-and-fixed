@@ -131,7 +131,7 @@ export default function Hero() {
 
         <div className="hero-anim-4 flex flex-col sm:flex-row items-center gap-4" style={{ opacity: 0, transform: 'translateY(30px)' }}>
           <a
-            href="tel:3053405282"
+            href="tel:7863637039"
             className="group flex items-center gap-3 bg-white text-espresso rounded-full pl-7 pr-2 py-2.5 text-base font-semibold transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-cream hover:scale-105 active:scale-[0.98]"
           >
             <span>{t('hero.cta')}</span>

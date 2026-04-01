@@ -27,7 +27,7 @@ export default function FloatingSMS() {
       className={`fixed bottom-6 right-6 z-50 ${isVisible ? 'pointer-events-auto' : 'pointer-events-none'}`}
     >
       <a
-        href="sms:3053405282"
+        href="sms:7863637039"
         className="group relative flex items-center justify-center w-14 h-14 bg-sage rounded-full shadow-xl hover:bg-sage-dark hover:scale-110 active:scale-95 transition-all duration-300"
         aria-label="Send us a text message"
       >
