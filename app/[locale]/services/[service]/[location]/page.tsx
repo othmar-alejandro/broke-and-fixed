@@ -5,6 +5,7 @@ import { notFound } from "next/navigation"
 import { services } from "@/lib/data/services"
 import { locations } from "@/lib/data/locations"
 import { serviceImages } from "@/lib/data/images"
+import { getContent } from "@/lib/data/content-index"
 import JsonLd from "@/components/seo/JsonLd"
 import Breadcrumbs from "@/components/seo/Breadcrumbs"
 import {
@@ -199,7 +200,7 @@ export async function generateMetadata({
 
   return {
     title: `${name} in ${location.name}, ${location.state} | Broke & Fixed`,
-    description: `${name} in ${location.name}, ${location.state}. ${desc} Call 786-363-7039 for a free estimate.`,
+    description: getContent(serviceSlug.replace(/remodelacion-de-banos|remodelacion-de-cocinas|pintura-interior|pintura-exterior|instalacion-de-pisos|reparaciones-exteriores/g, (m) => { const map: Record<string, string> = {'remodelacion-de-banos':'bathroom-remodeling','remodelacion-de-cocinas':'kitchen-remodeling','pintura-interior':'interior-painting','pintura-exterior':'exterior-painting','instalacion-de-pisos':'tile-work','reparaciones-exteriores':'exterior-repairs'}; return map[m] || m }), locationSlug)?.metaDescription || `${name} in ${location.name}, ${location.state}. ${desc} Call 786-363-7039 for a free estimate.`,
     alternates: {
       canonical: url,
     },
@@ -234,6 +235,7 @@ export default async function ServiceLocationPage({
   const imageKey = getImageKey(service.slug)
   const images = serviceImages[imageKey]
   const includedItems = getIncludedItems(service.slug, isEs)
+  const content = getContent(service.slug, location.slug)
 
   const nearbyLocations = location.nearbyLocations
     .map((slug) => locations.find((l) => l.slug === slug))
@@ -509,17 +511,34 @@ export default async function ServiceLocationPage({
                 ? `${serviceName} para propietarios en ${location.name}`
                 : `${serviceName} for homeowners in ${location.name}`}
             </h2>
-            <p className="text-warm-gray text-base md:text-lg leading-relaxed mt-5 font-sans">
-              {serviceDesc}
-            </p>
-            <p className="text-warm-gray text-base md:text-lg leading-relaxed mt-4 font-sans">
-              {locationDesc}
-            </p>
-            <p className="text-warm-gray text-base md:text-lg leading-relaxed mt-4 font-sans">
-              {isEs
-                ? `Nuestro equipo trabaja directamente con propietarios en ${location.name} para entregar resultados que duran. Sin subcontratistas. Sin intermediarios. Solo gente que sabe lo que hace y que se presenta a trabajar todos los dias.`
-                : `Our team works directly with homeowners in ${location.name} to deliver results that last. No subcontractors. No middlemen. Just people who know what they are doing and show up every day.`}
-            </p>
+            {content ? (
+              <>
+                <div className="text-warm-gray text-base md:text-lg leading-relaxed mt-5 font-sans space-y-4">
+                  {content.intro.split('\n').filter(Boolean).map((p, i) => (
+                    <p key={i}>{p}</p>
+                  ))}
+                </div>
+                {content.localContext && (
+                  <p className="text-warm-gray text-base md:text-lg leading-relaxed mt-4 font-sans">
+                    {content.localContext}
+                  </p>
+                )}
+                {content.pricingContext && (
+                  <p className="text-espresso font-semibold text-base md:text-lg leading-relaxed mt-4 font-sans">
+                    {content.pricingContext}
+                  </p>
+                )}
+              </>
+            ) : (
+              <>
+                <p className="text-warm-gray text-base md:text-lg leading-relaxed mt-5 font-sans">
+                  {serviceDesc}
+                </p>
+                <p className="text-warm-gray text-base md:text-lg leading-relaxed mt-4 font-sans">
+                  {locationDesc}
+                </p>
+              </>
+            )}
           </div>
           <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-xl">
             {images?.gallery?.[0] && (
@@ -552,7 +571,7 @@ export default async function ServiceLocationPage({
               </h2>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-              {includedItems.map((item) => (
+              {(content?.whatsIncluded || includedItems).map((item) => (
                 <div
                   key={item}
                   className="flex items-start gap-3 bg-cream rounded-xl p-5 border border-cream-dark"
