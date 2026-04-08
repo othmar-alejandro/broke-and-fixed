@@ -1,38 +1,49 @@
+'use client'
 import { InstagramLogo, FacebookLogo } from '@phosphor-icons/react'
 import { useTranslation } from 'react-i18next'
+import { useParams } from 'next/navigation'
+
+const locations = [
+  { name: 'Kendall', nameEs: 'Kendall', slug: 'kendall' },
+  { name: 'West Kendall', nameEs: 'West Kendall', slug: 'west-kendall' },
+  { name: 'Palmetto Bay', nameEs: 'Palmetto Bay', slug: 'palmetto-bay' },
+  { name: 'Doral', nameEs: 'Doral', slug: 'doral' },
+  { name: 'The Hammocks', nameEs: 'The Hammocks', slug: 'the-hammocks' },
+  { name: 'The Crossings', nameEs: 'The Crossings', slug: 'the-crossings' },
+  { name: 'Kendale Lakes', nameEs: 'Kendale Lakes', slug: 'kendale-lakes' },
+  { name: 'Sweetwater', nameEs: 'Sweetwater', slug: 'sweetwater' },
+  { name: 'Cutler Bay', nameEs: 'Cutler Bay', slug: 'cutler-bay' },
+  { name: 'Pinecrest', nameEs: 'Pinecrest', slug: 'pinecrest' },
+  { name: 'South Miami', nameEs: 'South Miami', slug: 'south-miami' },
+  { name: 'South Miami Heights', nameEs: 'South Miami Heights', slug: 'south-miami-heights' },
+  { name: 'Miami Gardens', nameEs: 'Miami Gardens', slug: 'miami-gardens' },
+  { name: 'Westchester', nameEs: 'Westchester', slug: 'westchester' },
+  { name: 'Coral Gables', nameEs: 'Coral Gables', slug: 'coral-gables' },
+  { name: 'Country Walk', nameEs: 'Country Walk', slug: 'country-walk' },
+  { name: 'Coconut Grove', nameEs: 'Coconut Grove', slug: 'coconut-grove' },
+]
+
+const services = [
+  { labelKey: 'footer.links.bathroom', slug: 'bathroom-remodeling', slugEs: 'remodelacion-de-banos' },
+  { labelKey: 'footer.links.kitchen', slug: 'kitchen-remodeling', slugEs: 'remodelacion-de-cocinas' },
+  { labelKey: 'footer.links.interiorPainting', slug: 'interior-painting', slugEs: 'pintura-interior' },
+  { labelKey: 'footer.links.exteriorPainting', slug: 'exterior-painting', slugEs: 'pintura-exterior' },
+  { labelKey: 'footer.links.tile', slug: 'tile-work', slugEs: 'instalacion-de-pisos' },
+  { labelKey: 'footer.links.exteriorRepairs', slug: 'exterior-repairs', slugEs: 'reparaciones-exteriores' },
+]
 
 export default function Footer() {
   const { t } = useTranslation()
-
-  const footerLinks = [
-    {
-      headingKey: 'footer.services',
-      links: [
-        { labelKey: 'footer.links.bathroom', href: '#services' },
-        { labelKey: 'footer.links.kitchen', href: '#services' },
-        { labelKey: 'footer.links.interiorPainting', href: '#services' },
-        { labelKey: 'footer.links.exteriorPainting', href: '#services' },
-        { labelKey: 'footer.links.tile', href: '#services' },
-        { labelKey: 'footer.links.exteriorRepairs', href: '#services' },
-      ],
-    },
-    {
-      headingKey: 'footer.company',
-      links: [
-        { labelKey: 'footer.links.about', href: '#about' },
-        { labelKey: 'footer.links.gallery', href: '#gallery' },
-        { labelKey: 'footer.links.process', href: '#process' },
-        { labelKey: 'footer.links.contact', href: '#contact' },
-      ],
-    },
-  ]
+  const params = useParams()
+  const locale = params.locale || 'en'
 
   return (
     <footer className="py-16 md:py-24 px-4 md:px-8 border-t border-espresso/5">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-12 md:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_0.8fr] gap-12 md:gap-8 mb-16">
+          {/* Brand */}
           <div>
-            <a href="#" className="mb-4 inline-block">
+            <a href={`/${locale}`} className="mb-4 inline-block">
               <img src="/broke-and-fixed-final-logo-Picsart-BackgroundRemover.png" alt="Broke & Fixed Home Solutions - Remodeling and Painting in Miami-Dade" className="h-[78px] w-auto" />
             </a>
             <p className="text-warm-gray text-sm leading-relaxed max-w-[38ch] mb-6">
@@ -48,30 +59,55 @@ export default function Footer() {
             </div>
           </div>
 
-          {footerLinks.map((group) => (
-            <div key={group.headingKey}>
-              <h4 className="text-xs uppercase tracking-[0.15em] font-semibold text-espresso mb-5">
-                {t(group.headingKey)}
-              </h4>
-              <ul className="flex flex-col gap-3">
-                {group.links.map((link) => (
-                  <li key={link.labelKey}>
-                    <a href={link.href} className="text-sm text-warm-gray transition-colors duration-300 hover:text-espresso">
-                      {t(link.labelKey)}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* Areas We Serve */}
+          <div>
+            <h4 className="text-xs uppercase tracking-[0.15em] font-semibold text-espresso mb-5">
+              {locale === 'es' ? 'Áreas que Servimos' : 'Areas We Serve'}
+            </h4>
+            <ul className="flex flex-col gap-2">
+              {locations.map((loc) => (
+                <li key={loc.slug}>
+                  <a href={`/${locale}/locations/${loc.slug}`} className="text-sm text-warm-gray transition-colors duration-300 hover:text-espresso">
+                    {loc.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="text-xs uppercase tracking-[0.15em] font-semibold text-espresso mb-5">
+              {t('footer.services')}
+            </h4>
+            <ul className="flex flex-col gap-3">
+              {services.map((service) => (
+                <li key={service.slug}>
+                  <a href={`/${locale}/services/${locale === 'es' ? service.slugEs : service.slug}`} className="text-sm text-warm-gray transition-colors duration-300 hover:text-espresso">
+                    {t(service.labelKey)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h4 className="text-xs uppercase tracking-[0.15em] font-semibold text-espresso mb-5">
+              {t('footer.company')}
+            </h4>
+            <ul className="flex flex-col gap-3">
+              <li><a href="#about" className="text-sm text-warm-gray transition-colors duration-300 hover:text-espresso">{t('footer.links.about')}</a></li>
+              <li><a href="#gallery" className="text-sm text-warm-gray transition-colors duration-300 hover:text-espresso">{t('footer.links.gallery')}</a></li>
+              <li><a href="#process" className="text-sm text-warm-gray transition-colors duration-300 hover:text-espresso">{t('footer.links.process')}</a></li>
+              <li><a href="#contact" className="text-sm text-warm-gray transition-colors duration-300 hover:text-espresso">{t('footer.links.contact')}</a></li>
+            </ul>
+          </div>
         </div>
 
         <div className="border-t border-espresso/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-warm-gray-light">
             &copy; {new Date().getFullYear()} {t('footer.rights')}
-          </p>
-          <p className="text-xs text-warm-gray-light">
-            {t('footer.areas')}
           </p>
           <p className="text-xs text-warm-gray-light">
             Designed by OAC Digital Innovations
