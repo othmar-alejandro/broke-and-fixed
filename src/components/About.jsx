@@ -53,7 +53,7 @@ export default function About() {
             <ScrollReveal delay={0.1} className="w-full">
               <div className="relative overflow-hidden rounded-[2rem] bg-white/5 ring-1 ring-white/10 p-1.5 w-full">
                 <div className="overflow-hidden rounded-[calc(2rem-0.375rem)] w-full">
-                  <img src="/services/bathroom.png" alt="Broke & Fixed newly remodeled modern bathroom" className="w-full h-[320px] md:h-[380px] object-cover" loading="lazy" />
+                  <img src="/services/bathroom.png" alt="Bathroom remodeling by Broke and Fixed Home Solutions in Miami-Dade" className="w-full h-[320px] md:h-[380px] object-cover" loading="lazy" />
                 </div>
               </div>
             </ScrollReveal>

@@ -9,63 +9,69 @@ const projects = [
   {
     titleKey: 'Kitchen Renovation',
     category: 'South Miami Heights',
-    image: '/kitchen rennovation - south miami heights /IMG_1852.jpeg',
+    image: '/Home Remodeling - South Miami Heights /kitchen rennovation - south miami heights /new-kitchen-countertop.jpg',
+    alt: 'Completed kitchen renovation with new countertop in South Miami Heights home',
     description: 'Complete gut and remodel including new custom cabinetry, quartz countertops, and a modern subway tile backsplash. Upgraded lighting and plumbing fixtures to breathe new life into the heart of this South Miami Heights home.',
     additionalImages: [
-      '/kitchen rennovation - south miami heights /IMG_1482.jpeg',
-      '/kitchen rennovation - south miami heights /IMG_1851.jpeg',
+      '/Home Remodeling - South Miami Heights /kitchen rennovation - south miami heights /kitchen-rennovation-in-process-setting-appliances.jpeg',
+      '/Home Remodeling - South Miami Heights /kitchen rennovation - south miami heights /kitchen-countertop-cutting-and-leveling.jpeg',
     ],
     span: 'row-span-2',
   },
   {
     titleKey: 'Home Remodeling',
     category: 'South Miami Heights',
-    image: '/Home Remodeling - South Miami Heights /IMG_2009.jpeg',
+    image: '/Home Remodeling - South Miami Heights /bathroom2-shower-after.jpeg',
+    alt: 'Bathroom remodel with new shower tile work in South Miami Heights',
     description: "Comprehensive interior renovation featuring modernized living spaces, updated flooring, and fresh aesthetic touches throughout. Delivered exactly to the client's specifications and completely transformed the property.",
     additionalImages: [
-      '/Home Remodeling - South Miami Heights /IMG_1494.jpeg',
-      '/Home Remodeling - South Miami Heights /IMG_1917.jpeg',
+      '/Home Remodeling - South Miami Heights /diningroom2-painted.jpeg',
+      '/Home Remodeling - South Miami Heights /drywall-installation-living-room.jpeg',
     ],
     span: '',
   },
   {
     titleKey: 'Exterior Paint',
     category: 'The Hammocks',
-    image: '/exterior paint - the hammocks 2/IMG_2051.jpeg',
+    image: '/exterior paint - the hammocks 2/exterior-paint-hammocks-2-tall-entrance.jpeg',
+    alt: 'Exterior house painting near tall entrance in The Hammocks Miami',
     description: 'Full exterior prep and paint job. We repaired all stucco damage and sealed all cracks before applying two coats of premium weather-resistant paint to protect and beautify the property for years to come.',
     additionalImages: [
-      '/exterior paint - the hammocks 2/IMG_2025.jpeg',
-      '/exterior paint - the hammocks 2/IMG_2050.jpeg',
+      '/exterior paint - the hammocks 2/exterior-paint-hammocks-2-wall-backyard.jpeg',
+      '/exterior paint - the hammocks 2/Garage-door-painting-hammocks2.jpeg',
     ],
     span: '',
   },
   {
     titleKey: 'Driveway Clear Coating',
     category: 'Miami-Dade',
-    image: '/driveway clear coating/dc339e19-7807-4210-a925-e733da9c60ec.jpg',
+    image: '/driveway clear coating/driveway-sealant-completed.jpg',
+    alt: 'Completed driveway clear coat sealant application in Miami-Dade',
     description: "Professional power washing followed by a high-grade clear coat sealant. This treatment restores the driveway's original look while providing long-term protection against Florida's harsh sun, rain, and vehicle wear.",
-    additionalImages: ['/driveway clear coating/d4542e88-d0f8-4321-b00e-9824eff47bc8.jpg'],
+    additionalImages: ['/driveway clear coating/driveway-sealant.jpg'],
     span: '',
   },
   {
-    titleKey: 'Chimney Removal',
-    category: 'The Crossings',
-    image: '/chimney removal - The Crossings/IMG_0984.jpeg',
-    description: "Safe and structural chimney demolition. We carefully removed the old masonry, patched the roof and ceiling, and seamlessly integrated the interior and exterior finishes to look like a chimney was never there.",
+    titleKey: 'Demolition Project',
+    category: 'Miami Gardens',
+    image: '/demolition project - miami gardens/kitchen-demolition-after.jpeg',
+    alt: 'Kitchen demolition completed in Miami Gardens home renovation project',
+    description: 'Full interior demolition to prepare the property for a complete renovation. We safely removed drywall, flooring, and fixtures across the kitchen, bathrooms, and living areas — leaving a clean slate for the rebuild.',
     additionalImages: [
-      '/chimney removal - The Crossings/IMG_0975.jpeg',
-      '/chimney removal - The Crossings/IMG_0980.jpeg',
+      '/demolition project - miami gardens/hallway-demolition-after-good-one.jpeg',
+      '/demolition project - miami gardens/livingroom-demolition-after.jpeg',
     ],
     span: 'row-span-2',
   },
   {
     titleKey: 'Exterior Painting',
     category: 'The Hammocks',
-    image: '/exterior painting - the hammocks/IMG_1346.jpeg',
+    image: '/exterior painting - the hammocks/painting-house-process.jpeg',
+    alt: 'Exterior painting in progress on a home in The Hammocks Miami',
     description: 'Another successful exterior transformation in The Hammocks. Thorough pressure washing, crack sealing, and precise application of top-tier exterior paint for a flawless, lasting finish.',
     additionalImages: [
-      '/exterior painting - the hammocks/IMG_1344.jpeg',
-      '/exterior painting - the hammocks/IMG_1244.jpeg',
+      '/exterior painting - the hammocks/washing-walls-before-painting.jpeg',
+      '/exterior painting - the hammocks/roof-pressure-cleaning.jpeg',
     ],
     span: '',
   },
@@ -104,7 +110,7 @@ export default function Gallery() {
             <ScrollReveal key={project.titleKey} delay={i * 0.06} className={`${project.span} cursor-pointer`}>
               <div onClick={() => setSelected(project)} className="group relative h-full overflow-hidden rounded-[2rem] bg-espresso/[0.02] ring-1 ring-espresso/5 p-1.5">
                 <div className="relative h-full overflow-hidden rounded-[calc(2rem-0.375rem)]">
-                  <img src={project.image} alt={project.titleKey} className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105" loading="lazy" />
+                  <img src={project.image} alt={project.alt || project.titleKey} className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-espresso/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">
                     <p className="text-white/60 text-xs uppercase tracking-widest mb-1">{project.category}</p>
@@ -134,7 +140,7 @@ export default function Gallery() {
               </button>
 
               <div className="md:w-[60%] h-[45vh] md:h-full bg-black relative flex items-center justify-center">
-                <img src={selected.image} alt={selected.titleKey} className="w-full h-full object-cover" loading="lazy" />
+                <img src={selected.image} alt={selected.alt || selected.titleKey} className="w-full h-full object-cover" loading="lazy" />
               </div>
 
               <div className="md:w-[40%] p-6 md:p-10 overflow-y-auto max-h-[45vh] md:max-h-full flex flex-col bg-espresso">

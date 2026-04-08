@@ -1,0 +1,47 @@
+# Broke & Fixed Home Solutions
+# Allow search engines, manage AI crawlers
+
+User-agent: *
+Allow: /
+Sitemap: https://brokeandfixed.com/sitemap.xml
+
+# Allow Googlebot (including AI Overviews)
+User-agent: Googlebot
+Allow: /
+
+# Allow Bingbot (feeds ChatGPT Search)
+User-agent: Bingbot
+Allow: /
+
+# Allow Applebot (feeds Apple Intelligence / Siri)
+User-agent: Applebot
+Allow: /
+
+# Allow AI search crawlers for visibility
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Block training-only crawlers (not search)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /

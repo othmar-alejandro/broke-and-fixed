@@ -48,7 +48,7 @@ export default function Navbar() {
       <nav className="absolute top-0 left-0 right-0 z-40 flex items-center justify-center pt-5 px-6">
         <div className="flex items-center justify-between w-full max-w-6xl">
           <a href="/" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); history.replaceState(null, '', window.location.pathname) }}>
-            <img src="/broke-and-fixed-final-logo-Picsart-BackgroundRemover.png" alt="Broke & Fixed" className="h-[81px] w-auto" />
+            <img src="/broke-and-fixed-final-logo-Picsart-BackgroundRemover.png" alt="Broke & Fixed Home Solutions - Home Remodeling Miami-Dade" className="h-[81px] w-auto" />
           </a>
 
           <div className="hidden md:flex items-center gap-8">

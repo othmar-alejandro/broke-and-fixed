@@ -33,7 +33,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-12 md:gap-8 mb-16">
           <div>
             <a href="#" className="mb-4 inline-block">
-              <img src="/broke-and-fixed-final-logo-Picsart-BackgroundRemover.png" alt="Broke & Fixed" className="h-[78px] w-auto" />
+              <img src="/broke-and-fixed-final-logo-Picsart-BackgroundRemover.png" alt="Broke & Fixed Home Solutions - Remodeling and Painting in Miami-Dade" className="h-[78px] w-auto" />
             </a>
             <p className="text-warm-gray text-sm leading-relaxed max-w-[38ch] mb-6">
               {t('footer.tagline')}
