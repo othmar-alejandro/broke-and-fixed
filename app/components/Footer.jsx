@@ -73,6 +73,9 @@ export default function Footer() {
           <p className="text-xs text-warm-gray-light">
             {t('footer.areas')}
           </p>
+          <p className="text-xs text-warm-gray-light">
+            Designed by OAC Digital Innovations
+          </p>
         </div>
       </div>
     </footer>
