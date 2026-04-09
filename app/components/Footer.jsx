@@ -64,7 +64,7 @@ export default function Footer() {
             <h4 className="text-xs uppercase tracking-[0.15em] font-semibold text-espresso mb-5">
               {locale === 'es' ? 'Áreas que Servimos' : 'Areas We Serve'}
             </h4>
-            <ul className="flex flex-col gap-2">
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-2">
               {locations.map((loc) => (
                 <li key={loc.slug}>
                   <a href={`/${locale}/locations/${loc.slug}`} className="text-sm text-warm-gray transition-colors duration-300 hover:text-espresso">
