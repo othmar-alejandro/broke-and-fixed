@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { Phone, Envelope, MapPin, PaperPlaneTilt } from '@phosphor-icons/react'
+import { Phone, Envelope, PaperPlaneTilt } from '@phosphor-icons/react'
 import ScrollReveal from './ScrollReveal'
 import { useTranslation } from 'react-i18next'
 
@@ -61,17 +61,6 @@ export default function Contact() {
                 </a>
               </ScrollReveal>
 
-              <ScrollReveal delay={0.25}>
-                <div className="flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-2xl bg-white/5 ring-1 ring-white/10 flex items-center justify-center">
-                    <MapPin weight="light" size={20} className="text-white/60" />
-                  </div>
-                  <div>
-                    <p className="text-white/40 text-xs uppercase tracking-wider mb-0.5">{t('contact.serviceArea')}</p>
-                    <p className="text-white font-medium text-sm">{t('contact.serviceAreaList')}</p>
-                  </div>
-                </div>
-              </ScrollReveal>
             </div>
           </div>
 
