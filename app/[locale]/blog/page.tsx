@@ -1,5 +1,7 @@
 import { Metadata } from "next"
+import Link from "next/link"
 import Breadcrumbs from "@/components/seo/Breadcrumbs"
+import { getAllPosts, getPostTitle, getPostDescription } from "@/lib/blog"
 
 interface PageParams {
   locale: string
@@ -26,6 +28,14 @@ export async function generateMetadata({
   }
 }
 
+const categoryLabels: Record<string, { en: string; es: string }> = {
+  "cost-guide": { en: "Cost Guide", es: "Guia de Costos" },
+  tips: { en: "Tips", es: "Consejos" },
+  "project-spotlight": { en: "Project Spotlight", es: "Proyecto Destacado" },
+  "neighborhood-guide": { en: "Neighborhood Guide", es: "Guia del Vecindario" },
+  seasonal: { en: "Seasonal", es: "De Temporada" },
+}
+
 export default async function BlogPage({
   params,
 }: {
@@ -33,6 +43,7 @@ export default async function BlogPage({
 }) {
   const { locale } = await params
   const isEs = locale === "es"
+  const posts = getAllPosts()
 
   const breadcrumbs = [
     { name: isEs ? "Inicio" : "Home", href: `/${locale}` },
@@ -48,11 +59,61 @@ export default async function BlogPage({
           Blog
         </h1>
 
-        <p className="text-warm-gray text-lg max-w-2xl leading-relaxed">
-          {isEs
-            ? "Contenido proximamente. Estaremos compartiendo guias de costos, proyectos de antes y despues, y consejos para propietarios en Miami-Dade."
-            : "Content coming soon. We'll be sharing cost guides, before and after projects, and tips for Miami-Dade homeowners."}
-        </p>
+        {posts.length === 0 ? (
+          <p className="text-warm-gray text-lg max-w-2xl leading-relaxed">
+            {isEs
+              ? "Contenido proximamente. Estaremos compartiendo guias de costos, proyectos de antes y despues, y consejos para propietarios en Miami-Dade."
+              : "Content coming soon. We'll be sharing cost guides, before and after projects, and tips for Miami-Dade homeowners."}
+          </p>
+        ) : (
+          <div className="space-y-8">
+            {posts.map((post) => {
+              const title = getPostTitle(post, locale)
+              const description = getPostDescription(post, locale)
+              const catLabel = categoryLabels[post.category]
+              const categoryName = catLabel
+                ? isEs ? catLabel.es : catLabel.en
+                : post.category
+
+              return (
+                <article
+                  key={post.slug}
+                  className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow"
+                >
+                  <div className="flex items-center gap-3 text-sm text-warm-gray mb-3">
+                    <span className="bg-trade-orange/10 text-trade-orange px-2 py-0.5 rounded font-accent text-xs font-medium uppercase">
+                      {categoryName}
+                    </span>
+                    <time dateTime={post.date}>
+                      {new Date(post.date).toLocaleDateString(
+                        isEs ? "es-US" : "en-US",
+                        { year: "numeric", month: "long", day: "numeric" }
+                      )}
+                    </time>
+                    <span>{post.readTime} {isEs ? "de lectura" : "read"}</span>
+                  </div>
+
+                  <Link href={`/${locale}/blog/${post.slug}`}>
+                    <h2 className="font-display text-2xl font-bold text-espresso hover:text-trade-orange transition-colors mb-2">
+                      {title}
+                    </h2>
+                  </Link>
+
+                  <p className="text-warm-gray leading-relaxed mb-4">
+                    {description}
+                  </p>
+
+                  <Link
+                    href={`/${locale}/blog/${post.slug}`}
+                    className="text-trade-orange font-accent font-medium text-sm hover:underline"
+                  >
+                    {isEs ? "Leer mas" : "Read more"} &rarr;
+                  </Link>
+                </article>
+              )
+            })}
+          </div>
+        )}
       </div>
     </main>
   )
