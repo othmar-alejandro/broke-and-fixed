@@ -33,6 +33,8 @@ const categoryLabels: Record<string, { en: string; es: string }> = {
   tips: { en: "Tips", es: "Consejos" },
   "project-spotlight": { en: "Project Spotlight", es: "Proyecto Destacado" },
   "neighborhood-guide": { en: "Neighborhood Guide", es: "Guia del Vecindario" },
+  "kitchen-remodeling": { en: "Kitchen Remodeling", es: "Remodelacion de Cocina" },
+  "hoa-guide": { en: "HOA Guide", es: "Guia del HOA" },
   seasonal: { en: "Seasonal", es: "De Temporada" },
 }
 

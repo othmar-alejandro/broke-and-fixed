@@ -24,3 +24,10 @@ dist-ssr
 *.sw?
 
 .env
+.env.local
+.mcp.json
+.next
+.vercel
+.claude
+.playwright-mcp
+tsconfig.tsbuildinfo

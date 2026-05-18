@@ -80,4 +80,16 @@ export const serviceImages: Record<string, ServiceImageData> = {
     heroAlt:
       "Completed driveway sealant coating for exterior home repair in Miami",
   },
+
+  "cabinet-refinishing": {
+    hero: "/Home Remodeling - South Miami Heights /kitchen rennovation - south miami heights /new-kitchen-countertop.jpg",
+    gallery: [
+      "/Home Remodeling - South Miami Heights /kitchen rennovation - south miami heights /kitchen-rennovation-in-process.jpeg",
+      "/Home Remodeling - South Miami Heights /kitchen rennovation - south miami heights /kitchen-rennovation-in-process-setting-appliances.jpeg",
+      "/Home Remodeling - South Miami Heights /kitchen rennovation - south miami heights /kitchen-rennovation-with-appliances-in-process.jpeg",
+    ],
+    icon: "/services/kitchen.png",
+    heroAlt:
+      "Refinished kitchen cabinets with sprayed lacquer finish in a Miami-Dade home",
+  },
 };

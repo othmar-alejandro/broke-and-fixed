@@ -55,6 +55,7 @@ function getServiceImageKey(slug: string): string {
     "exterior-painting": "exterior-painting",
     "tile-work": "tile-work",
     "exterior-repairs": "exterior-repairs",
+    "cabinet-refinishing": "cabinet-refinishing",
   }
   return mapping[slug] || slug
 }

@@ -43,6 +43,7 @@ function getImageKey(serviceSlug: string): string {
     "exterior-painting": "exterior-painting",
     "tile-work": "tile-work",
     "exterior-repairs": "exterior-repairs",
+    "cabinet-refinishing": "cabinet-refinishing",
   }
   return map[serviceSlug] || serviceSlug
 }
@@ -156,6 +157,24 @@ function getIncludedItems(serviceSlug: string, isEs: boolean): string[] {
         "Sellado y recubrimiento de entrada",
         "Reparacion de cercas y portones",
         "Restauracion por danos de tormenta",
+      ],
+    },
+    "cabinet-refinishing": {
+      en: [
+        "Per-door pricing, $100 to $150 per door",
+        "Strip, sand, and prime existing finish",
+        "Spray lacquer or stain in our shop",
+        "New hinges and pulls installed",
+        "Soft-close conversion available",
+        "5 to 10 day project timeline",
+      ],
+      es: [
+        "Precio por puerta, $100 a $150 por puerta",
+        "Quitar, lijar, y aplicar primer al acabado existente",
+        "Aplicar laca o tinte en nuestro taller",
+        "Bisagras y tiradores nuevos instalados",
+        "Conversion a cierre suave disponible",
+        "Cronograma de proyecto de 5 a 10 dias",
       ],
     },
   }

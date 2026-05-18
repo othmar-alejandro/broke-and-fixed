@@ -21,6 +21,7 @@ const imageKeyMap: Record<string, string> = {
   "exterior-painting": "exterior-painting",
   "tile-work": "tile-work",
   "exterior-repairs": "exterior-repairs",
+  "cabinet-refinishing": "cabinet-refinishing",
 }
 
 const serviceIncludes: Record<string, { en: string[]; es: string[] }> = {
@@ -130,6 +131,24 @@ const serviceIncludes: Record<string, { en: string[]; es: string[] }> = {
       "Parcheo de concreto y entrada",
       "Sellado y calafateo contra clima",
       "Evaluacion exterior completa",
+    ],
+  },
+  "cabinet-refinishing": {
+    en: [
+      "Strip or sand existing cabinet finish",
+      "Repair dings, fill grain, and prep surfaces",
+      "Spray primer plus 2 to 3 coats of lacquer or stain",
+      "Replace hinges and pulls if requested",
+      "Soft-close conversion option",
+      "Per-door pricing with no hidden costs",
+    ],
+    es: [
+      "Quitar o lijar el acabado existente de los gabinetes",
+      "Reparar abolladuras, llenar la veta y preparar superficies",
+      "Aplicar primer y 2 a 3 capas de laca o tinte con pistola",
+      "Reemplazar bisagras y tiradores si se solicita",
+      "Opcion de conversion a cierre suave",
+      "Precio por puerta sin costos ocultos",
     ],
   },
 }

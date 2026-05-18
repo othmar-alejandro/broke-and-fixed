@@ -196,4 +196,36 @@ export const faqs: Record<string, FAQ[]> = {
         "We work with both. A lot of older Miami homes have wood fascia that rots over time. We can replace it with new wood or upgrade to aluminum wrap which lasts longer and needs almost no maintenance. We also repair and replace aluminum soffits. We will recommend the best option based on your home and budget.",
     },
   ],
+  "cabinet-refinishing": [
+    {
+      question: "How much does cabinet refinishing cost in Miami?",
+      answer:
+        "We charge $100 to $150 per door and $75 per drawer front for cabinet refinishing in Miami-Dade. A typical kitchen with 18 to 25 doors and 6 to 10 drawer fronts lands between $2,400 and $5,500 depending on door count, finish type, and hardware swaps. That includes strip and sand, primer, 2 to 3 coats of lacquer or stain, and reinstallation. Compare that to $12,000 to $25,000 for new cabinets and the math is hard to argue with if your boxes are in good shape.",
+    },
+    {
+      question: "How long does cabinet refinishing take?",
+      answer:
+        "A typical kitchen refinishing project takes 5 to 10 working days. We pull doors and drawer fronts on day one and they go to our shop for spraying in a controlled environment. The boxes get prepped on site. Spraying and drying takes the middle of the project, with proper cure time between coats. Reinstallation happens at the end. Your kitchen stays usable through most of the project. You lose cabinet storage access for 5 to 7 days while doors are off curing.",
+    },
+    {
+      question: "Will refinishing work on my cabinets?",
+      answer:
+        "Refinishing works on solid wood, plywood, and good-quality MDF cabinets. It does not work well on cheap particle board with thermofoil or laminate skins because the skin does not accept new finish reliably. If your cabinets are structurally sound (no water damage, no warping, no falling-apart drawer boxes) and the layout still works for you, refinishing is usually the right move. We do free in-person assessments and will tell you straight whether your cabinets are worth saving.",
+    },
+    {
+      question: "Paint or stain, which should I pick?",
+      answer:
+        "About 80 percent of our refinishing jobs end up as paint, usually white, light gray, or two-tone with darker lowers. Paint hides imperfections, is easier to maintain, and reads modern. Stain keeps wood grain visible and looks warm and traditional. Stain shows imperfections more than paint, so the doors need to be in better shape going in. We use post-catalyzed lacquer or 2K polyurethane for the topcoat in either case. Both are way more durable than wall paint and handle Miami humidity, grease, and daily use without yellowing.",
+    },
+    {
+      question: "How long does a refinished cabinet finish last?",
+      answer:
+        "When done properly with quality lacquer or 2K polyurethane, a refinished kitchen should look great for 10 to 15 years of normal use. That assumes you wipe up spills, do not slam doors, and use cabinet-safe cleaners. The finish is actually more durable than what comes from the factory on a lot of midrange new cabinets. We have seen our refinishing jobs from 8 years ago still looking sharp, with only minor touchups around the most-used pulls.",
+    },
+    {
+      question: "Do you spray on site or take doors to a shop?",
+      answer:
+        "Both. Doors and drawer fronts go to our shop where we have a proper spray booth, climate control, and curing racks. That is where the finish quality lives. Cabinet boxes get prepped and sprayed on site since you cannot remove built-in boxes without rebuilding the kitchen. We mask everything carefully so the rest of your kitchen stays clean and dust does not get into your living spaces.",
+    },
+  ],
 }

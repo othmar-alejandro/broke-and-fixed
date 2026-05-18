@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next'
 import { services } from '@/lib/data/services'
 import { locations } from '@/lib/data/locations'
+import { hoaCommunities } from '@/lib/data/hoa-communities'
 
 const BASE_URL = 'https://brokeandfixed.com'
 
@@ -99,6 +100,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
+  // 7. HOA Renovation Guide pages (hub + per-community, EN + ES)
+  const hoaHubPages: MetadataRoute.Sitemap = [
+    {
+      url: `${BASE_URL}/hoa-renovation-guide`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/es/hoa-renovation-guide`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+  ]
+
+  const hoaCommunityPages: MetadataRoute.Sitemap = hoaCommunities.flatMap((c) => [
+    {
+      url: `${BASE_URL}/hoa-renovation-guide/${c.slug}`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/es/hoa-renovation-guide/${c.slugEs}`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+  ])
+
   return [
     ...homepages,
     ...servicePages,
@@ -106,5 +138,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...comboPages,
     ...faqPages,
     ...blogPages,
+    ...hoaHubPages,
+    ...hoaCommunityPages,
   ]
 }

@@ -162,4 +162,29 @@ export const services: Service[] = [
       "stucco patching Miami-Dade",
     ],
   },
+  {
+    slug: "cabinet-refinishing",
+    slugEs: "renovacion-de-gabinetes",
+    name: "Cabinet Refinishing",
+    nameEs: "Renovación de Gabinetes",
+    description:
+      "If your kitchen cabinets are solid wood and the layout still works, refinishing gets you what looks like a new kitchen for a fraction of the cost. We strip, sand, prime, and spray with post-catalyzed lacquer or 2K polyurethane. The finish lasts 10 to 15 years and is more durable than what comes from the factory on most new cabinets.",
+    descriptionEs:
+      "Si los gabinetes de tu cocina son de madera sólida y la distribución todavía funciona, renovarlos te da lo que parece una cocina nueva por una fracción del costo. Quitamos el acabado, lijamos, aplicamos primer y rociamos con laca post-catalizada o poliuretano 2K. El acabado dura 10 a 15 años y es más duradero que el de fábrica en la mayoría de los gabinetes nuevos.",
+    schemaType: "Service",
+    priceRange: "$2,400 - $5,500",
+    timeline: "5 - 10 days",
+    keywords: [
+      "cabinet refinishing Miami",
+      "kitchen cabinet refinishing Miami-Dade",
+      "cabinet painting Miami",
+      "cabinet refinishing cost per door Miami",
+      "wood cabinet refinishing Kendall",
+      "kitchen cabinet painting Miami",
+      "cabinet restaining Miami",
+      "cabinet refinishing company Miami-Dade",
+      "spray finish cabinets Miami",
+      "affordable cabinet refinishing Miami",
+    ],
+  },
 ];
