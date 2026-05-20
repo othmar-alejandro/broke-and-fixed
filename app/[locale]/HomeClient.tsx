@@ -13,6 +13,7 @@ import Testimonials from '@/app/components/Testimonials'
 import Contact from '@/app/components/Contact'
 import Footer from '@/app/components/Footer'
 import FloatingSMS from '@/app/components/FloatingSMS'
+import Hb803Banner from '@/components/Hb803Banner'
 
 export default function HomeClient() {
   const params = useParams()
@@ -29,6 +30,9 @@ export default function HomeClient() {
     <div className="overflow-x-hidden">
       <Navbar />
       <Hero />
+      <div className="max-w-7xl mx-auto px-4 md:px-8 mt-10 md:mt-16">
+        <Hb803Banner locale={locale === 'es' ? 'es' : 'en'} />
+      </div>
       <Services />
       <About />
       <Gallery />

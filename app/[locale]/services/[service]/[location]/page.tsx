@@ -8,6 +8,7 @@ import { serviceImages } from "@/lib/data/images"
 import { getContent } from "@/lib/data/content-index"
 import JsonLd from "@/components/seo/JsonLd"
 import Breadcrumbs from "@/components/seo/Breadcrumbs"
+import Hb803Banner from "@/components/Hb803Banner"
 import {
   CheckCircle,
   Phone,
@@ -457,6 +458,11 @@ export default async function ServiceLocationPage({
           </div>
         </div>
       </section>
+
+      {/* ─── HB 803 BANNER ─── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <Hb803Banner locale={locale as "en" | "es"} className="my-8 md:my-12" />
+      </div>
 
       {/* ─── QUICK FACTS BAR ─── */}
       <section className="bg-white border-b border-cream-dark">

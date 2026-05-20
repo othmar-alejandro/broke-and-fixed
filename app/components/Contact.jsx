@@ -3,11 +3,15 @@ import { useState } from 'react'
 import { Phone, Envelope, PaperPlaneTilt } from '@phosphor-icons/react'
 import ScrollReveal from './ScrollReveal'
 import { useTranslation } from 'react-i18next'
+import PhoneLink from '@/components/PhoneLink'
+import { trackFormSubmit } from '@/lib/analytics'
 
 export default function Contact() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const isEs = i18n.language === 'es'
   const [formState, setFormState] = useState({ name: '', email: '', phone: '', service: '', message: '' })
   const handleChange = (e) => setFormState((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  const handleSubmit = () => trackFormSubmit('contact_form', formState.service)
 
   return (
     <section id="contact" className="py-28 md:py-40 px-4 md:px-8 bg-espresso relative overflow-hidden">
@@ -38,7 +42,11 @@ export default function Contact() {
 
             <div className="flex flex-col gap-5">
               <ScrollReveal delay={0.15}>
-                <a href="tel:+17863637039" className="flex items-center gap-4 group">
+                <PhoneLink
+                  phoneNumber="+17863637039"
+                  source="contact_section"
+                  className="flex items-center gap-4 group"
+                >
                   <div className="w-12 h-12 rounded-2xl bg-sage/10 flex items-center justify-center shrink-0 group-hover:bg-sage/20 transition-colors">
                     <Phone weight="light" size={24} className="text-sage" />
                   </div>
@@ -46,7 +54,7 @@ export default function Contact() {
                     <h3 className="font-display text-lg font-semibold text-white">{t('contact.callUs')}</h3>
                     <p className="text-white font-medium text-sm">786-363-7039</p>
                   </div>
-                </a>
+                </PhoneLink>
               </ScrollReveal>
 
               <ScrollReveal delay={0.2}>
@@ -66,8 +74,22 @@ export default function Contact() {
 
           <ScrollReveal delay={0.1}>
             <div className="rounded-[2rem] bg-white/5 ring-1 ring-white/10 p-1.5">
-              <form action="https://api.web3forms.com/submit" method="POST">
+              <div className="flex items-center gap-2 px-4 pt-4 pb-2 text-sm text-white/70">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sage opacity-60" />
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-sage" />
+                </span>
+                <span>
+                  {isEs
+                    ? 'Respondemos en menos de 15 minutos'
+                    : 'We typically respond within 15 minutes'}
+                </span>
+              </div>
+              <form action="https://api.web3forms.com/submit" method="POST" onSubmit={handleSubmit}>
                 <input type="hidden" name="access_key" value="ebb39c28-f927-4916-be94-71a448167ae6" />
+                <input type="hidden" name="lead_source" value="website-contact-form" />
+                <input type="hidden" name="subject" value="New Lead from brokeandfixed.com" />
+                <input type="hidden" name="redirect" value="https://brokeandfixed.com/?thanks=1" />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
                   <div className="flex flex-col gap-2">
                     <label className="text-white/40 text-xs uppercase tracking-wider font-medium">{t('contact.form.fullName')}</label>
@@ -110,6 +132,20 @@ export default function Contact() {
                   </span>
                 </button>
               </form>
+              <div className="px-4 pb-4 pt-5 mt-2 border-t border-white/5">
+                <p className="text-center text-xs text-white/40 mb-2">
+                  {isEs ? 'Respetamos tu privacidad. No spam.' : 'We respect your privacy. No spam.'}
+                </p>
+                <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1 text-[11px] text-white/50">
+                  <span className="font-semibold text-white/70">4.7 stars on Google</span>
+                  <span className="text-white/20">&middot;</span>
+                  <span>{isEs ? '5+ años en Miami' : '5+ Years in Miami'}</span>
+                  <span className="text-white/20">&middot;</span>
+                  <span>{isEs ? 'Totalmente asegurada' : 'Fully Insured'}</span>
+                  <span className="text-white/20">&middot;</span>
+                  <span>{isEs ? 'Bilingüe EN/ES' : 'Bilingual EN/ES'}</span>
+                </div>
+              </div>
             </div>
           </ScrollReveal>
         </div>

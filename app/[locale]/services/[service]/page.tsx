@@ -8,6 +8,7 @@ import { serviceImages } from "@/lib/data/images"
 import { faqs } from "@/lib/data/faqs"
 import JsonLd from "@/components/seo/JsonLd"
 import Breadcrumbs from "@/components/seo/Breadcrumbs"
+import Hb803Banner from "@/components/Hb803Banner"
 
 interface PageParams {
   locale: string
@@ -341,6 +342,11 @@ export default async function ServicePage({
           </div>
         </div>
       </section>
+
+      {/* ───── HB 803 BANNER ───── */}
+      <div className="max-w-7xl mx-auto px-4">
+        <Hb803Banner locale={locale as "en" | "es"} className="my-8 md:my-12" />
+      </div>
 
       {/* ───── SERVICE DETAILS ───── */}
       <section className="py-20 bg-white">
