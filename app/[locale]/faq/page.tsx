@@ -28,6 +28,20 @@ export async function generateMetadata({
     description: isEs
       ? "Respuestas a las preguntas mas comunes sobre nuestros servicios de remodelacion en Miami-Dade."
       : "Answers to the most common questions about our home remodeling services in Miami-Dade.",
+    alternates: {
+      canonical: `https://brokeandfixed.com/${locale}/faq`,
+      languages: {
+        en: "/en/faq",
+        es: "/es/faq",
+      },
+    },
+    openGraph: {
+      title: isEs ? "Preguntas Frecuentes | Broke & Fixed" : "FAQ | Broke & Fixed",
+      description: isEs
+        ? "Respuestas a las preguntas mas comunes sobre nuestros servicios de remodelacion en Miami-Dade."
+        : "Answers to the most common questions about our home remodeling services in Miami-Dade.",
+      type: "website",
+    },
   }
 }
 

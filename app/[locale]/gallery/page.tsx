@@ -25,6 +25,20 @@ export async function generateMetadata({
     description: locale === "es"
       ? "Vea nuestros proyectos de remodelacion en Miami-Dade. Antes y despues de cocinas, banos, pintura y mas."
       : "See our remodeling projects across Miami-Dade. Before and after kitchens, bathrooms, painting, and more.",
+    alternates: {
+      canonical: `https://brokeandfixed.com/${locale}/gallery`,
+      languages: {
+        en: "/en/gallery",
+        es: "/es/gallery",
+      },
+    },
+    openGraph: {
+      title: locale === "es" ? "Galeria de Proyectos | Broke & Fixed" : "Project Gallery | Broke & Fixed",
+      description: locale === "es"
+        ? "Vea nuestros proyectos de remodelacion en Miami-Dade."
+        : "See our remodeling projects across Miami-Dade.",
+      type: "website",
+    },
   }
 }
 

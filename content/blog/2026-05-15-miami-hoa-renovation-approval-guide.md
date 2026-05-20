@@ -87,7 +87,7 @@ A solid ARC application includes:
 - Material specifications (manufacturer, model number, color samples)
 - Color samples or chips for paint
 - Photos of the existing condition
-- Contractor information including license number and proof of general liability insurance
+- Renovation team information including proof of general liability insurance
 - Estimated start and completion dates
 - Any required HOA application fee (typically $50 to $200)
 
@@ -196,9 +196,9 @@ Patterns we see repeatedly:
 
 Almost never if the work is entirely interior. Kitchen remodeling that stays inside the home, doesn't affect plumbing routing visible from the exterior, and doesn't change windows or doors does not typically require HOA approval. You will still need county or municipal permits for any plumbing, electrical, or structural changes. The exception is if your kitchen remodel involves moving a window, adding a window, changing exterior cabinet venting, or relocating where the gas line enters your home. Those exterior-visible changes usually do need HOA approval.
 
-**Can my HOA force me to use specific contractors?**
+**Can my HOA force me to use a specific remodeling company?**
 
-Generally no. Some HOAs maintain a list of preferred contractors, but Florida law does not allow HOAs to require you to use their list. They can require your contractor to be properly licensed and insured, to follow community quiet-hours rules, and to clean up after themselves. They cannot dictate which specific company you hire. If your HOA tries to mandate a specific vendor, ask for the specific rule in the declaration of covenants. Most likely they cannot cite one.
+Generally no. Some HOAs maintain a list of preferred remodeling companies, but Florida law does not allow HOAs to require you to use their list. They can require your remodeling team to be properly insured, to follow community quiet-hours rules, and to clean up after themselves. They cannot dictate which specific company you hire. If your HOA tries to mandate a specific vendor, ask for the specific rule in the declaration of covenants. Most likely they cannot cite one.
 
 **How long does HOA approval typically take in Miami-Dade?**
 
@@ -224,7 +224,7 @@ No. HOA rules apply going forward from the date they're adopted and recorded pro
 
 When you hire us for a renovation in an HOA community, we handle the ARC paperwork as part of the project. We prepare the application packet, attach the material specifications and license documents, submit it to your HOA, and follow up until you have a written decision. If conditional approval comes back, we work with you on revisions. We have done this in Doral, The Hammocks, The Crossings, Country Walk, Coral Gables, West Kendall, Cutler Bay, and most of the other HOA-heavy areas of Miami-Dade.
 
-We do not promise approval, because that's not something any contractor can promise. What we do promise is a complete, professional application that gives your project the best chance of getting through on the first review.
+We do not promise approval, because that's not something any remodeling company can promise. What we do promise is a complete, professional application that gives your project the best chance of getting through on the first review.
 
 If you've been denied or want to understand what a particular project will require in your community before you commit, call us at (786) 363-7039 or text photos of your home and a description of what you want to do. We will give you our read on the situation, no charge.
 

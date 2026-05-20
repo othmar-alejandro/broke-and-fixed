@@ -43,7 +43,28 @@ export async function generateMetadata({
   const description =
     locale === "es" ? location.descriptionEs : location.description
 
-  return { title, description }
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `https://brokeandfixed.com/${locale}/locations/${locationSlug}`,
+      languages: {
+        en: `/en/locations/${locationSlug}`,
+        es: `/es/locations/${locationSlug}`,
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      type: "website",
+    },
+    keywords: [
+      `home remodeling ${location.name}`,
+      `remodeling company ${location.name}`,
+      `kitchen remodeling ${location.name}`,
+      `bathroom remodeling ${location.name}`,
+    ],
+  }
 }
 
 // Map service slugs to serviceImages keys

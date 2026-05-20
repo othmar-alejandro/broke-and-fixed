@@ -204,11 +204,24 @@ export async function generateMetadata({
   return {
     title: `${name} | Miami-Dade | Broke & Fixed Home Solutions`,
     description: `${description} Serving 17 communities across Miami-Dade County. Call 786-363-7039 for a free estimate.`,
+    alternates: {
+      canonical: `https://brokeandfixed.com/${locale}/services/${locale === "es" ? service.slugEs : service.slug}`,
+      languages: {
+        en: `/en/services/${service.slug}`,
+        es: `/es/services/${service.slugEs}`,
+      },
+    },
     openGraph: {
       title: `${name} | Broke & Fixed Home Solutions`,
       description,
       type: "website",
     },
+    keywords: [
+      `${name} Miami-Dade`,
+      `${name} near me`,
+      `${name} Miami`,
+      `${name} Broke & Fixed`,
+    ],
   }
 }
 

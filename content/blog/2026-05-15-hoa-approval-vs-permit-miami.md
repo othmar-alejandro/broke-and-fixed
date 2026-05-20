@@ -13,7 +13,7 @@ readTime: "7 min"
 keywords: "[HOA approval vs permit Miami, do I need HOA approval Miami, Miami-Dade building permit remodel, when does HOA approval apply Florida, county permit vs HOA approval Florida]"
 ---
 
-Miami homeowners get tripped up by this all the time. "My contractor pulled a permit, so I'm good, right?" Not necessarily. County permits and HOA approval are completely separate processes with different rules, different authorities, and different consequences for skipping them.
+Miami homeowners get tripped up by this all the time. "My remodeling team pulled a permit, so I'm good, right?" Not necessarily. County permits and HOA approval are completely separate processes with different rules, different authorities, and different consequences for skipping them.
 
 You can have a perfect county permit and still get fined by your HOA. You can have full HOA approval and still get red-tagged by Miami-Dade Building. Most exterior renovations need both. Knowing the difference saves time, money, and stress.
 
@@ -57,7 +57,7 @@ Some work is exempt from permits in Miami-Dade. The most common exempt items:
 
 The line gets gray when permitted work and exempt work mix. A "minor" kitchen remodel that moves the sink even six inches needs a plumbing permit. A bathroom refresh that swaps the tub for a walk-in shower needs permits for the plumbing changes even though tile work itself doesn't require permits.
 
-When in doubt, call the Miami-Dade Building Department (or your municipality) and describe the work. They will tell you. Lying to your contractor about whether work needs a permit, or hiring someone willing to skip permits, ends badly. Unpermitted work surfaces during home sales, insurance claims, and any future permitted work on the same area.
+When in doubt, call the Miami-Dade Building Department (or your municipality) and describe the work. They will tell you. Lying to your remodeling team about whether work needs a permit, or hiring someone willing to skip permits, ends badly. Unpermitted work surfaces during home sales, insurance claims, and any future permitted work on the same area.
 
 ## What Needs HOA Approval
 
@@ -81,7 +81,7 @@ For more detail on the HOA approval process specifically, see our [complete Miam
 
 ## What Doesn't Need HOA Approval
 
-Interior work is almost never subject to HOA approval. Some communities have additional rules around noise, contractor hours, or use of common areas, but the actual work inside your home is your business. Examples of typical no-approval-needed projects:
+Interior work is almost never subject to HOA approval. Some communities have additional rules around noise, work crew hours, or use of common areas, but the actual work inside your home is your business. Examples of typical no-approval-needed projects:
 
 - Kitchen remodels that stay inside the home
 - Bathroom remodels that don't change window or door openings
@@ -129,14 +129,14 @@ Three patterns we see repeatedly in Miami-Dade:
 
 Here is what a typical exterior project timeline looks like in Miami-Dade if you do both processes properly:
 
-**Week 0:** Get bids, choose contractor, finalize design
-**Weeks 1 to 2:** Submit ARC application to HOA. Submit permit application to building department (or contractor does it).
+**Week 0:** Get bids, choose your remodeling team, finalize design
+**Weeks 1 to 2:** Submit ARC application to HOA. Submit permit application to building department (or your team does it).
 **Weeks 2 to 4:** Plan review at building department. ARC review at HOA monthly meeting.
 **Week 4:** Permit approval. ARC approval.
 **Weeks 4 to 8:** Project execution.
 **Week 8 onward:** Building department final inspection. HOA closeout (verification that work matches approval).
 
-You can compress this with a smaller scope or a contractor who has standing relationships and pre-vetted plan packets. But most renovations that need both run on this timeline. Don't promise yourself you'll start "next week" if you haven't applied for either yet.
+You can compress this with a smaller scope or a remodeling team that has standing relationships and pre-vetted plan packets. But most renovations that need both run on this timeline. Don't promise yourself you'll start "next week" if you haven't applied for either yet.
 
 ## How We Handle Both Processes
 
@@ -155,7 +155,7 @@ The fee for this is built into our project pricing. We don't charge extra for pa
 
 **Can I pull my own permits in Miami-Dade?**
 
-Yes, if you are an owner-builder doing work on your own residence. Florida law allows owner-builders to apply for permits on their primary residence under specific conditions. The catch is that you take on the liability and the obligation to comply with all building code requirements personally. For most homeowners, having a licensed contractor pull the permits is cleaner and limits your personal exposure if there are code issues later.
+Yes, if you are an owner-builder doing work on your own residence. Florida law allows owner-builders to apply for permits on their primary residence under specific conditions. The catch is that you take on the liability and the obligation to comply with all building code requirements personally. For most homeowners, having an insured remodeling team pull the permits is cleaner and limits your personal exposure if there are code issues later.
 
 **What happens if my HOA approves something but the county denies the permit?**
 

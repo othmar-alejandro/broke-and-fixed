@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import { Barlow_Condensed, Inter, Montserrat } from "next/font/google"
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css"
 
 const fontDisplay = Barlow_Condensed({
@@ -81,7 +83,91 @@ export default function RootLayout({
       <body
         className={`${fontSans.variable} ${fontDisplay.variable} ${fontAccent.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://brokeandfixed.com/#organization",
+                  name: "Broke & Fixed Home Solutions",
+                  url: "https://brokeandfixed.com",
+                  logo: "https://brokeandfixed.com/logo.png",
+                  telephone: "+1-786-363-7039",
+                  email: "brokeandfixed305@gmail.com",
+                  sameAs: [
+                    "https://www.instagram.com/brokeandfixed/",
+                    "https://www.google.com/maps/place/?q=place_id:ChIJ7VSW8vHbAgMRvNWjsiV5kII",
+                  ],
+                },
+                {
+                  "@type": "LocalBusiness",
+                  "@id": "https://brokeandfixed.com/#localbusiness",
+                  name: "Broke & Fixed Home Solutions",
+                  url: "https://brokeandfixed.com",
+                  telephone: "+1-786-363-7039",
+                  email: "brokeandfixed305@gmail.com",
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Kendall",
+                    addressRegion: "FL",
+                    postalCode: "33186",
+                    addressCountry: "US",
+                  },
+                  geo: {
+                    "@type": "GeoCoordinates",
+                    latitude: 25.6795,
+                    longitude: -80.4072,
+                  },
+                  areaServed: [
+                    "Kendall",
+                    "West Kendall",
+                    "Palmetto Bay",
+                    "Doral",
+                    "The Hammocks",
+                    "The Crossings",
+                    "Kendale Lakes",
+                    "Sweetwater",
+                    "Cutler Bay",
+                    "Pinecrest",
+                    "South Miami",
+                    "South Miami Heights",
+                    "Miami Gardens",
+                    "Westchester",
+                    "Coral Gables",
+                    "Country Walk",
+                    "Coconut Grove",
+                  ],
+                  serviceType: [
+                    "Kitchen Remodeling",
+                    "Bathroom Remodeling",
+                    "Interior Painting",
+                    "Exterior Painting",
+                    "Tile Work",
+                    "Exterior Repairs",
+                  ],
+                  priceRange: "$2,500 - $50,000",
+                  openingHours: "Mo-Sa 07:00-18:00",
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://brokeandfixed.com/#website",
+                  url: "https://brokeandfixed.com",
+                  name: "Broke & Fixed Home Solutions",
+                  publisher: {
+                    "@id": "https://brokeandfixed.com/#organization",
+                  },
+                  inLanguage: ["en", "es"],
+                },
+              ],
+            }),
+          }}
+        />
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

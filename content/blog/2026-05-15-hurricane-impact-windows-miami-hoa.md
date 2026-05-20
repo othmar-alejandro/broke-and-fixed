@@ -52,7 +52,7 @@ Things outside the HOA's authority on hurricane protection:
 
 - **The choice to install hurricane protection** (statute requires they allow it)
 - **The HVHZ rating** of the product (Miami-Dade requires Notice of Acceptance product approval, so any product you install must meet code regardless of HOA preference)
-- **Your contractor** (they can require licensure and insurance, not specific vendors)
+- **Your installation team** (they can require licensure and insurance, not specific vendors)
 - **The use of impact windows vs shutters** (this is a homeowner choice unless the declaration specifies otherwise)
 
 The HOA also cannot impose specifications that effectively make hurricane protection impossible or unreasonably expensive. If the HOA specifies, say, a custom-color frame that no manufacturer makes for HVHZ-rated products, that's effectively a denial and would not hold up to legal challenge.
@@ -63,7 +63,7 @@ The fastest path through the ARC for hurricane impact windows:
 
 **Step 1: Get your HOA's hurricane protection specifications in writing.** Request them from the property manager or board secretary. If they say there are no specifications, ask in writing for the date the board plans to adopt them per §720.3035(6). Most HOAs will then either find their existing specifications or scramble to adopt them within a few weeks.
 
-**Step 2: Choose windows that match the specifications.** Your contractor (or window dealer) can match HVHZ-approved products to your HOA's requirements. Common choices in Miami:
+**Step 2: Choose windows that match the specifications.** Your installation team (or window dealer) can match HVHZ-approved products to your HOA's requirements. Common choices in Miami:
 
 - PGT WinGuard (widely accepted, multiple frame colors)
 - ESWindows (HVHZ-rated, popular in newer communities)
@@ -76,7 +76,7 @@ The fastest path through the ARC for hurricane impact windows:
 - Manufacturer cut sheets showing the specific products
 - Notice of Acceptance (NOA) number from Miami-Dade Building (proves HVHZ approval)
 - Color samples or product photos
-- Your contractor's license and insurance certificates
+- Your installation team's insurance certificates
 - Anticipated install date
 
 **Step 4: Wait for the written decision.** Most HOAs respond within 2 to 4 weeks. The decision should be either approval or specific feedback on what to change.
