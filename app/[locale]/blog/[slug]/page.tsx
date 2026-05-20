@@ -2,6 +2,9 @@ import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import Breadcrumbs from "@/components/seo/Breadcrumbs"
+import MidArticleCTA from "@/components/MidArticleCTA"
+import AuthorBio from "@/components/AuthorBio"
+import { getAuthor } from "@/lib/data/authors"
 import {
   getAllPosts,
   getPostBySlug,
@@ -78,7 +81,10 @@ export default async function BlogPostPage({
     { name: title, href: `/${locale}/blog/${slug}` },
   ]
 
-  // BlogPosting JSON-LD schema
+  const author = getAuthor(post.author)
+  const isPersonAuthor = author.id !== "brokeAndFixed"
+
+  // BlogPosting JSON-LD schema with Person author when applicable (E-E-A-T uplift)
   const schema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -86,11 +92,20 @@ export default async function BlogPostPage({
     description: getPostDescription(post, locale),
     datePublished: post.date,
     dateModified: post.date,
-    author: {
-      "@type": "Organization",
-      name: "Broke & Fixed Home Solutions",
-      url: "https://brokeandfixed.com",
-    },
+    author: isPersonAuthor
+      ? {
+          "@type": "Person",
+          name: author.name,
+          jobTitle: author.title,
+          ...(author.links.linkedin || author.links.website
+            ? { url: author.links.linkedin || author.links.website }
+            : {}),
+        }
+      : {
+          "@type": "Organization",
+          name: "Broke & Fixed Home Solutions",
+          url: "https://brokeandfixed.com",
+        },
     publisher: {
       "@type": "Organization",
       name: "Broke & Fixed Home Solutions",
@@ -159,25 +174,21 @@ export default async function BlogPostPage({
             dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
 
-          {/* CTA section */}
-          <div className="mt-12 p-6 bg-shield-navy rounded-lg text-white text-center">
-            <h2 className="font-display text-2xl font-bold mb-3">
-              {isEs
+          <MidArticleCTA
+            headline={
+              isEs
                 ? "Listo para comenzar su proyecto?"
-                : "Ready to start your project?"}
-            </h2>
-            <p className="mb-4 text-white/80">
-              {isEs
-                ? "Llame para un estimado gratis. Sin compromiso."
-                : "Call for a free estimate. No obligation."}
-            </p>
-            <a
-              href="tel:7863637039"
-              className="inline-block bg-trade-orange text-white font-accent font-semibold px-6 py-3 rounded hover:bg-orange-600 transition-colors"
-            >
-              (786) 363-7039
-            </a>
-          </div>
+                : "Ready to start your Miami remodel?"
+            }
+            subhead={
+              isEs
+                ? "Estimado gratis en casa. Respondemos en 15 minutos."
+                : "Free in-home estimate. We respond within 15 minutes."
+            }
+            source={`blog_${slug}`}
+          />
+
+          <AuthorBio authorId={post.author} locale={isEs ? "es" : "en"} />
 
           {/* Tags */}
           {post.tags.length > 0 && (

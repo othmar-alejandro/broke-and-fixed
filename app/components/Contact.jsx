@@ -69,6 +69,21 @@ export default function Contact() {
                 </a>
               </ScrollReveal>
 
+              <ScrollReveal delay={0.25}>
+                <div className="mt-4 rounded-2xl overflow-hidden ring-1 ring-white/10">
+                  <iframe
+                    title={isEs ? 'Mapa de Broke & Fixed Home Solutions, Kendall, FL' : 'Map of Broke & Fixed Home Solutions, Kendall, FL'}
+                    src="https://maps.google.com/maps?q=Broke%20%26%20Fixed%20Home%20Solutions%20Kendall%20FL&output=embed"
+                    width="100%"
+                    height="240"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                  />
+                </div>
+              </ScrollReveal>
+
             </div>
           </div>
 

@@ -32,7 +32,7 @@ export default function FloatingSMS() {
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.8 }}
       transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
-      className={`fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 ${isVisible ? 'pointer-events-auto' : 'pointer-events-none'}`}
+      className={`fixed bottom-24 md:bottom-6 right-6 z-50 flex flex-col items-end gap-3 ${isVisible ? 'pointer-events-auto' : 'pointer-events-none'}`}
     >
       {/* Expanded options */}
       <AnimatePresence>
