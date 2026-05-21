@@ -9,13 +9,18 @@ import { getAllGuideKeywords } from '@/lib/data/long-tail-data'
 
 const BASE_URL = 'https://brokeandfixed.com'
 
+// All real routes live under /[locale]/... where [locale] is "en" or "es".
+// Path segments stay English (services, locations, blog, faq, cost, gallery,
+// hoa-renovation-guide). Only the SLUG changes per locale where applicable
+// (e.g., services have separate slugs in EN/ES).
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date()
 
-  // 1. Homepage
+  // 1. Homepage (root redirects to /en, plus explicit /en and /es)
   const homepages: MetadataRoute.Sitemap = [
     {
-      url: BASE_URL,
+      url: `${BASE_URL}/en`,
       lastModified,
       changeFrequency: 'weekly',
       priority: 1.0,
@@ -28,49 +33,49 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  // 2. Service landing pages (EN + ES)
+  // 2. Service landing pages (EN + ES) — path is /services/ in both locales
   const servicePages: MetadataRoute.Sitemap = services.flatMap((service) => [
     {
-      url: `${BASE_URL}/services/${service.slug}`,
+      url: `${BASE_URL}/en/services/${service.slug}`,
       lastModified,
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
     {
-      url: `${BASE_URL}/es/servicios/${service.slugEs}`,
+      url: `${BASE_URL}/es/services/${service.slugEs}`,
       lastModified,
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
   ])
 
-  // 3. Location pages (EN + ES)
+  // 3. Location pages (EN + ES) — path is /locations/ in both locales
   const locationPages: MetadataRoute.Sitemap = locations.flatMap((location) => [
     {
-      url: `${BASE_URL}/locations/${location.slug}`,
+      url: `${BASE_URL}/en/locations/${location.slug}`,
       lastModified,
       changeFrequency: 'weekly' as const,
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/es/ubicaciones/${location.slug}`,
+      url: `${BASE_URL}/es/locations/${location.slug}`,
       lastModified,
       changeFrequency: 'weekly' as const,
       priority: 0.8,
     },
   ])
 
-  // 4. Service x Location combo pages (EN + ES)
+  // 4. Service x Location combo pages (EN + ES) — 7 services x 17 locations x 2 locales
   const comboPages: MetadataRoute.Sitemap = services.flatMap((service) =>
     locations.flatMap((location) => [
       {
-        url: `${BASE_URL}/services/${service.slug}/${location.slug}`,
+        url: `${BASE_URL}/en/services/${service.slug}/${location.slug}`,
         lastModified,
         changeFrequency: 'weekly' as const,
         priority: 0.8,
       },
       {
-        url: `${BASE_URL}/es/servicios/${service.slugEs}/${location.slug}`,
+        url: `${BASE_URL}/es/services/${service.slugEs}/${location.slug}`,
         lastModified,
         changeFrequency: 'weekly' as const,
         priority: 0.8,
@@ -81,7 +86,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // 5. FAQ pages (EN + ES)
   const faqPages: MetadataRoute.Sitemap = [
     {
-      url: `${BASE_URL}/faq`,
+      url: `${BASE_URL}/en/faq`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.6,
@@ -94,7 +99,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...services.flatMap((service) => [
       {
-        url: `${BASE_URL}/faq/${service.slug}`,
+        url: `${BASE_URL}/en/faq/${service.slug}`,
         lastModified,
         changeFrequency: 'monthly' as const,
         priority: 0.6,
@@ -108,10 +113,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ]),
   ]
 
-  // 6. Blog pages (index EN + ES, individual posts EN + ES)
+  // 6. Blog pages (index + individual posts, EN + ES)
   const blogPages: MetadataRoute.Sitemap = [
     {
-      url: `${BASE_URL}/blog`,
+      url: `${BASE_URL}/en/blog`,
       lastModified,
       changeFrequency: 'daily',
       priority: 0.7,
@@ -138,10 +143,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ]),
   ]
 
-  // 7. HOA Renovation Guide pages (hub + per-community, EN + ES)
+  // 7. HOA Renovation Guide (hub + per-community, EN + ES)
   const hoaHubPages: MetadataRoute.Sitemap = [
     {
-      url: `${BASE_URL}/hoa-renovation-guide`,
+      url: `${BASE_URL}/en/hoa-renovation-guide`,
       lastModified,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
@@ -156,13 +161,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const hoaCommunityPages: MetadataRoute.Sitemap = hoaCommunities.flatMap((c) => [
     {
-      url: `${BASE_URL}/hoa-renovation-guide/${c.slug}`,
+      url: `${BASE_URL}/en/hoa-renovation-guide/${c.slug}`,
       lastModified,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     },
     {
-      url: `${BASE_URL}/es/hoa-renovation-guide/${c.slugEs}`,
+      url: `${BASE_URL}/es/hoa-renovation-guide/${c.slug}`,
       lastModified,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
@@ -215,7 +220,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ])
 
-  // 10. Guide pages (EN + ES)
+  // 10. Long-tail guide pages (EN + ES)
   const guidePages: MetadataRoute.Sitemap = getAllGuideKeywords().flatMap((keyword) => [
     {
       url: `${BASE_URL}/en/guides/${keyword}`,
