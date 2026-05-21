@@ -7,10 +7,10 @@ import StickyCallBar from "@/components/StickyCallBar"
 import ExitIntentPopup from "@/components/ExitIntentPopup"
 import "./globals.css"
 
-// GA4: env var wins; falls back to the production property so analytics
-// works immediately without requiring Vercel env config.
+// Analytics: env var wins; falls back to production IDs so tracking
+// fires immediately without requiring Vercel env config.
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-VFJFSTJQL7"
-const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID
+const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID || "wujwk8dpfk"
 
 const fontDisplay = Barlow_Condensed({
   subsets: ["latin"],
