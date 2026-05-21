@@ -1,10 +1,12 @@
 'use client'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { List, X, Phone } from '@phosphor-icons/react'
+import { List, X, Phone, CaretDown } from '@phosphor-icons/react'
 import { useTranslation } from 'react-i18next'
+import { useParams } from 'next/navigation'
 import i18n from '@/lib/i18n'
 import PhoneLink from '@/components/PhoneLink'
+import MegaMenu from '@/components/MegaMenu'
 
 function LangToggle({ className = '' }) {
   const { i18n: i18nHook } = useTranslation()
@@ -29,7 +31,10 @@ function LangToggle({ className = '' }) {
 
 export default function Navbar() {
   const { t } = useTranslation()
+  const params = useParams()
+  const locale = params?.locale === 'es' ? 'es' : 'en'
   const [open, setOpen] = useState(false)
+  const [megaOpen, setMegaOpen] = useState(false)
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
@@ -37,7 +42,6 @@ export default function Navbar() {
   }
 
   const navLinks = [
-    { label: t('nav.services'), id: 'services' },
     { label: t('nav.about'),    id: 'about'    },
     { label: t('nav.gallery'),  id: 'gallery'  },
     { label: t('nav.process'),  id: 'process'  },
@@ -52,7 +56,17 @@ export default function Navbar() {
             <img src="/broke-and-fixed-final-logo-Picsart-BackgroundRemover.png" alt="Broke & Fixed Home Solutions - Home Remodeling Miami-Dade" className="h-[81px] w-auto" />
           </a>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-7">
+            <button
+              onClick={() => setMegaOpen(true)}
+              onMouseEnter={() => setMegaOpen(true)}
+              aria-expanded={megaOpen}
+              aria-haspopup="menu"
+              className={`inline-flex items-center gap-1.5 text-sm font-semibold tracking-wide transition-colors duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${megaOpen ? 'text-sage' : 'text-espresso hover:text-sage-muted'}`}
+            >
+              {t('nav.services')}
+              <CaretDown weight="bold" size={12} className={`transition-transform duration-300 ${megaOpen ? 'rotate-180' : ''}`} />
+            </button>
             {navLinks.map((link) => (
               <button
                 key={link.id}
@@ -102,6 +116,16 @@ export default function Navbar() {
             </button>
 
             <div className="flex flex-col items-center gap-8">
+              <motion.button
+                onClick={() => { setOpen(false); setMegaOpen(true) }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+                className="inline-flex items-center gap-2 font-display text-4xl font-semibold text-espresso tracking-tight"
+              >
+                {t('nav.services')}
+                <CaretDown weight="bold" size={22} className="text-sage" />
+              </motion.button>
               {navLinks.map((link, i) => (
                 <motion.button
                   key={link.id}
@@ -109,7 +133,7 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
-                    delay: 0.1 + i * 0.06,
+                    delay: 0.16 + i * 0.06,
                     duration: 0.6,
                     ease: [0.32, 0.72, 0, 1],
                   }}
@@ -143,6 +167,8 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <MegaMenu open={megaOpen} onClose={() => setMegaOpen(false)} locale={locale} />
     </>
   )
 }
