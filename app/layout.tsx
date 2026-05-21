@@ -77,6 +77,9 @@ export const metadata: Metadata = {
     "geo.region": "US-FL",
     "geo.placename": "Miami-Dade County",
   },
+  verification: {
+    google: "nk0-TbdAMjR7zMiIoScHwMXV6m18PFNgvnmXqY_ag_s",
+  },
 }
 
 export default function RootLayout({
