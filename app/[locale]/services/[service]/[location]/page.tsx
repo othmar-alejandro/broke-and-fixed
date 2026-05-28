@@ -223,6 +223,11 @@ export async function generateMetadata({
     description: getContent(serviceSlug.replace(/remodelacion-de-banos|remodelacion-de-cocinas|pintura-interior|pintura-exterior|instalacion-de-pisos|reparaciones-exteriores/g, (m) => { const map: Record<string, string> = {'remodelacion-de-banos':'bathroom-remodeling','remodelacion-de-cocinas':'kitchen-remodeling','pintura-interior':'interior-painting','pintura-exterior':'exterior-painting','instalacion-de-pisos':'tile-work','reparaciones-exteriores':'exterior-repairs'}; return map[m] || m }), locationSlug)?.metaDescription || `${name} in ${location.name}, ${location.state}. ${desc} Call 786-363-7039 for a free estimate.`,
     alternates: {
       canonical: url,
+      languages: {
+        en: `/en/services/${service.slug}/${location.slug}`,
+        es: `/es/services/${service.slugEs}/${location.slug}`,
+        "x-default": `/en/services/${service.slug}/${location.slug}`,
+      },
     },
     openGraph: {
       title: `${name} in ${location.name}, ${location.state}`,

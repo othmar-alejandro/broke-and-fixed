@@ -1,21 +1,49 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from "next"
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        userAgent: '*',
-        allow: '/',
+        userAgent: "*",
+        allow: "/",
       },
       {
-        userAgent: ['Googlebot', 'Bingbot', 'Applebot', 'PerplexityBot', 'OAI-SearchBot', 'ClaudeBot'],
-        allow: '/',
+        userAgent: [
+          "Googlebot",
+          "Bingbot",
+          "Applebot",
+          "Applebot-Extended",
+          "DuckDuckBot",
+          "Slurp",
+          "Baiduspider",
+          "YandexBot",
+        ],
+        allow: "/",
       },
       {
-        userAgent: ['GPTBot', 'CCBot', 'Google-Extended', 'anthropic-ai', 'Bytespider', 'cohere-ai'],
-        disallow: '/',
+        userAgent: [
+          "OAI-SearchBot",
+          "ChatGPT-User",
+          "GPTBot",
+          "PerplexityBot",
+          "Perplexity-User",
+          "ClaudeBot",
+          "Claude-SearchBot",
+          "Claude-User",
+          "Google-Extended",
+          "anthropic-ai",
+          "cohere-ai",
+          "Amazonbot",
+          "MistralAI-User",
+        ],
+        allow: "/",
+      },
+      {
+        userAgent: ["Bytespider", "PetalBot", "MJ12bot", "SemrushBot", "AhrefsBot"],
+        disallow: "/",
       },
     ],
-    sitemap: 'https://brokeandfixed.com/sitemap.xml',
+    sitemap: "https://brokeandfixed.com/sitemap.xml",
+    host: "https://brokeandfixed.com",
   }
 }
