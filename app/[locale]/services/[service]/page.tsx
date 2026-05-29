@@ -19,6 +19,8 @@ import BeforeAfterGallery from "@/components/service-sections/BeforeAfterGallery
 import ServiceTestimonials from "@/components/service-sections/ServiceTestimonials"
 import ImagePlaceholder from "@/components/ImagePlaceholder"
 import PhoneLink from "@/components/PhoneLink"
+import TldrBlock from "@/components/service-sections/TldrBlock"
+import { getServiceTldr } from "@/lib/data/service-tldr"
 import { Phone } from "@phosphor-icons/react/dist/ssr"
 
 interface PageParams {
@@ -186,6 +188,10 @@ export default async function ServicePage({
                 text: faq.answer,
               },
             })),
+            speakable: {
+              "@type": "SpeakableSpecification",
+              cssSelector: ["[data-speakable='answer']"],
+            },
           },
         ]
       : []),
@@ -255,6 +261,20 @@ export default async function ServicePage({
 
       {/* TRUST STRIP */}
       <TrustStrip locale={localeNarrow} />
+
+      {/* TL;DR ANSWER BLOCK — optimized for AI Overviews + answer engines */}
+      {(() => {
+        const tldr = getServiceTldr(service.slug, localeNarrow)
+        if (!tldr) return null
+        return (
+          <TldrBlock
+            answer={tldr}
+            label={isEs ? `Resumen rapido sobre ${name}` : `Quick answer about ${name}`}
+            locale={localeNarrow}
+            phoneSource={`service_tldr_${service.slug}`}
+          />
+        )
+      })()}
 
       {/* HB 803 BANNER */}
       <div className="max-w-7xl mx-auto px-4 md:px-8">
