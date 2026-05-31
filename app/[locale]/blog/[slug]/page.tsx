@@ -11,6 +11,7 @@ import {
   getPostContent,
   getPostTitle,
   getPostDescription,
+  extractFaqs,
 } from "@/lib/blog"
 
 interface PageParams {
@@ -117,12 +118,36 @@ export default async function BlogPostPage({
     ...(post.image ? { image: post.image } : {}),
   }
 
+  // FAQPage JSON-LD — still parsed by ChatGPT/Perplexity/Claude/AI Overviews
+  // even though Google deprecated the rich result. Built from the post's
+  // ## FAQ / ## Preguntas Frecuentes section when it has 2+ Q&A pairs.
+  const faqItems = extractFaqs(locale === "es" ? post.contentEs : post.contentEn)
+  const faqSchema =
+    faqItems.length >= 2
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          inLanguage: locale === "es" ? "es" : "en",
+          mainEntity: faqItems.map((f) => ({
+            "@type": "Question",
+            name: f.question,
+            acceptedAnswer: { "@type": "Answer", text: f.answer },
+          })),
+        }
+      : null
+
   return (
     <main className="min-h-screen bg-cream">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
 
       <div className="max-w-3xl mx-auto px-4 py-8">
         <Breadcrumbs items={breadcrumbs} />

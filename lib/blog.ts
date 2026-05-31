@@ -163,3 +163,70 @@ export function getPostTitle(post: BlogPost, locale: string): string {
 export function getPostDescription(post: BlogPost, locale: string): string {
   return locale === "es" ? post.descriptionEs : post.description
 }
+
+export interface FaqItem {
+  question: string
+  answer: string
+}
+
+// Strip inline markdown so schema text is clean plain text.
+function stripInlineMarkdown(s: string): string {
+  return s
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1") // [text](url) -> text
+    .replace(/\*\*(.+?)\*\*/g, "$1") // bold
+    .replace(/\*(.+?)\*/g, "$1") // italic
+    .trim()
+}
+
+/**
+ * Pull Q&A pairs out of a post's FAQ section for FAQPage JSON-LD.
+ * Convention (see content/blog/*.md): a heading "## FAQ..." (EN) or
+ * "## Preguntas Frecuentes..." (ES), then bold questions (**Question?**)
+ * each followed by one or more answer paragraphs, until the next "## " heading.
+ * Returns [] when no FAQ section is present so callers can skip the schema.
+ */
+export function extractFaqs(content: string): FaqItem[] {
+  const lines = content.split("\n")
+  let inFaq = false
+  const faqLines: string[] = []
+  for (const raw of lines) {
+    const line = raw.trim()
+    if (/^##\s+(FAQ|Frequently Asked|Preguntas Frecuentes)/i.test(line)) {
+      inFaq = true
+      continue
+    }
+    if (inFaq && /^##\s+/.test(line)) break // next section ends the FAQ block
+    if (inFaq) faqLines.push(raw)
+  }
+
+  const faqs: FaqItem[] = []
+  let currentQ: string | null = null
+  let currentA: string[] = []
+  const flush = () => {
+    if (currentQ && currentA.length) {
+      faqs.push({
+        question: stripInlineMarkdown(currentQ),
+        answer: stripInlineMarkdown(currentA.join(" ")),
+      })
+    }
+    currentQ = null
+    currentA = []
+  }
+
+  for (const raw of faqLines) {
+    const line = raw.trim()
+    // A question is a bold span at the start of the line. Two layouts exist
+    // in our content: the bold question alone (answer in following paragraphs)
+    // and the bold question with its answer inline on the same line.
+    const qMatch = line.match(/^\*\*(.+?)\*\*\s*(.*)$/)
+    if (qMatch) {
+      flush()
+      currentQ = qMatch[1]
+      if (qMatch[2]) currentA.push(qMatch[2])
+    } else if (currentQ && line) {
+      currentA.push(line)
+    }
+  }
+  flush()
+  return faqs
+}
