@@ -220,7 +220,7 @@ export async function generateMetadata({
 
   return {
     title: `${name} in ${location.name}, ${location.state} | Broke & Fixed`,
-    description: getContent(serviceSlug.replace(/remodelacion-de-banos|remodelacion-de-cocinas|pintura-interior|pintura-exterior|instalacion-de-pisos|reparaciones-exteriores/g, (m) => { const map: Record<string, string> = {'remodelacion-de-banos':'bathroom-remodeling','remodelacion-de-cocinas':'kitchen-remodeling','pintura-interior':'interior-painting','pintura-exterior':'exterior-painting','instalacion-de-pisos':'tile-work','reparaciones-exteriores':'exterior-repairs'}; return map[m] || m }), locationSlug)?.metaDescription || `${name} in ${location.name}, ${location.state}. ${desc} Call 786-363-7039 for a free estimate.`,
+    description: getContent(serviceSlug.replace(/remodelacion-de-banos|remodelacion-de-cocinas|pintura-interior|pintura-exterior|instalacion-de-pisos|reparaciones-exteriores/g, (m) => { const map: Record<string, string> = {'remodelacion-de-banos':'bathroom-remodeling','remodelacion-de-cocinas':'kitchen-remodeling','pintura-interior':'interior-painting','pintura-exterior':'exterior-painting','instalacion-de-pisos':'tile-work','reparaciones-exteriores':'exterior-repairs'}; return map[m] || m }), locationSlug, locale)?.metaDescription || `${name} in ${location.name}, ${location.state}. ${desc} Call 786-363-7039 for a free estimate.`,
     alternates: {
       canonical: url,
       languages: {
@@ -260,7 +260,7 @@ export default async function ServiceLocationPage({
   const imageKey = getImageKey(service.slug)
   const images = serviceImages[imageKey]
   const includedItems = getIncludedItems(service.slug, isEs)
-  const content = getContent(service.slug, location.slug)
+  const content = getContent(service.slug, location.slug, locale)
 
   const nearbyLocations = location.nearbyLocations
     .map((slug) => locations.find((l) => l.slug === slug))
