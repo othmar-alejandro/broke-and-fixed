@@ -126,15 +126,15 @@ HB 803 is the House version of the bill. The Senate companion was Senate Bill 11
 
 ## Ready to Plan Your Miami Remodel?
 
-Broke & Fixed Home Solutions has done 200+ remodels across Miami-Dade. Family owned. Fully insured. Bilingual EN/ES. We work in [Kendall](/locations/kendall), [Coral Gables](/locations/coral-gables), [Pinecrest](/locations/pinecrest), [Doral](/locations/doral), [Palmetto Bay](/locations/palmetto-bay), and the rest of Miami-Dade County. Free in-home estimates, response within 15 minutes.
+Broke & Fixed Home Solutions has done 200+ remodels across Miami-Dade. Family owned. Fully insured. Bilingual EN/ES. We work in [Kendall](/en/locations/kendall), [Coral Gables](/en/locations/coral-gables), [Pinecrest](/en/locations/pinecrest), [Doral](/en/locations/doral), [Palmetto Bay](/en/locations/palmetto-bay), and the rest of Miami-Dade County. Free in-home estimates, response within 15 minutes.
 
 Browse our service guides:
-- [Bathroom remodeling](/services/bathroom-remodeling)
-- [Kitchen remodeling](/services/kitchen-remodeling)
-- [Interior painting](/services/interior-painting)
-- [Tile work](/services/tile-work)
-- [Bathroom remodeling cost in Miami 2026](/cost/bathroom)
-- [Kitchen remodeling cost in Miami 2026](/cost/kitchen)
+- [Bathroom remodeling](/en/services/bathroom-remodeling)
+- [Kitchen remodeling](/en/services/kitchen-remodeling)
+- [Interior painting](/en/services/interior-painting)
+- [Tile work](/en/services/tile-work)
+- [Bathroom remodeling cost in Miami 2026](/en/cost/bathroom-remodeling)
+- [Kitchen remodeling cost in Miami 2026](/en/cost/kitchen-remodeling)
 
 Or call us directly at **(786) 363-7039**.
 
@@ -253,12 +253,12 @@ HB 803 es la versión de la Cámara del proyecto de ley. La compañera del Senad
 
 ## ¿Listo para Planear Tu Remodelación en Miami?
 
-Broke & Fixed Home Solutions ha completado más de 200 remodelaciones en todo Miami-Dade. Empresa familiar. Totalmente asegurada. Bilingüe EN/ES. Trabajamos en [Kendall](/es/ubicaciones/kendall), [Coral Gables](/es/ubicaciones/coral-gables), [Pinecrest](/es/ubicaciones/pinecrest), [Doral](/es/ubicaciones/doral), [Palmetto Bay](/es/ubicaciones/palmetto-bay) y el resto del Condado de Miami-Dade. Estimados gratis en casa, respuesta en 15 minutos.
+Broke & Fixed Home Solutions ha completado más de 200 remodelaciones en todo Miami-Dade. Empresa familiar. Totalmente asegurada. Bilingüe EN/ES. Trabajamos en [Kendall](/es/locations/kendall), [Coral Gables](/es/locations/coral-gables), [Pinecrest](/es/locations/pinecrest), [Doral](/es/locations/doral), [Palmetto Bay](/es/locations/palmetto-bay) y el resto del Condado de Miami-Dade. Estimados gratis en casa, respuesta en 15 minutos.
 
 Explora nuestras guías de servicios:
-- [Remodelación de baños](/es/servicios/remodelacion-banos)
-- [Remodelación de cocinas](/es/servicios/remodelacion-cocinas)
-- [Pintura interior](/es/servicios/pintura-interior)
-- [Trabajo de azulejos](/es/servicios/azulejos)
+- [Remodelación de baños](/es/services/remodelacion-de-banos)
+- [Remodelación de cocinas](/es/services/remodelacion-de-cocinas)
+- [Pintura interior](/es/services/pintura-interior)
+- [Trabajo de azulejos](/es/services/instalacion-de-pisos)
 
 O llámanos directamente al **(786) 363-7039**.
