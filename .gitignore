@@ -28,6 +28,8 @@ dist-ssr
 .mcp.json
 .next
 .vercel
-.claude
+.claude/*
+!.claude/skills/
+.cache
 .playwright-mcp
 tsconfig.tsbuildinfo

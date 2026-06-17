@@ -158,23 +158,11 @@ export default async function ServicePage({
           }))
         : undefined,
     },
-    ...(rich?.testimonials && rich.testimonials.length > 0
-      ? [
-          {
-            "@context": "https://schema.org",
-            "@type": "AggregateRating",
-            itemReviewed: {
-              "@type": "Service",
-              name,
-            },
-            ratingValue:
-              rich.testimonials.reduce((sum, t) => sum + t.rating, 0) /
-              rich.testimonials.length,
-            reviewCount: rich.testimonials.length,
-            bestRating: 5,
-          },
-        ]
-      : []),
+    // NOTE: We intentionally do NOT emit self-serving AggregateRating/Review
+    // schema here. Google's review-snippet guidelines prohibit a business from
+    // marking up ratings for its own services, and doing so risks a structured
+    // data manual action. Reviews live on Google Business Profile (third-party
+    // sourced), where the rating stars are earned, not self-declared.
     ...(serviceFaqs.length > 0
       ? [
           {
