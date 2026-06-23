@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Broke &amp; Fixed Card Front</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --espresso:#0F1F35;   /* darkest base */
+    --navy:#1E3A5F;        /* shield navy */
+    --orange:#F07A1A;      /* trade orange accent */
+    --cream:#F8F9FC;       /* light text */
+    --slate:#8A99AD;       /* secondary slate gray */
+    --line:rgba(248,249,252,.10);
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ background:#0a1424; }
+  body{ margin:0; padding:0; }
+
+  /* tabular figures keep the phone number rock-steady */
+  .tnum{ font-variant-numeric:tabular-nums; font-feature-settings:"tnum" 1; }
+
+  .card{
+    position:relative;
+    width:700px;
+    height:400px;
+    border-radius:14px;
+    overflow:hidden;
+    /* deep diagonal espresso -> navy. dark premium base. */
+    background:
+      radial-gradient(120% 140% at 88% -10%, rgba(30,58,95,.55) 0%, rgba(30,58,95,0) 46%),
+      radial-gradient(90% 120% at -8% 112%, rgba(240,122,26,.10) 0%, rgba(240,122,26,0) 40%),
+      linear-gradient(118deg, #0C1A2E 0%, #0F1F35 52%, #15294257 100%), var(--espresso);
+    color:var(--cream);
+    font-family:"Inter", system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    isolation:isolate;
+  }
+
+  /* very subtle tactile grain (no grid lines) */
+  .card::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:radial-gradient(rgba(255,255,255,.5) .5px, transparent .6px);
+    background-size:7px 7px;
+    opacity:.025;
+    mix-blend-mode:screen;
+    pointer-events:none;
+    z-index:0;
+  }
+  /* a single soft vignette to settle the corners */
+  .card::after{
+    content:"";
+    position:absolute; inset:0;
+    box-shadow:inset 0 0 90px 6px rgba(0,0,0,.45);
+    border-radius:14px;
+    pointer-events:none;
+    z-index:5;
+  }
+
+  /* ---- TOP RAIL: logo + kicker ---- */
+  .rail{
+    position:absolute;
+    top:38px; left:54px; right:54px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    z-index:4;
+  }
+  .brandmark{
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  /* light chip so the navy/orange shield reads on dark */
+  .chip{
+    width:54px; height:54px;
+    border-radius:13px;
+    background:var(--cream);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 18px rgba(0,0,0,.34), inset 0 0 0 1px rgba(15,31,53,.06);
+  }
+  .chip img{ width:42px; height:42px; object-fit:contain; display:block; }
+
+  .wordmark{ display:flex; flex-direction:column; line-height:1; }
+  .wordmark .b1{
+    font-family:"Barlow Condensed", sans-serif;
+    font-weight:700;
+    font-size:19px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--cream);
+  }
+  .wordmark .b2{
+    font-family:"Inter", sans-serif;
+    font-weight:500;
+    font-size:10px;
+    letter-spacing:.30em;
+    text-transform:uppercase;
+    color:var(--slate);
+    margin-top:6px;
+  }
+
+  .kicker{
+    font-family:"Inter", sans-serif;
+    font-weight:600;
+    font-size:10.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--slate);
+    text-align:right;
+    white-space:nowrap;
+  }
+
+  /* ---- HERO: the typographic statement ---- */
+  .hero{
+    position:absolute;
+    left:54px;
+    top:148px;
+    z-index:4;
+  }
+  .hero h1{
+    font-family:"Barlow Condensed", sans-serif;
+    font-weight:800;
+    text-transform:uppercase;
+    color:var(--cream);
+    line-height:.86;
+    letter-spacing:.005em;
+    margin:0;
+  }
+  .hero .l1{ font-size:74px; display:block; }
+  .hero .l2{ font-size:74px; display:block; }
+  /* one decisive accent: the operative verb */
+  .hero .accent{ color:var(--orange); }
+  .hero .l2 .next{ position:relative; }
+  /* slim underscore tying the accent word, the lone graphic flourish */
+  .hero .l2 .next::after{
+    content:"";
+    position:absolute;
+    left:2px; right:2px;
+    bottom:6px;
+    height:5px;
+    border-radius:3px;
+    background:var(--orange);
+  }
+
+  .sub{
+    margin-top:20px;
+    font-family:"Inter", sans-serif;
+    font-weight:400;
+    font-size:13px;
+    letter-spacing:.01em;
+    color:var(--slate);
+    max-width:430px;
+  }
+  .sub b{ color:var(--cream); font-weight:600; }
+
+  /* ---- FOOTER: identity + contact ---- */
+  .footer{
+    position:absolute;
+    left:54px; right:54px;
+    bottom:34px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    z-index:4;
+  }
+  .who .name{
+    font-family:"Barlow Condensed", sans-serif;
+    font-weight:700;
+    font-size:24px;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    color:var(--cream);
+    line-height:1;
+  }
+  .who .role{
+    margin-top:6px;
+    font-family:"Inter", sans-serif;
+    font-weight:500;
+    font-size:10.5px;
+    letter-spacing:.26em;
+    text-transform:uppercase;
+    color:var(--orange);
+  }
+
+  .contact{ text-align:right; line-height:1; }
+  .contact .phone{
+    font-family:"Barlow Condensed", sans-serif;
+    font-weight:600;
+    font-size:23px;
+    letter-spacing:.06em;
+    color:var(--cream);
+  }
+  .contact .web{
+    margin-top:9px;
+    font-family:"Inter", sans-serif;
+    font-weight:500;
+    font-size:12px;
+    letter-spacing:.10em;
+    color:var(--slate);
+    text-transform:lowercase;
+  }
+
+  /* thin orange edge accent on the left spine, restrained */
+  .spine{
+    position:absolute;
+    left:0; top:0; bottom:0;
+    width:5px;
+    background:linear-gradient(180deg, var(--orange) 0%, rgba(240,122,26,.35) 100%);
+    z-index:6;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="spine"></div>
+
+    <div class="rail">
+      <div class="brandmark">
+        <div class="chip"><img src="logo.png" alt="Broke and Fixed Home Solutions shield logo" /></div>
+        <div class="wordmark">
+          <span class="b1">Broke &amp; Fixed</span>
+          <span class="b2">Home Solutions</span>
+        </div>
+      </div>
+      <div class="kicker">Est. 2023 &nbsp;·&nbsp; Miami-Dade, FL</div>
+    </div>
+
+    <div class="hero">
+      <h1>
+        <span class="l1">We fix what's <span class="accent">broke.</span></span>
+        <span class="l2">We build what's <span class="next">next.</span></span>
+      </h1>
+      <p class="sub">Bathrooms, kitchens, tile, paint, repairs. <b>Family owned. Fully insured.</b></p>
+    </div>
+
+    <div class="footer">
+      <div class="who">
+        <div class="name">Byron Casilla</div>
+        <div class="role">Owner</div>
+      </div>
+      <div class="contact">
+        <div class="phone tnum">786 · 363 · 7039</div>
+        <div class="web">brokeandfixed.com</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

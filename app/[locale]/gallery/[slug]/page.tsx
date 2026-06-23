@@ -133,10 +133,17 @@ export default async function ProjectGalleryPage({
 
         {/* All photos by phase */}
         {phaseOrder.map((phase) => {
-          const photos = photosByPhase[phase]
+          let photos = photosByPhase[phase]
           if (!photos || photos.length === 0) return null
-          // Skip before/after if already shown in comparison
-          if ((phase === "before" || phase === "after") && pairs.length > 0) return null
+
+          // Slice out photos already shown in the paired Before & After section
+          if (phase === "before" && pairs.length > 0) {
+            photos = photos.slice(pairs.length)
+          } else if (phase === "after" && pairs.length > 0) {
+            photos = photos.slice(pairs.length)
+          }
+
+          if (photos.length === 0) return null
 
           const label = phaseLabels[phase]
           const phaseName = label ? (isEs ? label.es : label.en) : phase

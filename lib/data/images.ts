@@ -9,6 +9,10 @@ export const serviceImages: Record<string, ServiceImageData> = {
   bathroom: {
     hero: "/Home Remodeling - South Miami Heights /bathroom2-shower-after.jpeg",
     gallery: [
+      "/images/glenvar-after-1.jpg",
+      "/images/glenvar-after-2.jpg",
+      "/images/glenvar-after-4.jpg",
+      "/images/bathroom-kendall-hex.jpg",
       "/Home Remodeling - South Miami Heights /bathroom-faucets-replacement.jpeg",
       "/Home Remodeling - South Miami Heights /bathroom-plumbing-and-tile-renewal.jpeg",
       "/Home Remodeling - South Miami Heights /bathroom2-before.jpeg",
@@ -19,8 +23,11 @@ export const serviceImages: Record<string, ServiceImageData> = {
   },
 
   kitchen: {
-    hero: "/Home Remodeling - South Miami Heights /kitchen rennovation - south miami heights /new-kitchen-countertop.jpg",
+    hero: "/images/lakes-meadows-kitchen-after-1.jpg",
     gallery: [
+      "/images/lakes-meadows-kitchen-after-1.jpg",
+      "/images/lakes-meadows-kitchen-after-2.jpg",
+      "/images/lakes-meadows-kitchen-after-3.jpg",
       "/Home Remodeling - South Miami Heights /kitchen rennovation - south miami heights /kitchen-rennovation-in-process-setting-appliances.jpeg",
       "/Home Remodeling - South Miami Heights /kitchen rennovation - south miami heights /kitchen-rennovation-in-process.jpeg",
       "/Home Remodeling - South Miami Heights /kitchen rennovation - south miami heights /kitchen-rennovation-in-process-2.jpeg",
@@ -29,7 +36,7 @@ export const serviceImages: Record<string, ServiceImageData> = {
     ],
     icon: "/services/kitchen.png",
     heroAlt:
-      "New kitchen countertop installation during kitchen renovation in South Miami Heights",
+      "Modern two-tone kitchen renovation in Lakes of the Meadow with painted cabinets and backsplash",
   },
 
   "interior-painting": {
@@ -82,14 +89,17 @@ export const serviceImages: Record<string, ServiceImageData> = {
   },
 
   "cabinet-refinishing": {
-    hero: "/Home Remodeling - South Miami Heights /kitchen rennovation - south miami heights /new-kitchen-countertop.jpg",
+    hero: "/images/lakes-meadows-kitchen-after-1.jpg",
     gallery: [
+      "/images/lakes-meadows-kitchen-after-1.jpg",
+      "/images/lakes-meadows-kitchen-after-2.jpg",
+      "/images/lakes-meadows-kitchen-after-3.jpg",
       "/Home Remodeling - South Miami Heights /kitchen rennovation - south miami heights /kitchen-rennovation-in-process.jpeg",
       "/Home Remodeling - South Miami Heights /kitchen rennovation - south miami heights /kitchen-rennovation-in-process-setting-appliances.jpeg",
       "/Home Remodeling - South Miami Heights /kitchen rennovation - south miami heights /kitchen-rennovation-with-appliances-in-process.jpeg",
     ],
     icon: "/services/kitchen.png",
     heroAlt:
-      "Refinished kitchen cabinets with sprayed lacquer finish in a Miami-Dade home",
+      "Two-tone custom painted kitchen cabinets (white and green) in Lakes of the Meadow",
   },
 };

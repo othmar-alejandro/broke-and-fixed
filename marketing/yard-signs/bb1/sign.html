@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Broke &amp; Fixed Home Solutions Yard Sign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E3A5F;
+    --espresso:#0F1F35;
+    --orange:#F07A1A;
+    --cream:#F8F9FC;
+    --slate:#8FA3BC;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{margin:0;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:#000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  /* ===== SIGN CANVAS — EXACTLY 1200 x 900 (24x18) ===== */
+  .sign{
+    position:relative;
+    width:1200px;
+    height:900px;
+    overflow:hidden;
+    background:
+      radial-gradient(140% 120% at 18% 8%, #20406b 0%, var(--espresso) 52%, #0a1626 100%);
+    color:var(--cream);
+    /* thick cream border = a real sign panel */
+    border:14px solid var(--cream);
+    outline:6px solid var(--orange);
+    outline-offset:-26px;
+  }
+
+  /* ===== GIANT GHOSTED SHIELD (depth, bleeds off right) ===== */
+  .ghost-shield{
+    position:absolute;
+    right:-150px;
+    top:50%;
+    transform:translateY(-50%);
+    height:1180px;
+    width:auto;
+    opacity:0.10;
+    /* turn navy art into a pale ghost glyph */
+    filter:brightness(0) invert(1);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  /* ===== HARD ORANGE DIAGONAL SLAB (energy device) ===== */
+  .diagonal{
+    position:absolute;
+    z-index:1;
+    left:-80px;
+    top:-120px;
+    width:760px;
+    height:300px;
+    background:var(--orange);
+    transform:rotate(-7deg);
+    transform-origin:top left;
+    box-shadow:0 22px 0 rgba(0,0,0,0.18);
+  }
+  /* thin espresso accent line riding under the slab */
+  .diagonal::after{
+    content:"";
+    position:absolute;
+    left:0;right:0;
+    bottom:-16px;
+    height:10px;
+    background:var(--espresso);
+    opacity:.55;
+  }
+
+  /* ===== CONTENT GRID ===== */
+  .content{
+    position:relative;
+    z-index:3;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    padding:54px 64px 0 64px;
+  }
+
+  /* ---- TOP: brand lockup (sits on the orange slab) ---- */
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:24px;
+    height:138px;
+  }
+  .brand .logo{
+    height:118px;
+    width:auto;
+    /* white keyline so navy shield reads on dark/orange */
+    filter:
+      drop-shadow(1px 0 0 #fff) drop-shadow(-1px 0 0 #fff)
+      drop-shadow(0 1px 0 #fff) drop-shadow(0 -1px 0 #fff)
+      drop-shadow(2px 2px 3px rgba(0,0,0,.35));
+  }
+  .brand .wordmark{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    line-height:.86;
+  }
+  .brand .b1{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:900;
+    font-size:74px;
+    letter-spacing:.5px;
+    color:var(--espresso);
+    text-transform:uppercase;
+    text-shadow:0 2px 0 rgba(255,255,255,.25);
+  }
+  .brand .b2{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;
+    font-size:35px;
+    letter-spacing:8.5px;
+    color:var(--espresso);
+    text-transform:uppercase;
+    margin-top:4px;
+    opacity:.92;
+  }
+
+  /* ---- HEADLINE strip ---- */
+  .headline{
+    margin-top:42px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+  }
+  .headline .tick{
+    width:18px;
+    height:62px;
+    background:var(--orange);
+    border-radius:2px;
+    flex:none;
+  }
+  .headline h1{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;
+    font-size:62px;
+    line-height:.95;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--cream);
+  }
+  .headline h1 b{
+    color:var(--orange);
+    font-weight:900;
+  }
+
+  /* ---- MEGA PHONE — the hero ---- */
+  .phone-wrap{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    margin-top:-6px;
+  }
+  .call-kicker{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;
+    font-size:40px;
+    letter-spacing:15px;
+    text-transform:uppercase;
+    color:var(--slate);
+    margin-left:6px;
+    margin-bottom:2px;
+  }
+  .phone{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:900;
+    font-size:268px;
+    line-height:.80;
+    letter-spacing:-1px;
+    color:var(--cream);
+    white-space:nowrap;
+    text-shadow:0 8px 0 rgba(0,0,0,.30);
+  }
+  /* recolor the area code + dashes in orange for rhythm */
+  .phone .ac{color:var(--orange);}
+  .phone .dash{color:var(--orange);opacity:.95;}
+
+  /* ---- FOOTER bar ---- */
+  .footer{
+    position:absolute;
+    z-index:4;
+    left:0;right:0;bottom:0;
+    height:104px;
+    background:var(--navy);
+    border-top:6px solid var(--orange);
+    display:flex;
+    align-items:center;
+    padding:0 60px 0 64px;
+  }
+  .footer .trust{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;
+    font-size:38px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--cream);
+    display:flex;
+    align-items:center;
+    gap:20px;
+    white-space:nowrap;
+  }
+  .footer .trust .dot{
+    color:var(--orange);
+    font-weight:900;
+    font-size:30px;
+    transform:translateY(-2px);
+  }
+  .footer .trust .site{color:var(--orange);}
+  .footer .spacer{flex:1;}
+
+  /* small QR (walk-ups only) */
+  .qr{
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .qr .scan{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;
+    font-size:20px;
+    line-height:1;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--slate);
+    text-align:right;
+  }
+  .qr img{
+    width:74px;
+    height:74px;
+    background:#fff;
+    padding:5px;
+    border-radius:8px;
+    display:block;
+  }
+</style>
+</head>
+<body>
+  <div class="sign">
+    <!-- depth -->
+    <img class="ghost-shield" src="shield.png" alt="">
+    <!-- energy device -->
+    <div class="diagonal"></div>
+
+    <div class="content">
+      <!-- BRAND -->
+      <div class="brand">
+        <img class="logo" src="shield.png" alt="Broke &amp; Fixed Home Solutions shield logo">
+        <div class="wordmark">
+          <div class="b1">Broke &amp; Fixed</div>
+          <div class="b2">Home Solutions</div>
+        </div>
+      </div>
+
+      <!-- HEADLINE -->
+      <div class="headline">
+        <span class="tick"></span>
+        <h1>Now Remodeling <b>This Home</b></h1>
+      </div>
+
+      <!-- MEGA PHONE -->
+      <div class="phone-wrap">
+        <div class="call-kicker">Call or Text Today</div>
+        <div class="phone"><span class="ac">786</span><span class="dash">-</span>363<span class="dash">-</span>7039</div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="trust">
+        Family Owned <span class="dot">&bull;</span> Fully Insured <span class="dot">&bull;</span> <span class="site">brokeandfixed.com</span>
+      </div>
+      <div class="spacer"></div>
+      <div class="qr">
+        <div class="scan">Scan for<br>a free quote</div>
+        <img src="qr.png" alt="QR code to brokeandfixed.com for a free remodeling quote">
+      </div>
+    </div>
+  </div>
+</body>
+</html>

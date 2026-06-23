@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{ --espresso:#0F1F35; --navy:#1E3A5F; --orange:#F07A1A; --orange-soft:#ff9a4d; --cream:#F8F9FC; --slate:#9fb0c6; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ margin:0; background:#0a1322; }
+  .sign{ position:relative; width:1200px; height:900px; overflow:hidden;
+    background:radial-gradient(125% 120% at 24% 14%, #2a4f7c 0%, #1E3A5F 30%, #16304f 58%, #0F1F35 100%);
+    font-family:"Inter", system-ui, sans-serif; color:var(--cream); -webkit-font-smoothing:antialiased; isolation:isolate; }
+  .sign::after{ content:""; position:absolute; inset:0; box-shadow:inset 0 0 160px 26px rgba(7,16,30,.45); z-index:8; pointer-events:none; }
+  .grid{ position:absolute; inset:0; z-index:1; opacity:.05;
+    background-image:linear-gradient(rgba(248,249,252,.6) 1px,transparent 1px),linear-gradient(90deg,rgba(248,249,252,.6) 1px,transparent 1px);
+    background-size:60px 60px; -webkit-mask-image:radial-gradient(120% 120% at 30% 20%,#000 60%,transparent 100%); }
+
+  .inner{ position:relative; z-index:5; height:100%; display:flex; flex-direction:column; padding:40px 54px 0; }
+  .top{ display:flex; justify-content:space-between; align-items:center; }
+  .brandrow{ display:flex; align-items:center; gap:16px; }
+  .shield{ width:90px; height:95px; flex:none; background:url("shield.png") no-repeat center / contain;
+    filter:drop-shadow(.7px 0 0 #fff) drop-shadow(-.7px 0 0 #fff) drop-shadow(0 .7px 0 #fff) drop-shadow(0 -.7px 0 #fff) drop-shadow(0 0 8px rgba(255,255,255,.22)); }
+  .bn{ font-family:"Barlow Condensed"; font-weight:800; font-size:44px; line-height:.86; letter-spacing:.02em; text-transform:uppercase; color:var(--cream); }
+  .bn small{ display:block; font-size:16px; letter-spacing:.42em; color:var(--orange); font-weight:600; margin-top:5px; }
+  .bn .amp{ color:var(--orange); }
+  .headline{ text-align:right; font-family:"Barlow Condensed"; font-weight:800; font-size:46px; line-height:.9; text-transform:uppercase; color:var(--cream); }
+  .headline .o{ color:var(--orange); }
+
+  .photos{ display:flex; gap:46px; margin-top:24px; position:relative; }
+  .ph{ position:relative; flex:1; height:476px; border-radius:16px; overflow:hidden; border:3px solid rgba(248,249,252,.15); box-shadow:0 22px 54px -22px rgba(0,0,0,.7); }
+  .ph img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .tag{ position:absolute; top:0; left:0; font-family:"Barlow Condensed"; font-weight:800; font-size:27px; letter-spacing:.18em; text-transform:uppercase; padding:9px 24px; border-radius:0 0 14px 0; }
+  .tag.before{ background:rgba(15,31,53,.92); color:var(--cream); }
+  .tag.after{ background:var(--orange); color:var(--espresso); }
+  .arrow{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:96px; height:96px; border-radius:50%; background:var(--orange);
+    display:flex; align-items:center; justify-content:center; box-shadow:0 12px 32px -8px rgba(0,0,0,.65); z-index:6; border:5px solid var(--espresso); }
+  .arrow svg{ width:48px; height:48px; }
+
+  .band{ position:absolute; left:0; right:0; bottom:0; height:194px; background:var(--orange); z-index:7;
+    display:flex; align-items:center; justify-content:space-between; padding:0 54px; }
+  .bandL .want{ font-family:"Barlow Condensed"; font-weight:800; font-size:40px; line-height:1; text-transform:uppercase; color:var(--espresso); }
+  .bandL .phone{ font-family:"Barlow Condensed"; font-weight:800; font-size:100px; line-height:.82; letter-spacing:.01em; color:var(--espresso); margin-top:4px; }
+  .bandL .foot{ font-family:"Barlow Condensed"; font-weight:700; font-size:19px; letter-spacing:.1em; text-transform:uppercase; color:var(--espresso); opacity:.85; margin-top:6px; }
+  .bandR{ display:flex; align-items:center; gap:18px; flex:none; }
+  .bandR .qr{ background:var(--cream); border-radius:13px; padding:11px; }
+  .bandR .qr img{ width:134px; height:134px; display:block; }
+  .bandR .scan{ font-family:"Barlow Condensed"; font-weight:800; font-size:24px; letter-spacing:.04em; text-transform:uppercase; color:var(--espresso); line-height:1.05; max-width:150px; }
+</style>
+</head>
+<body>
+  <div class="sign">
+    <div class="grid"></div>
+    <div class="inner">
+      <div class="top">
+        <div class="brandrow">
+          <div class="shield" role="img" aria-label="Broke and Fixed shield"></div>
+          <div class="bn">Broke <span class="amp">&amp;</span> Fixed<small>HOME SOLUTIONS</small></div>
+        </div>
+        <div class="headline">Same house.<br/><span class="o">Brand new life.</span></div>
+      </div>
+
+      <div class="photos">
+        <div class="ph"><span class="tag before">Before</span><img src="photo-before.webp" alt="Before remodel" /></div>
+        <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="#0F1F35" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
+        <div class="ph"><span class="tag after">After</span><img src="photo-after.jpg" alt="After remodel by Broke and Fixed" /></div>
+      </div>
+    </div>
+
+    <div class="band">
+      <div class="bandL">
+        <div class="want">Want this for your home?</div>
+        <div class="phone">786 · 363 · 7039</div>
+        <div class="foot">Free estimates · Family owned · Fully insured</div>
+      </div>
+      <div class="bandR">
+        <div class="qr"><img src="qr.png" alt="Scan to see more projects" /></div>
+        <div class="scan">Scan to see more</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

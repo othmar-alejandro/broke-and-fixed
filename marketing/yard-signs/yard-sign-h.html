@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{ --espresso:#0F1F35; --navy:#1E3A5F; --orange:#F07A1A; --orange-soft:#ff9a4d; --cream:#F8F9FC; --slate:#9fb0c6; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ margin:0; background:#0a1322; }
+  .sign{
+    position:relative; width:1200px; height:900px; overflow:hidden;
+    background:radial-gradient(125% 120% at 24% 16%, #2a4f7c 0%, #1E3A5F 30%, #16304f 58%, #0F1F35 100%);
+    font-family:"Inter", system-ui, sans-serif; color:var(--cream); -webkit-font-smoothing:antialiased; isolation:isolate;
+  }
+  .sign::after{ content:""; position:absolute; inset:0; box-shadow:inset 0 0 170px 26px rgba(7,16,30,.5); z-index:6; pointer-events:none; }
+  .grid{ position:absolute; inset:0; z-index:1; opacity:.06;
+    background-image:linear-gradient(rgba(248,249,252,.6) 1px,transparent 1px),linear-gradient(90deg,rgba(248,249,252,.6) 1px,transparent 1px);
+    background-size:60px 60px;
+    -webkit-mask-image:radial-gradient(110% 120% at 28% 24%,#000 58%,transparent 100%); }
+
+  .inner{ position:relative; z-index:5; height:100%; display:flex; flex-direction:column; padding:48px 58px 0; }
+  .toprow{ display:flex; justify-content:space-between; align-items:flex-start; gap:36px; }
+  .eyebrow{ display:flex; align-items:center; gap:15px; font-family:"Barlow Condensed"; font-weight:700; font-size:26px; letter-spacing:.3em; text-transform:uppercase; color:var(--orange); }
+  .eyebrow .ln{ width:46px; height:2px; background:var(--orange); opacity:.85; }
+  .brandrow{ display:flex; align-items:center; gap:18px; margin-top:22px; }
+  .shield{ width:116px; height:123px; flex:none; background:url("shield.png") no-repeat center / contain;
+    filter:drop-shadow(.7px 0 0 #fff) drop-shadow(-.7px 0 0 #fff) drop-shadow(0 .7px 0 #fff) drop-shadow(0 -.7px 0 #fff) drop-shadow(0 0 9px rgba(255,255,255,.22)); }
+  .bn{ font-family:"Barlow Condensed"; font-weight:800; font-size:50px; line-height:.88; letter-spacing:.02em; text-transform:uppercase; color:var(--cream); }
+  .bn small{ display:block; font-size:18px; letter-spacing:.42em; color:var(--orange); font-weight:600; margin-top:6px; }
+  .bn .amp{ color:var(--orange); }
+
+  .qrbox{ display:flex; flex-direction:column; align-items:center; text-align:center; flex:none; }
+  .qr{ background:var(--cream); border-radius:18px; padding:16px; box-shadow:0 16px 40px -14px rgba(0,0,0,.6); }
+  .qr img{ width:188px; height:188px; display:block; }
+  .scan{ font-family:"Barlow Condensed"; font-weight:700; font-size:25px; letter-spacing:.05em; text-transform:uppercase; color:var(--orange); margin-top:13px; line-height:1.05; }
+  .scan small{ display:block; font-family:"Inter"; font-weight:600; font-size:15px; letter-spacing:.01em; color:var(--slate); text-transform:none; margin-top:5px; }
+
+  .hook{ margin-top:30px; font-family:"Barlow Condensed"; font-weight:800; font-size:106px; line-height:.9; text-transform:uppercase; color:var(--cream); text-shadow:0 4px 24px rgba(7,16,30,.5); }
+  .hook .o{ color:var(--orange); }
+
+  .band{ position:absolute; left:0; right:0; bottom:0; height:184px; background:var(--orange); z-index:5;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; }
+  .band .label{ font-family:"Barlow Condensed"; font-weight:700; font-size:27px; letter-spacing:.2em; text-transform:uppercase; color:var(--espresso); opacity:.9; }
+  .band .phone{ font-family:"Barlow Condensed"; font-weight:800; font-size:112px; line-height:.82; letter-spacing:.01em; color:var(--espresso); }
+  .band .foot{ font-family:"Barlow Condensed"; font-weight:700; font-size:21px; letter-spacing:.12em; text-transform:uppercase; color:var(--espresso); opacity:.88; margin-top:5px; }
+</style>
+</head>
+<body>
+  <div class="sign">
+    <div class="grid"></div>
+    <div class="inner">
+      <div class="toprow">
+        <div>
+          <div class="eyebrow"><span class="ln"></span>Now Remodeling This Home</div>
+          <div class="brandrow">
+            <div class="shield" role="img" aria-label="Broke and Fixed shield"></div>
+            <div class="bn">Broke <span class="amp">&amp;</span> Fixed<small>HOME SOLUTIONS</small></div>
+          </div>
+        </div>
+        <div class="qrbox">
+          <div class="qr"><img src="qr.png" alt="Scan to see our projects" /></div>
+          <div class="scan">Scan to see our work<small>and get a free quote</small></div>
+        </div>
+      </div>
+
+      <div class="hook">Like the work?<br/><span class="o">Yours could be next.</span></div>
+    </div>
+
+    <div class="band">
+      <div class="label">Call today for your free estimate</div>
+      <div class="phone">786 · 363 · 7039</div>
+      <div class="foot">Family Owned · Fully Insured · brokeandfixed.com</div>
+    </div>
+  </div>
+</body>
+</html>

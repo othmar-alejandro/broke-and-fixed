@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{ --espresso:#0F1F35; --navy:#1E3A5F; --orange:#F07A1A; --orange-soft:#ff9a4d; --cream:#F8F9FC; --slate:#9fb0c6; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ margin:0; background:#0a1322; }
+  .sign{
+    position:relative; width:900px; height:1200px; overflow:hidden;
+    background:radial-gradient(120% 78% at 50% 0%, #294d77 0%, #1E3A5F 26%, #16304f 55%, #0F1F35 100%);
+    font-family:"Inter", system-ui, sans-serif; color:var(--cream); -webkit-font-smoothing:antialiased; isolation:isolate;
+  }
+  .sign::after{ content:""; position:absolute; inset:0; box-shadow:inset 0 0 170px 24px rgba(7,16,30,.55); z-index:6; pointer-events:none; }
+  .grid{ position:absolute; inset:0; z-index:1; opacity:.07;
+    background-image:linear-gradient(rgba(248,249,252,.6) 1px,transparent 1px),linear-gradient(90deg,rgba(248,249,252,.6) 1px,transparent 1px);
+    background-size:56px 56px;
+    -webkit-mask-image:radial-gradient(110% 95% at 50% 34%,#000 58%,transparent 100%);
+            mask-image:radial-gradient(110% 95% at 50% 34%,#000 58%,transparent 100%); }
+  .glow{ position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:radial-gradient(620px 360px at 50% 30%, rgba(240,122,26,.16), transparent 62%); }
+
+  .inner{ position:relative; z-index:5; height:100%; display:flex; flex-direction:column; align-items:center; text-align:center; padding:66px 60px 56px; }
+
+  .eyebrow{ display:inline-flex; align-items:center; gap:16px; font-family:"Barlow Condensed"; font-weight:700; font-size:27px; letter-spacing:.3em; text-transform:uppercase; color:var(--orange); }
+  .eyebrow .ln{ width:46px; height:2px; background:var(--orange); opacity:.8; }
+
+  .shield{ width:232px; height:246px; margin:34px 0 6px;
+    background:url("shield.png") no-repeat center / contain;
+    filter:drop-shadow(.8px 0 0 #fff) drop-shadow(-.8px 0 0 #fff) drop-shadow(0 .8px 0 #fff) drop-shadow(0 -.8px 0 #fff) drop-shadow(0 0 12px rgba(255,255,255,.22)); }
+
+  .remodel{ font-family:"Barlow Condensed"; font-weight:600; font-size:30px; letter-spacing:.14em; text-transform:uppercase; color:var(--slate); margin-top:6px; }
+  .brand{ font-family:"Barlow Condensed"; font-weight:800; font-size:108px; line-height:.88; letter-spacing:.005em; text-transform:uppercase; color:var(--cream); margin-top:8px; text-shadow:0 3px 24px rgba(7,16,30,.5); }
+  .brand .amp{ color:var(--orange); }
+  .brandsub{ font-family:"Barlow Condensed"; font-weight:600; font-size:29px; letter-spacing:.52em; text-transform:uppercase; color:var(--orange); margin-top:10px; padding-left:.5em; }
+  .tagline{ font-family:"Barlow Condensed"; font-style:italic; font-weight:600; font-size:35px; color:var(--orange-soft); margin-top:26px; }
+
+  .spacer{ flex:1 1 auto; min-height:24px; }
+
+  .cta{ width:100%; background:rgba(248,249,252,.06); border:1.5px solid rgba(240,122,26,.42); border-radius:24px; padding:30px 32px; display:flex; align-items:center; gap:28px; }
+  .cta .qr{ background:var(--cream); border-radius:16px; padding:16px; flex:none; box-shadow:0 18px 40px -16px rgba(0,0,0,.6); }
+  .cta .qr img{ width:196px; height:196px; display:block; }
+  .cta .txt{ text-align:left; }
+  .cta .want{ font-family:"Barlow Condensed"; font-weight:800; font-size:44px; line-height:.96; text-transform:uppercase; color:var(--cream); }
+  .cta .want b{ color:var(--orange); }
+  .cta .scan{ font-family:"Inter"; font-weight:600; font-size:20px; color:var(--slate); margin-top:11px; line-height:1.25; }
+  .cta .phone{ font-family:"Barlow Condensed"; font-weight:800; font-size:62px; letter-spacing:.02em; color:var(--orange); margin-top:14px; line-height:1; }
+
+  .foot{ margin-top:26px; font-family:"Barlow Condensed"; font-weight:600; font-size:25px; letter-spacing:.1em; text-transform:uppercase; color:var(--slate); }
+  .foot b{ color:var(--cream); }
+</style>
+</head>
+<body>
+  <div class="sign">
+    <div class="grid"></div>
+    <div class="glow"></div>
+    <div class="inner">
+      <div class="eyebrow"><span class="ln"></span>Renovation In Progress<span class="ln"></span></div>
+      <div class="shield" role="img" aria-label="Broke and Fixed shield"></div>
+      <div class="remodel">This home is being remodeled by</div>
+      <div class="brand">Broke <span class="amp">&amp;</span> Fixed</div>
+      <div class="brandsub">Home Solutions</div>
+      <div class="tagline">We fix what's broke. We build what's next.</div>
+      <div class="spacer"></div>
+      <div class="cta">
+        <div class="qr"><img src="qr.png" alt="Scan to see our projects" /></div>
+        <div class="txt">
+          <div class="want">Want this for <b>your home?</b></div>
+          <div class="scan">Scan to see our projects<br/>and get a free quote</div>
+          <div class="phone">786 · 363 · 7039</div>
+        </div>
+      </div>
+      <div class="foot"><b>Family Owned</b> · Fully Insured · brokeandfixed.com</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,1 +1,113 @@
-[]
+[
+  {
+    "slug": "two-tone-kitchen-lakes-meadows",
+    "name": "Two-Tone Kitchen Renovation",
+    "service": "kitchen",
+    "location": "Lakes of the Meadow",
+    "photoCount": 5,
+    "phases": ["before", "after"],
+    "photos": [
+      {
+        "filename": "lakes-meadows-kitchen-before-1.jpg",
+        "phase": "before",
+        "note": "Original kitchen design with dark brown wood cabinets and matching dark island.",
+        "url": "/images/lakes-meadows-kitchen-before-1.jpg"
+      },
+      {
+        "filename": "lakes-meadows-kitchen-before-2.jpg",
+        "phase": "before",
+        "note": "Close-up view of previous backsplash and dark shaker cabinets.",
+        "url": "/images/lakes-meadows-kitchen-before-2.jpg"
+      },
+      {
+        "filename": "lakes-meadows-kitchen-after-1.jpg",
+        "phase": "after",
+        "note": "Complete kitchen upgrade featuring two-tone custom painted cabinets (white upper/perimeter and green island), geometric patterned backsplash tile, modern extractor, and linear branch gold chandelier.",
+        "url": "/images/lakes-meadows-kitchen-after-1.jpg"
+      },
+      {
+        "filename": "lakes-meadows-kitchen-after-2.jpg",
+        "phase": "after",
+        "note": "Close-up of the green painted kitchen island with elegant gold handles and a clean white quartz countertop.",
+        "url": "/images/lakes-meadows-kitchen-after-2.jpg"
+      },
+      {
+        "filename": "lakes-meadows-kitchen-after-3.jpg",
+        "phase": "after",
+        "note": "Detail view of the green island shaker drawers and gold pulls, complementing the warm floor and surrounding space.",
+        "url": "/images/lakes-meadows-kitchen-after-3.jpg"
+      }
+    ],
+    "created": "2026-06-22"
+  },
+  {
+    "slug": "green-tiles-bathroom-kendall",
+    "name": "Green Slate & Hexagon Floor Bathroom Remodel",
+    "service": "bathroom",
+    "location": "Kendall",
+    "photoCount": 1,
+    "phases": ["after"],
+    "photos": [
+      {
+        "filename": "bathroom-kendall-hex.jpg",
+        "phase": "after",
+        "note": "Modern green slate large-format tile walls with blue-and-white hexagon mosaic flooring.",
+        "url": "/images/bathroom-kendall-hex.jpg"
+      }
+    ],
+    "created": "2026-06-22"
+  },
+  {
+    "slug": "glenvar-heights-bathroom-remodel",
+    "name": "Full Spa Bath Transformation",
+    "service": "bathroom",
+    "location": "Glenvar Heights",
+    "photoCount": 7,
+    "phases": ["before", "after"],
+    "photos": [
+      {
+        "filename": "glenvar-before-1.jpg",
+        "phase": "before",
+        "note": "Original outdated bathroom vanity and lighting.",
+        "url": "/images/glenvar-before-1.jpg"
+      },
+      {
+        "filename": "glenvar-before-2.jpg",
+        "phase": "before",
+        "note": "Original bathtub showing older wall tiles and shower curtain.",
+        "url": "/images/glenvar-before-2.jpg"
+      },
+      {
+        "filename": "glenvar-before-3.jpg",
+        "phase": "before",
+        "note": "Overview of older fixtures before full gut renovation.",
+        "url": "/images/glenvar-before-3.jpg"
+      },
+      {
+        "filename": "glenvar-after-1.jpg",
+        "phase": "after",
+        "note": "Completed bathroom with new custom vanity and LED backlit mirror.",
+        "url": "/images/glenvar-after-1.jpg"
+      },
+      {
+        "filename": "glenvar-after-2.jpg",
+        "phase": "after",
+        "note": "Modern walk-in glass shower enclosure and porcelain walls.",
+        "url": "/images/glenvar-after-2.jpg"
+      },
+      {
+        "filename": "glenvar-after-3.jpg",
+        "phase": "after",
+        "note": "Detail of the custom black hex mosaic shower niche.",
+        "url": "/images/glenvar-after-3.jpg"
+      },
+      {
+        "filename": "glenvar-after-4.jpg",
+        "phase": "after",
+        "note": "Overview of the finished walk-in shower with black hex tiles and linear drain.",
+        "url": "/images/glenvar-after-4.jpg"
+      }
+    ],
+    "created": "2026-06-22"
+  }
+]

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{ --espresso:#0F1F35; --navy:#1E3A5F; --orange:#F07A1A; --orange-soft:#ff9a4d; --cream:#F8F9FC; --slate:#9fb0c6; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ margin:0; background:#0a1322; }
+  .sign{ position:relative; width:1350px; height:900px; overflow:hidden;
+    background:radial-gradient(125% 120% at 50% 4%, #2b5180 0%, #1E3A5F 30%, #15304f 56%, #0c1a2e 100%);
+    font-family:"Inter", system-ui, sans-serif; color:var(--cream); -webkit-font-smoothing:antialiased; isolation:isolate; }
+  .sign::after{ content:""; position:absolute; inset:0; box-shadow:inset 0 0 180px 30px rgba(6,14,26,.5); z-index:9; pointer-events:none; }
+  .grid{ position:absolute; inset:0; z-index:1; opacity:.05;
+    background-image:linear-gradient(rgba(248,249,252,.6) 1px,transparent 1px),linear-gradient(90deg,rgba(248,249,252,.6) 1px,transparent 1px);
+    background-size:62px 62px; -webkit-mask-image:radial-gradient(110% 100% at 50% 26%,#000 60%,transparent 100%); }
+
+  .qr-corner{ position:absolute; top:36px; right:40px; z-index:7; display:flex; flex-direction:column; align-items:center; gap:10px; }
+  .qr-corner .qr{ background:var(--cream); border-radius:16px; padding:14px; }
+  .qr-corner .qr img{ width:190px; height:190px; display:block; }
+  .qr-corner .scan{ font-family:"Barlow Condensed"; font-weight:700; font-size:23px; letter-spacing:.12em; text-transform:uppercase; color:var(--slate); }
+
+  .inner{ position:relative; z-index:5; height:100%; display:flex; flex-direction:column; }
+  .main{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:24px; padding:56px 56px 0; }
+  .brandrow{ display:flex; align-items:center; gap:20px; }
+  .shield{ width:138px; height:146px; flex:none; background:url("shield.png") no-repeat center / contain;
+    filter:drop-shadow(.8px 0 0 #fff) drop-shadow(-.8px 0 0 #fff) drop-shadow(0 .8px 0 #fff) drop-shadow(0 -.8px 0 #fff) drop-shadow(0 0 11px rgba(255,255,255,.22)); }
+  .bn{ font-family:"Barlow Condensed"; font-weight:800; font-size:62px; line-height:.86; letter-spacing:.02em; text-transform:uppercase; color:var(--cream); text-align:left; }
+  .bn small{ display:block; font-size:21px; letter-spacing:.46em; color:var(--orange); font-weight:600; margin-top:7px; }
+  .bn .amp{ color:var(--orange); }
+  .headline{ font-family:"Barlow Condensed"; font-weight:700; font-size:60px; line-height:.95; letter-spacing:.1em; text-transform:uppercase; color:var(--cream); }
+  .headline b{ color:var(--orange); font-weight:800; }
+
+  .band{ height:296px; background:var(--orange); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; }
+  .band .label{ font-family:"Barlow Condensed"; font-weight:700; font-size:34px; letter-spacing:.18em; text-transform:uppercase; color:var(--espresso); opacity:.92; }
+  .band .phone{ font-family:"Barlow Condensed"; font-weight:800; font-size:166px; line-height:.78; letter-spacing:.005em; color:var(--espresso); }
+  .band .foot{ font-family:"Barlow Condensed"; font-weight:700; font-size:25px; letter-spacing:.1em; text-transform:uppercase; color:var(--espresso); opacity:.9; margin-top:8px; }
+</style>
+</head>
+<body>
+  <div class="sign">
+    <div class="grid"></div>
+    <div class="qr-corner">
+      <div class="qr"><img src="qr.png" alt="Scan to see our projects" /></div>
+      <div class="scan">See our work</div>
+    </div>
+    <div class="inner">
+      <div class="main">
+        <div class="brandrow">
+          <div class="shield" role="img" aria-label="Broke and Fixed shield"></div>
+          <div class="bn">Broke <span class="amp">&amp;</span> Fixed<small>HOME SOLUTIONS</small></div>
+        </div>
+        <div class="headline">Now remodeling <b>this home</b></div>
+      </div>
+      <div class="band">
+        <div class="label">Call today for a free estimate</div>
+        <div class="phone">786-363-7039</div>
+        <div class="foot">Family Owned · Fully Insured · brokeandfixed.com</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

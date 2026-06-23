@@ -7,7 +7,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "preview": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clarity": "node --env-file=.env.local scripts/clarity-report.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

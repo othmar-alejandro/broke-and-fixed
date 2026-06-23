@@ -7,6 +7,34 @@ import { useTranslation } from 'react-i18next'
 
 const projects = [
   {
+    titleKey: 'Two-Tone Kitchen Renovation',
+    category: 'Lakes of the Meadow',
+    image: '/images/lakes-meadows-kitchen-after-1.jpg',
+    alt: 'Beautiful two-tone kitchen renovation in Lakes of the Meadow, featuring custom white and green cabinets, geometric tile backsplash, and a branch gold chandelier',
+    description: 'A stunning kitchen overhaul in Lakes of the Meadow. We replaced the outdated dark backsplash with a modern geometric tiled pattern and painted the dark cabinets in a sophisticated two-tone layout: pristine white tail for the uppers and perimeter, and a rich forest green for the central island. Upgraded with a new extractor hood and a statement gold branch chandelier with custom glass globes.',
+    additionalImages: [
+      '/images/lakes-meadows-kitchen-after-2.jpg',
+      '/images/lakes-meadows-kitchen-after-3.jpg',
+      '/images/lakes-meadows-kitchen-before-1.jpg',
+      '/images/lakes-meadows-kitchen-before-2.jpg',
+    ],
+    span: 'row-span-2',
+  },
+  {
+    titleKey: 'Bathroom Transformation',
+    category: 'Glenvar Heights',
+    image: '/images/glenvar-after-1.jpg',
+    alt: 'Completed luxury bathroom remodel with marble porcelain tile walls and LED backlit mirror in Glenvar Heights',
+    description: 'A complete custom spa bathroom renovation in Glenvar Heights. Replaced a dated tub with an open walk-in shower featuring custom black hex mosaic accents and frameless glass. Installed a floating navy double vanity, backlit LED mirror, and large-format white marble porcelain wall slabs.',
+    additionalImages: [
+      '/images/glenvar-after-2.jpg',
+      '/images/glenvar-after-4.jpg',
+      '/images/glenvar-after-3.jpg',
+      '/images/glenvar-before-3.jpg',
+    ],
+    span: '',
+  },
+  {
     titleKey: 'Kitchen Renovation',
     category: 'South Miami Heights',
     image: '/Home Remodeling - South Miami Heights /kitchen rennovation - south miami heights /new-kitchen-countertop.jpg',
@@ -14,7 +42,7 @@ const projects = [
     description: 'Complete gut and remodel including new custom cabinetry, quartz countertops, and a modern subway tile backsplash. Upgraded lighting and plumbing fixtures to breathe new life into the heart of this South Miami Heights home.',
     additionalImages: [
       '/Home Remodeling - South Miami Heights /kitchen rennovation - south miami heights /kitchen-rennovation-in-process-setting-appliances.jpeg',
-      '/Home Remodeling - South Miami Heights /kitchen rennovation - south miami heights /kitchen-countertop-cutting-and-leveling.jpeg',
+      '/Home Remodeling - South Miami Heights /kitchen-countertop-cutting-and-leveling.jpeg',
     ],
     span: 'row-span-2',
   },

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Broke &amp; Fixed Home Solutions Yard Sign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E3A5F;
+    --espresso:#0F1F35;
+    --orange:#F07A1A;
+    --cream:#F8F9FC;
+    --slate:#8FA3BC;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{margin:0;background:#0b1626}
+
+  /* ---- The sign: EXACTLY 1200 x 900 (24x18) ---- */
+  .sign{
+    position:relative;
+    width:1200px;
+    height:900px;
+    overflow:hidden;
+    background:var(--navy);
+    font-family:"Inter",system-ui,sans-serif;
+    color:var(--cream);
+    isolation:isolate;
+  }
+
+  /* base deep field with subtle top-light so it isn't flat */
+  .sign::before{
+    content:"";
+    position:absolute;inset:0;
+    background:
+      radial-gradient(120% 90% at 18% 0%, #2a4f7d 0%, var(--navy) 46%, var(--espresso) 100%);
+    z-index:0;
+  }
+
+  /* ---- BOLD DIAGONAL ORANGE WEDGE (top band, hard cut) ---- */
+  .wedge{
+    position:absolute;
+    top:0;left:0;right:0;
+    height:340px;
+    background:linear-gradient(180deg,#ff8c2b 0%, var(--orange) 100%);
+    clip-path:polygon(0 0, 100% 0, 100% 58%, 0 100%);
+    z-index:1;
+    box-shadow:0 14px 0 -2px rgba(15,31,53,.28);
+  }
+  /* thin espresso seam riding the diagonal for crispness */
+  .seam{
+    position:absolute;top:0;left:0;right:0;height:355px;
+    background:var(--espresso);
+    clip-path:polygon(0 100%, 100% 58%, 100% 60.4%, 0 102.6%);
+    z-index:2;opacity:.9;
+  }
+
+  /* faint engineering grid on the dark field = construction texture */
+  .grid{
+    position:absolute;left:0;right:0;bottom:0;height:560px;
+    background-image:
+      linear-gradient(rgba(143,163,188,.10) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(143,163,188,.10) 1px, transparent 1px);
+    background-size:46px 46px;
+    -webkit-mask-image:linear-gradient(180deg, transparent 0, #000 38%, #000 100%);
+            mask-image:linear-gradient(180deg, transparent 0, #000 38%, #000 100%);
+    z-index:1;pointer-events:none;
+  }
+
+  /* hazard chevron strip under the wedge = roadwork energy */
+  .chevrons{
+    position:absolute;left:0;right:0;top:300px;height:20px;z-index:3;
+    background:repeating-linear-gradient(135deg,
+      var(--espresso) 0 22px,
+      var(--orange) 22px 44px);
+    clip-path:polygon(0 0,100% 35%,100% 100%,0 65%);
+    opacity:.92;
+  }
+
+  /* ===== TOP: BRAND LOCKUP (on the orange wedge) ===== */
+  .brand{
+    position:absolute;top:46px;left:64px;z-index:6;
+    display:flex;align-items:center;gap:22px;
+  }
+  .brand .badge{
+    width:118px;height:118px;flex:0 0 auto;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .brand .badge img{
+    width:100%;height:100%;object-fit:contain;
+    /* navy shield on orange: white keyline so edges pop */
+    filter:
+      drop-shadow(.8px 0 0 #fff) drop-shadow(-.8px 0 0 #fff)
+      drop-shadow(0 .8px 0 #fff) drop-shadow(0 -.8px 0 #fff)
+      drop-shadow(0 6px 10px rgba(15,31,53,.35));
+  }
+  .brand .name{display:flex;flex-direction:column;line-height:.86}
+  .brand .name .b1{
+    font-family:"Barlow Condensed",sans-serif;
+    font-weight:900;font-size:74px;letter-spacing:.5px;
+    color:var(--espresso);text-transform:uppercase;
+  }
+  .brand .name .b1 .amp{color:var(--cream);
+    text-shadow:0 2px 0 rgba(15,31,53,.25);}
+  .brand .name .b2{
+    font-family:"Inter",sans-serif;font-weight:800;
+    font-size:23px;letter-spacing:7.5px;
+    color:var(--espresso);text-transform:uppercase;
+    margin-top:6px;opacity:.92;
+  }
+
+  /* ===== OVERSIZED SHIELD: graphic anchor bleeding off RIGHT edge ===== */
+  .hero-shield{
+    position:absolute;
+    right:-150px;bottom:-90px;
+    width:660px;height:700px;
+    z-index:2;
+    opacity:.97;
+    filter:
+      drop-shadow(1px 0 0 rgba(248,249,252,.85)) drop-shadow(-1px 0 0 rgba(248,249,252,.85))
+      drop-shadow(0 1px 0 rgba(248,249,252,.85)) drop-shadow(0 -1px 0 rgba(248,249,252,.85))
+      drop-shadow(0 18px 40px rgba(0,0,0,.45));
+  }
+  .hero-shield img{width:100%;height:100%;object-fit:contain;
+    /* lighten the navy shield slightly so it reads as a tonal graphic, not a hole */
+    filter:brightness(1.18) saturate(1.05);}
+  /* orange glow puck behind shield for separation from dark field */
+  .shield-glow{
+    position:absolute;right:-40px;bottom:30px;
+    width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(circle, rgba(240,122,26,.40) 0%, rgba(240,122,26,0) 62%);
+    z-index:1;filter:blur(2px);
+  }
+
+  /* ===== HEADLINE ===== */
+  .headline{
+    position:absolute;left:64px;top:236px;z-index:6;max-width:760px;
+  }
+  .eyebrow{
+    display:inline-block;
+    font-family:"Inter",sans-serif;font-weight:800;
+    font-size:20px;letter-spacing:5px;text-transform:uppercase;
+    color:var(--espresso);
+    background:var(--cream);
+    padding:7px 16px;border-radius:4px;
+    box-shadow:0 4px 0 rgba(15,31,53,.35);
+  }
+  .headline h1{
+    font-family:"Barlow Condensed",sans-serif;
+    font-weight:900;text-transform:uppercase;
+    color:var(--cream);
+    font-size:128px;line-height:.84;letter-spacing:.5px;
+    margin-top:20px;
+    text-shadow:0 4px 0 rgba(15,31,53,.55);
+  }
+  .headline h1 .hl{
+    color:var(--orange);
+    -webkit-text-stroke:2px rgba(248,249,252,.18);
+  }
+  .headline h1 .small{display:block;font-size:96px;color:var(--cream);}
+
+  /* ===== GIANT PHONE: the loudest element ===== */
+  .callbar{
+    position:absolute;left:64px;bottom:140px;z-index:7;
+    display:flex;align-items:center;gap:24px;
+  }
+  .callbar .lead{
+    font-family:"Barlow Condensed",sans-serif;font-weight:800;
+    writing-mode:vertical-rl;transform:rotate(180deg);
+    font-size:34px;letter-spacing:5px;text-transform:uppercase;
+    color:var(--orange);
+    line-height:1;
+  }
+  .phonewrap{
+    position:relative;
+    background:linear-gradient(180deg,#ff8c2b 0%, var(--orange) 100%);
+    border-radius:14px;
+    padding:14px 34px 18px;
+    box-shadow:0 12px 0 -2px var(--espresso), 0 22px 34px rgba(0,0,0,.45);
+    border:3px solid rgba(248,249,252,.92);
+  }
+  .phonewrap .ptag{
+    font-family:"Inter",sans-serif;font-weight:800;
+    font-size:18px;letter-spacing:4px;text-transform:uppercase;
+    color:var(--espresso);opacity:.85;margin-bottom:-6px;
+  }
+  .phone{
+    font-family:"Barlow Condensed",sans-serif;font-weight:900;
+    font-size:184px;line-height:.9;letter-spacing:1px;
+    color:var(--cream);
+    font-variant-numeric:tabular-nums;
+    text-shadow:0 5px 0 rgba(15,31,53,.55);
+    display:block;
+  }
+
+  /* ===== QR: walk-ups only, small, bottom-right corner ===== */
+  .qr{
+    position:absolute;right:40px;bottom:96px;z-index:8;
+    width:138px;background:var(--cream);
+    border-radius:10px;padding:9px 9px 5px;
+    box-shadow:0 10px 22px rgba(0,0,0,.4);
+    border:2px solid rgba(15,31,53,.15);
+    text-align:center;
+  }
+  .qr img{width:100%;height:auto;display:block;border-radius:4px}
+  .qr span{
+    display:block;margin-top:4px;
+    font-family:"Inter",sans-serif;font-weight:800;
+    font-size:11px;letter-spacing:2px;text-transform:uppercase;
+    color:var(--espresso);
+  }
+
+  /* ===== FOOTER BAR (espresso) ===== */
+  .footer{
+    position:absolute;left:0;right:0;bottom:0;height:74px;z-index:9;
+    background:var(--espresso);
+    display:flex;align-items:center;
+    border-top:4px solid var(--orange);
+  }
+  .footer .ticks{
+    flex:0 0 auto;width:18px;height:100%;
+    background:repeating-linear-gradient(135deg,
+      var(--orange) 0 10px, transparent 10px 20px);
+    opacity:.8;
+  }
+  .footer .ftxt{
+    font-family:"Inter",sans-serif;font-weight:800;
+    font-size:25px;letter-spacing:1.5px;
+    color:var(--cream);text-transform:uppercase;
+    padding-left:40px;white-space:nowrap;
+  }
+  .footer .ftxt b{color:var(--orange)}
+  .footer .dot{color:var(--orange);font-weight:900;padding:0 14px;}
+  .footer .site{color:var(--orange);}
+</style>
+</head>
+<body>
+  <div class="sign">
+    <!-- color-block geometry -->
+    <div class="wedge"></div>
+    <div class="seam"></div>
+    <div class="chevrons"></div>
+    <div class="grid"></div>
+
+    <!-- oversized shield graphic anchor (bleeds off right) -->
+    <div class="shield-glow"></div>
+    <div class="hero-shield"><img src="shield.png" alt="Broke &amp; Fixed shield"></div>
+
+    <!-- brand lockup -->
+    <div class="brand">
+      <div class="badge"><img src="shield.png" alt="Broke &amp; Fixed Home Solutions shield logo"></div>
+      <div class="name">
+        <span class="b1">BROKE <span class="amp">&amp;</span> FIXED</span>
+        <span class="b2">HOME&nbsp;SOLUTIONS</span>
+      </div>
+    </div>
+
+    <!-- headline -->
+    <div class="headline">
+      <span class="eyebrow">MIAMI HOME REMODELING</span>
+      <h1>NOW <span class="hl">REMODELING</span><span class="small">THIS HOME</span></h1>
+    </div>
+
+    <!-- GIANT phone -->
+    <div class="callbar">
+      <div class="lead">CALL NOW</div>
+      <div class="phonewrap">
+        <div class="ptag">Free Estimate</div>
+        <span class="phone">786&middot;363&middot;7039</span>
+      </div>
+    </div>
+
+    <!-- QR for walk-ups -->
+    <div class="qr">
+      <img src="qr.png" alt="Scan for Broke &amp; Fixed Home Solutions">
+      <span>SCAN ME</span>
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+      <div class="ticks"></div>
+      <div class="ftxt">
+        <b>Family Owned</b><span class="dot">&middot;</span><b>Fully Insured</b><span class="dot">&middot;</span><span class="site">brokeandfixed.com</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
