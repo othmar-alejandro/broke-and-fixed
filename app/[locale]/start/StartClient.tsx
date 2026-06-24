@@ -15,7 +15,7 @@ import {
 const PHONE_TEL = "+17863637039"
 const IG = "https://www.instagram.com/brokeandfixed/"
 const REVIEWS = "https://search.google.com/local/writereview?placeid=ChIJ7VSW8vHbAgMRvNWjsiV5kII"
-const BG = "/start-bg.jpg"
+const BG = "/start-bg-premium.png"
 const LOGO = "/broke-and-fixed-final-logo-Picsart-BackgroundRemover.png"
 
 interface StartClientProps {
@@ -183,18 +183,6 @@ export default function StartClient({ locale }: StartClientProps) {
         }
       `}</style>
 
-      {/* Background Image (subtle architectural ghost overlay) */}
-      <div
-        aria-hidden
-        className="absolute inset-0 z-0 opacity-[0.08]"
-        style={{
-          backgroundImage: `url(${BG})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          filter: "saturate(0.5) blur(1px)",
-        }}
-      />
-
       {/* Animated Glowing Orbs */}
       <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none opacity-45">
         <div 
@@ -220,7 +208,19 @@ export default function StartClient({ locale }: StartClientProps) {
         aria-hidden
         className="absolute inset-0 z-0"
         style={{
-          background: "linear-gradient(180deg, rgba(250,249,246,0.98) 0%, rgba(242,244,247,0.90) 40%, rgba(250,249,246,0.98) 100%)",
+          background: "linear-gradient(180deg, rgba(250,249,246,0.92) 0%, rgba(242,244,247,0.80) 40%, rgba(250,249,246,0.92) 100%)",
+        }}
+      />
+
+      {/* Background Image (subtle architectural ghost overlay) */}
+      <div
+        aria-hidden
+        className="absolute inset-0 z-0 opacity-[0.25]"
+        style={{
+          backgroundImage: `url(${BG})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          filter: "saturate(0.7) blur(2px)",
         }}
       />
 
