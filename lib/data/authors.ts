@@ -16,7 +16,7 @@ export const authors: Record<string, Author> = {
   othmar: {
     id: "othmar",
     name: "Othmar Casilla",
-    title: "SEO & Content Lead, OAC Digital Innovations",
+    title: "Design Specialist",
     bio: "Othmar leads SEO and content strategy at OAC Digital Innovations, working with Miami home services teams on local search and lead generation. He writes about Florida home remodeling, building codes, and the practical side of getting a project done right.",
     bioEs: "Othmar dirige la estrategia de SEO y contenido en OAC Digital Innovations, trabajando con equipos de servicios para el hogar en Miami en posicionamiento local y generación de prospectos. Escribe sobre remodelación de viviendas en Florida, códigos de construcción y el lado práctico de hacer un proyecto bien.",
     image: "/authors/othmar.jpg",

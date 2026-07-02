@@ -233,3 +233,100 @@ export function extractFaqs(content: string): FaqItem[] {
   flush()
   return faqs
 }
+
+export function getPostImage(post: BlogPost): string {
+  if (post.image) {
+    const cleanPath = post.image.startsWith("/") ? post.image : `/${post.image}`
+    const fullPath = path.join(process.cwd(), "public", cleanPath)
+    if (fs.existsSync(fullPath)) {
+      return cleanPath
+    }
+  }
+
+  const slug = post.slug.toLowerCase()
+  
+  const getHashIndex = (list: string[]) => {
+    let hash = 0
+    for (let i = 0; i < slug.length; i++) {
+      hash = slug.charCodeAt(i) + ((hash << 5) - hash)
+    }
+    return Math.abs(hash) % list.length
+  }
+
+  if (slug.includes("kitchen") || slug.includes("cabinet")) {
+    const KITCHEN_IMAGES = [
+      "/images/blog/budget-kitchen-update-miami-hero.jpg",
+      "/images/blog/kitchen-lighting-guide-miami.jpg",
+      "/images/blog/kitchen-flooring-miami.jpg",
+      "/images/blog/cabinet-refinishing-miami-hero.jpg",
+      "/images/blog/kitchen-remodeling-coral-gables.jpg"
+    ]
+    return KITCHEN_IMAGES[getHashIndex(KITCHEN_IMAGES)]
+  }
+
+  if (
+    slug.includes("bathroom") ||
+    slug.includes("shower") ||
+    slug.includes("tub") ||
+    slug.includes("niche") ||
+    slug.includes("vanity")
+  ) {
+    const BATHROOM_IMAGES = [
+      "/images/blog/bathroom-lighting-guide-miami.jpg",
+      "/images/blog/bathroom-remodeling-kendall.jpg",
+      "/images/blog/hb-803-in-effect-bathroom-kitchen.jpg",
+      "/images/blog/shower-niche-ideas-miami.jpg"
+    ]
+    return BATHROOM_IMAGES[getHashIndex(BATHROOM_IMAGES)]
+  }
+
+  if (
+    slug.includes("paint") ||
+    slug.includes("color") ||
+    slug.includes("stucco")
+  ) {
+    const PAINT_IMAGES = [
+      "/images/blog/best-interior-paint-colors-miami.jpg",
+      "/images/blog/best-time-paint-exterior-miami.jpg",
+      "/images/blog/diy-vs-professional-painting-miami.jpg",
+      "/images/blog/exterior-paint-durability-miami.jpg",
+      "/images/blog/exterior-painting-cost-miami.jpg",
+      "/images/blog/interior-painting-cost-miami.jpg",
+      "/images/blog/interior-painting-pinecrest.jpg",
+      "/images/blog/stucco-painting-guide-miami.jpg",
+      "/images/blog/paint-finish-comparison-guide.jpg"
+    ]
+    return PAINT_IMAGES[getHashIndex(PAINT_IMAGES)]
+  }
+
+  if (slug.includes("tile") || slug.includes("floor")) {
+    const TILE_IMAGES = [
+      "/images/blog/tile-installation-doral.jpg",
+      "/images/blog/kitchen-flooring-miami.jpg"
+    ]
+    return TILE_IMAGES[getHashIndex(TILE_IMAGES)]
+  }
+
+  if (
+    slug.includes("permit") ||
+    slug.includes("hb-803") ||
+    slug.includes("hoa") ||
+    slug.includes("law")
+  ) {
+    const PERMIT_IMAGES = [
+      "/images/blog/florida-hb-803-no-permit.jpg",
+      "/images/blog/hb-803-in-effect-bathroom-kitchen.jpg"
+    ]
+    return PERMIT_IMAGES[getHashIndex(PERMIT_IMAGES)]
+  }
+
+  const GENERAL_IMAGES = [
+    "/images/blog/budget-kitchen-update-miami-hero.jpg",
+    "/images/blog/bathroom-lighting-guide-miami.jpg",
+    "/images/blog/best-interior-paint-colors-miami.jpg",
+    "/images/blog/tile-installation-doral.jpg",
+    "/images/blog/florida-hb-803-no-permit.jpg",
+    "/og-image.jpg"
+  ]
+  return GENERAL_IMAGES[getHashIndex(GENERAL_IMAGES)]
+}

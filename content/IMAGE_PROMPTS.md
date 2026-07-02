@@ -145,3 +145,69 @@ You already have real project photos in these folders that might be reusable ins
 - `public/chimney removal - The Crossings/`
 
 Real client work usually beats AI for service-page galleries because customers can see actual jobs you've done in their neighborhood. AI is best for hero shots and "concept" images that don't claim to be a specific past project.
+
+---
+
+## Image 10: HB 803 In Effect Blog Hero
+
+- **Save to**: `public/images/blog/hb-803-in-effect-bathroom-kitchen.jpg`
+- **Used by**: `content/blog/2026-07-01-hb-803-in-effect-bathroom-kitchen.md`
+- **Alt text**: `Modern permit-free cosmetic bathroom remodel with oak vanity and quartz top in Miami`
+- **Prompt**:
+
+> Photorealistic wide-angle interior of a recently updated suburban Miami bathroom showing a permit-free cosmetic refresh. Features a new modern oak vanity with a white quartz top, a chrome faucet, fresh light gray painted walls, and clean light gray porcelain floor tiles. The shower zone with frameless glass and clean subway tile is visible in the background. Bright Florida late-morning sunlight streams through a high window. Clean, lived-in feel with a simple hand towel and soap dispenser on the vanity. 16:9, eye-level, no people, no text.
+
+---
+
+## Image 11: Florida HB 803 Permit Guide Blog Hero
+
+- **Save to**: `public/images/blog/florida-hb-803-no-permit.jpg`
+- **Used by**: `content/blog/2026-05-20-florida-hb-803-no-permit-needed.md`
+- **Alt text**: `Overhead view of remodeling project budget and tile samples on a Miami kitchen island`
+- **Prompt**:
+
+> Close-up photorealistic overhead flat-lay of remodeling planning documents and design samples on a kitchen island with a white quartz countertop. Includes a printed sheet titled "Project Budget" (text is generic and blurry/unreadable), a metal tape measure, three warm-neutral paint color swatch cards, and a few white ceramic subway tile samples. Soft natural Florida morning light from a side window creates gentle shadows. 16:9, clean and organized, no people, no text.
+
+---
+
+## Image 12: Kendall Bathroom Remodeling Cost Guide Hero
+
+- **Save to**: `public/images/blog/bathroom-remodeling-kendall.jpg`
+- **Used by**: `content/blog/2026-05-20-bathroom-remodeling-kendall-cost-guide.md`
+- **Alt text**: `Remodeled primary bathroom with walk-in shower and floating double vanity in Kendall`
+- **Prompt**:
+
+> Photorealistic interior of a fully remodeled primary bathroom in a Kendall, Miami suburban home. Features a large walk-in shower with a low curb, tiled in large-format light gray porcelain, and a modern floating double vanity in light oak with white quartz countertops and matte black faucets. Natural warm Florida afternoon light shines through impact glass windows. Lived-in details like a folded towel and a small potted plant on the vanity. 16:9, eye-level, no people, no text.
+
+---
+
+## Image 13: Coral Gables Luxury Kitchen Remodeling Guide Hero
+
+- **Save to**: `public/images/blog/kitchen-remodeling-coral-gables.jpg`
+- **Used by**: `content/blog/2026-05-20-kitchen-remodeling-coral-gables-luxury-guide.md`
+- **Alt text**: `Luxury remodeled kitchen with dark cabinetry and quartzite waterfall island in Coral Gables`
+- **Prompt**:
+
+> Photorealistic wide-angle interior of a remodeled kitchen in a Coral Gables, Miami home. Features custom refinished dark wood cabinetry, a polished quartzite waterfall kitchen island, and a natural stone backsplash. Brushed brass pendant lights hang over the island. Warm golden hour light pours through French doors that show lush green tropical landscaping outside. 16:9, eye-level, clean and premium, no people, no text.
+
+---
+
+## Image 14: Pinecrest Interior Painting Color Trends Hero
+
+- **Save to**: `public/images/blog/interior-painting-pinecrest.jpg`
+- **Used by**: `content/blog/2026-05-20-interior-painting-pinecrest-color-trends.md`
+- **Alt text**: `Freshly painted sage green living room with terrazzo floor in a Pinecrest home`
+- **Prompt**:
+
+> Photorealistic interior of a freshly painted modern living room in a Pinecrest, Miami home. The walls are coated in a soft matte sage green, contrasting with crisp white baseboards and window frames. Large impact glass windows show lush tropical green foliage and palm trees in the background. Natural light fills the space, reflecting off a polished terrazzo floor. A minimalist sofa and wooden coffee table create a clean, modern look. 16:9, no people, no text.
+
+---
+
+## Image 15: Doral Tile Installation Condo Guide Hero
+
+- **Save to**: `public/images/blog/tile-installation-doral.jpg`
+- **Used by**: `content/blog/2026-05-20-tile-installation-doral-condo-guide.md`
+- **Alt text**: `Large-format porcelain tile flooring in a modern Doral condominium`
+- **Prompt**:
+
+> Photorealistic low-angle photo of a modern Doral, Miami condominium living area showing newly installed large-format porcelain floor tiles. The tiles are a light concrete-gray color with thin, precise grout lines that run straight. In the background, floor-to-ceiling windows show a bright sky and high-rise silhouettes. Sunlight glints off the polished tile surface. 16:9, clean and spotless, no people, no text.

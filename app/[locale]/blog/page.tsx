@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 import Link from "next/link"
 import Breadcrumbs from "@/components/seo/Breadcrumbs"
-import { getAllPosts, getPostTitle, getPostDescription } from "@/lib/blog"
+import { getAllPosts, getPostTitle, getPostDescription, getPostImage } from "@/lib/blog"
 
 interface PageParams {
   locale: string
@@ -80,37 +80,51 @@ export default async function BlogPage({
               return (
                 <article
                   key={post.slug}
-                  className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow"
+                  className="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col md:flex-row"
                 >
-                  <div className="flex items-center gap-3 text-sm text-warm-gray mb-3">
-                    <span className="bg-trade-orange/10 text-trade-orange px-2 py-0.5 rounded font-accent text-xs font-medium uppercase">
-                      {categoryName}
-                    </span>
-                    <time dateTime={post.date}>
-                      {new Date(post.date).toLocaleDateString(
-                        isEs ? "es-US" : "en-US",
-                        { year: "numeric", month: "long", day: "numeric" }
-                      )}
-                    </time>
-                    <span>{post.readTime} {isEs ? "de lectura" : "read"}</span>
-                  </div>
-
-                  <Link href={`/${locale}/blog/${post.slug}`}>
-                    <h2 className="font-display text-2xl font-bold text-espresso hover:text-trade-orange transition-colors mb-2">
-                      {title}
-                    </h2>
-                  </Link>
-
-                  <p className="text-warm-gray leading-relaxed mb-4">
-                    {description}
-                  </p>
-
                   <Link
                     href={`/${locale}/blog/${post.slug}`}
-                    className="text-trade-orange font-accent font-medium text-sm hover:underline"
+                    className="block w-full md:w-1/3 aspect-[16/9] md:aspect-auto md:min-h-full overflow-hidden relative shrink-0"
                   >
-                    {isEs ? "Leer mas" : "Read more"} &rarr;
+                    <img
+                      src={getPostImage(post)}
+                      alt={title}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
                   </Link>
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center gap-3 text-sm text-warm-gray mb-3">
+                        <span className="bg-trade-orange/10 text-trade-orange px-2 py-0.5 rounded font-accent text-xs font-medium uppercase">
+                          {categoryName}
+                        </span>
+                        <time dateTime={post.date}>
+                          {new Date(post.date).toLocaleDateString(
+                            isEs ? "es-US" : "en-US",
+                            { year: "numeric", month: "long", day: "numeric" }
+                          )}
+                        </time>
+                        <span>{post.readTime} {isEs ? "de lectura" : "read"}</span>
+                      </div>
+
+                      <Link href={`/${locale}/blog/${post.slug}`}>
+                        <h2 className="font-display text-2xl font-bold text-espresso hover:text-trade-orange transition-colors mb-2">
+                          {title}
+                        </h2>
+                      </Link>
+
+                      <p className="text-warm-gray leading-relaxed mb-4 line-clamp-2">
+                        {description}
+                      </p>
+                    </div>
+
+                    <Link
+                      href={`/${locale}/blog/${post.slug}`}
+                      className="text-trade-orange font-accent font-medium text-sm hover:underline self-start"
+                    >
+                      {isEs ? "Leer mas" : "Read more"} &rarr;
+                    </Link>
+                  </div>
                 </article>
               )
             })}

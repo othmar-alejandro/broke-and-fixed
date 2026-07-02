@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     template: "%s | Broke & Fixed Home Solutions",
   },
   description:
-    "Broke & Fixed Home Solutions offers kitchen and bathroom remodeling, interior and exterior painting, tile work, and exterior repairs across Kendall, West Kendall, Palmetto Bay, Doral, and all of Miami-Dade. Family owned, fully insured, zero subcontractors. Call 786-363-7039 for a free estimate.",
+    "Broke & Fixed Home Solutions offers kitchen and bathroom remodeling, interior and exterior painting, tile work, and exterior repairs across Kendall, West Kendall, Palmetto Bay, Doral, and all of Miami-Dade. Family owned, fully insured, no outsourcing. Call 786-363-7039 for a free estimate.",
   keywords: [
     "home remodeling Miami",
     "kitchen remodeling Kendall",
@@ -50,11 +50,20 @@ export const metadata: Metadata = {
     "tile work Miami",
   ],
   metadataBase: new URL("https://brokeandfixed.com"),
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", type: "image/png" },
+    ],
+  },
   openGraph: {
     title:
       "Broke & Fixed Home Solutions | Kitchen & Bathroom Remodeling, Painting | Miami-Dade",
     description:
-      "Kitchen and bathroom remodeling, interior and exterior painting, tile work, and exterior repairs across Miami-Dade. Family owned, fully insured, zero subcontractors.",
+      "Kitchen and bathroom remodeling, interior and exterior painting, tile work, and exterior repairs across Miami-Dade. Family owned, fully insured, no outsourcing.",
     url: "https://brokeandfixed.com",
     siteName: "Broke & Fixed Home Solutions",
     locale: "en_US",

@@ -12,6 +12,7 @@ import {
   getPostTitle,
   getPostDescription,
   extractFaqs,
+  getPostImage,
 } from "@/lib/blog"
 
 interface PageParams {
@@ -184,6 +185,15 @@ export default async function BlogPostPage({
             >
               Espanol
             </Link>
+          </div>
+ 
+          {/* Hero Image */}
+          <div className="relative w-full aspect-[16/9] mb-8 overflow-hidden rounded-lg shadow-sm">
+            <img
+              src={getPostImage(post)}
+              alt={title}
+              className="w-full h-full object-cover"
+            />
           </div>
 
           {/* Article content */}
