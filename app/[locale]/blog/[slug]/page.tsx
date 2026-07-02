@@ -92,7 +92,7 @@ export default async function BlogPostPage({
     headline: title,
     description: getPostDescription(post, locale),
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.updated || post.date,
     author: isPersonAuthor
       ? {
           "@type": "Person",

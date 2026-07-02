@@ -40,3 +40,7 @@ warm accent. Avoid garish staging.
 ### 7. public/images/blog/hb-803-permiso-remodelacion-miami.jpg
 - Alt: "Familia de Miami revisando planes de remodelacion de su casa bajo la ley HB 803"
 - Prompt: Photorealistic warm lifestyle photo (hands and documents only, no close-up faces) of a homeowner reviewing a simple remodeling plan and color samples at a kitchen table in a Miami home, a tablet showing a floor plan, coffee mug, warm natural light. Approachable, bilingual-Miami feel. 1.91:1.
+
+### 8. public/images/blog/hb-803-in-effect-bathroom-kitchen.jpg (July 1 "now in effect" post)
+- Alt: "Freshly remodeled Miami bathroom and kitchen completed permit-free under Florida HB 803, July 2026"
+- Prompt: Photorealistic interior architecture photography, wide 1.91:1 composition. A freshly renovated bright Miami home interior at the moment of completion: foreground shows a modern bathroom vanity area with new white and warm-gray large-format porcelain tile, a navy shaker vanity with brushed brass hardware, white quartz countertop, fresh white paint; through a wide opening in soft focus beyond, a sunlit kitchen with freshly painted navy lower cabinets, white uppers, glossy ceramic subway backsplash and warm pendant lights. Tropical South Florida morning light through a window, palm fronds softly visible outside. High-end editorial real estate photography, crisp, warm, aspirational, no people, no text, no watermarks. Full-frame camera, f/5.6, natural light with soft interior fill.

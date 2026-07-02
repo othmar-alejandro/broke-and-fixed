@@ -8,7 +8,8 @@
     "build": "next build",
     "preview": "next start",
     "lint": "next lint",
-    "clarity": "node --env-file=.env.local scripts/clarity-report.mjs"
+    "clarity": "node --env-file=.env.local scripts/clarity-report.mjs",
+    "indexnow": "node scripts/indexnow-ping.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 830" role="img" aria-label="HB 803 permit-free remodeling chart for Miami-Dade">
+  <rect width="1200" height="830" fill="#F8F9FC"/>
+
+  <!-- Header -->
+  <rect width="1200" height="150" fill="#1E3A5F"/>
+  <text x="60" y="72" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="bold" fill="#FFFFFF">HB 803 AT A GLANCE</text>
+  <rect x="60" y="94" width="360" height="36" rx="18" fill="#F07A1A"/>
+  <text x="240" y="119" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">IN EFFECT JULY 1, 2026</text>
+  <text x="1140" y="72" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#F8F9FC" text-anchor="end">Single-family homes</text>
+  <text x="1140" y="104" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#F8F9FC" text-anchor="end">Miami-Dade County</text>
+
+  <!-- Left column: permit-free -->
+  <rect x="60" y="190" width="520" height="520" rx="16" fill="#FFFFFF" stroke="#4CAF50" stroke-width="3"/>
+  <rect x="60" y="190" width="520" height="64" rx="16" fill="#4CAF50"/>
+  <rect x="60" y="230" width="520" height="24" fill="#4CAF50"/>
+  <text x="320" y="232" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="bold" fill="#FFFFFF" text-anchor="middle">PERMIT-FREE UNDER $7,500</text>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#0F1F35">
+    <circle cx="105" cy="296" r="13" fill="#4CAF50"/><path d="M99 296 l4 5 l9 -10" stroke="#FFFFFF" stroke-width="3" fill="none"/>
+    <text x="132" y="304">Paint: walls, ceiling, trim</text>
+    <circle cx="105" cy="349" r="13" fill="#4CAF50"/><path d="M99 349 l4 5 l9 -10" stroke="#FFFFFF" stroke-width="3" fill="none"/>
+    <text x="132" y="357">Tile where nothing moves</text>
+    <circle cx="105" cy="402" r="13" fill="#4CAF50"/><path d="M99 402 l4 5 l9 -10" stroke="#FFFFFF" stroke-width="3" fill="none"/>
+    <text x="132" y="410">Vanity swap in the same spot</text>
+    <circle cx="105" cy="455" r="13" fill="#4CAF50"/><path d="M99 455 l4 5 l9 -10" stroke="#FFFFFF" stroke-width="3" fill="none"/>
+    <text x="132" y="463">Countertop and sink, same drain</text>
+    <circle cx="105" cy="508" r="13" fill="#4CAF50"/><path d="M99 508 l4 5 l9 -10" stroke="#FFFFFF" stroke-width="3" fill="none"/>
+    <text x="132" y="516">Faucet and toilet swaps</text>
+    <circle cx="105" cy="561" r="13" fill="#4CAF50"/><path d="M99 561 l4 5 l9 -10" stroke="#FFFFFF" stroke-width="3" fill="none"/>
+    <text x="132" y="569">Cabinet painting or refacing</text>
+    <circle cx="105" cy="614" r="13" fill="#4CAF50"/><path d="M99 614 l4 5 l9 -10" stroke="#FFFFFF" stroke-width="3" fill="none"/>
+    <text x="132" y="622">New backsplash tile</text>
+    <circle cx="105" cy="667" r="13" fill="#4CAF50"/><path d="M99 667 l4 5 l9 -10" stroke="#FFFFFF" stroke-width="3" fill="none"/>
+    <text x="132" y="675">Light fixtures on existing wiring</text>
+  </g>
+
+  <!-- Right column: still needs a permit -->
+  <rect x="620" y="190" width="520" height="520" rx="16" fill="#FFFFFF" stroke="#F07A1A" stroke-width="3"/>
+  <rect x="620" y="190" width="520" height="64" rx="16" fill="#F07A1A"/>
+  <rect x="620" y="230" width="520" height="24" fill="#F07A1A"/>
+  <text x="880" y="232" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="bold" fill="#FFFFFF" text-anchor="middle">STILL NEEDS A PERMIT</text>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#0F1F35">
+    <circle cx="665" cy="296" r="13" fill="#1E3A5F"/><path d="M659 290 l12 12 M671 290 l-12 12" stroke="#FFFFFF" stroke-width="3"/>
+    <text x="692" y="304">Moving any plumbing</text>
+    <circle cx="665" cy="360" r="13" fill="#1E3A5F"/><path d="M659 354 l12 12 M671 354 l-12 12" stroke="#FFFFFF" stroke-width="3"/>
+    <text x="692" y="368">New circuits or wiring</text>
+    <circle cx="665" cy="424" r="13" fill="#1E3A5F"/><path d="M659 418 l12 12 M671 418 l-12 12" stroke="#FFFFFF" stroke-width="3"/>
+    <text x="692" y="432">Structural changes and walls</text>
+    <circle cx="665" cy="488" r="13" fill="#1E3A5F"/><path d="M659 482 l12 12 M671 482 l-12 12" stroke="#FFFFFF" stroke-width="3"/>
+    <text x="692" y="496">Gas line work</text>
+    <circle cx="665" cy="552" r="13" fill="#1E3A5F"/><path d="M659 546 l12 12 M671 546 l-12 12" stroke="#FFFFFF" stroke-width="3"/>
+    <text x="692" y="560">Homes in flood-hazard zones</text>
+    <circle cx="665" cy="616" r="13" fill="#1E3A5F"/><path d="M659 610 l12 12 M671 610 l-12 12" stroke="#FFFFFF" stroke-width="3"/>
+    <text x="692" y="624">Condo units, association rules</text>
+  </g>
+
+  <!-- Footer -->
+  <rect y="750" width="1200" height="80" fill="#1E3A5F"/>
+  <text x="60" y="799" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#FFFFFF">One project, one honest total under $7,500</text>
+  <text x="1140" y="799" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="bold" fill="#F07A1A" text-anchor="end">Broke &amp; Fixed Home Solutions &#183; (786) 363-7039</text>
+</svg>

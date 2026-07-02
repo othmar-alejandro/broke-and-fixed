@@ -11,6 +11,8 @@ export interface BlogPost {
   title: string
   titleEs: string
   date: string
+  /** Optional last-updated date (YYYY-MM-DD) from frontmatter; drives dateModified in schema. */
+  updated: string
   author: string
   category: string
   tags: string[]
@@ -128,6 +130,7 @@ export function getAllPosts(): BlogPost[] {
         title: data.title || "",
         titleEs: data.titleEs || data.title || "",
         date: data.date || "",
+        updated: data.updated || "",
         author: data.author || "Broke & Fixed Home Solutions",
         category: data.category || "tips",
         tags: parseArrayField(data.tags || ""),
