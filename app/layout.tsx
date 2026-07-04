@@ -124,6 +124,17 @@ export default function RootLayout({
                     "https://www.instagram.com/brokeandfixed/",
                     "https://www.google.com/maps/place/?q=place_id:ChIJ7VSW8vHbAgMRvNWjsiV5kII",
                   ],
+                  knowsAbout: [
+                    "Bathroom remodeling",
+                    "Kitchen remodeling",
+                    "Cabinet painting and refinishing",
+                    "Interior painting",
+                    "Exterior painting",
+                    "Tile installation",
+                    "Exterior home repairs",
+                    "Florida HB 803 permit exemption",
+                    "Miami-Dade home renovation",
+                  ],
                 },
                 {
                   "@type": "LocalBusiness",

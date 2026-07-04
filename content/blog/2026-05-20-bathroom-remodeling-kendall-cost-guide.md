@@ -132,7 +132,7 @@ We have seen the trends shift hard over the last 24 months. Here is what is movi
 
 ## How HB 803 Changes the Math in Kendall
 
-Florida HB 803 took effect July 1, 2026. The short version: cosmetic remodel work on a single-family home that totals under $7,500 no longer needs a building permit. Read the [full HB 803 breakdown here](/blog/florida-hb-803-no-permit-needed-2026).
+Florida HB 803 took effect July 1, 2026. The short version: cosmetic remodel work on a single-family home that totals under $7,500 no longer needs a building permit. Read the [full HB 803 breakdown here](/en/blog/florida-hb-803-no-permit-needed-2026).
 
 What this means in Kendall specifically:
 
@@ -221,11 +221,11 @@ Broke & Fixed Home Solutions carries general liability insurance and workers com
 Broke & Fixed Home Solutions runs bathroom remodels across Kendall and the rest of Miami-Dade every week. Family owned. Fully insured. Bilingual EN/ES. Free in-home estimates, response within 15 minutes.
 
 Browse our service guides:
-- [Bathroom remodeling service](/services/bathroom-remodeling)
-- [Bathroom remodeling cost in Miami 2026](/cost/bathroom)
-- [Tile work service](/services/tile-work)
-- [Service area: Kendall](/locations/kendall)
-- [Florida HB 803 permit guide](/blog/florida-hb-803-no-permit-needed-2026)
+- [Bathroom remodeling service](/en/services/bathroom-remodeling)
+- [Bathroom remodeling cost in Miami 2026](/en/cost/bathroom-remodeling)
+- [Tile work service](/en/services/tile-work)
+- [Service area: Kendall](/en/locations/kendall)
+- [Florida HB 803 permit guide](/en/blog/florida-hb-803-no-permit-needed-2026)
 
 Or call us directly at **(786) 363-7039**.
 
@@ -279,7 +279,7 @@ Cotizamos remodelaciones de baño en tres niveles.
 
 ## Cómo HB 803 Cambia el Cálculo en Kendall
 
-La ley HB 803 de Florida entró en vigor el 1 de julio de 2026. Trabajo cosmético bajo $7,500 en casa unifamiliar ya no necesita permiso. Lee la [explicación completa de HB 803](/blog/florida-hb-803-no-permit-needed-2026).
+La ley HB 803 de Florida entró en vigor el 1 de julio de 2026. Trabajo cosmético bajo $7,500 en casa unifamiliar ya no necesita permiso. Lee la [explicación completa de HB 803](/es/blog/florida-hb-803-no-permit-needed-2026).
 
 En Kendall:
 - Casi todos los Nivel 1 califican.
@@ -313,10 +313,10 @@ En Kendall:
 Broke & Fixed Home Solutions hace remodelaciones de baño en Kendall y todo Miami-Dade cada semana. Empresa familiar. Totalmente asegurada. Bilingüe EN/ES. Estimados gratis en casa, respuesta en 15 minutos.
 
 Explora nuestras guías:
-- [Servicio de remodelación de baños](/es/servicios/remodelacion-banos)
-- [Costo de remodelación de baños en Miami 2026](/es/costo/bano)
-- [Servicio de azulejos](/es/servicios/azulejos)
-- [Área de servicio: Kendall](/es/ubicaciones/kendall)
-- [Guía de HB 803](/blog/florida-hb-803-no-permit-needed-2026)
+- [Servicio de remodelación de baños](/es/services/remodelacion-de-banos)
+- [Costo de remodelación de baños en Miami 2026](/es/cost/remodelacion-de-banos)
+- [Servicio de azulejos](/es/services/instalacion-de-pisos)
+- [Área de servicio: Kendall](/es/locations/kendall)
+- [Guía de HB 803](/es/blog/florida-hb-803-no-permit-needed-2026)
 
 O llámanos directamente al **(786) 363-7039**.

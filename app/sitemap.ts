@@ -127,20 +127,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'daily',
       priority: 0.7,
     },
-    ...getAllPosts().flatMap((post) => [
-      {
-        url: `${BASE_URL}/en/blog/${post.slug}`,
-        lastModified,
-        changeFrequency: 'weekly' as const,
-        priority: 0.7,
-      },
-      {
-        url: `${BASE_URL}/es/blog/${post.slug}`,
-        lastModified,
-        changeFrequency: 'weekly' as const,
-        priority: 0.7,
-      },
-    ]),
+    // Real dates per post: engines learn to trust lastmod only when it does
+    // not change on every deploy. updated > date > build time.
+    ...getAllPosts().flatMap((post) => {
+      const postModified = post.updated || post.date ? new Date(post.updated || post.date) : lastModified
+      return [
+        {
+          url: `${BASE_URL}/en/blog/${post.slug}`,
+          lastModified: postModified,
+          changeFrequency: 'weekly' as const,
+          priority: 0.7,
+        },
+        {
+          url: `${BASE_URL}/es/blog/${post.slug}`,
+          lastModified: postModified,
+          changeFrequency: 'weekly' as const,
+          priority: 0.7,
+        },
+      ]
+    }),
   ]
 
   // 7. HOA Renovation Guide (hub + per-community, EN + ES)

@@ -118,7 +118,7 @@ Pricing varies with house size, ceiling height, trim complexity, and the prep wo
 
 ## How HB 803 Affects Pinecrest Paint Jobs
 
-Florida HB 803 took effect July 1, 2026. The $7,500 permit exemption applies to all cosmetic remodel work on a single-family home. Interior paint is purely cosmetic. Read the [full HB 803 breakdown here](/blog/florida-hb-803-no-permit-needed-2026).
+Florida HB 803 took effect July 1, 2026. The $7,500 permit exemption applies to all cosmetic remodel work on a single-family home. Interior paint is purely cosmetic. Read the [full HB 803 breakdown here](/en/blog/florida-hb-803-no-permit-needed-2026).
 
 What this means in Pinecrest:
 
@@ -209,10 +209,10 @@ Broke & Fixed Home Solutions carries general liability insurance and workers com
 Broke & Fixed Home Solutions paints houses across Pinecrest and the rest of Miami-Dade every week. Family owned. Fully insured. Bilingual EN/ES. Free in-home consultations with color sampling, response within 15 minutes.
 
 Browse our service guides:
-- [Interior painting service](/services/interior-painting)
-- [Exterior painting service](/services/exterior-painting)
-- [Service area: Pinecrest](/locations/pinecrest)
-- [Florida HB 803 permit guide](/blog/florida-hb-803-no-permit-needed-2026)
+- [Interior painting service](/en/services/interior-painting)
+- [Exterior painting service](/en/services/exterior-painting)
+- [Service area: Pinecrest](/en/locations/pinecrest)
+- [Florida HB 803 permit guide](/en/blog/florida-hb-803-no-permit-needed-2026)
 
 Or call us directly at **(786) 363-7039**.
 
@@ -263,7 +263,7 @@ Total para 3,000 pies cuadrados: 10 a 14 días hábiles.
 
 ## Cómo Afecta HB 803 a los Trabajos de Pintura en Pinecrest
 
-La ley HB 803 entró en vigor el 1 de julio de 2026. Trabajos cosméticos bajo $7,500 en casa unifamiliar no necesitan permiso. Lee la [explicación completa de HB 803](/blog/florida-hb-803-no-permit-needed-2026). En la práctica, la pintura interior nunca requirió permiso en Miami-Dade, pero HB 803 lo codifica a nivel estatal.
+La ley HB 803 entró en vigor el 1 de julio de 2026. Trabajos cosméticos bajo $7,500 en casa unifamiliar no necesitan permiso. Lee la [explicación completa de HB 803](/es/blog/florida-hb-803-no-permit-needed-2026). En la práctica, la pintura interior nunca requirió permiso en Miami-Dade, pero HB 803 lo codifica a nivel estatal.
 
 ## Tres Casos de Estudio en Pinecrest
 
@@ -296,9 +296,9 @@ La ley HB 803 entró en vigor el 1 de julio de 2026. Trabajos cosméticos bajo $
 Broke & Fixed Home Solutions pinta casas en Pinecrest y todo Miami-Dade cada semana. Empresa familiar. Totalmente asegurada. Bilingüe EN/ES. Consultas gratis en casa con muestras de color.
 
 Explora nuestras guías:
-- [Servicio de pintura interior](/es/servicios/pintura-interior)
-- [Servicio de pintura exterior](/es/servicios/pintura-exterior)
-- [Área de servicio: Pinecrest](/es/ubicaciones/pinecrest)
-- [Guía de HB 803](/blog/florida-hb-803-no-permit-needed-2026)
+- [Servicio de pintura interior](/es/services/pintura-interior)
+- [Servicio de pintura exterior](/es/services/pintura-exterior)
+- [Área de servicio: Pinecrest](/es/locations/pinecrest)
+- [Guía de HB 803](/es/blog/florida-hb-803-no-permit-needed-2026)
 
 O llámanos directamente al **(786) 363-7039**.

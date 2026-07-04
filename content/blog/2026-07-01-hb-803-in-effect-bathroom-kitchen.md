@@ -63,9 +63,9 @@ HB 803 removed one requirement. It did not remove these:
 
 **The $7,500 cap is per project, not per invoice.** Splitting one $15,000 kitchen into two $7,500 halves to dodge the cap is exactly what the law forbids. Anyone who offers to structure a job that way is setting you up to owe back-permit costs later.
 
-**Flood-hazard zones are excluded.** If your home sits in a flood-hazard area under the Florida Building Code, the exemption does not apply, even for paint. Parts of Cutler Bay, Palmetto Bay, and South Miami Heights are in these zones. Check before you assume. Our [flood zone guide](/en/blog/hb-803-flood-zones-miami) explains how to look up your property.
+**Flood-hazard zones are excluded.** If your home sits in a flood-hazard area under the Florida Building Code, the exemption does not apply, even for paint. Parts of Cutler Bay, Palmetto Bay, and South Miami Heights are in these zones. Check before you assume. Our [flood zone guide](/en/blog/hb-803-flood-zones-miami-permit-exemption) explains how to look up your property.
 
-**HOA rules still apply.** The county cannot require a permit for cosmetic work anymore, but your HOA can still require architectural review for anything it could see or hear. Condo associations especially. We covered this in our [HOA and HB 803 guide](/en/blog/hb-803-hoa-architectural-review-miami).
+**HOA rules still apply.** The county cannot require a permit for cosmetic work anymore, but your HOA can still require architectural review for anything it could see or hear. Condo associations especially. We covered this in our [HOA and HB 803 guide](/en/blog/hb-803-hoa-architectural-review-changes).
 
 **Insurance still matters.** A permit was never what protected you from a bad crew. Insurance is. We carry general liability on every job, and you should demand the same from anyone who works in your home, permit or no permit.
 
@@ -163,9 +163,9 @@ La HB 803 eliminó un requisito. No eliminó estos:
 
 **El tope de $7,500 es por proyecto, no por factura.** Dividir una cocina de $15,000 en dos mitades de $7,500 para esquivar el tope es exactamente lo que la ley prohíbe. Cualquiera que ofrezca estructurar un trabajo así te está preparando para deber costos de permisos atrasados después.
 
-**Las zonas de inundación están excluidas.** Si tu casa está en una zona de riesgo de inundación bajo el Código de Construcción de Florida, la exención no aplica, ni siquiera para pintura. Partes de Cutler Bay, Palmetto Bay y South Miami Heights están en estas zonas. Verifica antes de asumir. Nuestra [guía de zonas de inundación](/es/blog/hb-803-flood-zones-miami) explica cómo consultar tu propiedad.
+**Las zonas de inundación están excluidas.** Si tu casa está en una zona de riesgo de inundación bajo el Código de Construcción de Florida, la exención no aplica, ni siquiera para pintura. Partes de Cutler Bay, Palmetto Bay y South Miami Heights están en estas zonas. Verifica antes de asumir. Nuestra [guía de zonas de inundación](/es/blog/hb-803-flood-zones-miami-permit-exemption) explica cómo consultar tu propiedad.
 
-**Las reglas de la HOA siguen aplicando.** El condado ya no puede exigir permiso para trabajo cosmético, pero tu HOA todavía puede exigir revisión arquitectónica. Las asociaciones de condominios especialmente. Lo cubrimos en nuestra [guía de HOA y HB 803](/es/blog/hb-803-hoa-architectural-review-miami).
+**Las reglas de la HOA siguen aplicando.** El condado ya no puede exigir permiso para trabajo cosmético, pero tu HOA todavía puede exigir revisión arquitectónica. Las asociaciones de condominios especialmente. Lo cubrimos en nuestra [guía de HOA y HB 803](/es/blog/hb-803-hoa-architectural-review-changes).
 
 **El seguro sigue importando.** Un permiso nunca fue lo que te protegía de un equipo malo. El seguro sí. Llevamos seguro de responsabilidad general en cada trabajo, y debes exigir lo mismo de cualquiera que trabaje en tu casa, con permiso o sin permiso.
 

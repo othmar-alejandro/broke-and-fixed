@@ -39,7 +39,7 @@ Before you order a single box of tile, you need to know what your HOA does and d
 
 ## How HB 803 Applies to Doral
 
-Florida HB 803 took effect July 1, 2026. The $7,500 permit exemption is written specifically for single-family dwellings. Read the [full HB 803 breakdown here](/blog/florida-hb-803-no-permit-needed-2026).
+Florida HB 803 took effect July 1, 2026. The $7,500 permit exemption is written specifically for single-family dwellings. Read the [full HB 803 breakdown here](/en/blog/florida-hb-803-no-permit-needed-2026).
 
 What this means in Doral:
 
@@ -208,10 +208,10 @@ Broke & Fixed Home Solutions carries general liability insurance and workers com
 Broke & Fixed Home Solutions handles tile installation across Doral and the rest of Miami-Dade. Family owned. Fully insured. Bilingual EN/ES. We know the Doral high-rise rules, the townhouse HOA quirks, and the building department interpretations. Free in-home estimates, response within 15 minutes.
 
 Browse our service guides:
-- [Tile work service](/services/tile-work)
-- [Bathroom remodeling service](/services/bathroom-remodeling)
-- [Service area: Doral](/locations/doral)
-- [Florida HB 803 permit guide](/blog/florida-hb-803-no-permit-needed-2026)
+- [Tile work service](/en/services/tile-work)
+- [Bathroom remodeling service](/en/services/bathroom-remodeling)
+- [Service area: Doral](/en/locations/doral)
+- [Florida HB 803 permit guide](/en/blog/florida-hb-803-no-permit-needed-2026)
 
 Or call us directly at **(786) 363-7039**.
 
@@ -239,7 +239,7 @@ Cada tipo crea retos diferentes para instalación de azulejos.
 
 ## Cómo Aplica HB 803 a Doral
 
-La ley HB 803 entró en vigor el 1 de julio de 2026. La exención de $7,500 aplica solo a unifamiliares. Lee la [explicación completa de HB 803](/blog/florida-hb-803-no-permit-needed-2026).
+La ley HB 803 entró en vigor el 1 de julio de 2026. La exención de $7,500 aplica solo a unifamiliares. Lee la [explicación completa de HB 803](/es/blog/florida-hb-803-no-permit-needed-2026).
 
 - Unifamiliares de Doral: exención aplica para trabajo cosmético bajo $7,500.
 - Condos y townhouses: la exención principal no aplica, pero las HOAs ya no pueden exigir permiso antes de revisión arquitectónica.
@@ -309,9 +309,9 @@ Tiempo total: 9 a 14 días hábiles activos más 2 a 6 semanas de aprobación HO
 Broke & Fixed Home Solutions hace instalación de azulejos en Doral y todo Miami-Dade. Conocemos las reglas de high-rise, las quirks de HOA de townhouses, y las interpretaciones del departamento de construcción. Estimados gratis en casa.
 
 Explora nuestras guías:
-- [Servicio de trabajo de azulejos](/es/servicios/azulejos)
-- [Servicio de remodelación de baños](/es/servicios/remodelacion-banos)
-- [Área de servicio: Doral](/es/ubicaciones/doral)
-- [Guía de HB 803](/blog/florida-hb-803-no-permit-needed-2026)
+- [Servicio de trabajo de azulejos](/es/services/instalacion-de-pisos)
+- [Servicio de remodelación de baños](/es/services/remodelacion-de-banos)
+- [Área de servicio: Doral](/es/locations/doral)
+- [Guía de HB 803](/es/blog/florida-hb-803-no-permit-needed-2026)
 
 O llámanos directamente al **(786) 363-7039**.

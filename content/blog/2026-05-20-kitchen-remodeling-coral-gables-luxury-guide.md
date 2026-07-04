@@ -82,7 +82,7 @@ The whole ARB process runs 4 to 8 weeks for a routine kitchen-adjacent change, l
 
 Florida HB 803 (effective July 1, 2026) does two things that matter for Coral Gables kitchens.
 
-First, the $7,500 permit exemption for cosmetic remodels on single-family homes applies in Coral Gables just like everywhere else. Most Coral Gables kitchen renovations are way over $7,500, so this rarely applies to a full kitchen. But for small fixes, hardware swaps, cabinet refinishing, or a backsplash update done as a standalone, you can stay under the cap and skip the permit. Read the [full HB 803 breakdown here](/blog/florida-hb-803-no-permit-needed-2026).
+First, the $7,500 permit exemption for cosmetic remodels on single-family homes applies in Coral Gables just like everywhere else. Most Coral Gables kitchen renovations are way over $7,500, so this rarely applies to a full kitchen. But for small fixes, hardware swaps, cabinet refinishing, or a backsplash update done as a standalone, you can stay under the cap and skip the permit. Read the [full HB 803 breakdown here](/en/blog/florida-hb-803-no-permit-needed-2026).
 
 Second, and this is the bigger deal in Coral Gables: HOAs can no longer require a building permit as a precondition for architectural review. Coral Gables itself is not technically an HOA (it is a city with strong zoning), so this provision affects the ARB process less directly. But for Coral Gables condos and townhouses governed by an HOA (think parts of the city center near Miracle Mile, or some of the gated subdivisions along Old Cutler), the HOA architectural committees that used to demand a permit before they would even review your kitchen plans can no longer do that. They can still approve or reject the design, but the order is now: HOA approval first, permit second.
 
@@ -193,11 +193,11 @@ For most projects, we work alongside an architect or designer who prepares the A
 Broke & Fixed Home Solutions has done kitchens across Miami-Dade including Coral Gables historic and contemporary homes. Family owned. Fully insured. Bilingual EN/ES. Free in-home estimates, response within 15 minutes.
 
 Browse our service guides:
-- [Kitchen remodeling service](/services/kitchen-remodeling)
-- [Kitchen remodeling cost in Miami 2026](/cost/kitchen)
-- [Cabinet refinishing service](/services/cabinet-refinishing)
-- [Service area: Coral Gables](/locations/coral-gables)
-- [Florida HB 803 permit guide](/blog/florida-hb-803-no-permit-needed-2026)
+- [Kitchen remodeling service](/en/services/kitchen-remodeling)
+- [Kitchen remodeling cost in Miami 2026](/en/cost/kitchen-remodeling)
+- [Cabinet refinishing service](/en/services/cabinet-refinishing)
+- [Service area: Coral Gables](/en/locations/coral-gables)
+- [Florida HB 803 permit guide](/en/blog/florida-hb-803-no-permit-needed-2026)
 
 Or call us directly at **(786) 363-7039**.
 
@@ -240,7 +240,7 @@ Tiempo total: 4 a 8 semanas para cambios rutinarios.
 
 ## Cómo Afecta HB 803 a Coral Gables
 
-La ley HB 803 entró en vigor el 1 de julio de 2026. Trabajo cosmético bajo $7,500 en casa unifamiliar ya no necesita permiso. Lee la [explicación completa de HB 803](/blog/florida-hb-803-no-permit-needed-2026). En Coral Gables, la mayoría de cocinas exceden $7,500, así que esto rara vez aplica. Pero las HOAs ya no pueden exigir un permiso antes de la revisión arquitectónica.
+La ley HB 803 entró en vigor el 1 de julio de 2026. Trabajo cosmético bajo $7,500 en casa unifamiliar ya no necesita permiso. Lee la [explicación completa de HB 803](/es/blog/florida-hb-803-no-permit-needed-2026). En Coral Gables, la mayoría de cocinas exceden $7,500, así que esto rara vez aplica. Pero las HOAs ya no pueden exigir un permiso antes de la revisión arquitectónica.
 
 ## Materiales Que Respetan la Arquitectura
 
@@ -280,10 +280,10 @@ La ley HB 803 entró en vigor el 1 de julio de 2026. Trabajo cosmético bajo $7,
 Broke & Fixed Home Solutions ha hecho cocinas en todo Miami-Dade, incluyendo casas históricas y contemporáneas de Coral Gables. Empresa familiar. Totalmente asegurada. Bilingüe EN/ES. Estimados gratis en casa.
 
 Explora nuestras guías:
-- [Servicio de remodelación de cocinas](/es/servicios/remodelacion-cocinas)
-- [Costo de remodelación de cocinas en Miami 2026](/es/costo/cocina)
-- [Servicio de re-laminado de gabinetes](/es/servicios/cabinet-refinishing)
-- [Área de servicio: Coral Gables](/es/ubicaciones/coral-gables)
-- [Guía de HB 803](/blog/florida-hb-803-no-permit-needed-2026)
+- [Servicio de remodelación de cocinas](/es/services/remodelacion-de-cocinas)
+- [Costo de remodelación de cocinas en Miami 2026](/es/cost/remodelacion-de-cocinas)
+- [Servicio de re-laminado de gabinetes](/es/services/renovacion-de-gabinetes)
+- [Área de servicio: Coral Gables](/es/locations/coral-gables)
+- [Guía de HB 803](/es/blog/florida-hb-803-no-permit-needed-2026)
 
 O llámanos directamente al **(786) 363-7039**.

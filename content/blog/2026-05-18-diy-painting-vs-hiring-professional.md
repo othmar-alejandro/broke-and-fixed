@@ -69,7 +69,7 @@ Here is where DIY starts falling apart for most homeowners.
 
 **Cabinet painting.** This deserves its own category. Cabinet painting requires removing doors, proper sanding, primer designed for slick surfaces, multiple thin coats, and careful reassembly. DIY cabinet painting is the single most regretted home project we hear about from new clients. Check our [cabinet refinishing guide](/en/blog/cabinet-refinishing-miami-cost-2026) for what that process actually involves.
 
-**Exterior painting.** Ladders, weather windows, surface prep on stucco, and safety concerns put exterior work firmly in professional territory. Check our [stucco painting guide](/en/blog/stucco-painting-guide-miami) for more on exterior projects.
+**Exterior painting.** Ladders, weather windows, surface prep on stucco, and safety concerns put exterior work firmly in professional territory. Check our [stucco painting guide](/en/blog/stucco-painting-guide-miami-homeowners) for more on exterior projects.
 
 ## Hidden Costs of DIY That People Forget
 
@@ -231,7 +231,7 @@ Aqui es donde el hazlo tu mismo empieza a complicarse para la mayoria de los pro
 
 **Pintura de gabinetes.** Esto merece su propia categoria. Pintar gabinetes requiere remover puertas, lijar correctamente, primer disenado para superficies lisas, multiples capas finas y reensamblaje cuidadoso. Pintar gabinetes sin experiencia es el proyecto casero del que mas se arrepienten nuestros nuevos clientes. Consulta nuestra [guia de renovacion de gabinetes](/en/blog/cabinet-refinishing-miami-cost-2026) para ver lo que realmente implica ese proceso.
 
-**Pintura exterior.** Escaleras, ventanas de buen clima, preparacion de superficies de estuco y preocupaciones de seguridad ponen el trabajo exterior firmemente en territorio profesional. Lee nuestra [guia de pintura de estuco](/en/blog/stucco-painting-guide-miami) para mas informacion sobre proyectos exteriores.
+**Pintura exterior.** Escaleras, ventanas de buen clima, preparacion de superficies de estuco y preocupaciones de seguridad ponen el trabajo exterior firmemente en territorio profesional. Lee nuestra [guia de pintura de estuco](/en/blog/stucco-painting-guide-miami-homeowners) para mas informacion sobre proyectos exteriores.
 
 ## Costos Ocultos del Hazlo Tu Mismo Que la Gente Olvida
 

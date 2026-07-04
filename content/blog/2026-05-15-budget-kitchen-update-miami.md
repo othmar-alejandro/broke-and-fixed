@@ -67,7 +67,7 @@ Material cost ranges:
 
 Labor runs about $15 to $25 per square foot installed. Most kitchens have 25 to 40 square feet of backsplash area, so total ranges land between $800 and $2,000.
 
-White subway tile is timeless. If you want more personality, a vertical stack pattern or a long-format tile in a warm neutral reads modern without being trendy. See our [tile selection guide for Miami bathrooms](/en/blog/best-tile-miami-bathrooms-2026) which mostly applies to kitchens too.
+White subway tile is timeless. If you want more personality, a vertical stack pattern or a long-format tile in a warm neutral reads modern without being trendy. See our [tile selection guide for Miami bathrooms](/en/blog/best-tile-miami-bathrooms-porcelain-ceramic-stone) which mostly applies to kitchens too.
 
 ### Hardware and Lighting
 
@@ -254,7 +254,7 @@ Rangos de costo de material:
 
 La mano de obra cuesta entre $15 y $25 por pie cuadrado instalado. La mayoria de las cocinas tienen entre 25 y 40 pies cuadrados de area de salpicadero, asi que los totales caen entre $800 y $2,000.
 
-El azulejo subway blanco es atemporal. Si quiere mas personalidad, un patron vertical apilado o un azulejo de formato largo en un neutro calido se ve moderno sin ser tendencia. Vea nuestra [guia de seleccion de azulejos para banos de Miami](/es/blog/best-tile-miami-bathrooms-2026) que aplica casi igual para cocinas.
+El azulejo subway blanco es atemporal. Si quiere mas personalidad, un patron vertical apilado o un azulejo de formato largo en un neutro calido se ve moderno sin ser tendencia. Vea nuestra [guia de seleccion de azulejos para banos de Miami](/es/blog/best-tile-miami-bathrooms-porcelain-ceramic-stone) que aplica casi igual para cocinas.
 
 ### Hardware e Iluminacion
 
@@ -351,7 +351,7 @@ Vale la pena ser claro sobre lo que una renovacion con presupuesto no va a arreg
 - **No va a actualizar sus electrodomesticos.** Si el lavavajillas esta roto o la estufa esta en sus ultimas patas, ese es un presupuesto separado.
 - **No va a arreglar problemas estructurales.** Dano por agua, problemas electricos, o problemas de plagas necesitan abordarse primero.
 
-Si algo de eso aplica, esta viendo una remodelacion completa, no una renovacion. Tambien hacemos esas. Vea nuestra [guia de costo de remodelacion completa de cocina](/es/services/kitchen-remodeling) para lo que eso implica.
+Si algo de eso aplica, esta viendo una remodelacion completa, no una renovacion. Tambien hacemos esas. Vea nuestra [guia de costo de remodelacion completa de cocina](/es/services/remodelacion-de-cocinas) para lo que eso implica.
 
 ## Preguntas Frecuentes
 
@@ -381,6 +381,6 @@ Los precios en esta guia son reales. Su numero especifico depende del conteo de 
 
 Hacemos evaluaciones gratis en persona en todo Miami-Dade. Mediremos su cocina, veremos los gabinetes, y le daremos tres niveles de precio (refresh, update, premium) el mismo dia para que vea que cabe en su presupuesto. Sin presion, sin obligacion, sin venta dura.
 
-Areas de servicio incluyen [Kendall](/es/services/kitchen-remodeling/kendall), [West Kendall](/es/services/kitchen-remodeling/west-kendall), [Palmetto Bay](/es/services/kitchen-remodeling/palmetto-bay), [Pinecrest](/es/services/kitchen-remodeling/pinecrest), [Coral Gables](/es/services/kitchen-remodeling/coral-gables), [Doral](/es/services/kitchen-remodeling/doral), [South Miami](/es/services/kitchen-remodeling/south-miami), [The Hammocks](/es/services/kitchen-remodeling/the-hammocks), [The Crossings](/es/services/kitchen-remodeling/the-crossings), [Cutler Bay](/es/services/kitchen-remodeling/cutler-bay), y el resto de Miami-Dade.
+Areas de servicio incluyen [Kendall](/es/services/remodelacion-de-cocinas/kendall), [West Kendall](/es/services/remodelacion-de-cocinas/west-kendall), [Palmetto Bay](/es/services/remodelacion-de-cocinas/palmetto-bay), [Pinecrest](/es/services/remodelacion-de-cocinas/pinecrest), [Coral Gables](/es/services/remodelacion-de-cocinas/coral-gables), [Doral](/es/services/remodelacion-de-cocinas/doral), [South Miami](/es/services/remodelacion-de-cocinas/south-miami), [The Hammocks](/es/services/remodelacion-de-cocinas/the-hammocks), [The Crossings](/es/services/remodelacion-de-cocinas/the-crossings), [Cutler Bay](/es/services/remodelacion-de-cocinas/cutler-bay), y el resto de Miami-Dade.
 
 Llame al (786) 363-7039 o mande fotos por mensaje de texto de su cocina actual. Le damos un estimado dentro de 24 horas.
