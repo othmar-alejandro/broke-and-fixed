@@ -282,7 +282,7 @@ const content = {
   es: {
     breadcrumbs: [
       { name: "Inicio", href: "/es" },
-      { name: "Remodelacion de Cocina", href: "/es/services/kitchen-remodeling" },
+      { name: "Remodelacion de Cocina", href: "/es/services/remodelacion-de-cocinas" },
       { name: "Pintura de Gabinetes", href: "/es/cabinet-painting" },
     ],
     hero: {

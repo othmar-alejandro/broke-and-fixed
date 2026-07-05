@@ -1006,7 +1006,7 @@ export default async function PremiumBathroomPage({
               {t.ctaPhone}
             </a>
             <Link
-              href={`/${locale}/services/bathroom-remodeling`}
+              href={`/${locale}/services/${isEs ? "remodelacion-de-banos" : "bathroom-remodeling"}`}
               className="inline-flex items-center justify-center gap-2 border-2 border-white/25 text-white font-display font-bold text-lg px-10 py-5 rounded-lg hover:bg-white/10 transition-all w-full sm:w-auto"
             >
               <ArrowRight size={20} weight="bold" />

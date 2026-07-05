@@ -67,7 +67,7 @@ export default function StartClient({ locale }: StartClientProps) {
       glow: "rgba(240, 122, 26, 0.15)"
     },
     {
-      href: `/${locale}/services/kitchen-remodeling`,
+      href: `/${locale}/services/${isEs ? "remodelacion-de-cocinas" : "kitchen-remodeling"}`,
       label: isEs ? "Remodelación de cocinas" : "Kitchen remodeling",
       subtext: isEs ? "Gabinetes nuevos, encimeras de cuarzo y distribuciones modernas" : "New cabinets, quartz tops, and custom layouts",
       image: "/images/design-ideas/kitchen-concept-1.png",
@@ -81,14 +81,14 @@ export default function StartClient({ locale }: StartClientProps) {
       glow: "rgba(240, 122, 26, 0.15)"
     },
     {
-      href: `/${locale}/services/tile-work`,
+      href: `/${locale}/services/${isEs ? "instalacion-de-pisos" : "tile-work"}`,
       label: isEs ? "Instalación de pisos" : "Tile work & flooring",
       subtext: isEs ? "Colocación de porcelanato, cerámica y gran formato" : "Porcelain, ceramic, and large-format tile installation",
       image: "/images/design-ideas/tile-work-concept.png",
       glow: "rgba(240, 122, 26, 0.15)"
     },
     {
-      href: `/${locale}/services/exterior-painting`,
+      href: `/${locale}/services/${isEs ? "pintura-exterior" : "exterior-painting"}`,
       label: isEs ? "Pintura exterior" : "Exterior painting",
       subtext: isEs ? "Pintura protectora y duradera contra el clima de Miami" : "Weatherproof coating built for South Florida rain & sun",
       image: "/exterior paint - the hammocks 2/exterior-paint-hammocks-2-tall-entrance.jpeg",

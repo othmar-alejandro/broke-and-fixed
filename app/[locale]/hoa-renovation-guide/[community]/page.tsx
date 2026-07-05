@@ -273,32 +273,32 @@ export default async function HoaCommunityPage({
           </p>
           <ul>
             <li>
-              <Link href={`/${locale}/services/kitchen-remodeling/${c.locationSlug}`}>
+              <Link href={`/${locale}/services/${isEs ? "remodelacion-de-cocinas" : "kitchen-remodeling"}/${c.locationSlug}`}>
                 {isEs ? `Remodelacion de cocina en ${name}` : `Kitchen remodeling in ${name}`}
               </Link>
             </li>
             <li>
-              <Link href={`/${locale}/services/bathroom-remodeling/${c.locationSlug}`}>
+              <Link href={`/${locale}/services/${isEs ? "remodelacion-de-banos" : "bathroom-remodeling"}/${c.locationSlug}`}>
                 {isEs ? `Remodelacion de banos en ${name}` : `Bathroom remodeling in ${name}`}
               </Link>
             </li>
             <li>
-              <Link href={`/${locale}/services/exterior-painting/${c.locationSlug}`}>
+              <Link href={`/${locale}/services/${isEs ? "pintura-exterior" : "exterior-painting"}/${c.locationSlug}`}>
                 {isEs ? `Pintura exterior en ${name}` : `Exterior painting in ${name}`}
               </Link>
             </li>
             <li>
-              <Link href={`/${locale}/services/interior-painting/${c.locationSlug}`}>
+              <Link href={`/${locale}/services/${isEs ? "pintura-interior" : "interior-painting"}/${c.locationSlug}`}>
                 {isEs ? `Pintura interior en ${name}` : `Interior painting in ${name}`}
               </Link>
             </li>
             <li>
-              <Link href={`/${locale}/services/cabinet-refinishing/${c.locationSlug}`}>
+              <Link href={`/${locale}/services/${isEs ? "renovacion-de-gabinetes" : "cabinet-refinishing"}/${c.locationSlug}`}>
                 {isEs ? `Renovacion de gabinetes en ${name}` : `Cabinet refinishing in ${name}`}
               </Link>
             </li>
             <li>
-              <Link href={`/${locale}/services/exterior-repairs/${c.locationSlug}`}>
+              <Link href={`/${locale}/services/${isEs ? "reparaciones-exteriores" : "exterior-repairs"}/${c.locationSlug}`}>
                 {isEs ? `Reparaciones exteriores en ${name}` : `Exterior repairs in ${name}`}
               </Link>
             </li>
