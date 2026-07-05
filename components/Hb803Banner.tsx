@@ -9,7 +9,7 @@ export default function Hb803Banner({ locale = "en", className = "" }: Hb803Bann
   const isEs = locale === "es"
   const href = isEs
     ? "/es/blog/florida-hb-803-no-permit-needed-2026"
-    : "/blog/florida-hb-803-no-permit-needed-2026"
+    : "/en/blog/florida-hb-803-no-permit-needed-2026"
 
   return (
     <Link

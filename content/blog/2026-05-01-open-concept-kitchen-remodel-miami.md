@@ -226,7 +226,7 @@ Estos son numeros realistas para Miami-Dade en 2026:
 
 Esto incluye remocion de pared mas pisos nuevos, iluminacion, una isla o peninsula y trabajo de acabado para que el espacio se vea como si siempre hubiera sido abierto. La mayoria de los propietarios en Kendall y Doral terminan en el rango de $12,000 a $20,000 para una transformacion completa de concepto abierto.
 
-Para precios completos de cocina, consulta nuestra [guia de costos de remodelacion de cocina](/es/cost/kitchen-remodeling).
+Para precios completos de cocina, consulta nuestra [guia de costos de remodelacion de cocina](/es/cost/remodelacion-de-cocinas).
 
 ## Transiciones de Piso
 
@@ -291,6 +291,6 @@ Pero no es correcto para cada hogar. Si cocinas con especias fuertes, fries frec
 
 ## Hablemos de Tu Cocina
 
-Broke & Fixed Home Solutions maneja proyectos de [remodelacion de cocinas](/es/services/kitchen-remodeling) en todo el condado de Miami-Dade. Evaluaremos tu pared, te explicaremos las opciones y te daremos un numero claro antes de que comience cualquier trabajo.
+Broke & Fixed Home Solutions maneja proyectos de [remodelacion de cocinas](/es/services/remodelacion-de-cocinas) en todo el condado de Miami-Dade. Evaluaremos tu pared, te explicaremos las opciones y te daremos un numero claro antes de que comience cualquier trabajo.
 
 Llamanos al **(786) 363-7039** para una consulta gratuita.

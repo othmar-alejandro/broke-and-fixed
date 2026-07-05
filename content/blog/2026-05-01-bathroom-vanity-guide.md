@@ -223,6 +223,6 @@ Una gran vanidad mal instalada es peor que una vanidad barata bien instalada. Es
 
 ## Listo para Elegir?
 
-Si estas planeando una [remodelacion de bano](/es/services/bathroom-remodeling) en Miami-Dade, la vanidad es una de las decisiones mas importantes que tomaras. Ayudamos a propietarios en Kendall, Doral, Palmetto Bay, The Hammocks y todo Miami-Dade a elegir vanidades que se ven genial y resisten nuestro clima.
+Si estas planeando una [remodelacion de bano](/es/services/remodelacion-de-banos) en Miami-Dade, la vanidad es una de las decisiones mas importantes que tomaras. Ayudamos a propietarios en Kendall, Doral, Palmetto Bay, The Hammocks y todo Miami-Dade a elegir vanidades que se ven genial y resisten nuestro clima.
 
 Llama a Broke & Fixed Home Solutions al **(786) 363-7039** para una consulta gratis. Mediremos tu espacio, hablaremos sobre tus opciones y te ayudaremos a encontrar la vanidad correcta para tu bano y tu presupuesto.

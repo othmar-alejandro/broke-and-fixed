@@ -311,7 +311,7 @@ Si cocinas mucho y quieres piedra natural, el granito es una opcion solida. Solo
 
 El marmol es hermoso en banos, tocadores y piezas de acento. Para una cocina donde realmente cocinas a diario, piensa cuidadosamente si estas dispuesto a mantener el mantenimiento.
 
-Para una guia completa de planificacion de tu proyecto de cocina, consulta nuestra pagina de [remodelacion de cocina](/es/services/kitchen-remodeling). Y para mas detalle sobre opciones de encimera e instalacion, consulta nuestra [guia de encimeras de cocina](/es/guides/kitchen-countertop-guide-miami).
+Para una guia completa de planificacion de tu proyecto de cocina, consulta nuestra pagina de [remodelacion de cocina](/es/services/remodelacion-de-cocinas). Y para mas detalle sobre opciones de encimera e instalacion, consulta nuestra [guia de encimeras de cocina](/es/guides/kitchen-countertop-guide-miami).
 
 ## Listo Para Elegir Tu Encimera?
 

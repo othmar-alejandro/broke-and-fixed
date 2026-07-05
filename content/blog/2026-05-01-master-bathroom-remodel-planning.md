@@ -233,7 +233,7 @@ Este nivel agrega los detalles que hacen que un bano se sienta personalizado. Lo
 
 Esto es para propietarios que quieren un bano principal nivel spa. Comun en Pinecrest, Coral Gables y Coconut Grove.
 
-Para un desglose detallado de precios de remodelacion de banos, consulta nuestra [guia de costos de remodelacion de banos](/es/cost/bathroom-remodeling).
+Para un desglose detallado de precios de remodelacion de banos, consulta nuestra [guia de costos de remodelacion de banos](/es/cost/remodelacion-de-banos).
 
 ## A Donde Va el Dinero
 
@@ -303,6 +303,6 @@ Aqui tienes una lista practica de planificacion:
 
 ## Listo Para Planificar la Remodelacion de Tu Bano Principal?
 
-Manejamos remodelaciones de [banos principales](/es/services/bathroom-remodeling) en todo Miami-Dade County. Desde Kendall hasta Coral Gables, Doral hasta Palmetto Bay. Te guiamos en cada decision, te damos un estimado detallado con numeros reales, y nos mantenemos en el cronograma.
+Manejamos remodelaciones de [banos principales](/es/services/remodelacion-de-banos) en todo Miami-Dade County. Desde Kendall hasta Coral Gables, Doral hasta Palmetto Bay. Te guiamos en cada decision, te damos un estimado detallado con numeros reales, y nos mantenemos en el cronograma.
 
 Llama o envia un texto al **(786) 363-7039** para un estimado gratis a domicilio. Veremos tu espacio, hablaremos de tus prioridades, y te daremos un plan claro y un precio honesto.

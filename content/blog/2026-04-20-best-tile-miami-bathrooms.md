@@ -244,7 +244,7 @@ El azulejo de porcelana es la mejor opcion general para banos en Miami. Maneja l
 
 Miami no es como otros mercados cuando se trata de materiales para banos. La combinacion de humedad durante todo el ano (promedio 75% a 85%), aire salado cerca de la costa y temperaturas que mantienen los banos calientes crea condiciones que destruyen los materiales incorrectos rapidamente.
 
-Hemos quitado azulejo de banos en casas de [Kendall](/es/services/tile-work/kendall), [Palmetto Bay](/es/services/tile-work/palmetto-bay) y [Cutler Bay](/es/services/tile-work/cutler-bay) que fue instalado hace solo 5 anos. El problema siempre era el mismo: azulejo incorrecto para el ambiente, mala impermeabilizacion debajo, o ambos.
+Hemos quitado azulejo de banos en casas de [Kendall](/es/services/instalacion-de-pisos/kendall), [Palmetto Bay](/es/services/instalacion-de-pisos/palmetto-bay) y [Cutler Bay](/es/services/instalacion-de-pisos/cutler-bay) que fue instalado hace solo 5 anos. El problema siempre era el mismo: azulejo incorrecto para el ambiente, mala impermeabilizacion debajo, o ambos.
 
 Esto es lo que el clima del Sur de Florida exige de su azulejo de bano:
 
@@ -397,7 +397,7 @@ Un error comun: gastar $20 por pie cuadrado en porcelana de calidad y luego usar
 
 ## Nuestra Recomendacion para la Mayoria de Propietarios en Miami
 
-Despues de anos de [trabajo de azulejo en Miami-Dade](/es/services/tile-work), esto es lo que recomendamos:
+Despues de anos de [trabajo de azulejo en Miami-Dade](/es/services/instalacion-de-pisos), esto es lo que recomendamos:
 
 **Mejor configuracion de valor:**
 - Paredes de ducha: Porcelana de gran formato (tipo marmol o concreto)
@@ -439,6 +439,6 @@ Re-hacer el azulejo completo en Miami-Dade cuesta $3,000 a $10,000 dependiendo d
 
 Escoger el azulejo correcto es el primer paso. Instalarlo correctamente en el clima de Miami es lo que lo hace durar. La impermeabilizacion, preparacion de sustrato y la lechada correcta hacen la diferencia entre azulejo que dura 5 anos y azulejo que dura 25.
 
-Instalamos azulejo en los 17 vecindarios que servimos en el Condado de Miami-Dade. Ya sea que este construyendo una nueva ducha en [The Hammocks](/es/services/tile-work/the-hammocks), reemplazando pisos en [Sweetwater](/es/services/tile-work/sweetwater), o haciendo una [remodelacion completa de bano en Kendall](/es/services/bathroom-remodeling/kendall), le ayudaremos a elegir el material correcto e instalarlo para que dure.
+Instalamos azulejo en los 17 vecindarios que servimos en el Condado de Miami-Dade. Ya sea que este construyendo una nueva ducha en [The Hammocks](/es/services/instalacion-de-pisos/the-hammocks), reemplazando pisos en [Sweetwater](/es/services/instalacion-de-pisos/sweetwater), o haciendo una [remodelacion completa de bano en Kendall](/es/services/remodelacion-de-banos/kendall), le ayudaremos a elegir el material correcto e instalarlo para que dure.
 
 Llame al **(786) 363-7039** para un estimado gratis. Veremos su bano, hablaremos de sus opciones y le daremos una respuesta directa sobre el costo.

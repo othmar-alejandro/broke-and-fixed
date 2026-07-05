@@ -363,8 +363,8 @@ Incluso con planificacion perfecta, los retrasos suceden. Estos son los mas comu
 
 ## Listo para Planificar Tu Remodelacion de Cocina?
 
-Broke & Fixed Home Solutions maneja proyectos de [remodelacion de cocinas](/es/services/kitchen-remodeling) en todo el condado de Miami-Dade. Trazamos el cronograma completo antes de empezar, coordinamos materiales y oficios, y te mantenemos informado en cada paso del camino.
+Broke & Fixed Home Solutions maneja proyectos de [remodelacion de cocinas](/es/services/remodelacion-de-cocinas) en todo el condado de Miami-Dade. Trazamos el cronograma completo antes de empezar, coordinamos materiales y oficios, y te mantenemos informado en cada paso del camino.
 
-Para detalles de precios, consulta nuestra [guia de costos de remodelacion de cocina](/es/cost/kitchen-remodeling).
+Para detalles de precios, consulta nuestra [guia de costos de remodelacion de cocina](/es/cost/remodelacion-de-cocinas).
 
 Llamanos al **(786) 363-7039** para empezar con un presupuesto gratuito.

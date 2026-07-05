@@ -271,7 +271,7 @@ Si planeas vender tu casa de Miami en los proximos anos, aqui esta la estrategia
 
 Total: $5,700 a $18,500 por una cocina que se ve como una remodelacion de $30,000 a $50,000. Eso es dinero inteligente.
 
-Para un desglose completo de los costos de remodelacion de cocina en Miami, consulta nuestra [guia de costos de remodelacion de cocina](/es/cost/kitchen-remodeling). Y para explorar como se ve una [remodelacion de cocina](/es/services/kitchen-remodeling) completa, visita nuestra pagina de servicio.
+Para un desglose completo de los costos de remodelacion de cocina en Miami, consulta nuestra [guia de costos de remodelacion de cocina](/es/cost/remodelacion-de-cocinas). Y para explorar como se ve una [remodelacion de cocina](/es/services/remodelacion-de-cocinas) completa, visita nuestra pagina de servicio.
 
 ## Dejanos Ayudarte a Planificar Tu Actualizacion de Cocina
 

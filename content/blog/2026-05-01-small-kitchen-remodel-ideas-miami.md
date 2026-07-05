@@ -235,6 +235,6 @@ La mayoria de nuestros proyectos de cocinas pequenas en areas como Sweetwater, C
 
 Una cocina pequena no es una limitacion. Es un desafio de diseno con soluciones reales. El diseno correcto, los colores, la iluminacion y el almacenamiento hacen que una cocina de 70 pies cuadrados se sienta abierta, funcional y moderna.
 
-Broke & Fixed Home Solutions maneja proyectos de [remodelacion de cocinas](/es/services/kitchen-remodeling) en todo el condado de Miami-Dade. Trabajamos con el espacio que tienes y lo convertimos en algo que realmente disfrutas usar.
+Broke & Fixed Home Solutions maneja proyectos de [remodelacion de cocinas](/es/services/remodelacion-de-cocinas) en todo el condado de Miami-Dade. Trabajamos con el espacio que tienes y lo convertimos en algo que realmente disfrutas usar.
 
 Llamanos al **(786) 363-7039** para un presupuesto gratuito.

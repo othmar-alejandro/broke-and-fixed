@@ -214,7 +214,7 @@ Si quieres un toque de color, ponlo en un solo lugar controlado. Una franja de a
 
 ## Poniendolo Todo Junto
 
-Asi se ve una [remodelacion de bano](/es/services/bathroom-remodeling) pequeno bien planificada:
+Asi se ve una [remodelacion de bano](/es/services/remodelacion-de-banos) pequeno bien planificada:
 
 - Tocador flotante (24 a 30 pulgadas) con lavabo bajo cubierta
 - Azulejo de porcelanato de gran formato en pisos y paredes de ducha

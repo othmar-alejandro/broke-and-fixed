@@ -213,6 +213,6 @@ Tres casas diferentes. Tres presupuestos diferentes. Tres alcances diferentes. P
 
 Si tu bano se parece a cualquiera de estos escenarios de "antes", no estas atrapado con el. Ya sea que quieras un retoque rapido o una reconstruccion completa, podemos recorrer tu espacio y darte una respuesta directa sobre lo que tomaria.
 
-Revisa nuestros [servicios de remodelacion de banos](/es/services/bathroom-remodeling) para mas informacion sobre lo que hacemos. Si quieres entender los costos antes de llamar, lee nuestra [guia de costos de remodelacion de banos](/es/cost/bathroom-remodeling) con precios 2026.
+Revisa nuestros [servicios de remodelacion de banos](/es/services/remodelacion-de-banos) para mas informacion sobre lo que hacemos. Si quieres entender los costos antes de llamar, lee nuestra [guia de costos de remodelacion de banos](/es/cost/remodelacion-de-banos) con precios 2026.
 
 Listo para hablar sobre tu bano? Llamanos al **(786) 363-7039** o solicita un presupuesto gratis en linea.

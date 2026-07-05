@@ -334,6 +334,6 @@ El mercado de remodelacion de Miami se mantiene ocupado todo el ano, asi que no 
 
 Cada bano es diferente. Los pies cuadrados, materiales, condicion de plomeria y cambios de distribucion afectan su costo final. Los numeros de arriba le dan un rango realista para planificar.
 
-Quiere un numero exacto para su bano? Proporcionamos estimados gratis para propietarios en todo el Condado de Miami-Dade, desde [Kendall](/es/services/bathroom-remodeling/kendall) hasta [Palmetto Bay](/es/services/bathroom-remodeling/palmetto-bay) y [Coral Gables](/es/services/bathroom-remodeling/coral-gables). Sin presion, sin compromiso. Precios honestos de un equipo de remodelacion local.
+Quiere un numero exacto para su bano? Proporcionamos estimados gratis para propietarios en todo el Condado de Miami-Dade, desde [Kendall](/es/services/remodelacion-de-banos/kendall) hasta [Palmetto Bay](/es/services/remodelacion-de-banos/palmetto-bay) y [Coral Gables](/es/services/remodelacion-de-banos/coral-gables). Sin presion, sin compromiso. Precios honestos de un equipo de remodelacion local.
 
 Llame al **(786) 363-7039** o toque el boton de abajo para comenzar.

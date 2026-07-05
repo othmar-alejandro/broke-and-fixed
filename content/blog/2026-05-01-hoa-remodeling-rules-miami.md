@@ -172,7 +172,7 @@ Vamos a repasar lo que necesitas saber.
 
 La mayoria de las HOAs en Miami-Dade tratan el trabajo interior y exterior de manera muy diferente.
 
-**Trabajo interior (generalmente no necesita aprobacion).** Si estas remodelando un [bano](/es/services/bathroom-remodeling), actualizando una cocina, pintando paredes interiores o reemplazando pisos dentro de tu casa, la mayoria de las HOAs no requieren aprobacion. El trabajo no cambia la apariencia exterior de la propiedad, por lo que queda fuera de la jurisdiccion de la HOA.
+**Trabajo interior (generalmente no necesita aprobacion).** Si estas remodelando un [bano](/es/services/remodelacion-de-banos), actualizando una cocina, pintando paredes interiores o reemplazando pisos dentro de tu casa, la mayoria de las HOAs no requieren aprobacion. El trabajo no cambia la apariencia exterior de la propiedad, por lo que queda fuera de la jurisdiccion de la HOA.
 
 Hay excepciones. Algunas HOAs de condominios y casas adosadas requieren aprobacion para cualquier trabajo que involucre plomeria o cambios estructurales, incluso si es interior. Si estas en un condominio, siempre verifica. La poliza maestra del edificio puede tener reglas especificas sobre lo que las unidades pueden hacer con las tuberias compartidas y paredes estructurales.
 

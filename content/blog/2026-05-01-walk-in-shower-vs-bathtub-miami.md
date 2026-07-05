@@ -165,7 +165,7 @@ Toda la conversion tipicamente toma de 5 a 8 dias laborales dependiendo del tama
 
 ## Cuanto Cuesta una Conversion a Ducha Abierta en Miami?
 
-Una conversion a ducha abierta como parte de una [remodelacion completa de bano](/es/services/bathroom-remodeling) tipicamente agrega de $3,000 a $5,000 al total del proyecto. Eso cubre la demolicion extra, reubicacion de plomeria, impermeabilizacion y vidrio.
+Una conversion a ducha abierta como parte de una [remodelacion completa de bano](/es/services/remodelacion-de-banos) tipicamente agrega de $3,000 a $5,000 al total del proyecto. Eso cubre la demolicion extra, reubicacion de plomeria, impermeabilizacion y vidrio.
 
 Asi se desglosan los numeros como proyecto independiente:
 
@@ -247,6 +247,6 @@ Aqui tienes un marco simple.
 
 ## Listo Para Hablar de Tu Bano?
 
-Si estas pensando en una conversion a ducha abierta o una [remodelacion completa de bano](/es/services/bathroom-remodeling), nos gustaria escuchar sobre tu proyecto. Trabajamos en todo Miami-Dade County y nos encargamos de todo, desde la demolicion hasta la ultima linea de lechada.
+Si estas pensando en una conversion a ducha abierta o una [remodelacion completa de bano](/es/services/remodelacion-de-banos), nos gustaria escuchar sobre tu proyecto. Trabajamos en todo Miami-Dade County y nos encargamos de todo, desde la demolicion hasta la ultima linea de lechada.
 
 Llama o envia un texto al **(786) 363-7039** para un estimado gratis. Iremos a ver tu espacio y te daremos numeros reales, no un discurso de ventas.

@@ -267,8 +267,8 @@ Estos son estimados de materiales y mano de obra. La demolicion de un salpicader
 
 ## La Instalacion Profesional Importa
 
-El azulejo de salpicadero parece un trabajo simple. Pero cortes malos alrededor de los tomacorrientes, lineas de lechada desiguales y azulejos que no se alinean en las esquinas son dificiles de arreglar despues. El [trabajo de azulejo](/es/services/tile-work) profesional cuesta mas al principio pero te ahorra un resultado que parece proyecto casero.
+El azulejo de salpicadero parece un trabajo simple. Pero cortes malos alrededor de los tomacorrientes, lineas de lechada desiguales y azulejos que no se alinean en las esquinas son dificiles de arreglar despues. El [trabajo de azulejo](/es/services/instalacion-de-pisos) profesional cuesta mas al principio pero te ahorra un resultado que parece proyecto casero.
 
-Nuestro equipo de azulejo en Broke & Fixed Home Solutions instala salpicaderos en todo el condado de Miami-Dade. Tambien manejamos proyectos completos de [remodelacion de cocinas](/es/services/kitchen-remodeling) si estas actualizando mas que solo el salpicadero.
+Nuestro equipo de azulejo en Broke & Fixed Home Solutions instala salpicaderos en todo el condado de Miami-Dade. Tambien manejamos proyectos completos de [remodelacion de cocinas](/es/services/remodelacion-de-cocinas) si estas actualizando mas que solo el salpicadero.
 
 Llamanos al **(786) 363-7039** para un presupuesto gratuito.

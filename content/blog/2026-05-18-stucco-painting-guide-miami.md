@@ -220,7 +220,7 @@ Wash the exterior once a year with a garden hose or low-pressure washer (1,200 t
 
 If your Miami home is showing signs of fading, cracking, or mold staining, it is time to talk about a repaint. At Broke & Fixed Home Solutions, we handle the full process: pressure washing, crack repair, mold treatment, priming, and two coats of quality paint. Every job starts with a detailed walkthrough and honest estimate.
 
-Call us at **(786) 363-7039** or [request a free estimate online](/en/contact).
+Call us at **(786) 363-7039** or [request a free estimate online](/en#contact).
 
 ### Related Reading
 
@@ -437,10 +437,10 @@ Lava el exterior una vez al ano con una manguera de jardin o lavadora a baja pre
 
 Si tu casa en Miami esta mostrando senales de decoloracion, agrietamiento o manchas de moho, es hora de hablar sobre un repintado. En Broke & Fixed Home Solutions, manejamos el proceso completo: lavado a presion, reparacion de grietas, tratamiento de moho, primer y dos capas de pintura de calidad. Cada trabajo comienza con un recorrido detallado y un estimado honesto.
 
-Llamanos al **(786) 363-7039** o [solicita un estimado gratis en linea](/es/contact).
+Llamanos al **(786) 363-7039** o [solicita un estimado gratis en linea](/es#contact).
 
 ### Lectura Relacionada
 
-- [Pintura Exterior en Kendall](/es/services/exterior-painting/kendall)
-- [Pintura Exterior en West Kendall](/es/services/exterior-painting/west-kendall)
-- [Pintura Exterior en Coconut Grove](/es/services/exterior-painting/coconut-grove)
+- [Pintura Exterior en Kendall](/es/services/pintura-exterior/kendall)
+- [Pintura Exterior en West Kendall](/es/services/pintura-exterior/west-kendall)
+- [Pintura Exterior en Coconut Grove](/es/services/pintura-exterior/coconut-grove)

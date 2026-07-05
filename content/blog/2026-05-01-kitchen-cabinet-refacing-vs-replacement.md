@@ -245,7 +245,7 @@ Para una cocina estandar en Miami-Dade:
 
 Estos precios son solo por gabinetes e instalacion. Tambien necesitas presupuestar encimeras nuevas ($2,000 a $6,000+), salpicadero ($800 a $2,500), trabajo de plomeria ($500 a $1,500) y potencialmente piso nuevo donde los gabinetes viejos dejaron espacios.
 
-El proyecto total a menudo queda entre $15,000 y $40,000 dependiendo de las opciones de materiales. Para un desglose completo de costos, consulta nuestra pagina de [remodelacion de cocina](/es/services/kitchen-remodeling).
+El proyecto total a menudo queda entre $15,000 y $40,000 dependiendo de las opciones de materiales. Para un desglose completo de costos, consulta nuestra pagina de [remodelacion de cocina](/es/services/remodelacion-de-cocinas).
 
 ## Comparacion de Costos
 

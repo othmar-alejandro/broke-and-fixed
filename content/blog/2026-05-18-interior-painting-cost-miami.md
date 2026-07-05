@@ -309,7 +309,7 @@ La mayoria de las casas de Miami construidas antes del 2000 usan construccion CB
 
 ### Aire Salado en Zonas Costeras
 
-Casas en [Coral Gables](/es/services/interior-painting/coral-gables), [Palmetto Bay](/es/services/interior-painting/palmetto-bay), Coconut Grove y otras areas cercanas a la costa lidian con aire salado que penetra incluso espacios interiores. Los depositos de sal en las paredes necesitan lavarse antes de pintar, y la seleccion de pintura debe considerar el ambiente corrosivo. Esto agrega un paso de preparacion que las casas tierra adentro en [Kendall](/es/services/interior-painting/kendall) o West Kendall no siempre necesitan.
+Casas en [Coral Gables](/es/services/pintura-interior/coral-gables), [Palmetto Bay](/es/services/pintura-interior/palmetto-bay), Coconut Grove y otras areas cercanas a la costa lidian con aire salado que penetra incluso espacios interiores. Los depositos de sal en las paredes necesitan lavarse antes de pintar, y la seleccion de pintura debe considerar el ambiente corrosivo. Esto agrega un paso de preparacion que las casas tierra adentro en [Kendall](/es/services/pintura-interior/kendall) o West Kendall no siempre necesitan.
 
 ### Carga de AC y Cambios de Temperatura
 
@@ -409,4 +409,4 @@ Cada casa es diferente. Los pies cuadrados, la altura del techo, la condicion de
 
 Broke & Fixed Home Solutions proporciona estimados gratuitos en persona para proyectos de pintura interior en todo el condado de Miami-Dade. Recorreremos cada habitacion, discutiremos tus metas y te daremos un numero honesto sin sorpresas.
 
-**Llama al (786) 363-7039** o visita nuestras paginas de servicio para [pintura interior en Kendall](/es/services/interior-painting/kendall), [Coral Gables](/es/services/interior-painting/coral-gables) y [Palmetto Bay](/es/services/interior-painting/palmetto-bay) para saber mas sobre lo que hacemos en tu area.
+**Llama al (786) 363-7039** o visita nuestras paginas de servicio para [pintura interior en Kendall](/es/services/pintura-interior/kendall), [Coral Gables](/es/services/pintura-interior/coral-gables) y [Palmetto Bay](/es/services/pintura-interior/palmetto-bay) para saber mas sobre lo que hacemos en tu area.

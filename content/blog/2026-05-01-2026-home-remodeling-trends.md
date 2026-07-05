@@ -155,7 +155,7 @@ Los colores de gabinetes mas populares en el sur de Florida ahora mismo:
 
 La clave para un buen trabajo de pintura de gabinetes es la preparacion. Desengrasado adecuado, lijado, imprimacion y usar una pistola en lugar de brocha o rodillo. Las marcas de brocha en gabinetes pintados se ven amateur. Un acabado profesional con pistola se ve de fabrica. Para una guia detallada, consulta nuestra [guia de pintura de gabinetes de cocina](/es/blog/kitchen-cabinet-painting-guide).
 
-Si estas considerando una [remodelacion de cocina](/es/services/kitchen-remodeling) y tus gabinetes son estructuralmente solidos, pintarlos y gastar los ahorros en nuevas cubiertas, protector contra salpicaduras y herrajes te da una cocina que se ve como $30,000 nueva por una fraccion del costo.
+Si estas considerando una [remodelacion de cocina](/es/services/remodelacion-de-cocinas) y tus gabinetes son estructuralmente solidos, pintarlos y gastar los ahorros en nuevas cubiertas, protector contra salpicaduras y herrajes te da una cocina que se ve como $30,000 nueva por una fraccion del costo.
 
 ## 2. Las Duchas Abiertas Estan Reemplazando Baneras en Todas Partes
 
@@ -165,7 +165,7 @@ El proyecto tipico: el propietario tiene un bano principal con una gran banera d
 
 Las duchas sin bordes (entrada a nivel cero, completamente al nivel del piso del bano) son la version premium de esta tendencia. Se ven increibles, son mas faciles de limpiar y son mejores para la accesibilidad a medida que envejeces. El costo extra por una sin bordes versus una ducha con borde estandar es de $1,500 a $3,000, y mas propietarios estan optando por ella.
 
-La banera de jardin no esta muerta en todas partes. Las familias con ninos pequenos todavia necesitan al menos una banera en la casa. Pero la banera enorme de remojo que ocupa 20 pies cuadrados de espacio del bano? Esa esta desapareciendo rapido. Visita nuestros [servicios de remodelacion de bano](/es/services/bathroom-remodeling) para mas informacion.
+La banera de jardin no esta muerta en todas partes. Las familias con ninos pequenos todavia necesitan al menos una banera en la casa. Pero la banera enorme de remojo que ocupa 20 pies cuadrados de espacio del bano? Esa esta desapareciendo rapido. Visita nuestros [servicios de remodelacion de bano](/es/services/remodelacion-de-banos) para mas informacion.
 
 ## 3. El Azulejo de Gran Formato Esta Dominando
 
@@ -237,4 +237,4 @@ Las tendencias van y vienen, pero las de esta lista estan impulsadas por necesid
 
 Si estas planeando una remodelacion en 2026, estas son las decisiones que se veran bien ahora y mantendran valor por anos.
 
-Broke & Fixed Home Solutions trabaja con propietarios en todo Miami-Dade en [remodelaciones de cocina](/es/services/kitchen-remodeling), [remodelaciones de bano](/es/services/bathroom-remodeling) y actualizaciones completas del hogar. Llamanos al **(786) 363-7039** para una consulta gratis y hablemos sobre lo que tiene sentido para tu hogar.
+Broke & Fixed Home Solutions trabaja con propietarios en todo Miami-Dade en [remodelaciones de cocina](/es/services/remodelacion-de-cocinas), [remodelaciones de bano](/es/services/remodelacion-de-banos) y actualizaciones completas del hogar. Llamanos al **(786) 363-7039** para una consulta gratis y hablemos sobre lo que tiene sentido para tu hogar.

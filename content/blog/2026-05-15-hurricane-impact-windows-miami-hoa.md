@@ -281,6 +281,6 @@ Los descuentos del seguro despues de la instalacion tipicamente reducen la prima
 
 - [Aprobacion de Renovacion del HOA en Miami: La Guia Completa](/es/blog/miami-hoa-renovation-approval-guide)
 - [Aprobacion del HOA vs. Permiso del Condado: Que Necesitas Realmente](/es/blog/hoa-approval-vs-permit-miami)
-- Areas de servicio con amplia experiencia HOA: [Doral](/es/services/exterior-repairs/doral), [The Hammocks](/es/services/exterior-repairs/the-hammocks), [West Kendall](/es/services/exterior-repairs/west-kendall), [The Crossings](/es/services/exterior-repairs/the-crossings), [Country Walk](/es/services/exterior-repairs/country-walk), [Coral Gables](/es/services/exterior-repairs/coral-gables), [Cutler Bay](/es/services/exterior-repairs/cutler-bay).
+- Areas de servicio con amplia experiencia HOA: [Doral](/es/services/reparaciones-exteriores/doral), [The Hammocks](/es/services/reparaciones-exteriores/the-hammocks), [West Kendall](/es/services/reparaciones-exteriores/west-kendall), [The Crossings](/es/services/reparaciones-exteriores/the-crossings), [Country Walk](/es/services/reparaciones-exteriores/country-walk), [Coral Gables](/es/services/reparaciones-exteriores/coral-gables), [Cutler Bay](/es/services/reparaciones-exteriores/cutler-bay).
 
 Para una evaluacion gratis de tus opciones de proteccion contra huracanes y la posicion probable de tu HOA, llama al (786) 363-7039 o envia fotos de tu casa y ventanas actuales por mensaje de texto.

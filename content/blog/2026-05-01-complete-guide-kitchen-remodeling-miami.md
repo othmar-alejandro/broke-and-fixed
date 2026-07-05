@@ -464,7 +464,7 @@ Las remodelaciones totales son comunes en Coral Gables y Pinecrest donde los pro
 
 **Nota importante sobre precios:** Los costos de materiales en Miami-Dade son de un 10 a 15 por ciento mas altos que los promedios nacionales debido al envio y la demanda. Las tarifas de mano de obra reflejan el costo de vida del sur de Florida. No son numeros inflados. Es lo que realmente cuesta el trabajo cuando se hace bien.
 
-Para un desglose detallado con precios por partida, consulta nuestra [guia de costos de remodelacion de cocina](/es/cost/kitchen-remodeling).
+Para un desglose detallado con precios por partida, consulta nuestra [guia de costos de remodelacion de cocina](/es/cost/remodelacion-de-cocinas).
 
 ## Pintura de Gabinetes de Cocina: La Mejor Jugada para tu Presupuesto
 
@@ -717,4 +717,4 @@ Toda remodelacion de cocina empieza con una conversacion. Que te gusta de tu coc
 
 Somos un equipo de remodelacion completamente asegurado con base en Kendall, y trabajamos en todo el condado de Miami-Dade. Caminamos por tu cocina, hablamos sobre opciones, y te damos un estimado honesto. Sin presion, sin ventas agresivas, sin sorpresas.
 
-Mira nuestros [servicios de remodelacion de cocina](/es/services/kitchen-remodeling) para ver proyectos recientes, o llamanos al **(786) 363-7039** para programar una visita.
+Mira nuestros [servicios de remodelacion de cocina](/es/services/remodelacion-de-cocinas) para ver proyectos recientes, o llamanos al **(786) 363-7039** para programar una visita.

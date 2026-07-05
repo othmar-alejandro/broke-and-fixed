@@ -164,7 +164,7 @@ La pintura no es solo cosmetica. En una casa CBS (bloque de concreto y estuco), 
 
 **Costo de pintura exterior.** Una casa tipica de un piso en Miami-Dade cuesta $3,500 a $7,000 por una repintada exterior completa. Las casas de dos pisos cuestan $6,000 a $12,000. Esto incluye lavado a presion, preparacion, imprimador donde se necesite y dos capas de pintura de acabado.
 
-Conoce mas sobre nuestro proceso de [pintura exterior](/es/services/exterior-painting).
+Conoce mas sobre nuestro proceso de [pintura exterior](/es/services/pintura-exterior).
 
 ## Reparacion de Estuco Antes de la Temporada de Tormentas
 
@@ -178,7 +178,7 @@ Camina alrededor de tu casa y mira el estuco. Grietas? Descascaramiento? Areas d
 
 **Por que esto importa para huracanes.** Vientos de Categoria 1 (74 a 95 mph) pueden arrancar estuco suelto de una pared. Ese estuco se convierte en un proyectil. Y el bloque expuesto debajo ya no es resistente al agua. Arreglalo ahora mientras un equipo de reparacion puede tomarse su tiempo, no despues de una tormenta cuando cada equipo de remodelacion en Miami esta reservado por meses.
 
-Consulta nuestros servicios de [reparaciones exteriores](/es/services/exterior-repairs) para estuco y otro trabajo exterior.
+Consulta nuestros servicios de [reparaciones exteriores](/es/services/reparaciones-exteriores) para estuco y otro trabajo exterior.
 
 ## Conexiones de Techo a Pared
 
@@ -224,7 +224,7 @@ Estas son las piezas alrededor del borde de tu techo. La fascia es la tabla vert
 
 **Por que importa.** Durante una tormenta, el viento busca cualquier abertura. Un panel de sofito faltante o una seccion de fascia podrida deja que el viento se meta debajo de la estructura del techo. Una vez que el viento esta debajo del techo, empuja hacia arriba desde adentro. Asi es cuando los techos fallan.
 
-Estas reparaciones caen bajo nuestros servicios de [reparaciones exteriores](/es/services/exterior-repairs).
+Estas reparaciones caen bajo nuestros servicios de [reparaciones exteriores](/es/services/reparaciones-exteriores).
 
 ## Iluminacion y Electricidad Exterior
 
@@ -253,6 +253,6 @@ La mayoria de estos proyectos se pueden hacer en unos dias. Combinados, pueden a
 
 ## Nosotros Manejamos el Trabajo Exterior
 
-Broke & Fixed Home Solutions se especializa en [pintura exterior](/es/services/exterior-painting) y [reparaciones exteriores](/es/services/exterior-repairs) en todo el condado de Miami-Dade. Reparacion de estuco, reemplazo de fascia, repintadas exteriores completas con revestimientos resistentes al clima. Dejamos tu casa lista para tormentas antes de junio.
+Broke & Fixed Home Solutions se especializa en [pintura exterior](/es/services/pintura-exterior) y [reparaciones exteriores](/es/services/reparaciones-exteriores) en todo el condado de Miami-Dade. Reparacion de estuco, reemplazo de fascia, repintadas exteriores completas con revestimientos resistentes al clima. Dejamos tu casa lista para tormentas antes de junio.
 
 Llamanos al **(786) 363-7039** para una evaluacion exterior gratuita.

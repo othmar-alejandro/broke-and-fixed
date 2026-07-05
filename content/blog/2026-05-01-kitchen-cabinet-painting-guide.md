@@ -301,7 +301,7 @@ Compara eso con gabinetes nuevos:
 
 Pintar gabinetes te ahorra del 70% al 85% comparado con reemplazarlos. Y mantienes la misma distribucion, lo que significa que no hay que reemplazar encimeras, desconectar plomeria ni pasar semanas sin cocina.
 
-Para un desglose completo de los costos de proyectos de cocina, consulta nuestra [guia de costos de remodelacion de cocina](/es/cost/kitchen-remodeling).
+Para un desglose completo de los costos de proyectos de cocina, consulta nuestra [guia de costos de remodelacion de cocina](/es/cost/remodelacion-de-cocinas).
 
 ## Las Mejores Pinturas para la Humedad de Miami
 
@@ -427,7 +427,7 @@ Pintar gabinetes funciona muy bien por si solo. Pero si quieres maximizar el imp
 
 **Pintura fresca en las paredes.** Ya que estas en eso, una capa nueva en las paredes de la cocina completa la transformacion.
 
-Estas adiciones mantienen el total muy por debajo de lo que costarian gabinetes nuevos solos, y el resultado parece una [remodelacion de cocina](/es/services/kitchen-remodeling) completa.
+Estas adiciones mantienen el total muy por debajo de lo que costarian gabinetes nuevos solos, y el resultado parece una [remodelacion de cocina](/es/services/remodelacion-de-cocinas) completa.
 
 ## Obten un Presupuesto Gratuito de Pintura de Gabinetes
 

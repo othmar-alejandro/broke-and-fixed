@@ -151,7 +151,7 @@ Una ducha sin bordes funciona usando una pendiente suave en el piso hacia el des
 
 Por que esto importa especificamente en Miami: nuestra humedad significa que el agua se seca lentamente. Una ducha sin bordes con drenaje y ventilacion adecuados maneja la humedad mejor que una banera que atrapa agua detras de cortinas y puertas.
 
-El costo de una ducha sin bordes como parte de una [remodelacion de bano](/es/services/bathroom-remodeling) tipicamente esta entre $4,000 y $8,000 dependiendo del tamano y seleccion de azulejo. Eso incluye impermeabilizacion, el piso inclinado de la ducha, azulejo y desague lineal.
+El costo de una ducha sin bordes como parte de una [remodelacion de bano](/es/services/remodelacion-de-banos) tipicamente esta entre $4,000 y $8,000 dependiendo del tamano y seleccion de azulejo. Eso incluye impermeabilizacion, el piso inclinado de la ducha, azulejo y desague lineal.
 
 Si ya estas haciendo una remodelacion completa del bano, la mejora de una ducha estandar a un diseno sin bordes agrega aproximadamente $1,500 a $3,000 al total.
 
@@ -245,7 +245,7 @@ Cada proyecto es diferente, pero estos son los rangos que tipicamente vemos en M
 
 **Remodelacion completa de bano accesible ($15,000 a $28,000).** Demolicion y rediseno completo con ducha sin bordes, azulejo personalizado, pisos con calefaccion, puerta ampliada, plomeria nueva, accesorios nuevos, barras de apoyo con refuerzos e impermeabilizacion completa.
 
-El mejor momento para agregar caracteristicas de accesibilidad es durante una [remodelacion completa del bano](/es/services/bathroom-remodeling). Agregarlas despues significa abrir paredes de nuevo, lo que duplica el costo de mano de obra.
+El mejor momento para agregar caracteristicas de accesibilidad es durante una [remodelacion completa del bano](/es/services/remodelacion-de-banos). Agregarlas despues significa abrir paredes de nuevo, lo que duplica el costo de mano de obra.
 
 ## Planifica Antes, No Despues de una Caida
 

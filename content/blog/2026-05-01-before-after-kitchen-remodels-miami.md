@@ -233,7 +233,7 @@ La propietaria conservo sus encimeras de granito existentes, que combinaron perf
 
 Ya sea que quieras una renovacion de pintura de gabinetes por $4,500 o una remodelacion completa de $38,000, recorreremos tu espacio y te daremos opciones honestas.
 
-Mira nuestros [servicios de remodelacion de cocinas](/es/services/kitchen-remodeling) o lee nuestra [guia de costos de remodelacion de cocina](/es/cost/kitchen-remodeling) con precios detallados de 2026.
+Mira nuestros [servicios de remodelacion de cocinas](/es/services/remodelacion-de-cocinas) o lee nuestra [guia de costos de remodelacion de cocina](/es/cost/remodelacion-de-cocinas) con precios detallados de 2026.
 
 Quieres saber mas sobre pintura de gabinetes especificamente? Lee nuestra [guia de pintura de gabinetes de cocina](/es/blog/kitchen-cabinet-painting-guide).
 

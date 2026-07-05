@@ -281,6 +281,6 @@ Cualquier ruta que elijas, resuelve tu financiamiento antes de empezar a pedir e
 
 Una vez que sepas como planeas pagar, el siguiente paso es obtener un estimado preciso. Proporcionamos estimados gratuitos con visita para todos nuestros servicios en el Condado de Miami-Dade.
 
-Revisa nuestros [servicios de remodelacion de cocina](/es/services/kitchen-remodeling), [servicios de remodelacion de bano](/es/services/bathroom-remodeling) o cualquiera de nuestras otras paginas de servicio para aprender mas sobre lo que hacemos.
+Revisa nuestros [servicios de remodelacion de cocina](/es/services/remodelacion-de-cocinas), [servicios de remodelacion de bano](/es/services/remodelacion-de-banos) o cualquiera de nuestras otras paginas de servicio para aprender mas sobre lo que hacemos.
 
 Llamanos al **(786) 363-7039** o solicita un estimado gratis en linea. Te daremos un numero directo para que sepas exactamente que llevar a tu prestamista.

@@ -367,6 +367,6 @@ Esto es lo que recomendamos:
 2. **Establece tu presupuesto antes de elegir materiales.** Decide cuanto puedes gastar, luego elige materiales que se ajusten. No al reves.
 3. **Obtiene un estimado con visita.** Iremos a tu casa, veremos tu cocina y te daremos un numero directo. Sin presion. Sin cargos ocultos.
 
-Visita nuestra [pagina de remodelacion de cocinas](/es/services/kitchen-remodeling) para aprender mas sobre nuestro proceso, o consulta nuestra [pagina de costos de cocina](/es/cost/kitchen-remodeling) para detalles adicionales de precios.
+Visita nuestra [pagina de remodelacion de cocinas](/es/services/remodelacion-de-cocinas) para aprender mas sobre nuestro proceso, o consulta nuestra [pagina de costos de cocina](/es/cost/remodelacion-de-cocinas) para detalles adicionales de precios.
 
 Listo para un estimado real? Llamanos al **(786) 363-7039** o solicita uno en linea.

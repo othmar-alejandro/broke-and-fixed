@@ -301,7 +301,7 @@ Asi se ve una remodelacion completa de bano de principio a fin:
 
 **Pintura y limpieza.** El techo y las areas de pared sin azulejos se pintan. Luego limpieza final, sellado y una revision contigo.
 
-Si quieres entender como abordamos nuestros [servicios de remodelacion de banos](/es/services/bathroom-remodeling) de principio a fin, esa pagina explica nuestro proceso.
+Si quieres entender como abordamos nuestros [servicios de remodelacion de banos](/es/services/remodelacion-de-banos) de principio a fin, esa pagina explica nuestro proceso.
 
 ## Cuanto Cuesta Remodelar un Bano en Miami
 
@@ -329,7 +329,7 @@ Algunas cosas que elevan los costos:
 - Pisos calefaccionados: $800 a $1,500
 - Disenos de azulejos personalizados con multiples materiales: agrega tiempo de mano de obra
 
-Para un desglose detallado con elementos especificos, consulta nuestra [guia de costos de remodelacion de banos](/es/cost/bathroom-remodeling).
+Para un desglose detallado con elementos especificos, consulta nuestra [guia de costos de remodelacion de banos](/es/cost/remodelacion-de-banos).
 
 ## Conversiones de Ducha Abierta
 
@@ -505,4 +505,4 @@ Sin importar en que vecindario estes, la clave es trabajar con un equipo que con
 
 Si estas pensando en remodelar tu bano en Miami-Dade, el mejor primer paso es una conversacion. Iremos a tu casa, veremos el espacio, hablaremos de lo que quieres y te daremos un presupuesto honesto. Sin presion. Sin discurso de ventas.
 
-Somos una compania de remodelacion familiar. Completamente asegurados. Hacemos esto todos los dias en Miami-Dade County. Visita nuestros [servicios de remodelacion de banos](/es/services/bathroom-remodeling) para ver como trabajamos, o llamanos al [(786) 363-7039](tel:7863637039) para programar un presupuesto gratuito.
+Somos una compania de remodelacion familiar. Completamente asegurados. Hacemos esto todos los dias en Miami-Dade County. Visita nuestros [servicios de remodelacion de banos](/es/services/remodelacion-de-banos) para ver como trabajamos, o llamanos al [(786) 363-7039](tel:7863637039) para programar un presupuesto gratuito.

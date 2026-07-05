@@ -275,7 +275,7 @@ Mantenlo simple. Un nicho con un tratamiento de acento. No pongas azulejo de ace
 
 ## Lo Que Mas Estamos Instalando
 
-En nuestros proyectos de [trabajo de azulejo](/es/services/tile-work) en Miami-Dade ahora mismo, esto es lo que los clientes estan eligiendo con mas frecuencia:
+En nuestros proyectos de [trabajo de azulejo](/es/services/instalacion-de-pisos) en Miami-Dade ahora mismo, esto es lo que los clientes estan eligiendo con mas frecuencia:
 
 1. Porcelanato mate de 12x24 o 24x48 en paredes de ducha (gris, blanco o beige calido)
 2. Porcelanato de 12x24 en pisos de bano (combinando o complementando el azulejo de la ducha)

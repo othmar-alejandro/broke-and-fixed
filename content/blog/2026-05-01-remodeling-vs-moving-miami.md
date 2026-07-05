@@ -165,9 +165,9 @@ Sumalo todo y mudarse de una casa de $500,000 a una de $650,000 en Miami-Dade pu
 
 Ahora compara eso con arreglar lo que tienes. Aqui hay costos realistas de remodelacion para proyectos comunes en Miami-Dade:
 
-**Remodelacion de cocina ($15,000 a $45,000).** Una [remodelacion de cocina](/es/services/kitchen-remodeling) de rango medio que incluye nuevas cubiertas, revestimiento o pintura de gabinetes, accesorios actualizados, nuevo protector contra salpicaduras y pintura fresca transforma completamente la habitacion. Una renovacion completa con nuevos gabinetes, cubiertas, electrodomesticos, plomeria y pisos cuesta mas.
+**Remodelacion de cocina ($15,000 a $45,000).** Una [remodelacion de cocina](/es/services/remodelacion-de-cocinas) de rango medio que incluye nuevas cubiertas, revestimiento o pintura de gabinetes, accesorios actualizados, nuevo protector contra salpicaduras y pintura fresca transforma completamente la habitacion. Una renovacion completa con nuevos gabinetes, cubiertas, electrodomesticos, plomeria y pisos cuesta mas.
 
-**Remodelacion de bano ($8,000 a $25,000).** Una [remodelacion de bano](/es/services/bathroom-remodeling) con azulejo nuevo, vanidad, accesorios y conversion a ducha abierta hace que un bano anticuado se sienta nuevo.
+**Remodelacion de bano ($8,000 a $25,000).** Una [remodelacion de bano](/es/services/remodelacion-de-banos) con azulejo nuevo, vanidad, accesorios y conversion a ducha abierta hace que un bano anticuado se sienta nuevo.
 
 **Pintura interior ($3,000 a $8,000).** Pintura fresca en las areas principales cambia la sensacion completa de un hogar. Es la mejora de mayor impacto y menor costo que puedes hacer.
 

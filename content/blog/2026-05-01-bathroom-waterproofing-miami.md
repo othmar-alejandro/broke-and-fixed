@@ -212,7 +212,7 @@ Si estas contratando un equipo de remodelacion para un proyecto de bano, aqui es
 
 ## Como Manejamos la Impermeabilizacion
 
-En Broke & Fixed Home Solutions, la impermeabilizacion esta incorporada en cada [remodelacion de bano](/es/services/bathroom-remodeling) y cada [proyecto de azulejo](/es/services/tile-work) que hacemos. No es un complemento. No es opcional. Este es nuestro proceso estandar:
+En Broke & Fixed Home Solutions, la impermeabilizacion esta incorporada en cada [remodelacion de bano](/es/services/remodelacion-de-banos) y cada [proyecto de azulejo](/es/services/instalacion-de-pisos) que hacemos. No es un complemento. No es opcional. Este es nuestro proceso estandar:
 
 1. Instalar tablero de cemento en todas las paredes de la ducha y areas mojadas.
 2. Aplicar membrana impermeabilizante (liquida o en lamina, dependiendo del proyecto) en todas las superficies dentro de la ducha, incluyendo paredes, piso, borde, nichos y alrededor de todas las penetraciones.

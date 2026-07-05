@@ -4,7 +4,7 @@ import { locations } from '@/lib/data/locations'
 import { hoaCommunities } from '@/lib/data/hoa-communities'
 import { getAllPosts } from '@/lib/blog'
 import { getAllProjects } from '@/lib/gallery'
-import { getAllCostPageSlugs } from '@/lib/data/cost-page-data'
+import { getAllCostPageSlugs, getCostPageData } from '@/lib/data/cost-page-data'
 import { getAllGuideKeywords } from '@/lib/data/long-tail-data'
 
 const BASE_URL = 'https://brokeandfixed.com'
@@ -209,7 +209,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ]),
   ]
 
-  // 9. Cost guide pages (EN + ES)
+  // 9. Cost guide pages (EN + ES) — the ES route uses the Spanish slug
   const costGuidePages: MetadataRoute.Sitemap = getAllCostPageSlugs().flatMap((slug) => [
     {
       url: `${BASE_URL}/en/cost/${slug}`,
@@ -218,10 +218,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${BASE_URL}/es/cost/${slug}`,
+      url: `${BASE_URL}/es/cost/${getCostPageData(slug)?.slugEs ?? slug}`,
       lastModified,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
+    },
+  ])
+
+  // 9b. Cost + guides index hubs (EN + ES)
+  const hubIndexPages: MetadataRoute.Sitemap = ['cost', 'guides'].flatMap((section) => [
+    {
+      url: `${BASE_URL}/en/${section}`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    },
+    {
+      url: `${BASE_URL}/es/${section}`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
     },
   ])
 
@@ -292,6 +308,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...hoaCommunityPages,
     ...galleryPages,
     ...costGuidePages,
+    ...hubIndexPages,
     ...guidePages,
     ...specialtyPages,
   ]
