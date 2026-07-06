@@ -34,11 +34,10 @@ const fontAccent = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: {
-    default:
-      "Broke & Fixed Home Solutions | Kitchen & Bathroom Remodeling, Painting | Miami-Dade",
-    template: "%s | Broke & Fixed Home Solutions",
-  },
+  // No title template: page titles already include the brand. A template
+  // here double-appends it ("... | Broke & Fixed | Broke & Fixed Home Solutions").
+  title:
+    "Broke & Fixed Home Solutions | Kitchen & Bathroom Remodeling, Painting | Miami-Dade",
   description:
     "Broke & Fixed Home Solutions offers kitchen and bathroom remodeling, interior and exterior painting, tile work, and exterior repairs across Kendall, West Kendall, Palmetto Bay, Doral, and all of Miami-Dade. Family owned, fully insured, no outsourcing. Call 786-363-7039 for a free estimate.",
   keywords: [

@@ -5,7 +5,7 @@ import { notFound } from "next/navigation"
 import { services } from "@/lib/data/services"
 import { locations } from "@/lib/data/locations"
 import { serviceImages } from "@/lib/data/images"
-import { getContent } from "@/lib/data/content-index"
+import { getContent, allContent } from "@/lib/data/content-index"
 import JsonLd from "@/components/seo/JsonLd"
 import Breadcrumbs from "@/components/seo/Breadcrumbs"
 import Hb803Banner from "@/components/Hb803Banner"
@@ -214,13 +214,30 @@ export async function generateMetadata({
   const location = findLocation(locationSlug)
   if (!service || !location) return {}
 
-  const name = locale === "es" ? service.nameEs : service.name
-  const desc = locale === "es" ? service.descriptionEs : service.description
+  const isEs = locale === "es"
+  const name = isEs ? service.nameEs : service.name
+  const desc = isEs ? service.descriptionEs : service.description
   const url = `https://brokeandfixed.com/${locale}/services/${serviceSlug}/${locationSlug}`
 
+  const titleCore = isEs
+    ? `${name} en ${location.name}, ${location.state}`
+    : `${name} in ${location.name}, ${location.state}`
+
+  // Base content metaDescriptions are English only; the ES pillar overlay is
+  // the only localized source. Never serve an English description on an ES page.
+  const content = getContent(service.slug, locationSlug, locale)
+  const contentIsLocalized =
+    !isEs || content !== allContent[`${service.slug}--${locationSlug}`]
+  const fallbackDescription = isEs
+    ? `${titleCore}. ${desc} Llame al 786-363-7039 para un presupuesto gratis.`
+    : `${titleCore}. ${desc} Call 786-363-7039 for a free estimate.`
+
   return {
-    title: `${name} in ${location.name}, ${location.state} | Broke & Fixed`,
-    description: getContent(serviceSlug.replace(/remodelacion-de-banos|remodelacion-de-cocinas|pintura-interior|pintura-exterior|instalacion-de-pisos|reparaciones-exteriores/g, (m) => { const map: Record<string, string> = {'remodelacion-de-banos':'bathroom-remodeling','remodelacion-de-cocinas':'kitchen-remodeling','pintura-interior':'interior-painting','pintura-exterior':'exterior-painting','instalacion-de-pisos':'tile-work','reparaciones-exteriores':'exterior-repairs'}; return map[m] || m }), locationSlug, locale)?.metaDescription || `${name} in ${location.name}, ${location.state}. ${desc} Call 786-363-7039 for a free estimate.`,
+    title: `${titleCore} | Broke & Fixed`,
+    description:
+      contentIsLocalized && content?.metaDescription
+        ? content.metaDescription
+        : fallbackDescription,
     alternates: {
       canonical: url,
       languages: {
@@ -230,7 +247,7 @@ export async function generateMetadata({
       },
     },
     openGraph: {
-      title: `${name} in ${location.name}, ${location.state}`,
+      title: titleCore,
       description: desc,
       url,
       siteName: "Broke & Fixed Home Solutions",

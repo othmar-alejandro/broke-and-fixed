@@ -40,8 +40,11 @@ export async function generateMetadata({
       ? `Remodelacion de Hogares en ${location.name}, ${location.state} | Broke & Fixed`
       : `Home Remodeling in ${location.name}, ${location.state} | Broke & Fixed`
 
+  // Meta description is SERP ad copy, not page intro. Lead with the offer.
   const description =
-    locale === "es" ? location.descriptionEs : location.description
+    locale === "es"
+      ? `Remodelacion de cocinas y banos, pintura y azulejos en ${location.name}, FL. Empresa familiar, totalmente asegurada. Presupuesto gratis. Llame al (786) 363-7039.`
+      : `Kitchen and bathroom remodeling, painting, and tile in ${location.name}, FL. Family owned, fully insured. Free estimates, fast response. Call (786) 363-7039.`
 
   return {
     title,
