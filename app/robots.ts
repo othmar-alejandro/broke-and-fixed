@@ -1,5 +1,7 @@
 import { MetadataRoute } from "next"
 
+// Policy: allow search engines and AI *search* crawlers (they send visitors),
+// block training-only crawlers and SEO scrapers. Keep in sync with CLAUDE.md.
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
@@ -12,7 +14,6 @@ export default function robots(): MetadataRoute.Robots {
           "Googlebot",
           "Bingbot",
           "Applebot",
-          "Applebot-Extended",
           "DuckDuckBot",
           "Slurp",
           "Baiduspider",
@@ -24,22 +25,30 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: [
           "OAI-SearchBot",
           "ChatGPT-User",
-          "GPTBot",
           "PerplexityBot",
           "Perplexity-User",
           "ClaudeBot",
           "Claude-SearchBot",
           "Claude-User",
-          "Google-Extended",
-          "anthropic-ai",
-          "cohere-ai",
           "Amazonbot",
           "MistralAI-User",
         ],
         allow: "/",
       },
       {
-        userAgent: ["Bytespider", "PetalBot", "MJ12bot", "SemrushBot", "AhrefsBot"],
+        userAgent: [
+          "GPTBot",
+          "CCBot",
+          "Google-Extended",
+          "anthropic-ai",
+          "cohere-ai",
+          "Applebot-Extended",
+          "Bytespider",
+          "PetalBot",
+          "MJ12bot",
+          "SemrushBot",
+          "AhrefsBot",
+        ],
         disallow: "/",
       },
     ],

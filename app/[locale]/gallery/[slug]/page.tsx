@@ -36,6 +36,14 @@ export async function generateMetadata({
   return {
     title,
     description: `${project.service} project in ${project.location || "Miami-Dade"}. ${project.photoCount} photos showing the full transformation.`,
+    alternates: {
+      canonical: `https://brokeandfixed.com/${locale}/gallery/${slug}`,
+      languages: {
+        en: `https://brokeandfixed.com/en/gallery/${slug}`,
+        es: `https://brokeandfixed.com/es/gallery/${slug}`,
+        "x-default": `https://brokeandfixed.com/en/gallery/${slug}`,
+      },
+    },
   }
 }
 

@@ -221,6 +221,7 @@ export default async function BlogPostPage({
                 : "Free in-home estimate. We respond within 15 minutes."
             }
             source={`blog_${slug}`}
+            locale={isEs ? "es" : "en"}
           />
 
           <AuthorBio authorId={post.author} locale={isEs ? "es" : "en"} />

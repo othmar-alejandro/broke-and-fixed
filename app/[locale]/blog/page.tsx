@@ -25,6 +25,14 @@ export async function generateMetadata({
     description: locale === "es"
       ? "Guias de costos, proyectos de antes y despues, y consejos para propietarios en Miami-Dade."
       : "Cost guides, before and after projects, and tips for Miami-Dade homeowners.",
+    alternates: {
+      canonical: `https://brokeandfixed.com/${locale}/blog`,
+      languages: {
+        en: "https://brokeandfixed.com/en/blog",
+        es: "https://brokeandfixed.com/es/blog",
+        "x-default": "https://brokeandfixed.com/en/blog",
+      },
+    },
   }
 }
 

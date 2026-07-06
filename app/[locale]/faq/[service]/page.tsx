@@ -36,6 +36,7 @@ export async function generateMetadata({
   if (!service) return {}
 
   const name = locale === "es" ? service.nameEs : service.name
+  const slug = locale === "es" ? service.slugEs : service.slug
 
   return {
     title: locale === "es"
@@ -44,6 +45,14 @@ export async function generateMetadata({
     description: locale === "es"
       ? `Respuestas a preguntas comunes sobre ${name.toLowerCase()} en Miami-Dade.`
       : `Answers to common questions about ${name.toLowerCase()} in Miami-Dade.`,
+    alternates: {
+      canonical: `https://brokeandfixed.com/${locale}/faq/${slug}`,
+      languages: {
+        en: `https://brokeandfixed.com/en/faq/${service.slug}`,
+        es: `https://brokeandfixed.com/es/faq/${service.slugEs}`,
+        "x-default": `https://brokeandfixed.com/en/faq/${service.slug}`,
+      },
+    },
   }
 }
 
