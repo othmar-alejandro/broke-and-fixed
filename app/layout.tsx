@@ -116,7 +116,7 @@ export default function RootLayout({
                   "@id": "https://brokeandfixed.com/#organization",
                   name: "Broke & Fixed Home Solutions",
                   url: "https://brokeandfixed.com",
-                  logo: "https://brokeandfixed.com/logo.png",
+                  logo: "https://brokeandfixed.com/logo-160.webp",
                   telephone: "+1-786-363-7039",
                   email: "brokeandfixed305@gmail.com",
                   sameAs: [
@@ -181,8 +181,6 @@ export default function RootLayout({
                     "Tile Work",
                     "Exterior Repairs",
                   ],
-                  priceRange: "$2,500 - $50,000",
-                  openingHours: "Mo-Sa 07:00-18:00",
                 },
                 {
                   "@type": "WebSite",

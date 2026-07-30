@@ -77,12 +77,11 @@ export default function Hero() {
   const { t } = useTranslation()
 
   useGSAP(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
-    tl.fromTo('.hero-anim-1', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, 0)
-      .fromTo('.hero-anim-2', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.9 }, 0.1)
-      .fromTo('.hero-anim-3', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.9 }, 0.2)
-      .fromTo('.hero-anim-4', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.9 }, 0.3)
-      .fromTo('.hero-anim-5', { opacity: 0 }, { opacity: 1, duration: 1 }, 1.2)
+    tl.fromTo('.hero-anim-4', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45 }, 0)
+      .fromTo('.hero-anim-5', { opacity: 0 }, { opacity: 1, duration: 0.45 }, 0.35)
 
     gsap.to('.hero-arrow', { y: 6, duration: 1, yoyo: true, repeat: -1, ease: 'sine.inOut' })
   }, { scope: container })
@@ -107,7 +106,7 @@ export default function Hero() {
       <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent 5%, rgba(0,0,0,0.25) 30%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.25) 70%, transparent 95%)' }} />
 
       <div className="relative w-full max-w-4xl mx-auto px-4 md:px-8 flex flex-col items-center text-center">
-        <div className="hero-anim-1" style={{ opacity: 0, transform: 'translateY(20px)' }}>
+        <div className="hero-anim-1">
           <span className="inline-block rounded-full px-4 py-1.5 text-[11px] uppercase tracking-[0.2em] font-semibold bg-black/40 text-white backdrop-blur-sm ring-1 ring-white/20 mb-8">
             {t('hero.badge')}
           </span>
@@ -115,7 +114,7 @@ export default function Hero() {
 
         <h1
           className="hero-anim-2 font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.92] text-white mb-6"
-          style={{ textShadow: '0 2px 20px rgba(0,0,0,0.5)', opacity: 0, transform: 'translateY(30px)' }}
+          style={{ textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}
         >
           {t('hero.headline1')}
           <br />
@@ -124,12 +123,12 @@ export default function Hero() {
 
         <p
           className="hero-anim-3 text-lg md:text-xl text-white leading-relaxed max-w-[48ch] mb-10"
-          style={{ textShadow: '0 1px 12px rgba(0,0,0,0.5)', opacity: 0, transform: 'translateY(30px)' }}
+          style={{ textShadow: '0 1px 12px rgba(0,0,0,0.5)' }}
         >
           {t('hero.sub')}
         </p>
 
-        <div className="hero-anim-4 flex flex-col sm:flex-row items-center gap-4" style={{ opacity: 0, transform: 'translateY(30px)' }}>
+        <div className="hero-anim-4 flex flex-col sm:flex-row items-center gap-4">
           <a
             href="tel:7863637039"
             className="group flex items-center gap-3 bg-white text-espresso rounded-full pl-7 pr-2 py-2.5 text-base font-semibold transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-cream hover:scale-105 active:scale-[0.98]"
@@ -148,7 +147,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="hero-anim-5 absolute bottom-8 left-1/2 -translate-x-1/2" style={{ opacity: 0 }}>
+      <div className="hero-anim-5 absolute bottom-8 left-1/2 -translate-x-1/2">
         <a href="#services" className="flex flex-col items-center gap-2 text-white/40 text-xs tracking-widest uppercase">
           <div className="hero-arrow">
             <ArrowDown weight="light" size={20} />

@@ -41,6 +41,7 @@ export async function generateMetadata({
 
   const title = getPostTitle(post, locale)
   const description = getPostDescription(post, locale)
+  const canonical = `https://brokeandfixed.com/${locale}/blog/${slug}`
 
   return {
     title,
@@ -56,9 +57,11 @@ export async function generateMetadata({
       ...(post.image ? { images: [{ url: post.image }] } : {}),
     },
     alternates: {
+      canonical,
       languages: {
         en: `/en/blog/${slug}`,
         es: `/es/blog/${slug}`,
+        "x-default": `/en/blog/${slug}`,
       },
     },
   }

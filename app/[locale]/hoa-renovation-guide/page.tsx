@@ -31,9 +31,11 @@ export async function generateMetadata({
     title,
     description,
     alternates: {
+      canonical: `https://brokeandfixed.com/${locale}/hoa-renovation-guide`,
       languages: {
         en: "/en/hoa-renovation-guide",
         es: "/es/hoa-renovation-guide",
+        "x-default": "/en/hoa-renovation-guide",
       },
     },
   }

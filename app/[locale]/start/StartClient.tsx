@@ -16,7 +16,7 @@ const PHONE_TEL = "+17863637039"
 const IG = "https://www.instagram.com/brokeandfixed/"
 const REVIEWS = "https://search.google.com/local/writereview?placeid=ChIJ7VSW8vHbAgMRvNWjsiV5kII"
 const BG = "/start-bg-premium.png"
-const LOGO = "/broke-and-fixed-final-logo-Picsart-BackgroundRemover.png"
+const LOGO = "/logo-160.webp"
 
 interface StartClientProps {
   locale: string

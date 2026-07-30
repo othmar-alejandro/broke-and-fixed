@@ -16,7 +16,7 @@ import {
 } from '@phosphor-icons/react'
 import Breadcrumbs from '@/components/seo/Breadcrumbs'
 
-const LOGO = "/broke-and-fixed-final-logo-Picsart-BackgroundRemover.png"
+const LOGO = "/logo-160.webp"
 const PHONE_TEL = "+17863637039"
 
 interface DesignIdeasClientProps {

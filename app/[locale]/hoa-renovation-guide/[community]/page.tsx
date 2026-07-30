@@ -38,14 +38,17 @@ export async function generateMetadata({
     : `HOA Renovation Approval in ${name} | 2026 Guide`
 
   const description = isEs ? c.introEs : c.intro
+  const canonical = `https://brokeandfixed.com/${locale}/hoa-renovation-guide/${isEs ? c.slugEs : c.slug}`
 
   return {
     title,
     description: description.slice(0, 160),
     alternates: {
+      canonical,
       languages: {
         en: `/en/hoa-renovation-guide/${c.slug}`,
         es: `/es/hoa-renovation-guide/${c.slugEs}`,
+        "x-default": `/en/hoa-renovation-guide/${c.slug}`,
       },
     },
     openGraph: {
