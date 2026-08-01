@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;0,900;1,700;1,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --espresso:#0F1F35; --navy:#1E3A5F; --orange:#F07A1A; --orange-soft:#ff9a4d;
+    --cream:#F8F9FC; --slate:#9fb0c6; --line:rgba(248,249,252,.10);
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ background:#0a1322; }
+
+  /* CANVAS = back print area, ~12in x 15.2in @125dpi. The dark gradient stands in
+     for the shirt colour; for screen-print export only the cream + orange + white
+     QR chip become ink (see PRINT.md). */
+  .shirt{
+    position:relative; width:1500px; height:1900px; overflow:hidden;
+    background:radial-gradient(135% 115% at 50% -6%, #2b5180 0%, #1E3A5F 26%, #15304f 52%, #0c1a2e 100%);
+    font-family:"Inter", system-ui, sans-serif; color:var(--cream);
+    -webkit-font-smoothing:antialiased; isolation:isolate;
+  }
+  /* faint blueprint grid */
+  .shirt::before{
+    content:""; position:absolute; inset:0; z-index:0; opacity:.5;
+    background-image:
+      linear-gradient(var(--line) 1px,transparent 1px),
+      linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:54px 54px;
+    -webkit-mask-image:radial-gradient(120% 110% at 50% 42%, #000 55%, transparent 100%);
+            mask-image:radial-gradient(120% 110% at 50% 42%, #000 55%, transparent 100%);
+  }
+  .shirt::after{ /* edge vignette + top orange glow */
+    content:""; position:absolute; inset:0; z-index:9; pointer-events:none;
+    box-shadow:inset 0 0 220px 40px rgba(6,14,26,.55);
+    background:radial-gradient(760px 380px at 50% 4%, rgba(240,122,26,.15), transparent 62%);
+  }
+  .bracket{ position:absolute; width:74px; height:74px; border:3px solid var(--orange); z-index:6; opacity:.9; }
+  .bracket.tl{ top:46px; left:46px; border-right:0; border-bottom:0; }
+  .bracket.tr{ top:46px; right:46px; border-left:0; border-bottom:0; }
+  .bracket.bl{ bottom:46px; left:46px; border-right:0; border-top:0; }
+  .bracket.br{ bottom:46px; right:46px; border-left:0; border-top:0; }
+
+  .inner{
+    position:relative; z-index:5; height:100%;
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+    padding:104px 90px 96px;
+  }
+
+  /* ---- BRAND BLOCK (distance read) ---- */
+  .shield{
+    width:188px; height:198px; margin-bottom:26px;
+    background:url("shield.png") no-repeat center / contain;
+    filter:drop-shadow(.9px 0 0 #fff) drop-shadow(-.9px 0 0 #fff)
+           drop-shadow(0 .9px 0 #fff) drop-shadow(0 -.9px 0 #fff)
+           drop-shadow(0 0 12px rgba(255,255,255,.22));
+  }
+  .wordmark{
+    font-family:"Barlow Condensed"; font-weight:900; font-size:152px; line-height:.82;
+    letter-spacing:.01em; text-transform:uppercase; color:var(--cream);
+    text-shadow:0 6px 30px rgba(6,14,26,.5);
+  }
+  .wordmark .amp{ color:var(--orange); }
+  .subline{
+    margin-top:14px; font-family:"Barlow Condensed"; font-weight:700; font-size:34px;
+    letter-spacing:.5em; text-indent:.5em; text-transform:uppercase; color:var(--orange);
+  }
+
+  .rule{ width:170px; height:5px; background:var(--orange); border-radius:3px; margin:46px 0 40px; }
+
+  /* ---- HOOK ---- */
+  .hook{
+    font-family:"Barlow Condensed"; font-weight:800; font-size:84px; line-height:.94;
+    letter-spacing:.005em; text-transform:uppercase; color:var(--cream); max-width:1180px;
+  }
+  .hook .q{ color:var(--orange); }
+  .services{
+    margin-top:30px; font-family:"Barlow Condensed"; font-weight:600; font-size:33px;
+    letter-spacing:.1em; text-transform:uppercase; color:var(--slate); max-width:1180px; line-height:1.4;
+  }
+  .services b{ color:var(--cream); font-weight:700; }
+  .services .dot{ color:var(--orange); margin:0 .28em; }
+
+  .spacer{ flex:1 1 auto; }
+
+  /* ---- PHONE (distance call to action) ---- */
+  .calllabel{
+    font-family:"Barlow Condensed"; font-weight:800; font-size:36px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--orange);
+  }
+  .phone{
+    font-family:"Barlow Condensed"; font-weight:900; font-size:150px; line-height:.84;
+    letter-spacing:.005em; color:var(--cream); margin-top:8px; text-shadow:0 6px 26px rgba(6,14,26,.5);
+  }
+
+  /* ---- QR PAYOFF (close read) ---- */
+  .qrcard{
+    margin-top:54px; display:flex; align-items:center; gap:34px;
+    background:rgba(248,249,252,.05); border:1px solid var(--line); border-radius:24px;
+    padding:26px 38px 26px 26px;
+  }
+  .qrchip{ background:var(--cream); border-radius:18px; padding:18px; box-shadow:0 22px 46px -20px rgba(0,0,0,.7); flex:none; }
+  .qrchip img{ display:block; width:236px; height:236px; }
+  .qrtext{ text-align:left; }
+  .qrtext .big{
+    font-family:"Barlow Condensed"; font-weight:900; font-size:62px; line-height:.92;
+    text-transform:uppercase; color:var(--orange);
+  }
+  .qrtext .big .arw{ color:var(--cream); }
+  .qrtext .sub{
+    margin-top:12px; font-family:"Barlow Condensed"; font-weight:600; font-size:34px;
+    letter-spacing:.04em; text-transform:uppercase; color:var(--cream);
+  }
+  .qrtext .site{
+    margin-top:16px; display:inline-block; font-family:"Barlow Condensed"; font-weight:800;
+    font-size:30px; letter-spacing:.06em; text-transform:uppercase; color:var(--espresso);
+    background:var(--orange); border-radius:8px; padding:7px 16px;
+  }
+
+  .trust{
+    margin-top:40px; font-family:"Barlow Condensed"; font-weight:700; font-size:28px;
+    letter-spacing:.22em; text-transform:uppercase; color:var(--slate);
+  }
+  .trust .x{ color:var(--orange); margin:0 .5em; }
+</style>
+</head>
+<body>
+  <div class="shirt">
+    <span class="bracket tl"></span><span class="bracket tr"></span>
+    <span class="bracket bl"></span><span class="bracket br"></span>
+    <div class="inner">
+
+      <div class="shield" role="img" aria-label="Broke and Fixed shield"></div>
+      <div class="wordmark">Broke <span class="amp">&amp;</span> Fixed</div>
+      <div class="subline">Home Solutions</div>
+
+      <div class="rule"></div>
+
+      <div class="hook">Still living in the <span class="q">&ldquo;before&rdquo;</span>?</div>
+      <div class="services">
+        Kitchens <span class="dot">&bull;</span> Bathrooms <span class="dot">&bull;</span> Tile<br>
+        <b>Interior &amp; Exterior Painting</b> <span class="dot">&bull;</span> Exterior Repairs
+      </div>
+
+      <div class="spacer"></div>
+
+      <div class="calllabel">Free estimate &nbsp;&bull;&nbsp; Call or text</div>
+      <div class="phone">786 &middot; 363 &middot; 7039</div>
+
+      <div class="qrcard">
+        <div class="qrchip"><img src="qr.png" alt="Scan to see Broke and Fixed projects" /></div>
+        <div class="qrtext">
+          <div class="big">Scan <span class="arw">&rarr;</span> See<br>the afters</div>
+          <div class="sub">100+ real projects</div>
+          <span class="site">brokeandfixed.com</span>
+        </div>
+      </div>
+
+      <div class="trust">Family owned <span class="x">&times;</span> Fully insured <span class="x">&times;</span> Kendall, FL</div>
+
+    </div>
+  </div>
+</body>
+</html>

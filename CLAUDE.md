@@ -38,6 +38,11 @@ Home remodeling company serving Miami-Dade County. Family owned, fully insured (
 - FAQ answers should be 100-200 words (not one-liners)
 - robots.txt allows search + AI search crawlers, blocks training-only crawlers
 
+### Analytics
+- GA4, Clarity, and the Meta Pixel all mount once in `app/layout.tsx`, the single root layout. Every page inherits them, so pages never add tracking tags themselves.
+- Do NOT add a second root layout (a route group with its own `<html>`/`<body>`) or a `global-error.tsx` without also mounting `<MetaPixel />` there. Those bypass the root layout and would go untracked.
+- Meta Pixel lives in `components/MetaPixel.tsx`. It fires PageView on load and again on each client-side route change. Keep those together.
+
 ## Business Info
 - **Name**: Broke & Fixed Home Solutions
 - **Phone**: (786) 363-7039

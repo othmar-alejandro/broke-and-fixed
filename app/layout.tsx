@@ -5,12 +5,14 @@ import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import StickyCallBar from "@/components/StickyCallBar"
 import ExitIntentPopup from "@/components/ExitIntentPopup"
+import MetaPixel from "@/components/MetaPixel"
 import "./globals.css"
 
 // Analytics: env var wins; falls back to production IDs so tracking
 // fires immediately without requiring Vercel env config.
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-VFJFSTJQL7"
 const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID || "wujwk8dpfk"
+const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID || "1564050852174212"
 
 const fontDisplay = Barlow_Condensed({
   subsets: ["latin"],
@@ -217,6 +219,7 @@ export default function RootLayout({
             </Script>
           </>
         )}
+        {FB_PIXEL_ID && <MetaPixel pixelId={FB_PIXEL_ID} />}
         {CLARITY_ID && (
           <Script id="ms-clarity" strategy="lazyOnload">
             {`

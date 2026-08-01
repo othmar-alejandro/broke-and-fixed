@@ -30,6 +30,8 @@ dist-ssr
 .vercel
 .claude
 .playwright-mcp
+.codex
+reports
 tsconfig.tsbuildinfo
 node-compile-cache/
 

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  /* PRINT ARTWORK ONLY - transparent background, 300 dpi.
+     ANY shirt colour: logo has a white outline so it reads on light or dark.
+     Order: QR -> hook -> logo. No phone, no URL. */
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ background:transparent; }
+  .art{ width:1480px; padding:90px; display:flex; flex-direction:column; align-items:center; text-align:center;
+    font-family:"Barlow Condensed",sans-serif; }
+  .qr{ background:#ffffff; border-radius:64px; padding:60px; width:824px; height:824px; }
+  .qr img{ width:100%; height:100%; display:block; }
+  .hook{ margin-top:108px; font-weight:700; font-size:120px; letter-spacing:.18em;
+    text-transform:uppercase; color:#F07A1A; line-height:1; }
+  .logo{ margin-top:188px; width:1300px; height:auto; display:block; }
+</style>
+</head>
+<body>
+  <div class="art">
+    <div class="qr"><img src="qr.png" alt="Scan to see our projects" /></div>
+    <div class="hook">See our projects</div>
+    <img class="logo" src="logo-outline-bold.png" alt="Broke and Fixed Home Solutions" />
+  </div>
+</body>
+</html>
