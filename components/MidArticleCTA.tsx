@@ -20,8 +20,8 @@ export default function MidArticleCTA({
   const resolvedSubhead =
     subhead ??
     (isEs
-      ? "Presupuesto gratis en casa. Respondemos en 15 minutos."
-      : "Free in-home estimate. We respond within 15 minutes.")
+      ? "Presupuesto gratis en casa. Cuéntanos qué necesitas y te damos próximos pasos claros."
+      : "Free in-home estimate. Tell us what you need and we will give you clear next steps.")
 
   return (
     <div className="bg-espresso text-white rounded-2xl p-8 my-12 text-center">

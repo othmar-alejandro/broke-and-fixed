@@ -21,6 +21,11 @@ export default function StickyCallBar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  // Standalone landing pages own their entire funnel. This bar links back to
+  // the marketing site homepage, which on a paid landing page is a conversion
+  // leak, and it would also be a second sticky CTA competing with that page's.
+  if (pathname?.includes("/landing/")) return null
+
   return (
     <>
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-espresso text-white flex items-center justify-between px-4 py-3 shadow-[0_-2px_10px_rgba(0,0,0,0.3)]">
@@ -49,8 +54,8 @@ export default function StickyCallBar() {
             <div className="flex items-center gap-6">
               <span className="text-sm font-medium text-white/80">
                 {isEs
-                  ? "4.7 estrellas en Google · Más de 5 años en Miami · Totalmente Asegurada · Bilingüe EN/ES"
-                  : "4.7 stars on Google · 5+ years in Miami · Fully Insured · Bilingual EN/ES"}
+                  ? "Empresa familiar · Totalmente asegurada · Bilingüe EN/ES · Miami-Dade"
+                  : "Family owned · Fully insured · Bilingual EN/ES · Miami-Dade"}
               </span>
             </div>
             <div className="flex items-center gap-4">

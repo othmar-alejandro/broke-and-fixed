@@ -6,16 +6,16 @@ interface TrustStripProps {
 
 const stats = {
   en: [
-    { value: "200+", label: "Miami Remodels", Icon: House },
-    { value: "4.7", label: "Google Rating", Icon: Star },
+    { value: "Local", label: "Miami-Dade Team", Icon: House },
+    { value: "Reviews", label: "Google Profile", Icon: Star },
     { value: "100%", label: "Fully Insured", Icon: ShieldCheck },
-    { value: "<15 min", label: "Response Time", Icon: Clock },
+    { value: "Clear", label: "Next Steps", Icon: Clock },
   ],
   es: [
-    { value: "200+", label: "Remodelaciones", Icon: House },
-    { value: "4.7", label: "Calificación Google", Icon: Star },
+    { value: "Local", label: "Equipo Miami-Dade", Icon: House },
+    { value: "Reseñas", label: "Perfil de Google", Icon: Star },
     { value: "100%", label: "Asegurados", Icon: ShieldCheck },
-    { value: "<15 min", label: "Tiempo de Respuesta", Icon: Clock },
+    { value: "Clara", label: "Próximos Pasos", Icon: Clock },
   ],
 }
 

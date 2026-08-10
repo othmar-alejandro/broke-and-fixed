@@ -1,0 +1,518 @@
+/*
+  Scoped design tokens for the tub-to-shower landing page.
+  Everything lives under .lp so nothing here can leak into the main site.
+  Page is light-mode locked: this is a paid-traffic conversion page and the
+  photography is shot on white tile, so a dark inversion would fight it.
+*/
+
+.lp {
+  --lp-navy: #1e3a5f;
+  --lp-navy-deep: #0f1f35;
+  --lp-orange: #f07a1a;
+  --lp-orange-deep: #d2660c;
+  --lp-green: #2f7d34;
+  --lp-cream: #f8f9fc;
+
+  /* neutrals biased toward the navy so nothing reads as flat grey */
+  --lp-ink: #14263c;
+  --lp-ink-2: #46597a;
+  /* was #7387a3, which measured 3.67:1 on cream and failed AA for the small
+     uppercase labels. #5a6c86 measures 5.09:1 and still reads as a soft grey. */
+  --lp-ink-3: #5a6c86;
+  --lp-rule: #d7dfea;
+  --lp-rule-soft: #e8edf4;
+
+  /* Orange for TEXT on a light ground. --lp-orange-deep is a button-hover fill
+     and only measures 3.72:1 as text, which fails AA at label sizes. This one
+     measures 5.16:1 on cream. Never use orange-deep for small text. */
+  --lp-orange-text: #a85107;
+
+  /* Text that sits ON the Trade Orange fill. White measures 2.80:1 there and
+     fails AA even at large-text thresholds. Espresso measures 5.92:1. */
+  --lp-on-orange: #0f1f35;
+
+  /* One radius scale. --lp-radius stays an alias so existing call sites lift. */
+  --lp-r-1: 6px;
+  --lp-r-2: 10px;
+  --lp-r-3: 16px;
+  --lp-r-pill: 999px;
+  --lp-radius: var(--lp-r-2);
+
+  /* Elevation, tinted to Shield Navy. Never pure black on a light ground. */
+  --lp-shadow-1: 0 1px 2px rgba(30, 58, 95, 0.05),
+    0 2px 6px -1px rgba(30, 58, 95, 0.06);
+  --lp-shadow-2: 0 1px 2px rgba(30, 58, 95, 0.06),
+    0 8px 20px -6px rgba(30, 58, 95, 0.13);
+  --lp-shadow-3: 0 2px 4px rgba(30, 58, 95, 0.06),
+    0 18px 40px -12px rgba(30, 58, 95, 0.2),
+    0 44px 80px -36px rgba(30, 58, 95, 0.18);
+  /* Hairline as a ring, not a border: no layout cost, composites with shadow */
+  --lp-ring: 0 0 0 1px rgba(30, 58, 95, 0.09);
+  --lp-ring-orange: 0 0 0 2px var(--lp-orange);
+  --lp-shadow-dark: 0 24px 60px -28px rgba(0, 0, 0, 0.7);
+  --lp-hi-dark: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  /* Shared easing vocabulary so every interaction speaks the same language */
+  --lp-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --lp-ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /*
+    MUST be clip, never hidden. `hidden` creates a scroll container and
+    silently kills position:sticky on .lp-sticky, which is the highest-ROI
+    element on the page. `clip` does not. Required by the full-bleed sections.
+  */
+  overflow-x: clip;
+
+  background: var(--lp-cream);
+  color: var(--lp-ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* Display type. Barlow Condensed is loaded by the root layout. */
+.lp-display {
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.02;
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+}
+
+.lp-label {
+  font-family: var(--font-accent), system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/*
+  Three-tier heading system. Every h2 used to render at exactly 48px/700, so
+  the page thesis and a utility label ranked identically and the reader had to
+  do the ranking the design should have done. Tiers separate on four axes at
+  once (size, weight, tracking, and whether a rule sits above), because at
+  these condensed widths size alone does not read as hierarchy.
+
+  Budget: one hero, THREE tier-1 moments, five tier-2, four tier-3. The 900
+  weight is spent exactly once, on the evidence band.
+*/
+.lp-h-hero {
+  font-size: clamp(2.7rem, 1.6rem + 4.7vw, 4.4rem);
+  font-weight: 800;
+  letter-spacing: -0.005em;
+  line-height: 0.94;
+}
+
+.lp-h-thesis {
+  font-size: clamp(2.55rem, 1.845rem + 3.01vw, 4.25rem);
+  font-weight: 800;
+  letter-spacing: -0.005em;
+  line-height: 0.94;
+  max-width: 20ch;
+}
+
+.lp-h-arg {
+  font-size: clamp(2rem, 1.586rem + 1.77vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  max-width: 22ch;
+}
+
+.lp-h-util {
+  font-size: clamp(1.5rem, 1.344rem + 0.66vw, 1.875rem);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+}
+.lp-h-util::before {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: var(--lp-orange);
+  margin-bottom: 1rem;
+}
+
+/* Section intro paragraph. 52ch, not 62ch: the wider measure was leaving a
+   600px dead gutter beside every one of them. */
+.lp-lede {
+  font-size: 1.15rem;
+  line-height: 1.55;
+  color: var(--lp-ink-2);
+  max-width: 52ch;
+}
+
+/* Utility sections get less vertical budget than arguments. Hierarchy is
+   spacing as much as it is type. */
+.lp-section--util { padding: 3.25rem 0; }
+@media (min-width: 768px) {
+  .lp-section--util { padding: 4rem 0; }
+}
+.lp-section--thesis { padding: 5.5rem 0; }
+@media (min-width: 768px) {
+  .lp-section--thesis { padding: 8rem 0; }
+}
+
+/*
+  Single accent. Orange means "act on this" and nothing else.
+
+  Text is Espresso, not white. White on Trade Orange measures 2.80:1, which
+  fails WCAG AA even at the 3:1 large-text threshold. Espresso on the same
+  orange measures 5.83:1 and passes for normal text, so the brand orange is
+  kept exactly as specified and the label is readable on a phone outdoors.
+  This matters here: a large share of these buyers are over 60.
+*/
+.lp-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  background: var(--lp-orange);
+  color: var(--lp-navy-deep);
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 1.3rem;
+  padding: 0.95rem 2rem;
+  border-radius: var(--lp-radius);
+  border: 0;
+  cursor: pointer;
+  transition: background-color 160ms ease, transform 120ms var(--lp-ease-out);
+}
+.lp-cta:active { transform: scale(0.97); }
+.lp-cta:focus-visible {
+  outline: 3px solid var(--lp-navy);
+  outline-offset: 3px;
+}
+
+/*
+  Hover states fire only on devices that actually hover. Without this gate,
+  iOS applies :hover on tap and the hero CTA (a hash link, so no navigation)
+  sticks in its darker state, which reads as "still loading".
+*/
+@media (hover: hover) and (pointer: fine) {
+  .lp-cta:hover { background: var(--lp-orange-deep); }
+  .lp-cta-dark:hover { background: var(--lp-navy); }
+}
+
+/* Inverted CTA for use on the orange band, where navy is the button fill. */
+.lp-cta-dark {
+  background: var(--lp-navy-deep);
+  color: #ffffff;
+}
+.lp-cta-dark:focus-visible { outline-color: #ffffff; }
+
+/*
+  Tailwind preflight kills the OS tap flash. Restore it on everything
+  actionable: with :active unreliable on iOS anchors, this is the only
+  guaranteed tap acknowledgment a phone user gets.
+*/
+.lp-cta,
+.lp a[href^="tel:"],
+.lp details summary {
+  -webkit-tap-highlight-color: rgba(15, 31, 53, 0.18);
+}
+
+/* Hard edge for the sticky bar so it never merges with the orange CTA band */
+.lp-sticky { box-shadow: 0 1px 0 rgba(15, 31, 53, 0.22); }
+
+/* ---- surfaces ---------------------------------------------------------- */
+
+/*
+  Elevation ladder. Exactly three elements on the page carry rung 3
+  (featured price card, safety overlap card, Day 4 cure card). A fourth
+  breaks the ladder and the featured card stops reading as featured.
+*/
+.lp-card { border: 0; border-radius: var(--lp-r-2); background: #fff; }
+.lp-e1 { box-shadow: var(--lp-ring), var(--lp-shadow-1); }
+.lp-e2 { box-shadow: var(--lp-ring), var(--lp-shadow-2); }
+.lp-e3 { box-shadow: var(--lp-ring), var(--lp-shadow-3); }
+
+/* Photos read as physical prints rather than flat blocks */
+.lp-photo {
+  border-radius: var(--lp-r-2);
+  box-shadow: 0 0 0 1px rgba(30, 58, 95, 0.07), var(--lp-shadow-2);
+  overflow: hidden;
+}
+
+/* Qualifier note. Fills the dead gutter beside a section intro. */
+.lp-note {
+  background: #fff;
+  border-radius: var(--lp-r-2);
+  border-left: 4px solid var(--lp-navy);
+  box-shadow: var(--lp-ring), var(--lp-shadow-2);
+  padding: 1.5rem 1.5rem 1.5rem 1.25rem;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--lp-ink-2);
+}
+
+@media (min-width: 1024px) {
+  .lp-headgrid {
+    display: grid;
+    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+    column-gap: 4rem;
+    align-items: end;
+  }
+}
+
+/* Review card: lifted, not outlined. Cream on white was near invisible. */
+.lp-review { position: relative; }
+.lp-review::before {
+  content: "\201C";
+  position: absolute;
+  top: 6px;
+  right: 18px;
+  font-family: var(--font-display), sans-serif;
+  font-size: 88px;
+  line-height: 1;
+  color: rgba(30, 58, 95, 0.07);
+  pointer-events: none;
+}
+
+/* Trust strip keeps its own edge so it never fuses with the hero above */
+.lp-trust {
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+/* The rating is the only tappable thing in the strip and it links out to the
+   Google profile, so it carries the same 44px floor as every other target. */
+.lp-trust a { min-height: 44px; }
+
+/* ---- price levels ------------------------------------------------------ */
+
+.lp-level { display: flex; flex-direction: column; }
+
+@media (min-width: 768px) and (max-width: 899px) {
+  .lp-levels { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 900px) {
+  .lp.lp .lp-levels {
+    grid-template-columns: 1fr 1.14fr 1fr;
+    align-items: stretch;
+  }
+  /* Stands proud of its neighbours. Size is the emphasis, not a border colour. */
+  .lp-level--featured { margin-block: -22px; }
+}
+
+.lp-level--featured {
+  z-index: 1;
+  box-shadow: var(--lp-ring-orange), var(--lp-shadow-3);
+}
+
+.lp-level__flag {
+  background: var(--lp-orange);
+  color: var(--lp-on-orange);
+  font-family: var(--font-accent), system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 11px 16px;
+}
+
+/*
+  Fixed media height on the level cards. The featured card is 14% wider, so an
+  aspect-ratio photo there is taller and every heading and price below it drifts
+  out of line with its neighbours. A fixed height makes the content below start
+  at the same offset in all three, whatever the card width.
+*/
+@media (min-width: 900px) {
+  .lp-level__media { height: 236px; flex: none; }
+}
+
+/* Invisible band of the same height on the unfeatured cards, so the photos
+   and headings in the row stay on one line. Without it the flag pushes the
+   featured card's content 18px out of step with its neighbours. */
+.lp-level__flag--ghost {
+  background: transparent;
+  padding: 11px 16px;
+}
+.lp-level__flag--ghost::before { content: "\00a0"; }
+
+.lp-level__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.lp-level__keeps {
+  margin-top: auto;
+  margin-inline: -1.5rem;
+  margin-bottom: -1.5rem;
+  padding: 1.15rem 1.5rem;
+  background: var(--lp-cream);
+  box-shadow: inset 0 1px 0 rgba(30, 58, 95, 0.09);
+  font-size: 16px;
+  color: var(--lp-ink-2);
+}
+.lp-level--featured .lp-level__keeps { background: rgba(240, 122, 26, 0.07); }
+
+/* ---- planning guide --------------------------------------------------- */
+
+.lp-guide {
+  background: var(--lp-navy-deep);
+  padding: 4rem 0;
+}
+
+.lp-guide__grid {
+  display: grid;
+  overflow: hidden;
+  border-radius: var(--lp-r-2);
+  background: var(--lp-cream);
+  box-shadow: var(--lp-shadow-3);
+}
+
+.lp-guide__photo {
+  position: relative;
+  min-height: 320px;
+  overflow: hidden;
+}
+
+.lp-guide__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 31, 53, 0.52), transparent 52%);
+  pointer-events: none;
+}
+
+.lp-guide__page {
+  position: absolute;
+  z-index: 1;
+  left: 1.25rem;
+  bottom: 1.25rem;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 4px;
+  background: var(--lp-orange);
+  color: var(--lp-navy-deep);
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0.65rem 0.9rem;
+}
+
+.lp-guide__content { padding: 2rem 1.5rem; }
+
+@media (min-width: 768px) {
+  .lp-guide { padding: 5.5rem 0; }
+  .lp-guide__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+  .lp-guide__photo { min-height: 100%; }
+  .lp-guide__content { padding: 3.25rem; }
+}
+
+/* ---- full bleed -------------------------------------------------------- */
+
+.lp-bleed {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+}
+
+/* Below 360px the nowrap CTA label sets a 330px min-content floor and forces
+   horizontal overflow. Let it wrap there; everywhere else it stays one line. */
+@media (max-width: 379px) {
+  .lp-cta { white-space: normal; }
+}
+
+/*
+  Anchor jumps on this page are instant. The site-wide smooth scroll turns
+  "hero CTA to form" into a 14,000px, 1.5s flight past every section.
+  :has() scopes the override to documents where this page is mounted.
+*/
+html:has(.lp) { scroll-behavior: auto; }
+
+/*
+  FAQ open/close. Without this the answer teleports in (340px instantly on a
+  phone) while the + icon animates smoothly, so the indicator and the thing it
+  indicates disagree. Purely additive: browsers without ::details-content
+  keep today's instant snap.
+*/
+@supports (interpolate-size: allow-keywords) {
+  @media (prefers-reduced-motion: no-preference) {
+    .lp { interpolate-size: allow-keywords; }
+
+    .lp details::details-content {
+      block-size: 0;
+      overflow: clip;
+      transition:
+        block-size 220ms var(--lp-ease-drawer),
+        content-visibility 220ms allow-discrete;
+    }
+    .lp details[open]::details-content { block-size: auto; }
+  }
+}
+
+/* Section rhythm */
+.lp-section { padding: 4.5rem 0; }
+@media (min-width: 768px) { .lp-section { padding: 6rem 0; } }
+
+.lp-wrap {
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 768px) { .lp-wrap { padding-inline: 2rem; } }
+
+.lp-dark {
+  background: var(--lp-navy-deep);
+  color: #eaf0f8;
+}
+.lp-dark .lp-muted { color: #a9bcd4; }
+.lp-muted { color: var(--lp-ink-2); }
+
+/*
+  Scroll reveal. Content is visible by default and the animation is additive,
+  so a browser without scroll-driven animation support (Firefox today) simply
+  shows everything. Nothing can strand a section at opacity 0.
+*/
+@keyframes lp-rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/*
+  The range ends at cover 12%, so the fade completes while the element is
+  still in the bottom quarter of the viewport, regardless of element height.
+  The previous range (entry 4% to cover 26%) scaled with element height and
+  let a visitor park the pricing cards at 30% opacity, which composited to a
+  1.58:1 contrast failure on the money section. Measured, not theoretical.
+*/
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .lp-reveal {
+      animation: lp-rise linear both;
+      animation-timeline: view();
+      animation-range: cover calc(0% + var(--lp-reveal-offset, 0%)) cover
+        calc(12% + var(--lp-reveal-offset, 0%));
+    }
+  }
+}
+
+/*
+  Reduced motion: kill animations and movement, keep color and opacity
+  transitions. Those aid comprehension (a button acknowledging a press) and
+  removing them helps nobody. "Fewer and gentler", not zero feedback.
+*/
+@media (prefers-reduced-motion: reduce) {
+  .lp *,
+  .lp *::before,
+  .lp *::after {
+    animation-duration: 0.001ms !important;
+  }
+  .lp-cta { transition: background-color 160ms ease; }
+  .lp-cta:active { transform: none; }
+}

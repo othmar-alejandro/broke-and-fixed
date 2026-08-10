@@ -36,11 +36,18 @@ Goal: read + write the profile programmatically (categories, services, areas, de
 - ✅ GCP project `broke-fixed-gbp-305` created (project number **659522661382**) under brokeandfixed305@gmail.com
 - ✅ Enabled: `mybusinessbusinessinformation.googleapis.com`, `mybusinessaccountmanagement.googleapis.com`
 
+- ✅ OAuth + read scripts written (zero dependencies, Node 22):
+  - `scripts/gbp-auth.mjs` — one-time browser authorize, saves refresh token to `.env.local`
+  - `scripts/gbp-read.mjs` — prints live categories, pending-edit flag, service areas, description
+  - `scripts/lib/gbp.mjs` — env loading + token refresh shared by both
+
 **Remaining:**
-1. **Submit Google's access form** (the gate — see Part 3). Only an owner/manager can submit.
-2. **Authenticate** once via OAuth (browser authorize, business.manage scope).
-3. **Wait for approval** — confirmed by email; or check the project's Business Profile API quota (300 QPM = approved, 0 = pending).
-4. **Run read/write scripts** (categories, services, areas, description). Posts + review replies use the v4 LocalPosts/Reviews APIs.
+1. **Create the OAuth client** — GCP Console → project `broke-fixed-gbp-305` → APIs & Services → Credentials → Create credentials → OAuth client ID → **Desktop app**. Add the two values to `.env.local` as `GBP_CLIENT_ID` and `GBP_CLIENT_SECRET`. On the OAuth consent screen (External, Testing), add brokeandfixed305@gmail.com as a test user.
+2. **Authorize once:** `node scripts/gbp-auth.mjs` — sign in as brokeandfixed305@gmail.com. Uses a loopback redirect on `127.0.0.1:3111` with PKCE.
+3. **Submit Google's access form** (the real gate — see Part 3). Only an owner/manager can submit. Until it's approved, `gbp-read.mjs` returns 403 with a quota message; that's expected, not a bug in the scripts.
+4. **Wait for approval** — confirmed by email; or check the project's Business Profile API quota (300 QPM = approved, 0 = pending).
+5. **Verify:** `node scripts/gbp-read.mjs`. The `Pending edits` line tells you whether the Remodeler category change is still in Google's review queue.
+6. **Write scripts** (set category, services, areas, description) — not written yet, deliberately. Posts + review replies use the v4 LocalPosts/Reviews APIs.
 
 ---
 

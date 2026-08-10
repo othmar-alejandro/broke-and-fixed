@@ -26,13 +26,13 @@ export default function Hb803Banner({ locale = "en", className = "" }: Hb803Bann
           </div>
           <p className="font-display text-lg md:text-xl font-bold text-espresso leading-tight mb-1">
             {isEs
-              ? "HB 803: Sin permiso para remodelaciones bajo $7,500 (1 de Julio, 2026)"
-              : "HB 803: No permit needed for remodels under $7,500 (July 1, 2026)"}
+              ? "HB 803: Algunas remodelaciones bajo $7,500 pueden no requerir permiso"
+              : "HB 803: Some remodels under $7,500 may not need a permit"}
           </p>
           <p className="text-espresso/70 text-sm">
             {isEs
-              ? "Cocinas, baños, pintura, gabinetes, pisos, drywall y azulejos califican. Aquí está lo que los dueños de casa en Miami deben saber. Leer más →"
-              : "Kitchens, bathrooms, painting, cabinets, flooring, drywall and tile qualify. Here is what Miami homeowners need to know. Read more →"}
+              ? "La nueva regla tiene límites, exclusiones y condiciones. Aquí está lo que los dueños de casa en Miami deben revisar antes de empezar. Leer más →"
+              : "The new rule has limits, exclusions, and conditions. Here is what Miami homeowners should check before starting. Read more →"}
           </p>
         </div>
       </div>

@@ -634,8 +634,8 @@ export default async function CostGuidePage({
           <p className="mt-6 flex items-center justify-center gap-2 text-sm text-white/50">
             <ShieldCheck size={16} weight="fill" className="text-[#4CAF50]" />
             {isEs
-              ? "Empresa familiar. Completamente asegurada. Sin subcontratistas."
-              : "Family owned. Fully insured. Zero subcontractors."}
+              ? "Empresa familiar. Completamente asegurada. Un punto de contacto responsable."
+              : "Family owned. Fully insured. One accountable point of contact."}
           </p>
         </div>
       </section>

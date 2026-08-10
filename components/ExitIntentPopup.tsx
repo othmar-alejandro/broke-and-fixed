@@ -39,6 +39,10 @@ export default function ExitIntentPopup() {
     return () => document.removeEventListener("mouseleave", handleMouseLeave)
   }, [armed])
 
+  // Landing pages run their own exit intent tied to their own offer. The
+  // site-wide popup would fire over it and pull paid traffic off the funnel.
+  if (pathname?.includes("/landing/")) return null
+
   if (!open) return null
 
   return (
@@ -66,8 +70,8 @@ export default function ExitIntentPopup() {
         </h3>
         <p className="text-espresso/70 text-base leading-relaxed mb-6">
           {isEs
-            ? "Cocina, baño, pintura o azulejos. Mencione esta oferta cuando llame o llene el formulario. Respondemos en 15 minutos."
-            : "Kitchen, bathroom, painting, or tile. Mention this offer when you call or fill out the form. We respond within 15 minutes."}
+            ? "Cocina, baño, pintura o azulejos. Mencione esta oferta cuando llame o llene el formulario. Le responderemos con próximos pasos claros."
+            : "Kitchen, bathroom, painting, or tile. Mention this offer when you call or fill out the form. We will reply with clear next steps."}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3">

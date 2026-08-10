@@ -96,8 +96,8 @@ export default function Contact() {
                 </span>
                 <span>
                   {isEs
-                    ? 'Respondemos en menos de 15 minutos'
-                    : 'We typically respond within 15 minutes'}
+                    ? 'Respondemos con próximos pasos claros'
+                    : 'We reply with clear next steps'}
                 </span>
               </div>
               <form action="https://api.web3forms.com/submit" method="POST" onSubmit={handleSubmit}>
@@ -152,9 +152,9 @@ export default function Contact() {
                   {isEs ? 'Respetamos tu privacidad. No spam.' : 'We respect your privacy. No spam.'}
                 </p>
                 <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1 text-[11px] text-white/50">
-                  <span className="font-semibold text-white/70">4.7 stars on Google</span>
+                  <span className="font-semibold text-white/70">Google reviews</span>
                   <span className="text-white/20">&middot;</span>
-                  <span>{isEs ? '5+ años en Miami' : '5+ Years in Miami'}</span>
+                  <span>{isEs ? 'Empresa familiar en Miami-Dade' : 'Family owned in Miami-Dade'}</span>
                   <span className="text-white/20">&middot;</span>
                   <span>{isEs ? 'Totalmente asegurada' : 'Fully Insured'}</span>
                   <span className="text-white/20">&middot;</span>

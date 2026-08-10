@@ -386,8 +386,8 @@ export default async function ServicePage({
             </h2>
             <p className="text-white/70 mt-4 text-lg">
               {isEs
-                ? "Cuéntanos sobre tu proyecto. Sin compromiso, sin presión. Respondemos en 15 minutos."
-                : "Tell us about your project. No obligation, no pressure. We respond within 15 minutes."}
+                ? "Cuéntanos sobre tu proyecto. Sin compromiso, sin presión. Te damos próximos pasos claros."
+                : "Tell us about your project. No obligation, no pressure. We will give you clear next steps."}
             </p>
           </div>
           <form
@@ -475,8 +475,8 @@ export default async function ServicePage({
             </button>
             <p className="text-center text-xs text-white/40 pt-2">
               {isEs
-                ? "Respondemos en menos de 15 minutos. Respetamos tu privacidad."
-                : "We respond in under 15 minutes. We respect your privacy."}
+                ? "Te respondemos con próximos pasos claros. Respetamos tu privacidad."
+                : "We reply with clear next steps. We respect your privacy."}
             </p>
           </form>
         </div>

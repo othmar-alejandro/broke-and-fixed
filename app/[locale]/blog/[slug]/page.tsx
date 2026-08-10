@@ -220,8 +220,8 @@ export default async function BlogPostPage({
             }
             subhead={
               isEs
-                ? "Estimado gratis en casa. Respondemos en 15 minutos."
-                : "Free in-home estimate. We respond within 15 minutes."
+                ? "Estimado gratis en casa. Te damos próximos pasos claros."
+                : "Free in-home estimate. We will give you clear next steps."
             }
             source={`blog_${slug}`}
             locale={isEs ? "es" : "en"}

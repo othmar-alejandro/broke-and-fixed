@@ -10,7 +10,7 @@ Home remodeling company serving Miami-Dade County. Family owned, fully insured (
 - **Icons**: Phosphor Icons
 - **i18n**: react-i18next (EN/ES)
 - **Deployment**: Vercel
-- **CRM**: GoHighLevel (API key in memory, not in code)
+- **CRM**: GoHighLevel (Private Integration Token in `.env.local` as `GHL_API_KEY`, gitignored, never committed)
 - **Forms**: Web3Forms
 
 ## Design System

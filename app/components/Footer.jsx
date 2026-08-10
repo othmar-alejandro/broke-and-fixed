@@ -61,7 +61,7 @@ export default function Footer() {
               {locale === 'es' ? 'Listo para empezar tu remodelacion?' : 'Ready to start your Miami remodel?'}
             </p>
             <p className="text-white/70 text-sm mt-1">
-              {locale === 'es' ? 'Estimado gratis. Respondemos en 15 minutos.' : 'Free estimate. We respond within 15 minutes.'}
+              {locale === 'es' ? 'Estimado gratis. Respuesta clara y sin presión.' : 'Free estimate. Clear reply, no pressure.'}
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">

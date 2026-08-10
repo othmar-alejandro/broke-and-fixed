@@ -266,7 +266,7 @@ const content = {
         },
         {
           q: "Are you insured?",
-          a: "Yes. Broke & Fixed Home Solutions carries full general liability insurance. We are a family-owned remodeling company, not subcontractors or day laborers. Our team does all the work, start to finish. You are protected from day one.",
+          a: "Yes. Broke & Fixed Home Solutions carries general liability insurance. We are a family-owned remodeling company with one accountable point of contact from start to finish. You are protected from day one.",
         },
       ],
     },
@@ -447,7 +447,7 @@ const content = {
         },
         {
           q: "Estan asegurados?",
-          a: "Si. Broke & Fixed Home Solutions tiene seguro de responsabilidad general completo. Somos una empresa familiar de remodelacion, no subcontratistas ni jornaleros. Nuestro equipo hace todo el trabajo, de principio a fin. Usted esta protegido desde el dia uno.",
+          a: "Si. Broke & Fixed Home Solutions tiene seguro de responsabilidad general. Somos una empresa familiar de remodelacion con un punto de contacto responsable de principio a fin. Usted esta protegido desde el dia uno.",
         },
       ],
     },

@@ -300,8 +300,8 @@ export default async function ServiceLocationPage({
           a: `Si. Ofrecemos estimados gratis sin compromiso para todos los proyectos de ${serviceName.toLowerCase()} en ${location.name} y todo Miami-Dade. Llama al 786-363-7039.`,
         },
         {
-          q: `Usan subcontratistas para los trabajos?`,
-          a: `No. Todo el trabajo lo hace nuestro equipo directo. No usamos subcontratistas. Cuando nos contratas, somos nosotros los que nos presentamos a trabajar.`,
+          q: `Quien es responsable por el trabajo?`,
+          a: `Broke & Fixed mantiene un punto de contacto responsable para tu proyecto. Te explicamos el alcance, coordinamos el trabajo y respondemos por la calidad de principio a fin.`,
         },
       ]
     : [
@@ -318,8 +318,8 @@ export default async function ServiceLocationPage({
           a: `Yes. We offer free, no-pressure estimates for all ${serviceName.toLowerCase()} projects in ${location.name} and across Miami-Dade. Call 786-363-7039.`,
         },
         {
-          q: `Do you use subcontractors?`,
-          a: `No. Every job is done by our own crew. We do not use subcontractors. When you hire us, we are the ones who show up.`,
+          q: `Who is accountable for the work?`,
+          a: `Broke & Fixed keeps one accountable point of contact for your project. We explain the scope, coordinate the work, and stand behind the quality from start to finish.`,
         },
       ]
 
@@ -432,8 +432,8 @@ export default async function ServiceLocationPage({
             </h1>
             <p className="text-white/80 text-lg md:text-xl mt-3 max-w-2xl font-sans">
               {isEs
-                ? `Trabajo de calidad hecho por nuestro equipo. Sin subcontratistas. Estimados gratis en ${location.name}.`
-                : `Quality work done by our crew. Zero subcontractors. Free estimates across ${location.name}.`}
+                ? `Trabajo de calidad con un punto de contacto responsable. Estimados gratis en ${location.name}.`
+                : `Quality work with one accountable point of contact. Free estimates across ${location.name}.`}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 mt-6">
               <a
@@ -463,7 +463,7 @@ export default async function ServiceLocationPage({
                 <span className="hidden sm:inline text-white/30">|</span>
                 <span className="flex items-center gap-1.5">
                   <Users size={16} weight="bold" className="text-sage-muted" />
-                  {isEs ? "Cero Subcontratistas" : "Zero Subcontractors"}
+                  {isEs ? "Responsabilidad Directa" : "Direct Accountability"}
                 </span>
                 <span className="hidden sm:inline text-white/30">|</span>
                 <span className="flex items-center gap-1.5">
@@ -684,8 +684,8 @@ export default async function ServiceLocationPage({
               </h2>
               <p className="text-warm-gray-light text-base md:text-lg mt-4 font-sans leading-relaxed">
                 {isEs
-                  ? `Cuentanos sobre tu proyecto y te contactamos el mismo dia. Sin compromiso, sin presion.`
-                  : `Tell us about your project and we will get back to you the same day. No obligation, no pressure.`}
+                  ? `Cuentanos sobre tu proyecto y te damos proximos pasos claros. Sin compromiso, sin presion.`
+                  : `Tell us about your project and we will give you clear next steps. No obligation, no pressure.`}
               </p>
 
               {/* Trust signals */}
@@ -708,8 +708,8 @@ export default async function ServiceLocationPage({
                   <Clock size={20} weight="bold" className="text-sage-muted shrink-0" />
                   <span className="font-sans text-sm">
                     {isEs
-                      ? "Respondemos el mismo dia"
-                      : "We respond the same day"}
+                      ? "Respuesta clara"
+                      : "Clear reply"}
                   </span>
                 </div>
               </div>
@@ -832,8 +832,8 @@ export default async function ServiceLocationPage({
 
                 <p className="text-center text-warm-gray-light text-xs font-sans">
                   {isEs
-                    ? "Respondemos el mismo dia. Sin compromiso."
-                    : "We respond the same day. No obligation."}
+                    ? "Respuesta clara. Sin compromiso."
+                    : "Clear reply. No obligation."}
                 </p>
               </form>
             </div>
