@@ -87,8 +87,8 @@ export default function AboutUs({
       Icon: Receipt,
       title: t("How you pay us", "Cómo nos paga"),
       body: t(
-        "By milestone, as each stage of the work finishes. Never everything up front. We do not offer financing, so nobody is going to sit at your kitchen table pitching you a payment plan.",
-        "Por etapas, a medida que cada fase del trabajo termina. Nunca todo por adelantado. No ofrecemos financiamiento, así que nadie se va a sentar en la mesa de su cocina a venderle un plan de pagos.",
+        "By milestone, as each stage of the work finishes. Never everything up front. Cash or credit card, whichever is easier for you. Nobody is going to sit at your kitchen table pitching you a payment plan, but if financing would help, tell us and we will help you get it set up.",
+        "Por etapas, a medida que cada fase del trabajo termina. Nunca todo por adelantado. Efectivo o tarjeta de crédito, lo que le quede más fácil. Nadie se va a sentar en la mesa de su cocina a venderle un plan de pagos, pero si el financiamiento le ayuda, díganoslo y lo ayudamos a conseguirlo.",
       ),
     },
     {
