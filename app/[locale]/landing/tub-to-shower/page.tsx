@@ -176,10 +176,16 @@ export default async function TubToShowerLanding({
   const P2 = formatUSD(BASE_PRICE["shower-floor"])
   const P3 = formatUSD(BASE_PRICE["full-remodel"])
 
+  /* One illustrated spot icon per day, generated as a matched set in the
+     same flat navy-and-orange style as the comparison cutaways (Higgsfield,
+     10 Aug 2026). They live in /public/landing/tub-to-shower/. If a day ever
+     changes, regenerate in the SAME style, do not mix in a lone Phosphor
+     glyph or a stock icon. */
   const DAYS = [
     {
       d: t("Day 1", "Día 1"),
       t: t("Demo", "Demolición"),
+      img: "/landing/tub-to-shower/day-1.png",
       b: t(
         "We cover your floors, pull the tub, and haul it out.",
         "Cubrimos sus pisos, sacamos la bañera y nos la llevamos.",
@@ -188,6 +194,7 @@ export default async function TubToShowerLanding({
     {
       d: t("Day 2", "Día 2"),
       t: t("Plumbing", "Plomería"),
+      img: "/landing/tub-to-shower/day-2.png",
       b: t(
         "Valve and drain. Electrical too if the job calls for it.",
         "Válvula y desagüe. También electricidad si el trabajo lo pide.",
@@ -196,6 +203,7 @@ export default async function TubToShowerLanding({
     {
       d: t("Day 3", "Día 3"),
       t: t("Waterproofing", "Impermeabilización"),
+      img: "/landing/tub-to-shower/day-3.png",
       b: t(
         "Cement board goes up, then the pan liner and membrane.",
         "Va la placa de cemento, después el plato de ducha y la membrana.",
@@ -204,6 +212,7 @@ export default async function TubToShowerLanding({
     {
       d: t("Day 4", "Día 4"),
       t: t("It cures", "Cura"),
+      img: "/landing/tub-to-shower/day-4.png",
       b: t(
         "Nobody is in your house. This day is not optional.",
         "No hay nadie en su casa. Este día no es opcional.",
@@ -212,6 +221,7 @@ export default async function TubToShowerLanding({
     {
       d: t("Day 5", "Día 5"),
       t: t("Tile", "Azulejo"),
+      img: "/landing/tub-to-shower/day-5.png",
       b: t(
         "Porcelain goes on the walls and the shower floor.",
         "El porcelanato va en las paredes y el piso de la ducha.",
@@ -220,6 +230,7 @@ export default async function TubToShowerLanding({
     {
       d: t("Day 6", "Día 6"),
       t: t("Grout", "Lechada"),
+      img: "/landing/tub-to-shower/day-6.png",
       b: t(
         "Grout goes in and gets time to set properly.",
         "Se aplica la lechada y se le da tiempo de fraguar bien.",
@@ -228,6 +239,7 @@ export default async function TubToShowerLanding({
     {
       d: t("Day 7", "Día 7"),
       t: t("Finish", "Acabados"),
+      img: "/landing/tub-to-shower/day-7.png",
       b: t(
         "Glass, fixtures, paint, cleanup, and we walk it with you.",
         "Cristal, grifería, pintura, limpieza, y lo revisamos con usted.",
@@ -817,25 +829,38 @@ export default async function TubToShowerLanding({
                 {DAYS.map((day, i) => (
                   <li
                     key={day.d}
-                    className={`border-l-2 py-4 pl-5 ${
+                    className={`flex items-start gap-4 border-l-2 py-4 pl-5 ${
                       i === 3
                         ? "border-[var(--lp-orange)]"
                         : "border-[var(--lp-rule)]"
                     }`}
                   >
-                    <p
-                      className={`lp-label ${
-                        i === 3
-                          ? "text-[var(--lp-orange-text)]"
-                          : "text-[var(--lp-ink-3)]"
-                      }`}
-                    >
-                      {day.d}
-                    </p>
-                    <h3 className="lp-display mt-1 text-[1.35rem]">{day.t}</h3>
-                    <p className="mt-1 max-w-[34ch] text-[15px] text-[var(--lp-ink-2)]">
-                      {day.b}
-                    </p>
+                    {/* Decorative: the day title next to it says the same
+                        thing, so screen readers skip the picture. */}
+                    <Image
+                      src={day.img}
+                      alt=""
+                      aria-hidden="true"
+                      width={240}
+                      height={240}
+                      sizes="64px"
+                      className="mt-1 h-16 w-16 shrink-0 rounded-[4px]"
+                    />
+                    <span className="block">
+                      <p
+                        className={`lp-label ${
+                          i === 3
+                            ? "text-[var(--lp-orange-text)]"
+                            : "text-[var(--lp-ink-3)]"
+                        }`}
+                      >
+                        {day.d}
+                      </p>
+                      <h3 className="lp-display mt-1 text-[1.35rem]">{day.t}</h3>
+                      <p className="mt-1 max-w-[34ch] text-[15px] text-[var(--lp-ink-2)]">
+                        {day.b}
+                      </p>
+                    </span>
                   </li>
                 ))}
               </ol>
