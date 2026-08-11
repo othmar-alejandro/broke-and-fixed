@@ -141,12 +141,31 @@ export default function AboutUs({
                 "Alguien tiene que responder por este trabajo. Somos nosotros.",
               )}
             </h2>
-            <p className="mx-auto mt-6 max-w-[54ch] text-[1.15rem] leading-relaxed text-[var(--lp-ink-2)]">
-              {t(
-                "We are two brothers. We do not run four crews at once and we do not hand you off to a project manager you have never met. One of us is at your house every day of the job. If something is not right, you say it to the person who is going to fix it.",
-                "Somos dos hermanos. No manejamos cuatro cuadrillas a la vez ni lo pasamos a un gerente de proyecto que nunca conoció. Uno de los dos está en su casa cada día del trabajo. Si algo no está bien, se lo dice a la persona que lo va a arreglar.",
-              )}
-            </p>
+            {/* Origin story, owner's own answers 11 Aug 2026, tightened with
+                the Epiphany Bridge beats: the wall they watched homeowners
+                hit, the company built as the answer, the name, the daily
+                visit rule, the transformation. Every fact in here came from
+                the owners. Do not add drama that did not happen. */}
+            <div className="mx-auto mt-6 max-w-[54ch] space-y-4 text-left text-[1.15rem] leading-relaxed text-[var(--lp-ink-2)]">
+              <p>
+                {t(
+                  "Before Broke & Fixed had a name, we were two brothers doing residential work with our own hands. Painting, repairs, renovations, whatever the project called for. And on job after job we watched the same things go wrong for homeowners. People who did not show up. Calls nobody returned. Projects passed from hand to hand until nobody owned the result, and the homeowner ended up managing their own renovation.",
+                  "Antes de que Broke & Fixed tuviera nombre, éramos dos hermanos haciendo trabajo residencial con nuestras propias manos. Pintura, reparaciones, remodelaciones, lo que el proyecto pidiera. Y en trabajo tras trabajo vimos fallar las mismas cosas para el dueño de casa. Gente que no llegaba. Llamadas que nadie devolvía. Proyectos que pasaban de mano en mano hasta que nadie respondía por el resultado, y el dueño terminaba administrando su propia remodelación.",
+                )}
+              </p>
+              <p>
+                {t(
+                  "So we built the company we kept wishing existed. One team, one point of responsibility, one person you talk to for all of it. You do not chase five trades. We carry that for you, and we treat the project like it is our own house. The name says the rest. Something in your home is broke, outdated, or just not working for you anymore. We fix it and leave it better than we found it. We fix what's broke. We build what's next.",
+                  "Así que construimos la empresa que nos hubiera gustado encontrar. Un solo equipo, un solo responsable, una sola persona con quien hablar para todo. Usted no persigue a cinco oficios. Nosotros cargamos con eso, y tratamos el proyecto como si fuera nuestra propia casa. El nombre dice el resto. Algo en su casa está broke, roto, viejo o ya no le funciona. Nuestro trabajo es dejarlo fixed, arreglado y mejor de lo que lo encontramos.",
+                )}
+              </p>
+              <p>
+                {t(
+                  "It is also why one of us comes to your job every day. A renovation makes decisions daily, and when nobody accountable is in the room, small problems grow expensive. With us you always know who to call, and it is always an owner. And when the job is done, the check is not the part we remember. It is you walking into the finished bathroom feeling that the dust and the decisions were worth it, comfortable putting our name in front of the people you care about.",
+                  "Por eso también uno de los dos pasa por su obra todos los días. Una remodelación toma decisiones a diario, y cuando no hay nadie responsable en el cuarto, los problemas chicos se vuelven caros. Con nosotros usted siempre sabe a quién llamar, y siempre es un dueño. Y cuando el trabajo termina, el cheque no es la parte que recordamos. Es usted entrando a su baño terminado sintiendo que el polvo y las decisiones valieron la pena, con la confianza de poner nuestro nombre frente a la gente que quiere.",
+                )}
+              </p>
+            </div>
           </div>
         </Reveal>
 

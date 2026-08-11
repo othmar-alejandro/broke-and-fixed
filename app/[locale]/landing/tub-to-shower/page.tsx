@@ -1187,7 +1187,9 @@ export default async function TubToShowerLanding({
 
       {/* ABOUT US. Signs the "me or my brother" claim, which was the page's
           strongest trust line and its only unsigned one. */}
-      <AboutUs locale={locale} />
+      {/* Signed with the owners' real names, given 11 Aug 2026. joinNames
+          renders "Omar and Byron Casilla" / "Omar y Byron Casilla". */}
+      <AboutUs locale={locale} ownerNames={["Omar", "Byron Casilla"]} />
 
       {/* Honest urgency. Real capacity, not a countdown: two brothers with an
           owner on site daily means one job at a time, and that books out. */}
