@@ -14,8 +14,8 @@ Slots are defined in the `PHOTO` and `WORK` objects at the top of
 | `glenvar-before-3.jpg` / `glenvar-after-1.jpeg` | Source frames for the slider crops |
 | `glenvar-before-3-slider.jpg` / `glenvar-after-1-slider.jpg` | Before/after slider. Cropped to the tub/shower wall, because in the full frames both subjects sit on the LEFT and a 50% wipe composited old tub next to new vanity. Re-crop with sharp if the source photos ever change. |
 | `glenvar-after-4.jpeg` | Safety section. Straight-on: glass, niche, window, hex floor. Swapped in for after-2 on owner instruction 9 Aug 2026; after-2 stays on disk. |
-| `glenvar-demo.jpeg` | Timeline, Day 1 |
-| `glenvar-waterproofing.jpeg` | Timeline, Day 3 |
+| `glenvar-demo.jpeg` | Not on the page. Removed from the timeline on owner instruction 10 Aug 2026; the illustrated day icons carry that section now. File stays on disk. |
+| `glenvar-waterproofing.jpeg` | Not on the page. Same removal as above. Still the best proof shot of the membrane if a future section wants it. |
 | `work-hammocks-level1-card.jpg` | **Level 1 card**. 16:10 crop of the Hammocks original: the full frame has tile spacers and a rag in shot. |
 | `work-crossings-level2-card.jpg` | **Level 2 card**. 16:10 crop of the Crossings original, open door cut out. |
 | `work-hammocks-master-remodel.jpeg` | Recent work grid |

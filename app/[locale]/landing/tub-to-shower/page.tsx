@@ -113,8 +113,8 @@ const PHOTO = {
   // owner instruction, 9 Aug 2026. after-2 stays on disk if it is ever
   // wanted back.
   afterShower: "/images/glenvar-after-4.jpg",
-  demo: "/images/glenvar-demo.jpeg",
-  waterproofing: "/images/glenvar-waterproofing.jpeg",
+  // glenvar-demo and glenvar-waterproofing came off the timeline on owner
+  // instruction, 10 Aug 2026. The files stay in /public/images.
   // Owner-assigned 9 Aug 2026. Hammocks shows a finished alcove shower with
   // the room around it untouched, which is the level 1 story. Crossings shows
   // shower plus a new floor through the room with the modest vanity kept,
@@ -823,9 +823,9 @@ export default async function TubToShowerLanding({
             </p>
           </Reveal>
 
-          <div className="mt-10 grid gap-x-8 gap-y-10 lg:grid-cols-[1fr_400px] lg:items-start">
+          <div className="mt-10">
             <Reveal>
-              <ol className="grid gap-0 sm:grid-cols-2">
+              <ol className="grid gap-0 sm:grid-cols-2 lg:grid-cols-3">
                 {DAYS.map((day, i) => (
                   <li
                     key={day.d}
@@ -864,41 +864,6 @@ export default async function TubToShowerLanding({
                   </li>
                 ))}
               </ol>
-            </Reveal>
-
-            <Reveal>
-              <JobPhoto
-                src={PHOTO.demo}
-                alt={t(
-                  "Bathroom stripped to the block wall and studs on day one of a Glenvar Heights tub to shower conversion",
-                  "Baño desmantelado hasta el bloque y la estructura en el día uno de una conversión de bañera a ducha en Glenvar Heights",
-                )}
-                need="Glenvar Heights demo. Stripped to block and studs. Photo 2."
-                ratio="3 / 4"
-                sizes="(max-width: 1024px) 100vw, 400px"
-              />
-              <p className="mt-3 mb-8 text-[15px] text-[var(--lp-ink-2)]">
-                {t(
-                  "Day one. The tub, the old tile and the wall behind it are gone. Same window you saw in the before.",
-                  "Día uno. La bañera, el azulejo viejo y la pared de atrás ya no están. La misma ventana que vio en el antes.",
-                )}
-              </p>
-              <JobPhoto
-                src={PHOTO.waterproofing}
-                alt={t(
-                  "RedGard waterproofing membrane over cement board with a sloped mortar bed and linear drain, before tiling, on a Glenvar Heights tub to shower conversion",
-                  "Membrana impermeabilizante RedGard sobre placa de cemento con base inclinada y desagüe lineal, antes del azulejo, en una conversión de bañera a ducha en Glenvar Heights",
-                )}
-                need="Glenvar Heights waterproofing. RedGard over Durock, sloped pan, linear drain."
-                ratio="3 / 4"
-                sizes="(max-width: 1024px) 100vw, 400px"
-              />
-              <p className="mt-3 text-[15px] text-[var(--lp-ink-2)]">
-                {t(
-                  "Day three at the Glenvar Heights job. Cement board up, red membrane over every inch, the floor sloped to a linear drain. All of it gets buried under tile and none of it can be fixed later. A one day install never gets here, because the old wall never comes off.",
-                  "Día tres en el trabajo de Glenvar Heights. Placa de cemento instalada, membrana roja en cada pulgada, el piso con pendiente hacia un desagüe lineal. Todo eso queda enterrado bajo el azulejo y nada se puede arreglar después. Una instalación de un día nunca llega aquí, porque la pared vieja nunca se quita.",
-                )}
-              </p>
             </Reveal>
           </div>
         </div>
