@@ -27,6 +27,12 @@ PUBLIC_DIR = ROOT / "public" / "guides"
 HERO_IMAGE = ROOT / "public" / "images" / "glenvar-after-1.jpeg"
 DETAIL_IMAGE = ROOT / "public" / "images" / "glenvar-waterproofing.jpeg"
 
+# The same cover art the landing page shows, so the file a visitor opens is
+# visibly the file they were offered. Kept as an UNNUMBERED cover in front of
+# the three content pages: a cover is not a page of the guide, and the offer
+# on the page says three pages.
+COVER_ART_DIR = ROOT / "public" / "landing" / "tub-to-shower"
+
 NAVY = HexColor("#1E3A5F")
 ORANGE = HexColor("#F07A1A")
 GREEN = HexColor("#4CAF50")
@@ -48,6 +54,7 @@ STARTING_PRICES = (4500, 6500, 9500)
 COPY = {
     "en": {
         "filename": "tub-to-shower-planning-guide-en.pdf",
+        "cover_art": "guide-cover-en.png",
         "language": "English",
         "guide": "HOMEOWNER PLANNING GUIDE",
         "title_lines": ["THE MIAMI-DADE", "WALK-IN SHOWER", "PLANNING GUIDE"],
@@ -117,6 +124,7 @@ COPY = {
     },
     "es": {
         "filename": "tub-to-shower-planning-guide-es.pdf",
+        "cover_art": "guide-cover-es.png",
         "language": "Español",
         "guide": "GUÍA DE PLANIFICACIÓN PARA EL HOGAR",
         "title_lines": ["GUÍA DE MIAMI-DADE", "PARA CONVERTIR SU", "BAÑERA EN DUCHA"],
@@ -265,6 +273,30 @@ def draw_footer(c: Canvas, copy: dict, page_num: int, dark: bool = False) -> Non
     c.setFont("Helvetica", 7.5)
     c.drawString(36, 24, "BROKEANDFIXED.COM")
     c.drawRightString(PAGE_W - 36, 24, f"{copy['page']} {page_num} / 3")
+
+
+def draw_cover_art_page(c: Canvas, copy: dict) -> None:
+    """Full bleed cover, identical art to the one on the landing page.
+
+    Cover fitted and centred, so the crop is symmetric and neither the title
+    at the top nor the logo band at the bottom loses anything that matters.
+    Deliberately carries no footer and no page number.
+    """
+    path = COVER_ART_DIR / copy["cover_art"]
+    with Image.open(path) as image:
+        image_w, image_h = image.size
+    scale = max(PAGE_W / image_w, PAGE_H / image_h)
+    draw_w, draw_h = image_w * scale, image_h * scale
+    c.drawImage(
+        ImageReader(str(path)),
+        (PAGE_W - draw_w) / 2,
+        (PAGE_H - draw_h) / 2,
+        draw_w,
+        draw_h,
+        preserveAspectRatio=True,
+        mask="auto",
+    )
+    c.showPage()
 
 
 def draw_cover(c: Canvas, copy: dict) -> None:
@@ -505,6 +537,7 @@ def build_pdf(language: str) -> Path:
     c.setTitle(" ".join(copy["title_lines"]).title())
     c.setAuthor("Broke & Fixed Home Solutions")
     c.setSubject("Walk-in shower planning guide for Miami-Dade homeowners")
+    draw_cover_art_page(c, copy)
     draw_cover(c, copy)
     draw_scope_page(c, copy)
     draw_final_page(c, copy)

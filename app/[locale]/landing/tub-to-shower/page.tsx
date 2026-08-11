@@ -19,6 +19,7 @@ import BeforeAfter from "@/components/landing/BeforeAfter"
 import QuoteForm from "@/components/landing/QuoteForm"
 import AboutUs from "@/components/landing/AboutUs"
 import CapacityBand from "@/components/landing/CapacityBand"
+import TrustFacts from "@/components/landing/TrustFacts"
 import ExitIntent from "@/components/landing/ExitIntent"
 import FunnelTracking from "@/components/landing/FunnelTracking"
 import GuideCapture from "@/components/landing/GuideCapture"
@@ -871,6 +872,12 @@ export default async function TubToShowerLanding({
         </div>
       </section>
 
+      {/* ABOUT US. Sits here, not after the FAQ, because the story and the
+          comparison below it are one argument: the story names the enemy and
+          the table proves it. Belief first, then the logic that justifies it.
+          Signed with the owners' real names, given 11 Aug 2026. */}
+      <AboutUs locale={locale} ownerNames={["Omar", "Byron Casilla"]} />
+
       {/* COMPARISON */}
       <section className="lp-section lp-dark">
         <div className="lp-wrap">
@@ -1185,11 +1192,9 @@ export default async function TubToShowerLanding({
         </div>
       </section>
 
-      {/* ABOUT US. Signs the "me or my brother" claim, which was the page's
-          strongest trust line and its only unsigned one. */}
-      {/* Signed with the owners' real names, given 11 Aug 2026. joinNames
-          renders "Omar and Byron Casilla" / "Omar y Byron Casilla". */}
-      <AboutUs locale={locale} ownerNames={["Omar", "Byron Casilla"]} />
+      {/* Warranty, payment, who answers. Logic, sitting next to the decision
+          rather than next to the story. Split out of AboutUs 11 Aug 2026. */}
+      <TrustFacts locale={locale} />
 
       {/* Honest urgency. Real capacity, not a countdown: two brothers with an
           owner on site daily means one job at a time, and that books out. */}
