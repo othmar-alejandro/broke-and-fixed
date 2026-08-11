@@ -12,11 +12,10 @@ import { BathroomPlan, ScopePlan } from "@/components/landing/quote-plans"
 import { getLeadAttribution, type LeadAttribution } from "@/lib/landing/attribution"
 import {
   BASE_PRICE,
-  computeRange,
-  formatRange,
+  requiresMeasure,
+  startingPrice,
   formatUSD,
   type BathroomLayout,
-  type QuoteRange,
   type ScopeLevel,
 } from "@/lib/landing/quote-pricing"
 
@@ -499,7 +498,9 @@ export default function QuoteForm({
   const [errors, setErrors] = useState<Errors>({})
   const [submitting, setSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
-  const [result, setResult] = useState<QuoteRange | null>(null)
+  /** Starting price to show on the result screen, or null when we measure. */
+  const [result, setResult] = useState<number | null>(null)
+  const [resultShown, setResultShown] = useState(false)
   const [progressLoaded, setProgressLoaded] = useState(false)
 
   const startedRef = useRef(false)
@@ -515,8 +516,9 @@ export default function QuoteForm({
     email: emailRef,
   }
 
-  /** Preview shown live on step two and again on the result screen. */
-  const preview = layout && scope ? computeRange(layout, scope) : null
+  /** Live preview on step two. Null when the layout has to be measured. */
+  const preview = layout && scope ? startingPrice(layout, scope) : null
+  const measureFirst = layout ? requiresMeasure(layout) : false
 
   /*
    * Resume only anonymous project choices. Names, phone numbers and emails stay
@@ -618,8 +620,12 @@ export default function QuoteForm({
         }),
       })
 
-      const data: { ok?: boolean; range?: QuoteRange | null; error?: string } =
-        await response.json().catch(() => ({}))
+      const data: {
+        ok?: boolean
+        startingAt?: number | null
+        measureRequired?: boolean
+        error?: string
+      } = await response.json().catch(() => ({}))
 
       if (!response.ok || !data.ok) {
         /*
@@ -654,19 +660,25 @@ export default function QuoteForm({
       }
 
       /*
-       * Trust the server's range over the local one. Both call the same pure
+       * Trust the server's figure over the local one. Both call the same pure
        * function, so they agree today, but if they ever diverge the number in
-       * the CRM is the number we are accountable for.
+       * the CRM is the number we are accountable for. `undefined` means the
+       * response did not carry one at all, which is different from a
+       * deliberate null, so only the former falls back.
        */
-      const finalRange = data.range ?? computeRange(layout, scope)
-      setResult(finalRange)
+      const finalStartingAt =
+        data.startingAt === undefined
+          ? startingPrice(layout, scope)
+          : data.startingAt
+      setResult(finalStartingAt)
+      setResultShown(true)
 
       try {
         window.sessionStorage.setItem(
           "bf-tub-shower-thanks-v1",
           JSON.stringify({
             kind: "quote",
-            range: finalRange,
+            startingAt: finalStartingAt,
             layout,
             scope,
             createdAt: Date.now(),
@@ -752,9 +764,14 @@ export default function QuoteForm({
                   `Paso ${stepNumber} de ${TOTAL_STEPS}`,
                 )}
           </p>
-          {step !== "result" && preview && step === 2 ? (
+          {step === 2 && layout && scope ? (
             <p className="text-[15.5px] font-semibold text-[var(--lp-ink-2)]">
-              {formatRange(preview)}
+              {preview === null
+                ? t("We measure this one", "Esta la medimos")
+                : t(
+                    `Starting at ${formatUSD(preview)}`,
+                    `Desde ${formatUSD(preview)}`,
+                  )}
             </p>
           ) : null}
         </div>
@@ -1014,7 +1031,7 @@ export default function QuoteForm({
                 >
                   {submitting
                     ? t("Sending your answers", "Enviando sus respuestas")
-                    : t("See my price range", "Ver mi rango de precio")}
+                    : t("See my price", "Ver mi precio")}
                 </button>
                 <BackButton
                   onClick={() => goTo(2)}
@@ -1025,8 +1042,8 @@ export default function QuoteForm({
 
               <p className="mt-4 text-[15.5px] text-[var(--lp-ink-2)]">
                 {t(
-                  "By selecting See my price range, you ask us to call or text about this project. Message and data rates may apply. Reply STOP to end texts. Consent is not a condition of purchase.",
-                  "Al seleccionar Ver mi rango de precio, nos pide que le llamemos o escribamos sobre este proyecto. Pueden aplicar cargos de mensajes y datos. Responda STOP para terminar los textos. El consentimiento no es una condición de compra.",
+                  "By selecting See my price, you ask us to call or text about this project. Message and data rates may apply. Reply STOP to end texts. Consent is not a condition of purchase.",
+                  "Al seleccionar Ver mi precio, nos pide que le llamemos o escribamos sobre este proyecto. Pueden aplicar cargos de mensajes y datos. Responda STOP para terminar los textos. El consentimiento no es una condición de compra.",
                 )}
                 {" "}
                 <Link
@@ -1040,7 +1057,7 @@ export default function QuoteForm({
           )}
 
           {/* ---------------- Result ---------------- */}
-          {step === "result" && result ? (
+          {step === "result" && resultShown ? (
             <div>
               <p className="lp-label text-[var(--lp-ink-3)]">
                 {layout ? layoutDisplay(t)[layout] : ""}
@@ -1048,8 +1065,18 @@ export default function QuoteForm({
                 {scope ? scopeDisplay(t)[scope] : ""}
               </p>
 
+              {/*
+                Two outcomes, both honest. A published starting price when the
+                tub sits in a standard alcove, and a plain "we have to measure"
+                when it does not. No invented figure fills that gap.
+              */}
               <p className="lp-display mt-2 text-[2.4rem] leading-none text-[var(--lp-ink)] sm:text-[3.2rem]">
-                {formatRange(result)}
+                {result === null
+                  ? t("We measure this one first", "Esta la medimos primero")
+                  : t(
+                      `Starting at ${formatUSD(result)}`,
+                      `Desde ${formatUSD(result)}`,
+                    )}
               </p>
 
               {/*
@@ -1058,10 +1085,15 @@ export default function QuoteForm({
                 show a number at all.
               */}
               <p className="mt-4 max-w-[52ch] text-[17px] text-[var(--lp-ink)]">
-                {t(
-                  "This is a range, not a quote. We measure before we commit to a number, and we would rather tell you now than surprise you later.",
-                  "Esto es un rango, no una cotización. Medimos antes de comprometernos con un número, y preferimos decírselo ahora que sorprenderlo después.",
-                )}
+                {result === null
+                  ? t(
+                      "A bigger master bathroom usually has the tub separate from the shower, and taking out a tub on a tiled platform is a different job than an alcove. We would rather measure it than guess at a number.",
+                      "Un baño principal grande casi siempre tiene la bañera separada de la ducha, y sacar una bañera sobre una plataforma de azulejo es un trabajo distinto al de una bañera de alcoba. Preferimos medirla antes que adivinar un número.",
+                    )
+                  : t(
+                      "That is a starting price, not a quote. The size of the room and what we find behind the wall move it, so we measure before we commit to a number. We would rather tell you now than surprise you later.",
+                      "Ese es un precio inicial, no una cotización. El tamaño del cuarto y lo que encontremos detrás de la pared lo mueven, por eso medimos antes de comprometernos con un número. Preferimos decírselo ahora que sorprenderlo después.",
+                    )}
               </p>
 
               <p className="mt-4 max-w-[52ch] text-[17px] font-semibold text-[var(--lp-ink)]">

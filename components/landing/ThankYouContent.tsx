@@ -5,14 +5,15 @@ import Image from "next/image"
 import Link from "next/link"
 import { CheckCircle, DownloadSimple, Phone } from "@phosphor-icons/react"
 
-import { formatRange, type QuoteRange } from "@/lib/landing/quote-pricing"
+import { formatUSD } from "@/lib/landing/quote-pricing"
 
 const PHONE = "(786) 363-7039"
 const TEL = "+17863637039"
 
 type ThankYouState = {
   kind?: "guide" | "quote"
-  range?: QuoteRange
+  /** Published starting price, or null when the room has to be measured. */
+  startingAt?: number | null
   createdAt?: number
 }
 
@@ -44,8 +45,14 @@ export default function ThankYouContent({
    * counting the same submission twice.
    */
   useEffect(() => {
+    /*
+     * createdAt is the proof a real submission happened, so it is the only
+     * gate. Do NOT add a "has a price" condition here: a larger master
+     * bathroom is priced after we measure, so startingAt is legitimately null
+     * on a perfectly good lead, and gating on it would drop those leads out
+     * of conversion tracking entirely and teach Meta to stop finding them.
+     */
     if (!saved.createdAt || saved.kind !== requestedKind) return
-    if (saved.kind === "quote" && !saved.range) return
 
     const marker = `bf-tub-shower-conversion-${saved.kind}-${saved.createdAt}`
     try {
@@ -68,11 +75,13 @@ export default function ThankYouContent({
       }
 
       try {
-        if (saved.kind === "quote" && saved.range) {
+        if (saved.kind === "quote") {
           window.fbq?.("track", "Lead", {
             content_name: "tub-to-shower",
-            value: saved.range.low,
-            currency: "USD",
+            // Value is omitted when the job gets measured before pricing.
+            ...(typeof saved.startingAt === "number"
+              ? { value: saved.startingAt, currency: "USD" }
+              : {}),
           })
         } else {
           window.fbq?.("trackCustom", "PriceGuideLead", {
@@ -87,8 +96,8 @@ export default function ThankYouContent({
               ? "tub-to-shower"
               : "tub-to-shower-planning-guide",
           lead_type: saved.kind === "quote" ? "estimate" : "planning-guide",
-          ...(saved.kind === "quote" && saved.range
-            ? { value: saved.range.low, currency: "USD" }
+          ...(saved.kind === "quote" && typeof saved.startingAt === "number"
+            ? { value: saved.startingAt, currency: "USD" }
             : {}),
         })
 
@@ -133,21 +142,26 @@ export default function ThankYouContent({
                 <h1 className="lp-display mt-4 text-[2.45rem] leading-[0.98] sm:text-[3.5rem]">
                   {t("Your bathroom details are in.", "Ya recibimos los datos de su baño.")}
                 </h1>
-                {saved.range ? (
+                {typeof saved.startingAt === "number" ? (
                   <div className="mt-7 rounded-[5px] bg-[var(--lp-navy-deep)] p-5 text-white">
                     <p className="text-[15px] font-semibold uppercase tracking-[0.12em] text-white/70">
-                      {t("Your planning range", "Su rango de planificación")}
+                      {t("Your starting price", "Su precio inicial")}
                     </p>
                     <p className="lp-display mt-2 text-[2.35rem] leading-none text-white sm:text-[3rem]">
-                      {formatRange(saved.range)}
+                      {formatUSD(saved.startingAt)}
                     </p>
                   </div>
                 ) : null}
                 <p className="mt-6 max-w-[52ch] text-[17px] leading-relaxed text-[var(--lp-ink-2)]">
-                  {t(
-                    "This is a planning range, not a firm price. One of us will review your answers and call or text you. We measure the bathroom before committing to a number.",
-                    "Este es un rango de planificación, no un precio firme. Uno de nosotros revisará sus respuestas y le llamará o escribirá. Medimos el baño antes de comprometernos con un número.",
-                  )}
+                  {typeof saved.startingAt === "number"
+                    ? t(
+                        "That is a starting price, not a firm one. One of us will review your answers and call or text you. We measure the bathroom before committing to a number.",
+                        "Ese es un precio inicial, no uno firme. Uno de nosotros revisará sus respuestas y le llamará o escribirá. Medimos el baño antes de comprometernos con un número.",
+                      )
+                    : t(
+                        "Yours is one we price after we see it, so we did not put a number on this page. One of us will call or text you to set up the measurement.",
+                        "El suyo es de los que cotizamos después de verlo, por eso no pusimos un número en esta página. Uno de nosotros le llamará o le escribirá para coordinar la medición.",
+                      )}
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
                   <a href={`tel:${TEL}`} className="lp-cta">

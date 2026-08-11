@@ -1,14 +1,13 @@
 import { NextResponse } from "next/server"
 
 import {
-  computeRange,
-  formatRange,
+  formatUSD,
   isBathroomLayout,
   isScopeLevel,
   LAYOUT_LABEL,
   SCOPE_LABEL,
+  startingPrice,
   type BathroomLayout,
-  type QuoteRange,
   type ScopeLevel,
 } from "@/lib/landing/quote-pricing"
 
@@ -181,12 +180,22 @@ function splitName(full: string): { firstName: string; lastName: string } {
 /* GoHighLevel                                                         */
 /* ------------------------------------------------------------------ */
 
-function buildCustomFields(lead: Lead, range: QuoteRange) {
+/**
+ * `startingAt` is null when the layout has to be measured before any number is
+ * honest. The rangeLow field now carries the published STARTING price, and
+ * rangeHigh is intentionally blank: the form stopped showing a computed band
+ * on 11 Aug 2026. Rename those two fields in the GHL interface when convenient
+ * (the API is read only for field definitions), the IDs are what matter here.
+ */
+function buildCustomFields(lead: Lead, startingAt: number | null) {
   return [
     { id: GHL_FIELD_IDS.bathroomLayout, field_value: lead.layout },
     { id: GHL_FIELD_IDS.projectScope, field_value: lead.scope },
-    { id: GHL_FIELD_IDS.rangeLow, field_value: String(range.low) },
-    { id: GHL_FIELD_IDS.rangeHigh, field_value: String(range.high) },
+    {
+      id: GHL_FIELD_IDS.rangeLow,
+      field_value: startingAt === null ? "" : String(startingAt),
+    },
+    { id: GHL_FIELD_IDS.rangeHigh, field_value: "" },
     { id: GHL_FIELD_IDS.leadSourceDetail, field_value: leadSource("quote", lead.attribution) },
     { id: GHL_FIELD_IDS.utmSource, field_value: lead.attribution.utmSource },
     { id: GHL_FIELD_IDS.utmMedium, field_value: lead.attribution.utmMedium },
@@ -211,7 +220,7 @@ function buildCustomFields(lead: Lead, range: QuoteRange) {
  */
 async function upsertToGoHighLevel(
   lead: Lead,
-  range: QuoteRange,
+  startingAt: number | null,
   signal: AbortSignal,
 ): Promise<void> {
   const token = process.env.GHL_API_KEY
@@ -243,7 +252,7 @@ async function upsertToGoHighLevel(
       country: "US",
       source: leadSource("quote", lead.attribution),
       tags: [LEAD_TAG, "estimate-request", `lang-${lead.locale}`, ...adPlatformTags(lead.attribution)],
-      customFields: buildCustomFields(lead, range),
+      customFields: buildCustomFields(lead, startingAt),
     }),
   })
 
@@ -374,7 +383,7 @@ async function captureGuideRequest({
  */
 async function sendToWeb3Forms(
   lead: Lead,
-  range: QuoteRange,
+  startingAt: number | null,
   signal: AbortSignal,
 ): Promise<void> {
   const response = await fetch(WEB3FORMS_URL, {
@@ -407,9 +416,10 @@ async function sendToWeb3Forms(
       zip: lead.zip,
       bathroom_layout: `${lead.layout} (${LAYOUT_LABEL[lead.layout]})`,
       scope_level: `${lead.scope} (${SCOPE_LABEL[lead.scope]})`,
-      range_low: range.low,
-      range_high: range.high,
-      quoted_range: formatRange(range),
+      starting_price:
+        startingAt === null
+          ? "measure required, larger master bathroom"
+          : formatUSD(startingAt),
       language: lead.locale,
       lead_source: leadSource("quote", lead.attribution),
       attribution: attributionLines(lead.attribution),
@@ -446,7 +456,7 @@ export async function POST(request: Request) {
   const honeypot = asString(input.company, 200)
   if (honeypot.length > 0) {
     console.info("[lead] path=honeypot outcome=discarded")
-    return NextResponse.json({ ok: true, range: null })
+    return NextResponse.json({ ok: true, startingAt: null })
   }
 
   /*
@@ -477,7 +487,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         ok: captured,
-        range: null,
+        startingAt: null,
         ...(captured ? {} : { error: "We could not save that email just now." }),
       },
       { status: captured ? 200 : 502 },
@@ -520,31 +530,31 @@ export async function POST(request: Request) {
   const lead: Lead = { name, phone, zip, email, layout, scope, locale, attribution }
 
   /*
-   * The server recomputes the range from the same pure function the form used.
-   * Whatever range the client sent is ignored. Otherwise anyone can POST their
+   * The server recomputes the figure from the same pure function the form used.
+   * Whatever number the client sent is ignored. Otherwise anyone can POST their
    * own number and it goes straight into the CRM as if we quoted it.
    */
-  const range = computeRange(layout, scope)
+  const startingAt = startingPrice(layout, scope)
 
   const controller = new AbortController()
   const timeout = setTimeout(() => controller.abort(), UPSTREAM_TIMEOUT_MS)
 
   try {
     try {
-      await upsertToGoHighLevel(lead, range, controller.signal)
+      await upsertToGoHighLevel(lead, startingAt, controller.signal)
       console.info(`[lead] path=ghl outcome=ok zip=${zip} scope=${scope} layout=${layout}`)
-      return NextResponse.json({ ok: true, range })
+      return NextResponse.json({ ok: true, startingAt })
     } catch (ghlError) {
       console.warn(
         "[lead] path=ghl outcome=failed, falling back to web3forms:",
         ghlError instanceof Error ? ghlError.message : ghlError,
       )
 
-      await sendToWeb3Forms(lead, range, controller.signal)
+      await sendToWeb3Forms(lead, startingAt, controller.signal)
       console.info(
         `[lead] path=web3forms outcome=ok zip=${zip} scope=${scope} layout=${layout}`,
       )
-      return NextResponse.json({ ok: true, range })
+      return NextResponse.json({ ok: true, startingAt })
     }
   } catch (fallbackError) {
     /*
@@ -559,7 +569,7 @@ export async function POST(request: Request) {
     console.error(
       "[lead] LEAD_RECOVERY path=none outcome=LOST reason=" +
         (fallbackError instanceof Error ? fallbackError.message : String(fallbackError)),
-      JSON.stringify({ ...lead, range }),
+      JSON.stringify({ ...lead, startingAt }),
     )
 
     return NextResponse.json(

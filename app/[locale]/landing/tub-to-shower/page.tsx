@@ -510,7 +510,7 @@ export default async function TubToShowerLanding({
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link href={QUOTE_HREF} className="lp-cta">
-                {t("Get my price range", "Ver mi rango de precio")}
+                {t("Get my price", "Ver mi precio")}
               </Link>
               <a
                 href={`tel:${TEL}`}
@@ -803,7 +803,7 @@ export default async function TubToShowerLanding({
             )}
           </h2>
           <Link href={QUOTE_HREF} className="lp-cta lp-cta-dark">
-            {t("Get my price range", "Ver mi rango de precio")}
+            {t("Get my price", "Ver mi precio")}
           </Link>
         </div>
       </section>
@@ -1028,7 +1028,7 @@ export default async function TubToShowerLanding({
             )}
           </h2>
           <Link href={QUOTE_HREF} className="lp-cta lp-cta-dark">
-            {t("Get my price range", "Ver mi rango de precio")}
+            {t("Get my price", "Ver mi precio")}
           </Link>
         </div>
       </section>
@@ -1209,8 +1209,8 @@ export default async function TubToShowerLanding({
             </h2>
             <p className="mt-4 max-w-[46ch] lp-muted">
               {t(
-                "Two quick choices, then your contact information. We send a real price range the same day. If it is not a fit, we will tell you that too.",
-                "Dos selecciones rápidas y después sus datos de contacto. Le mandamos un rango de precio real el mismo día. Si no somos la opción adecuada, también se lo decimos.",
+                "Two quick choices, then your contact information. You get your starting price on the spot and one of us calls the same day. If it is not a fit, we will tell you that too.",
+                "Dos selecciones rápidas y después sus datos de contacto. Recibe su precio inicial al momento y uno de nosotros le llama el mismo día. Si no somos la opción adecuada, también se lo decimos.",
               )}
             </p>
             <p className="mt-6 flex items-center gap-2.5">

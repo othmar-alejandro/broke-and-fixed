@@ -140,7 +140,7 @@ export default function CapacityBand({
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link href={QUOTE_HREF} className="lp-cta">
-                {t("Get my price range", "Ver mi rango de precio")}
+                {t("Get my price", "Ver mi precio")}
               </Link>
               <a
                 href={`tel:${TEL}`}
