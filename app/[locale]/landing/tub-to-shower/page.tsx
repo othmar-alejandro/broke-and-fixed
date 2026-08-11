@@ -108,11 +108,13 @@ const PHOTO = {
   // compare the same wall, and both keep the window the caption points at.
   sliderBefore: "/images/glenvar-before-3-slider.jpg",
   sliderAfter: "/images/glenvar-after-1-slider.jpg",
-  // after-4 is the straight-on shot: glass panel, niche, window, hex floor,
-  // no tub and no vanity in frame. Swapped in for the safety section on
-  // owner instruction, 9 Aug 2026. after-2 stays on disk if it is ever
-  // wanted back.
-  afterShower: "/images/glenvar-after-4.jpg",
+  // Killian job in the safety section, owner instruction 11 Aug 2026:
+  // Glenvar already carries the hero, the slider and the level 3 card, and
+  // a fourth appearance started reading like we only ever did one bathroom.
+  // The Killian shower has a sliding door and a LOW CURB, not curbless, so
+  // the section copy describes that. Do not re-attach the curbless claims
+  // to this photo.
+  safety: "/images/Killian-tub-to-shower-results.jpeg",
   // glenvar-demo and glenvar-waterproofing came off the timeline on owner
   // instruction, 10 Aug 2026. The files stay in /public/images.
   // Owner-assigned 9 Aug 2026. Hammocks shows a finished alcove shower with
@@ -1036,16 +1038,16 @@ export default async function TubToShowerLanding({
             </h2>
             <p className="mt-5 max-w-[46ch] text-[1.05rem] text-[var(--lp-ink-2)]">
               {t(
-                "The Glenvar Heights shower is curbless. Nothing to step over at all. A linear drain along the back, hex mosaic on the floor so it grips when it is wet, and a handheld next to the rain head. Built so the room still looks like a good bathroom.",
-                "La ducha de Glenvar Heights es a ras de piso. No hay nada que pasar por encima. Un desagüe lineal al fondo, mosaico hexagonal en el piso para que agarre cuando está mojado, y una ducha de mano junto a la regadera de lluvia. Construida para que el cuarto siga viéndose como un buen baño.",
+                "This one is in Killian. The tub wall is gone, so you step over a few inches of tile instead of climbing over a knee-high wall. A sliding glass door instead of a curtain, a handheld on a slide bar, and porcelain from floor to ceiling. Built so the room still looks like a good bathroom.",
+                "Esta es en Killian. La pared de la bañera ya no está, así que usted pasa unas pocas pulgadas de azulejo en vez de treparse por una pared a la altura de la rodilla. Una puerta de cristal corrediza en vez de cortina, una ducha de mano en barra deslizante, y porcelanato de piso a techo. Construida para que el cuarto siga viéndose como un buen baño.",
               )}
             </p>
             <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3">
               {[
-                t("Zero threshold", "Sin escalón"),
-                t("Linear drain", "Desagüe lineal"),
-                t("Grip tile underfoot", "Piso antideslizante"),
+                t("One low step, not a tub wall", "Un escalón bajo, no una bañera"),
+                t("Sliding glass door", "Puerta de cristal corrediza"),
                 t("Handheld shower", "Ducha de mano"),
+                t("Porcelain, no plastic liner", "Porcelanato, sin forro plástico"),
               ].map((chip) => (
                 <span key={chip} className="flex items-center gap-2 text-[15.5px]">
                   <Drop
@@ -1062,12 +1064,12 @@ export default async function TubToShowerLanding({
 
           <Reveal delay={0.08}>
             <JobPhoto
-              src={PHOTO.afterShower}
+              src={PHOTO.safety}
               alt={t(
-                "Curbless walk-in shower with frameless glass, a tiled niche, black hex mosaic floor and a rain head after a tub to shower conversion in Glenvar Heights",
-                "Ducha a ras de piso con cristal sin marco, nicho de azulejo, piso de mosaico hexagonal negro y regadera de lluvia después de una conversión de bañera a ducha en Glenvar Heights",
+                "Tub to shower conversion in Killian with a sliding glass door, marble look porcelain tile and a handheld shower on a slide bar",
+                "Conversión de bañera a ducha en Killian con puerta de cristal corrediza, porcelanato imitación mármol y ducha de mano en barra deslizante",
               )}
-              need="Glenvar Heights after, straight on: glass panel, niche, window, hex floor. Photo 9."
+              need="Killian results. Sliding door, marble look tile, wood look floor."
               ratio="3 / 4"
               sizes="(max-width: 768px) 100vw, 480px"
             />
