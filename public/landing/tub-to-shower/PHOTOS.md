@@ -25,6 +25,7 @@ Slots are defined in the `PHOTO` and `WORK` objects at the top of
 | `work-south-miami-master-remodel.jpeg` | Recent work grid |
 | `/landing/tub-to-shower/compare-rebuild.png` | Comparison section, "How we do it" card. AI-generated ILLUSTRATION (Higgsfield, 9 Aug 2026), not a job photo: exploded studs, cement board, orange membrane, tile. Illustrations are fine here because they read as diagrams; never put a generated PHOTOREAL bathroom on this page, the FAQ promises every photo is real work. |
 | `/landing/tub-to-shower/compare-liner.png` | Comparison section, franchise card. AI-generated ILLUSTRATION: acrylic panel glued over old cracked tile. Same rule as above. |
+| `/landing/tub-to-shower/guide-cover-en.png` / `-es.png` | Guide capture section, per locale. Designed cover: AI illustration art plus the REAL logo composited with sharp on a cream band. Replaced glenvar-after-1 there, 11 Aug 2026. If the title or offer changes, regenerate the art and re-composite; never let a generator redraw the logo. |
 
 Glenvar Heights (Anna Vidal) is the anchor job. `glenvar-before-3` and
 `glenvar-after-1` are both shot from the doorway, which is the only reason the

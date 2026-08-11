@@ -85,11 +85,19 @@ export default function GuideCapture({ locale = "en" }: { locale?: string }) {
     <section className="lp-guide" aria-labelledby="planning-guide-title">
       <div className="lp-wrap lp-guide__grid">
         <div className="lp-guide__photo">
+          {/* Designed cover, not a job photo: the guide is a document, and a
+              cover with the real logo reads like one. Art is the same flat
+              navy and orange illustration family as the rest of the page;
+              the logo is composited from the real asset, never AI-redrawn. */}
           <Image
-            src="/images/glenvar-after-1.jpeg"
+            src={
+              es
+                ? "/landing/tub-to-shower/guide-cover-es.png"
+                : "/landing/tub-to-shower/guide-cover-en.png"
+            }
             alt={t(
-              "Finished walk-in shower after a tub to shower conversion in Miami-Dade",
-              "Ducha terminada después de una conversión de bañera a ducha en Miami-Dade",
+              "Cover of the tub to shower planning guide for Miami-Dade",
+              "Portada de la guía de planificación de bañera a ducha para Miami-Dade",
             )}
             fill
             sizes="(max-width: 767px) 100vw, 44vw"
