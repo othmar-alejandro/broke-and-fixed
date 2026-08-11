@@ -371,20 +371,6 @@ export default function ExitIntent({ locale = "en" }: { locale?: string }) {
       } catch {
         /* The download page does not depend on session storage. */
       }
-      try {
-        window.fbq?.("trackCustom", "PriceGuideLead", {
-          content_name: "tub-to-shower-planning-guide",
-          lead_source: "exit-intent",
-        })
-        window.gtag?.("event", "generate_lead", {
-          event_category: "conversion",
-          content_name: "tub-to-shower-planning-guide",
-          lead_type: "planning-guide",
-          lead_source: "exit-intent",
-        })
-      } catch {
-        /* Analytics cannot be allowed to block the guide. */
-      }
       router.push(`/${es ? "es" : "en"}/landing/tub-to-shower/thank-you?kind=guide`)
     } catch {
       // The route may not exist yet, or the visitor may be offline. Either way

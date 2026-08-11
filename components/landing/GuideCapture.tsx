@@ -11,28 +11,6 @@ import { rescueGuideFromBrowser } from "@/lib/landing/guide-rescue"
 
 type Status = "idle" | "sending" | "error"
 
-function trackGuideLead(source: string) {
-  try {
-    window.fbq?.("trackCustom", "PriceGuideLead", {
-      content_name: "tub-to-shower-planning-guide",
-      lead_source: source,
-    })
-  } catch {
-    /* Analytics cannot be allowed to block the guide. */
-  }
-
-  try {
-    window.gtag?.("event", "generate_lead", {
-      event_category: "conversion",
-      content_name: "tub-to-shower-planning-guide",
-      lead_type: "planning-guide",
-      lead_source: source,
-    })
-  } catch {
-    /* Analytics cannot be allowed to block the guide. */
-  }
-}
-
 export default function GuideCapture({ locale = "en" }: { locale?: string }) {
   const router = useRouter()
   const es = locale === "es"
@@ -92,7 +70,6 @@ export default function GuideCapture({ locale = "en" }: { locale?: string }) {
         /* The thank-you page still works without session storage. */
       }
 
-      trackGuideLead("inline")
       router.push(`/${es ? "es" : "en"}/landing/tub-to-shower/thank-you?kind=guide`)
     } catch (err) {
       setError(

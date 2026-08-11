@@ -144,14 +144,6 @@ const TOTAL_STEPS = 3
 /* never be able to stop a lead from submitting.                       */
 /* ------------------------------------------------------------------ */
 
-function trackPixel(event: string, params: Record<string, unknown>): void {
-  try {
-    window.fbq?.("track", event, params)
-  } catch {
-    /* analytics is never load bearing */
-  }
-}
-
 function trackPixelCustom(event: string, params: Record<string, unknown>): void {
   try {
     window.fbq?.("trackCustom", event, params)
@@ -668,22 +660,6 @@ export default function QuoteForm({
        */
       const finalRange = data.range ?? computeRange(layout, scope)
       setResult(finalRange)
-
-      trackPixel("Lead", {
-        content_name: "tub-to-shower",
-        bathroom_layout: layout,
-        scope_level: scope,
-        value: finalRange.low,
-        currency: "USD",
-      })
-      trackGa("generate_lead", {
-        event_category: "conversion",
-        content_name: "tub-to-shower",
-        bathroom_layout: layout,
-        scope_level: scope,
-        value: finalRange.low,
-        currency: "USD",
-      })
 
       try {
         window.sessionStorage.setItem(

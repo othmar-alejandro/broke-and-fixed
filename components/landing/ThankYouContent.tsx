@@ -38,6 +38,73 @@ export default function ThankYouContent({
     }
   }, [requestedKind])
 
+  /*
+   * Conversion events fire here, after navigation, so the page change cannot
+   * cancel the browser request. The session marker prevents refreshes from
+   * counting the same submission twice.
+   */
+  useEffect(() => {
+    if (!saved.createdAt || saved.kind !== requestedKind) return
+    if (saved.kind === "quote" && !saved.range) return
+
+    const marker = `bf-tub-shower-conversion-${saved.kind}-${saved.createdAt}`
+    try {
+      if (window.sessionStorage.getItem(marker)) return
+    } catch {
+      /* Tracking can still fire when storage is unavailable. */
+    }
+
+    let cancelled = false
+    let attempts = 0
+    let timer: number | undefined
+
+    const fire = () => {
+      if (cancelled) return
+      attempts += 1
+
+      if (typeof window.fbq !== "function" && attempts < 20) {
+        timer = window.setTimeout(fire, 500)
+        return
+      }
+
+      try {
+        if (saved.kind === "quote" && saved.range) {
+          window.fbq?.("track", "Lead", {
+            content_name: "tub-to-shower",
+            value: saved.range.low,
+            currency: "USD",
+          })
+        } else {
+          window.fbq?.("trackCustom", "PriceGuideLead", {
+            content_name: "tub-to-shower-planning-guide",
+          })
+        }
+
+        window.gtag?.("event", "generate_lead", {
+          event_category: "conversion",
+          content_name:
+            saved.kind === "quote"
+              ? "tub-to-shower"
+              : "tub-to-shower-planning-guide",
+          lead_type: saved.kind === "quote" ? "estimate" : "planning-guide",
+          ...(saved.kind === "quote" && saved.range
+            ? { value: saved.range.low, currency: "USD" }
+            : {}),
+        })
+
+        window.sessionStorage.setItem(marker, "1")
+      } catch {
+        /* Analytics is optional and never blocks the thank-you page. */
+      }
+    }
+
+    fire()
+    return () => {
+      cancelled = true
+      if (timer) window.clearTimeout(timer)
+    }
+  }, [requestedKind, saved])
+
   const kind = saved.kind ?? requestedKind
   const guideHref = `/guides/tub-to-shower-planning-guide-${es ? "es" : "en"}.pdf`
 
