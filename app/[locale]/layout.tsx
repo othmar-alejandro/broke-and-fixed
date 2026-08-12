@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { redirect } from "next/navigation"
+import { notFound } from "next/navigation"
 import Script from "next/script"
 import { Barlow_Condensed, Inter, Montserrat } from "next/font/google"
 import { Analytics } from "@vercel/analytics/react"
@@ -115,8 +115,12 @@ export default async function RootLayout({
   const resolvedParams = params ? await params : undefined
   const locale = resolvedParams?.locale || "en"
 
+  // A first path segment that is not a locale means the URL does not exist.
+  // Redirecting to /en instead made every dead or typo'd URL a soft 404 that
+  // Google reads as a duplicate of the home page, and app/not-found.tsx never
+  // rendered. Return a real 404 status so dead URLs drop out of the index.
   if (!validLocales.includes(locale)) {
-    redirect("/en")
+    notFound()
   }
 
   const lang = locale === "es" ? "es" : "en"
