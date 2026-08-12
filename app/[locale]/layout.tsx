@@ -5,6 +5,7 @@ import { Barlow_Condensed, Inter, Montserrat } from "next/font/google"
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import StickyCallBar from "@/components/StickyCallBar"
+import LegalFooter from "@/components/LegalFooter"
 import ExitIntentPopup from "@/components/ExitIntentPopup"
 import MetaPixel from "@/components/MetaPixel"
 import "../globals.css"
@@ -217,6 +218,10 @@ export default async function RootLayout({
           }}
         />
         {children}
+        {/* Legal strip lives here, not in individual pages: every route under
+            [locale] inherits this layout, so no page can ship without the
+            Privacy and Terms links. */}
+        <LegalFooter locale={locale} />
         <StickyCallBar />
         <ExitIntentPopup />
         <Analytics />

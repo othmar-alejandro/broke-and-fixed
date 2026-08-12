@@ -158,11 +158,10 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-espresso/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-warm-gray-light">
-            &copy; {new Date().getFullYear()} {t('footer.rights')}
-          </p>
+        {/* Bottom bar. Copyright and the Privacy/Terms links are not here:
+            LegalFooter renders them site-wide from app/[locale]/layout.tsx,
+            so repeating them would show two copyright lines on the home page. */}
+        <div className="border-t border-espresso/5 pt-6 flex justify-center sm:justify-end">
           <p className="text-xs text-warm-gray-light">
             Designed by OAC Digital Innovations
           </p>

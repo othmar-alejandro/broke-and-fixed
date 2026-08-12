@@ -297,8 +297,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
+  // Legal pages. Low priority and rarely changing, but they belong in the
+  // sitemap: they are linked from the footer of every page on the site.
+  const legalPages: MetadataRoute.Sitemap = ['privacy', 'terms'].flatMap((slug) => [
+    {
+      url: `${BASE_URL}/en/${slug}`,
+      lastModified,
+      changeFrequency: 'yearly' as const,
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/es/${slug}`,
+      lastModified,
+      changeFrequency: 'yearly' as const,
+      priority: 0.3,
+    },
+  ])
+
   return [
     ...homepages,
+    ...legalPages,
     ...servicePages,
     ...locationPages,
     ...comboPages,
