@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation"
 import { FilePdf, X } from "@phosphor-icons/react"
 
 import { getLeadAttribution } from "@/lib/landing/attribution"
-import { rescueGuideFromBrowser } from "@/lib/landing/guide-rescue"
 
 /**
  * Exit intent, for the researcher who is six weeks out.
@@ -354,13 +353,10 @@ export default function ExitIntent({ locale = "en" }: { locale?: string }) {
       })
       const data: { ok?: boolean } = await res.json().catch(() => ({}))
       if (!res.ok || !data.ok) {
-        const rescued = await rescueGuideFromBrowser({
-          email: value,
-          locale,
-          source: "exit-intent",
-          attribution,
-        })
-        if (!rescued) throw new Error(`lead route responded ${res.status}`)
+        // No Web3Forms rescue anymore: GoHighLevel is the single system of
+        // record for this funnel as of 14 Aug 2026. The catch below shows the
+        // phone number, and the server logs GUIDE_RECOVERY on its side.
+        throw new Error(`lead route responded ${res.status}`)
       }
       setStatus("done")
       try {

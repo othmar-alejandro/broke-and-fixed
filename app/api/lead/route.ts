@@ -16,10 +16,15 @@ import {
  *
  * Two rules drive the whole file:
  *
- * 1. A lead is never lost. GoHighLevel is the system of record, but if it is
- *    down, rate limiting us, or misconfigured, the lead goes to Web3Forms and
- *    lands in the shop inbox instead. Only when BOTH fail does the visitor see
- *    an error, and even then the form keeps everything they typed.
+ * 1. A lead is never lost. GoHighLevel is the system of record. If it is down,
+ *    rate limiting us, or misconfigured, the lead is written to the recovery
+ *    log as a single greppable line and the visitor is told to call. The form
+ *    keeps everything they typed either way.
+ *
+ *    Web3Forms was removed from this funnel on 14 Aug 2026. It stays in use
+ *    elsewhere on the site. Two consequences worth knowing: this route is now
+ *    single-upstream, and LEAD_RECOVERY is the only net under it, so the log
+ *    alert described at the bottom of this file is not optional.
  *
  * 2. Nothing about our infrastructure reaches the browser. No API key, no
  *    upstream status code, no upstream error body. The client gets ok plus a
@@ -59,17 +64,23 @@ const GHL_FIELD_IDS = {
   gclid: "dMfursjjudMU2fVVvYGC",
   landingPage: "AqnZbvFh7ndWzY57WhCU",
   referrer: "MPIR19WcWmHQd62qhfro",
+  // Created 14 Aug 2026 for the Meta campaign. See scripts/ghl-create-custom-fields.mjs.
+  startingPriceDisplay: "RyqEbWCpP1hGe2ppxMlR",
+  metaEventId: "pq5ueS5n9ngk5PbmLDB8",
 } as const
 
 /**
- * Same Web3Forms access key the rest of the site posts to. It is a public
- * submission key by design, already committed in app/components/Contact.jsx,
- * so it is not a secret being leaked here. The env var lets it be rotated
- * without a deploy.
+ * GoHighLevel inbound webhook. This is what TRIGGERS the follow-up workflows.
+ *
+ * It fires AFTER the contact upsert has succeeded, so the contact and every
+ * custom field already exist by the time a workflow looks for them. That
+ * ordering is the whole point: the webhook carries an identifier, not the data,
+ * so a field-mapping mistake in GoHighLevel can never cost us a lead.
+ *
+ * Unset is a valid state. Until the webhook exists in the sub-account the lead
+ * still lands in the CRM, it just does not start a sequence.
  */
-const WEB3FORMS_URL = "https://api.web3forms.com/submit"
-const WEB3FORMS_KEY =
-  process.env.WEB3FORMS_ACCESS_KEY ?? "ebb39c28-f927-4916-be94-71a448167ae6"
+const GHL_INBOUND_WEBHOOK_URL = process.env.GHL_INBOUND_WEBHOOK_URL ?? ""
 
 /** Upstreams get a hard ceiling. A hung CRM must not hold the visitor. */
 const UPSTREAM_TIMEOUT_MS = 8000
@@ -87,6 +98,20 @@ type Lead = {
   scope: ScopeLevel
   locale: "en" | "es"
   attribution: LeadAttribution
+  /**
+   * Deduplication key shared with the browser pixel. The same value goes to
+   * Meta twice, once from the browser and once server-side from GoHighLevel,
+   * and Meta collapses the pair into one conversion. Without it every lead is
+   * counted twice and the reported CPL is half the real one.
+   */
+  eventId: string
+  /**
+   * Meta's browser cookies, read at submit time. Forwarded to the Conversions
+   * API and deliberately NOT written to the contact record: they are delivery
+   * signal with a short life, not customer data, and nothing in the CRM reads
+   * them.
+   */
+  metaCookies: { fbp: string; fbc: string }
 }
 
 type LeadAttribution = {
@@ -139,23 +164,11 @@ function adPlatformTags(attribution: LeadAttribution): string[] {
     source.includes("instagram") ||
     source.includes("meta")
   ) {
-    return ["facebook ads lead"]
+    // Kebab-case, like every other tag. The old value had spaces, which meant
+    // any workflow condition typed as facebook-ads-lead silently never matched.
+    return ["facebook-ads-lead"]
   }
   return []
-}
-
-function attributionLines(attribution: LeadAttribution): string {
-  return [
-    `UTM source: ${attribution.utmSource || "not provided"}`,
-    `UTM medium: ${attribution.utmMedium || "not provided"}`,
-    `UTM campaign: ${attribution.utmCampaign || "not provided"}`,
-    `UTM content: ${attribution.utmContent || "not provided"}`,
-    `UTM term: ${attribution.utmTerm || "not provided"}`,
-    `fbclid: ${attribution.fbclid || "not provided"}`,
-    `gclid: ${attribution.gclid || "not provided"}`,
-    `Landing page: ${attribution.landingPage || "not provided"}`,
-    `Referrer: ${attribution.referrer || "not provided"}`,
-  ].join("\n")
 }
 
 /** Digits only, so (786) 363-7039 and 786.363.7039 are the same lead. */
@@ -181,21 +194,54 @@ function splitName(full: string): { firstName: string; lastName: string } {
 /* ------------------------------------------------------------------ */
 
 /**
+ * The price sentence, already localized and already formatted, ready to drop
+ * into an SMS or an email with no string surgery on the GoHighLevel side.
+ *
+ * This field exists because the numeric range fields render raw. A merge tag
+ * for planning_range_low prints `6500`, so copy written as `${{...}}` reads
+ * "$6500", and for a master bathroom, where there is deliberately no number at
+ * all, it reads "$". Both look careless to a homeowner deciding whether to let
+ * us into their house.
+ *
+ * Returning a whole clause rather than a number is what lets the Spanish
+ * workflow set stay a straight mirror of the English one.
+ */
+function startingPriceDisplay(startingAt: number | null, locale: "en" | "es"): string {
+  if (startingAt === null) {
+    return locale === "es"
+      ? "recibe su precio cuando midamos el baño"
+      : "gets its number once we measure the bathroom"
+  }
+  return locale === "es"
+    ? `empieza en ${formatUSD(startingAt)}`
+    : `starts at ${formatUSD(startingAt)}`
+}
+
+/**
  * `startingAt` is null when the layout has to be measured before any number is
  * honest. The rangeLow field now carries the published STARTING price, and
  * rangeHigh is intentionally blank: the form stopped showing a computed band
  * on 11 Aug 2026. Rename those two fields in the GHL interface when convenient
  * (the API is read only for field definitions), the IDs are what matter here.
+ *
+ * Layout and scope are written as HUMAN LABELS, not slugs. An owner alert that
+ * reads "Tub sits wall to wall / Shower and floor" needs no decoding at 7pm on
+ * a Saturday; `wall-to-wall / shower-floor` does.
  */
 function buildCustomFields(lead: Lead, startingAt: number | null) {
   return [
-    { id: GHL_FIELD_IDS.bathroomLayout, field_value: lead.layout },
-    { id: GHL_FIELD_IDS.projectScope, field_value: lead.scope },
+    { id: GHL_FIELD_IDS.bathroomLayout, field_value: LAYOUT_LABEL[lead.layout] },
+    { id: GHL_FIELD_IDS.projectScope, field_value: SCOPE_LABEL[lead.scope] },
     {
       id: GHL_FIELD_IDS.rangeLow,
       field_value: startingAt === null ? "" : String(startingAt),
     },
     { id: GHL_FIELD_IDS.rangeHigh, field_value: "" },
+    {
+      id: GHL_FIELD_IDS.startingPriceDisplay,
+      field_value: startingPriceDisplay(startingAt, lead.locale),
+    },
+    { id: GHL_FIELD_IDS.metaEventId, field_value: lead.eventId },
     { id: GHL_FIELD_IDS.leadSourceDetail, field_value: leadSource("quote", lead.attribution) },
     { id: GHL_FIELD_IDS.utmSource, field_value: lead.attribution.utmSource },
     { id: GHL_FIELD_IDS.utmMedium, field_value: lead.attribution.utmMedium },
@@ -268,10 +314,10 @@ async function upsertToGoHighLevel(
 /* ------------------------------------------------------------------ */
 
 /**
- * One email address, no bathroom questions. Tries GoHighLevel first with a
- * distinct tag so these never pollute the quote-form lead list, then falls
- * back to Web3Forms. Returns false only if both paths fail, so the visitor
- * gets told to call rather than being thanked for nothing.
+ * One email address, no bathroom questions. Goes to GoHighLevel with a distinct
+ * tag so these never pollute the quote-form lead list. Returns false when that
+ * write fails, so the visitor gets told to call rather than being thanked for
+ * nothing.
  */
 async function captureGuideRequest({
   email,
@@ -307,7 +353,11 @@ async function captureGuideRequest({
           country: "US",
           source: leadSource("guide", attribution),
           tags: [
-            LEAD_TAG,
+            // Deliberately NOT LEAD_TAG. A guide opt-in is an email address and
+            // nothing else: no name, no phone, no ZIP, no price. Tagging it the
+            // same as a completed estimator meant every estimator workflow
+            // enrolled people it had nothing to say to. The estimator path is
+            // keyed on `estimate-request` instead.
             "planning-guide-lead",
             `guide-${source}`,
             `lang-${locale}`,
@@ -342,29 +392,16 @@ async function captureGuideRequest({
       )
     }
 
-    const fallback = await fetch(WEB3FORMS_URL, {
-      method: "POST",
-      signal: controller.signal,
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({
-        access_key: WEB3FORMS_KEY,
-        subject: "Tub to shower: planning guide request",
-        from_name: "Broke and Fixed landing page",
-        email,
-        message: [
-          "Planning guide requested from the tub to shower landing page.",
-          `Email: ${email}`,
-          `Language: ${locale}`,
-          `Capture source: ${source}`,
-          attributionLines(attribution),
-        ].join("\n"),
-      }),
-    })
-
-    console.info(
-      `[lead] path=web3forms kind=guide outcome=${fallback.ok ? "ok" : "fail"}`,
+    /*
+     * No second upstream. Web3Forms was removed from this funnel on 14 Aug 2026
+     * when GoHighLevel became the single system of record for it. This line is
+     * the recovery path for a guide opt-in, same pattern as LEAD_RECOVERY below.
+     */
+    console.error(
+      "[lead] GUIDE_RECOVERY path=none outcome=LOST",
+      JSON.stringify({ email, locale, source, attribution }),
     )
-    return fallback.ok
+    return false
   } catch (error) {
     console.error("[lead] kind=guide outcome=error", error)
     return false
@@ -374,62 +411,78 @@ async function captureGuideRequest({
 }
 
 /* ------------------------------------------------------------------ */
-/* Web3Forms fallback                                                  */
+/* GoHighLevel inbound webhook                                          */
 /* ------------------------------------------------------------------ */
 
 /**
- * Last line of defence. Plain email to the shop inbox. It has no CRM fields,
- * so everything goes in the message body where a human will read it.
+ * Starts the follow-up sequence. Called only after the upsert succeeded.
+ *
+ * This NEVER throws and never fails the request. By the time it runs the lead
+ * is already safe in the CRM, so the worst case is a contact that exists but
+ * did not get an automated text, which a human can pick up from the pipeline.
+ * Failing the visitor's submission over it would trade a real lead for a
+ * cosmetic one.
  */
-async function sendToWeb3Forms(
+async function fireInboundWebhook(
   lead: Lead,
   startingAt: number | null,
-  signal: AbortSignal,
 ): Promise<void> {
-  const response = await fetch(WEB3FORMS_URL, {
-    method: "POST",
-    signal,
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-      /*
-       * KNOWN ISSUE, NOT RESOLVED. Web3Forms sits behind Cloudflare, and a
-       * server-side POST from the dev machine gets the "Just a moment"
-       * interstitial back as a 403. Adding this User-Agent did NOT fix it, so
-       * do not read its presence as the problem being solved. It stays
-       * because identifying the client is correct behaviour either way.
-       *
-       * Cloudflare scores by IP reputation as much as by headers, so this may
-       * well pass from Vercel and fail locally. It has to be exercised from a
-       * deployed preview before launch. If it still 403s there, this fallback
-       * is decorative and the lead only survives in the recovery log below.
-       */
-      "User-Agent": "BrokeAndFixed-LeadForm/1.0 (+https://brokeandfixed.com)",
-    },
-    body: JSON.stringify({
-      access_key: WEB3FORMS_KEY,
-      subject: `Tub to shower lead: ${lead.name}, ${lead.zip}`,
-      from_name: "Tub to shower landing page",
-      name: lead.name,
-      phone: lead.phone,
-      email: lead.email || "not given",
-      zip: lead.zip,
-      bathroom_layout: `${lead.layout} (${LAYOUT_LABEL[lead.layout]})`,
-      scope_level: `${lead.scope} (${SCOPE_LABEL[lead.scope]})`,
-      starting_price:
-        startingAt === null
-          ? "measure required, larger master bathroom"
-          : formatUSD(startingAt),
-      language: lead.locale,
-      lead_source: leadSource("quote", lead.attribution),
-      attribution: attributionLines(lead.attribution),
-      note: "CRM write failed, this lead is NOT in GoHighLevel yet. Add it by hand.",
-    }),
-  })
+  if (!GHL_INBOUND_WEBHOOK_URL) {
+    console.info("[lead] path=webhook outcome=skipped reason=not-configured")
+    return
+  }
 
-  if (!response.ok) {
-    const detail = await response.text().catch(() => "")
-    throw new Error(`Web3Forms responded ${response.status}: ${detail.slice(0, 300)}`)
+  /*
+   * Its own clock, deliberately not the upsert's. Sharing one AbortController
+   * meant an upsert that used 7.9 of the 8 seconds left this call 100ms to
+   * complete, so the slower GoHighLevel was, the more likely the follow-up
+   * sequence silently never started, on exactly the leads already waiting
+   * longest.
+   */
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), UPSTREAM_TIMEOUT_MS)
+
+  try {
+    const response = await fetch(GHL_INBOUND_WEBHOOK_URL, {
+      method: "POST",
+      signal: controller.signal,
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        event: "tub_to_shower_estimate",
+        // Identity, so the workflow can find the contact the upsert just wrote.
+        phone: `+1${lead.phone}`,
+        email: lead.email || "",
+        name: lead.name,
+        postal_code: lead.zip,
+        locale: lead.locale,
+        // Everything below is already on the contact record. It rides along so
+        // a workflow can branch without a lookup, not so it can be re-saved.
+        bathroom_layout: LAYOUT_LABEL[lead.layout],
+        project_scope: SCOPE_LABEL[lead.scope],
+        starting_price_display: startingPriceDisplay(startingAt, lead.locale),
+        meta_event_id: lead.eventId,
+        // Event Match Quality inputs. Absent on plenty of sessions, which is
+        // normal: the pixel may be blocked, or the visit may not have come
+        // from an ad at all.
+        fbp: lead.metaCookies.fbp,
+        fbc: lead.metaCookies.fbc,
+        utm_source: lead.attribution.utmSource,
+        utm_campaign: lead.attribution.utmCampaign,
+        utm_content: lead.attribution.utmContent,
+        fbclid: lead.attribution.fbclid,
+      }),
+    })
+
+    console.info(
+      `[lead] path=webhook outcome=${response.ok ? "ok" : "fail"} status=${response.status}`,
+    )
+  } catch (error) {
+    console.warn(
+      "[lead] path=webhook outcome=error",
+      error instanceof Error ? error.message : error,
+    )
+  } finally {
+    clearTimeout(timeout)
   }
 }
 
@@ -506,7 +559,13 @@ export async function POST(request: Request) {
 
   const name = asString(input.name, 120)
   const rawPhone = asString(input.phone, 40)
-  const zip = asString(input.zip, 10)
+  /*
+   * First five digits, whatever punctuation came with them. The form already
+   * normalizes, so this is defence in depth for anything that posts here
+   * directly. A ZIP+4 like 33186-1234 is what a mail label shows, and rejecting
+   * it used to return "check your name, phone and ZIP" without saying which.
+   */
+  const zip = asString(input.zip, 10).replace(/\D/g, "").slice(0, 5)
   const email = asString(input.email, 200)
   const locale = asString(input.locale, 2) === "es" ? "es" : "en"
   const attribution = parseAttribution(input.attribution)
@@ -527,7 +586,31 @@ export async function POST(request: Request) {
     )
   }
 
-  const lead: Lead = { name, phone, zip, email, layout, scope, locale, attribution }
+  // Generated in the browser alongside the pixel event so both sides of the
+  // Meta conversion carry the same key. Server-generated would defeat the point.
+  const eventId = asString(input.eventId, 64)
+
+  const cookieInput =
+    input.metaCookies && typeof input.metaCookies === "object"
+      ? (input.metaCookies as Record<string, unknown>)
+      : {}
+  const metaCookies = {
+    fbp: asString(cookieInput.fbp, 300),
+    fbc: asString(cookieInput.fbc, 300),
+  }
+
+  const lead: Lead = {
+    name,
+    phone,
+    zip,
+    email,
+    layout,
+    scope,
+    locale,
+    attribution,
+    eventId,
+    metaCookies,
+  }
 
   /*
    * The server recomputes the figure from the same pure function the form used.
@@ -540,25 +623,17 @@ export async function POST(request: Request) {
   const timeout = setTimeout(() => controller.abort(), UPSTREAM_TIMEOUT_MS)
 
   try {
-    try {
-      await upsertToGoHighLevel(lead, startingAt, controller.signal)
-      console.info(`[lead] path=ghl outcome=ok zip=${zip} scope=${scope} layout=${layout}`)
-      return NextResponse.json({ ok: true, startingAt })
-    } catch (ghlError) {
-      console.warn(
-        "[lead] path=ghl outcome=failed, falling back to web3forms:",
-        ghlError instanceof Error ? ghlError.message : ghlError,
-      )
+    await upsertToGoHighLevel(lead, startingAt, controller.signal)
+    console.info(`[lead] path=ghl outcome=ok zip=${zip} scope=${scope} layout=${layout}`)
 
-      await sendToWeb3Forms(lead, startingAt, controller.signal)
-      console.info(
-        `[lead] path=web3forms outcome=ok zip=${zip} scope=${scope} layout=${layout}`,
-      )
-      return NextResponse.json({ ok: true, startingAt })
-    }
+    // Contact is saved. Starting the sequence is best effort from here.
+    await fireInboundWebhook(lead, startingAt)
+
+    return NextResponse.json({ ok: true, startingAt })
   } catch (fallbackError) {
     /*
-     * Both upstreams are gone, so this log line IS the lead. It is written as
+     * The CRM write failed and there is no second upstream, so this log line
+     * IS the lead. It is written as
      * one greppable marker plus one JSON object on a single line, so it can be
      * pulled straight out of the Vercel drain:
      *

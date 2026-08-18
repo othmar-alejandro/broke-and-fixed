@@ -9,7 +9,7 @@ import type { Transition } from "framer-motion"
 import { CheckCircle, Phone } from "@phosphor-icons/react"
 
 import { BathroomPlan, ScopePlan } from "@/components/landing/quote-plans"
-import { getLeadAttribution, type LeadAttribution } from "@/lib/landing/attribution"
+import { getLeadAttribution, getMetaCookies } from "@/lib/landing/attribution"
 import {
   BASE_PRICE,
   requiresMeasure,
@@ -160,68 +160,23 @@ function trackGa(event: string, params: Record<string, unknown>): void {
 }
 
 /* ------------------------------------------------------------------ */
-/* Lead rescue                                                         */
-/* ------------------------------------------------------------------ */
-
-const WEB3FORMS_URL = "https://api.web3forms.com/submit"
-/* Not a secret. This exact key already ships in a public hidden input on the
-   contact form and the service pages, so using it here exposes nothing new. */
-const WEB3FORMS_KEY = "ebb39c28-f927-4916-be94-71a448167ae6"
-
-/**
- * Runs only when /api/lead has already failed.
- *
- * Web3Forms sits behind Cloudflare, which serves an interstitial to
- * server-side POSTs, so the API route's own fallback returns 403. From the
- * browser it goes through, which is how the rest of this site submits.
- * Without this tier a failed request loses the lead entirely.
- */
-async function rescueLeadFromBrowser(payload: {
-  name: string
-  phone: string
-  zip: string
-  email: string
-  layout: string
-  scope: string
-  locale: string
-  attribution: LeadAttribution
-}): Promise<boolean> {
-  try {
-    const response = await fetch(WEB3FORMS_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({
-        access_key: WEB3FORMS_KEY,
-        subject: `Tub to shower lead: ${payload.name}, ${payload.zip}`,
-        from_name: "Broke and Fixed tub to shower page",
-        name: payload.name,
-        phone: payload.phone,
-        zip: payload.zip,
-        email: payload.email || "not provided",
-        bathroom_layout: payload.layout,
-        scope_level: payload.scope,
-        language: payload.locale,
-        utm_source: payload.attribution.utmSource,
-        utm_medium: payload.attribution.utmMedium,
-        utm_campaign: payload.attribution.utmCampaign,
-        utm_content: payload.attribution.utmContent,
-        fbclid: payload.attribution.fbclid,
-        landing_page: payload.attribution.landingPage,
-        note: "Recovered in the browser after the API route failed.",
-      }),
-    })
-    return response.ok
-  } catch {
-    return false
-  }
-}
-
-/* ------------------------------------------------------------------ */
 /* Validation                                                          */
 /* ------------------------------------------------------------------ */
 
 type FieldName = "name" | "phone" | "zip" | "email"
 type Errors = Partial<Record<FieldName, string>>
+
+/**
+ * First five digits, whatever they typed around them.
+ *
+ * The field accepts 10 characters, so ZIP+4 fits, but the old check was a bare
+ * five digit test against the raw value. Anyone in Kendall typing 33186-1234,
+ * which is exactly what a mail label shows, was told to check their name, phone
+ * and ZIP with no indication of which one was wrong.
+ */
+function normalizeZip(raw: string): string {
+  return raw.replace(/\D/g, "").slice(0, 5)
+}
 
 function validate(values: Record<FieldName, string>, t: T): Errors {
   const errors: Errors = {}
@@ -243,7 +198,7 @@ function validate(values: Record<FieldName, string>, t: T): Errors {
     )
   }
 
-  if (!/^\d{5}$/.test(values.zip.trim())) {
+  if (normalizeZip(values.zip).length !== 5) {
     errors.zip = t(
       "Please enter your 5 digit ZIP code.",
       "Escriba su código ZIP de 5 dígitos.",
@@ -607,16 +562,33 @@ export default function QuoteForm({
 
     try {
       const attribution = getLeadAttribution()
+      /*
+       * One id, generated here, used in three places: the CRM record, the
+       * server-side Conversions API call GoHighLevel makes, and the browser
+       * pixel event on the thank-you page. Meta matches on it and counts the
+       * pair as one conversion. Generated in the browser because the browser
+       * event is the one that cannot be recreated later.
+       */
+      const eventId =
+        typeof crypto !== "undefined" && "randomUUID" in crypto
+          ? crypto.randomUUID()
+          : `t2s-${Date.now()}-${Math.random().toString(36).slice(2, 11)}`
+
       const response = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...values,
+          // The server still enforces exactly five digits, so send it clean
+          // rather than making it reject what the visitor legitimately typed.
+          zip: normalizeZip(values.zip),
           company, // honeypot, empty for every real person
           layout,
           scope,
           locale,
           attribution,
+          eventId,
+          metaCookies: getMetaCookies(),
         }),
       })
 
@@ -629,34 +601,21 @@ export default function QuoteForm({
 
       if (!response.ok || !data.ok) {
         /*
-         * Last line of defence, and it has to be here rather than on the
-         * server. Web3Forms sits behind Cloudflare, which serves an
-         * interstitial to server-side POSTs, so the API route's fallback
-         * returns 403 and the lead would exist only as a log line.
+         * The browser-side Web3Forms rescue was removed on 14 Aug 2026, when
+         * GoHighLevel became the single system of record for this funnel.
          *
-         * From the browser it works: the rest of this site already submits
-         * to Web3Forms exactly this way. The access key is not a secret and
-         * is not being newly exposed, it is already in a public hidden input
-         * on the contact form and the service pages.
+         * Know what that costs: there is no second upstream now. A CRM failure
+         * leaves the lead only in the route's LEAD_RECOVERY log line, so the
+         * alert on that string is load bearing, not a nicety. The visitor is
+         * told to call, which is why the number is in the message.
          */
-        const rescued = await rescueLeadFromBrowser({
-          ...values,
-          layout,
-          scope,
-          locale,
-          attribution,
-          phone,
-        })
-
-        if (!rescued) {
-          throw new Error(
-            data.error ??
-              t(
-                `We could not send that just now. Please call or text ${phone}.`,
-                `No pudimos enviarlo en este momento. Llame o mande un texto al ${phone}.`,
-              ),
-          )
-        }
+        throw new Error(
+          data.error ??
+            t(
+              `We could not send that just now. Please call or text ${phone}.`,
+              `No pudimos enviarlo en este momento. Llame o mande un texto al ${phone}.`,
+            ),
+        )
       }
 
       /*
@@ -682,6 +641,8 @@ export default function QuoteForm({
             layout,
             scope,
             createdAt: Date.now(),
+            // Read back on the thank-you page and passed to fbq as eventID.
+            eventId,
           }),
         )
         window.sessionStorage.removeItem("bf-tub-shower-quote-progress-v1")

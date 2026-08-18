@@ -36,7 +36,16 @@ export default async function ThankYouPage({
 }) {
   const { locale } = await params
   const { kind } = await searchParams
-  const requestedKind = kind === "quote" ? "quote" : "guide"
+  /*
+   * Defaults to "quote", not "guide". These two branches fire different
+   * conversion events, and the estimator is the one Meta optimizes on. When the
+   * query string went missing, a completed estimator used to report itself as a
+   * guide download: the Lead event never fired, the campaign undercounted, and
+   * the algorithm was trained on the wrong signal. Guessing wrong in this
+   * direction costs a duplicate guide event. Guessing wrong in the other costs
+   * a conversion.
+   */
+  const requestedKind = kind === "guide" ? "guide" : "quote"
   const url = `https://brokeandfixed.com/${locale}/landing/tub-to-shower/thank-you`
   const schema = {
     "@context": "https://schema.org",

@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation"
 import { CheckCircle, FilePdf } from "@phosphor-icons/react"
 
 import { getLeadAttribution } from "@/lib/landing/attribution"
-import { rescueGuideFromBrowser } from "@/lib/landing/guide-rescue"
 
 type Status = "idle" | "sending" | "error"
 
@@ -50,15 +49,13 @@ export default function GuideCapture({ locale = "en" }: { locale?: string }) {
       })
       const data: { ok?: boolean; error?: string } = await response.json().catch(() => ({}))
       if (!response.ok || !data.ok) {
-        const rescued = await rescueGuideFromBrowser({
-          email: value,
-          locale,
-          source: "guide-inline",
-          attribution,
-        })
-        if (!rescued) {
-          throw new Error(data.error || t("We could not open the guide just now.", "No pudimos abrir la guía en este momento."))
-        }
+        /*
+         * No Web3Forms rescue here anymore. GoHighLevel is the single system
+         * of record for this funnel as of 14 Aug 2026, and a guide opt-in that
+         * exists only in an inbox is an opt-in the follow-up sequence cannot
+         * see. The server logs GUIDE_RECOVERY when its write fails.
+         */
+        throw new Error(data.error || t("We could not open the guide just now.", "No pudimos abrir la guía en este momento."))
       }
 
       try {
