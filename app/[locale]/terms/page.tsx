@@ -64,8 +64,8 @@ export default async function TermsPage({
     {
       title: t("Calls, texts, and email", "Llamadas, textos y correo"),
       body: t(
-        "When you send a form and ask us to reach out, you agree that we may contact you by phone, text message, or email about the project you asked about. Message and data rates may apply. You can reply STOP to end text messages and use the unsubscribe link at the bottom of any email. Consent to calls or texts is not a condition of buying anything from us. How we handle the information you send is covered in our Privacy Notice.",
-        "Cuando envía un formulario y nos pide que le contactemos, usted acepta que podemos comunicarnos por teléfono, mensaje de texto o correo electrónico sobre el proyecto que consultó. Pueden aplicar cargos de mensajes y datos. Puede responder STOP para terminar los mensajes de texto y usar el enlace para darse de baja al final de cualquier correo. El consentimiento para llamadas o textos no es una condición para comprar nada. Cómo manejamos la información que usted envía se explica en nuestro Aviso de privacidad.",
+        "When you send a form and ask us to reach out, you agree that Broke & Fixed Home Solutions may contact you by phone, text message, or email about the project you asked about. Message frequency varies. Message and data rates may apply. Reply STOP to any text to end text messages, reply HELP for help, and use the unsubscribe link at the bottom of any email. Consent to calls or texts is not a condition of buying anything from us. Carriers are not liable for delayed or undelivered messages. No mobile information will be shared with third parties or affiliates for marketing or promotional purposes, and text messaging opt-in data and consent will not be shared with any third parties. How we handle the information you send is covered in our Privacy Notice.",
+        "Cuando envía un formulario y nos pide que le contactemos, usted acepta que Broke & Fixed Home Solutions puede comunicarse por teléfono, mensaje de texto o correo electrónico sobre el proyecto que consultó. La frecuencia de mensajes varía. Pueden aplicar cargos de mensajes y datos. Responda STOP a cualquier texto para terminar los mensajes, responda HELP para ayuda, y use el enlace para darse de baja al final de cualquier correo. El consentimiento para llamadas o textos no es una condición para comprar nada. Las operadoras no son responsables por mensajes demorados o no entregados. Ninguna información móvil será compartida con terceros ni con afiliados para fines de marketing o promoción, y los datos de consentimiento y suscripción para mensajes de texto no serán compartidos con ningún tercero. Cómo manejamos la información que usted envía se explica en nuestro Aviso de privacidad.",
       ),
     },
     {
@@ -120,7 +120,7 @@ export default async function TermsPage({
           {t("Terms of Service", "Términos de servicio")}
         </h1>
         <p className="mt-3 text-sm text-[#52647b]">
-          {t("Last updated August 11, 2026", "Última actualización: 11 de agosto de 2026")}
+          {t("Last updated August 24, 2026", "Última actualización: 24 de agosto de 2026")}
         </p>
         <p className="mt-6 text-[17px] leading-7 text-[#33465f]">
           {t(

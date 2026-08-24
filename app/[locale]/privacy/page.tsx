@@ -48,17 +48,31 @@ export default async function PrivacyPage({
       ),
     },
     {
+      title: t("Text messages and mobile information", "Mensajes de texto e información móvil"),
+      body: t(
+        `If you give us your mobile number and ask us to text you, Broke & Fixed Home Solutions uses it to answer your question, confirm an appointment, and send updates about the project you asked about. Message frequency varies. Message and data rates may apply. Reply STOP at any time to end text messages, reply HELP for help, or call us at ${PHONE}. Consent to receive text messages is not a condition of any purchase. Carriers are not liable for delayed or undelivered messages.`,
+        `Si nos da su número móvil y nos pide que le escribamos, Broke & Fixed Home Solutions lo usa para responder su pregunta, confirmar una cita y enviar actualizaciones sobre el proyecto que consultó. La frecuencia de mensajes varía. Pueden aplicar cargos de mensajes y datos. Responda STOP en cualquier momento para terminar los mensajes de texto, responda HELP para ayuda, o llámenos al ${PHONE}. El consentimiento para recibir mensajes de texto no es una condición de compra. Las operadoras no son responsables por mensajes demorados o no entregados.`,
+      ),
+    },
+    {
+      title: t("Mobile information is never shared for marketing", "La información móvil nunca se comparte para marketing"),
+      body: t(
+        "No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Text messaging originator opt-in data and consent will not be shared with any third parties. Mobile information may be shared only with the subcontractors that support the messaging service itself, such as our messaging provider and our customer relationship system, and only so that the message you asked for can be delivered. We do not sell or rent mobile numbers to anyone.",
+        "Ninguna información móvil será compartida con terceros ni con afiliados para fines de marketing o promoción. Los datos de consentimiento y de suscripción para mensajes de texto no serán compartidos con ningún tercero. La información móvil puede compartirse solamente con los subcontratistas que dan soporte al servicio de mensajería, como nuestro proveedor de mensajería y nuestro sistema de relación con clientes, y únicamente para poder entregar el mensaje que usted pidió. No vendemos ni alquilamos números móviles a nadie.",
+      ),
+    },
+    {
       title: t("Service and analytics providers", "Proveedores de servicio y analítica"),
       body: t(
-        "We use service providers to receive form submissions, manage customer follow-up, host the website, and understand page performance. These may include GoHighLevel, Web3Forms, Vercel, Meta, Google Analytics, and Microsoft Clarity. They process information under their own terms and privacy notices. Advertising and analytics tools may receive browser, device, page, and campaign information through cookies or similar technology.",
-        "Usamos proveedores para recibir formularios, manejar el seguimiento al cliente, alojar el sitio y entender el rendimiento de las páginas. Estos pueden incluir GoHighLevel, Web3Forms, Vercel, Meta, Google Analytics y Microsoft Clarity. Ellos procesan información bajo sus propios términos y avisos de privacidad. Las herramientas de publicidad y analítica pueden recibir información del navegador, dispositivo, página y campaña mediante cookies o tecnología similar.",
+        "We use service providers to receive form submissions, manage customer follow-up, host the website, and understand page performance. These may include GoHighLevel, Web3Forms, Vercel, Meta, Google Analytics, and Microsoft Clarity. They process information under their own terms and privacy notices. Advertising and analytics tools receive browser, device, page, and campaign information through cookies or similar technology, and nothing more. They do not receive your mobile number, your text messaging opt-in, or your consent record.",
+        "Usamos proveedores para recibir formularios, manejar el seguimiento al cliente, alojar el sitio y entender el rendimiento de las páginas. Estos pueden incluir GoHighLevel, Web3Forms, Vercel, Meta, Google Analytics y Microsoft Clarity. Ellos procesan información bajo sus propios términos y avisos de privacidad. Las herramientas de publicidad y analítica reciben información del navegador, dispositivo, página y campaña mediante cookies o tecnología similar, y nada más. No reciben su número móvil, su suscripción a mensajes de texto ni su registro de consentimiento.",
       ),
     },
     {
       title: t("Your choices", "Sus opciones"),
       body: t(
-        `You may ask what contact information we have from you, request a correction, or ask us to remove it by emailing ${EMAIL} or calling ${PHONE}. You can unsubscribe from an email through its unsubscribe link and end text messages by replying STOP. We may keep records when needed to respond to a request, prevent abuse, or meet a legal obligation.`,
-        `Puede pedir qué información de contacto tenemos sobre usted, solicitar una corrección o pedir que la eliminemos escribiendo a ${EMAIL} o llamando al ${PHONE}. Puede cancelar un correo mediante su enlace para darse de baja y terminar textos respondiendo STOP. Podemos conservar registros cuando sea necesario para responder una solicitud, prevenir abuso o cumplir una obligación legal.`,
+        `You may ask what contact information we have from you, request a correction, or ask us to remove it by emailing ${EMAIL} or calling ${PHONE}. You can unsubscribe from an email through its unsubscribe link and end text messages by replying STOP. Reply HELP to any text for help. We may keep records when needed to respond to a request, prevent abuse, or meet a legal obligation.`,
+        `Puede pedir qué información de contacto tenemos sobre usted, solicitar una corrección o pedir que la eliminemos escribiendo a ${EMAIL} o llamando al ${PHONE}. Puede cancelar un correo mediante su enlace para darse de baja y terminar textos respondiendo STOP. Responda HELP a cualquier texto para obtener ayuda. Podemos conservar registros cuando sea necesario para responder una solicitud, prevenir abuso o cumplir una obligación legal.`,
       ),
     },
   ]
@@ -92,7 +106,7 @@ export default async function PrivacyPage({
           {t("Privacy Notice", "Aviso de privacidad")}
         </h1>
         <p className="mt-3 text-sm text-[#52647b]">
-          {t("Last updated August 10, 2026", "Última actualización: 10 de agosto de 2026")}
+          {t("Last updated August 24, 2026", "Última actualización: 24 de agosto de 2026")}
         </p>
         <p className="mt-6 text-[17px] leading-7 text-[#33465f]">
           {t(

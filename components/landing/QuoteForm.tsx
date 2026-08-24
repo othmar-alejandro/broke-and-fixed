@@ -1003,8 +1003,8 @@ export default function QuoteForm({
 
               <p className="mt-4 text-[15.5px] text-[var(--lp-ink-2)]">
                 {t(
-                  "By selecting See my price, you ask us to call or text about this project. Message and data rates may apply. Reply STOP to end texts. Consent is not a condition of purchase.",
-                  "Al seleccionar Ver mi precio, nos pide que le llamemos o escribamos sobre este proyecto. Pueden aplicar cargos de mensajes y datos. Responda STOP para terminar los textos. El consentimiento no es una condición de compra.",
+                  "By selecting See my price, you agree that Broke & Fixed Home Solutions may call and send text messages to the number you gave us about this project. Message frequency varies. Message and data rates may apply. Reply STOP to end texts, HELP for help. Consent is not a condition of purchase. No mobile information is shared with third parties or affiliates for marketing or promotional purposes.",
+                  "Al seleccionar Ver mi precio, usted acepta que Broke & Fixed Home Solutions puede llamar y enviar mensajes de texto al número que nos dio sobre este proyecto. La frecuencia de mensajes varía. Pueden aplicar cargos de mensajes y datos. Responda STOP para terminar los textos, HELP para ayuda. El consentimiento no es una condición de compra. Ninguna información móvil se comparte con terceros ni afiliados para fines de marketing o promoción.",
                 )}
                 {" "}
                 <Link
@@ -1012,6 +1012,13 @@ export default function QuoteForm({
                   className="font-semibold text-[var(--lp-navy)] underline underline-offset-2"
                 >
                   {t("Privacy notice", "Aviso de privacidad")}
+                </Link>
+                <span aria-hidden="true"> · </span>
+                <Link
+                  href={`/${es ? "es" : "en"}/terms`}
+                  className="font-semibold text-[var(--lp-navy)] underline underline-offset-2"
+                >
+                  {t("Terms", "Términos")}
                 </Link>
               </p>
             </form>
