@@ -21,10 +21,10 @@ export async function generateMetadata({
 
   return {
     title: isEs
-      ? "Guias de Remodelacion para Miami | Broke & Fixed Home Solutions"
+      ? "Guías de Remodelación para Miami | Broke & Fixed Home Solutions"
       : "Home Remodeling Guides for Miami | Broke & Fixed Home Solutions",
     description: isEs
-      ? "Guias practicas de remodelacion para casas de Miami-Dade: banos, cocinas, pintura y azulejo, escritas por el equipo que hace el trabajo."
+      ? "Guías prácticas de remodelación para casas de Miami-Dade: baños, cocinas, pintura y azulejo, escritas por el equipo que hace el trabajo."
       : "Practical remodeling guides for Miami-Dade homes: bathrooms, kitchens, painting, and tile, written by the team that does the work.",
     alternates: {
       canonical: `https://brokeandfixed.com/${locale}/guides`,
@@ -50,7 +50,7 @@ export default async function GuidesIndexPage({
 
   const breadcrumbs = [
     { name: isEs ? "Inicio" : "Home", href: `/${locale}` },
-    { name: isEs ? "Guias" : "Guides", href: `/${locale}/guides` },
+    { name: isEs ? "Guías" : "Guides", href: `/${locale}/guides` },
   ]
 
   return (
@@ -59,7 +59,7 @@ export default async function GuidesIndexPage({
         <Breadcrumbs items={breadcrumbs} />
 
         <h1 className="font-display text-5xl font-bold text-espresso py-8">
-          {isEs ? "Guias de Remodelacion" : "Home Remodeling Guides"}
+          {isEs ? "Guías de Remodelación" : "Home Remodeling Guides"}
         </h1>
 
         <p className="text-warm-gray text-lg max-w-2xl leading-relaxed mb-12">

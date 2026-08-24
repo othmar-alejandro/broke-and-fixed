@@ -97,6 +97,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.6,
     },
+    // Campaign FAQ. Not a `services` entry, so it is listed explicitly.
+    {
+      url: `${BASE_URL}/en/faq/tub-to-shower`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/es/faq/tub-to-shower`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
     ...services.flatMap((service) => [
       {
         url: `${BASE_URL}/en/faq/${service.slug}`,

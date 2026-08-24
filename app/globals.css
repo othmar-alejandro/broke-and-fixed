@@ -110,6 +110,25 @@ body {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+.prose figure {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.prose figure img {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.prose figcaption {
+  margin-top: 0.75rem;
+  padding-left: 0.875rem;
+  border-left: 3px solid #F07A1A;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-warm-gray);
+}
+
 .prose blockquote {
   border-left: 4px solid #F07A1A;
   padding-left: 1rem;

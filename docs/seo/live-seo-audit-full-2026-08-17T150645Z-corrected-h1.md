@@ -1,0 +1,61 @@
+# Full Live SEO Audit, Broke & Fixed, corrected H1 parser
+
+- Domain: https://brokeandfixed.com
+- Sitemap URLs found/crawled: 514
+- Search Console/analytics: not checked
+- Public changes made: none
+- Note: H1 tag count was rechecked separately so nested span text is not miscounted.
+
+## Top issue counts
+- 1/6 images missing alt: 172
+- 1/3 images missing alt: 90
+- 1/1 images missing alt: 84
+- 1/5 images missing alt: 68
+- hreflang incomplete: 56
+- 1/2 images missing alt: 42
+- 1/9 images missing alt: 34
+- description length 320: 9
+- title length 66: 8
+- title length 68: 8
+- description length 289: 7
+- description length 319: 7
+- description length 290: 7
+- title length 69: 7
+- title length 70: 6
+- title length 67: 5
+- description length 292: 5
+- description length 336: 5
+- description length 414: 5
+- description length 462: 5
+- title length 79: 5
+- 1/31 images missing alt: 4
+- 1/30 images missing alt: 4
+- description length 304: 4
+- description length 305: 4
+
+## Route families with most findings
+- es/services/reparaciones-exteriores: 39 findings, 1/6 images missing alt=17, description length 336=5, description length 337=4, description length 329=2, description length 334=2
+- es/services/renovacion-de-gabinetes: 39 findings, 1/6 images missing alt=17, description length 462=5, description length 463=4, description length 455=2, description length 460=2
+- es/services/remodelacion-de-cocinas: 38 findings, 1/6 images missing alt=17, description length 292=5, description length 293=3, description length 285=2, description length 290=2
+- es/services/instalacion-de-pisos: 37 findings, 1/5 images missing alt=17, description length 320=5, description length 321=4, description length 318=2, description length 319=2
+- en/services/cabinet-refinishing: 37 findings, 1/6 images missing alt=17, description length 414=5, description length 415=4, description length 412=2, description length 413=2
+- es/services/pintura-interior: 36 findings, 1/5 images missing alt=17, description length 289=6, description length 290=4, description length 288=2, hreflang incomplete=1
+- es/services/pintura-exterior: 36 findings, 1/6 images missing alt=17, description length 319=5, description length 320=4, description length 317=2, description length 318=2
+- es/services/remodelacion-de-banos: 34 findings, 1/6 images missing alt=17, description length 304=4, description length 305=4, description length 299=2, description length 302=2
+- en/services/bathroom-remodeling: 20 findings, 1/6 images missing alt=17, description length 294=1, hreflang incomplete=1, 1/32 images missing alt=1
+- en/services/kitchen-remodeling: 20 findings, 1/6 images missing alt=17, description length 284=1, hreflang incomplete=1, 1/33 images missing alt=1
+- en/services/interior-painting: 20 findings, 1/5 images missing alt=17, description length 281=1, hreflang incomplete=1, 1/31 images missing alt=1
+- en/services/exterior-painting: 20 findings, 1/6 images missing alt=17, description length 284=1, hreflang incomplete=1, 1/30 images missing alt=1
+- en/services/tile-work: 20 findings, 1/5 images missing alt=17, description length 290=1, hreflang incomplete=1, 1/31 images missing alt=1
+- en/services/exterior-repairs: 20 findings, 1/6 images missing alt=17, description length 285=1, hreflang incomplete=1, 1/29 images missing alt=1
+- home: 6 findings, 1/20 images missing alt=2, title length 83=1, description length 238=1, title length 84=1, description length 221=1
+- en/gallery/green-tiles-bathroom-kendall: 4 findings, title length 70=1, description length 70=1, 1/2 images missing alt=1, thin visible text 88=1
+- es/gallery/green-tiles-bathroom-kendall: 4 findings, title length 70=1, description length 70=1, 1/2 images missing alt=1, thin visible text 89=1
+- es/cost: 4 findings, title length 71=1, hreflang incomplete=1, 1/1 images missing alt=1, thin visible text 157=1
+- es/locations/south-miami-heights: 3 findings, title length 66=1, hreflang incomplete=1, 1/9 images missing alt=1
+- es/faq: 3 findings, title length 76=1, hreflang incomplete=1, 1/1 images missing alt=1
+- en/faq/tile-work: 3 findings, title length 29=1, description length 58=1, 1/1 images missing alt=1
+- en/blog/hb-803-in-effect-bathroom-kitchen-miami: 3 findings, title length 90=1, description length 221=1, 1/3 images missing alt=1
+- es/blog/hb-803-in-effect-bathroom-kitchen-miami: 3 findings, title length 97=1, description length 263=1, 1/3 images missing alt=1
+- es/blog/hb-803-timeline-before-after-july-1-2026: 3 findings, title length 91=1, description length 194=1, 1/2 images missing alt=1
+- en/blog/hb-803-private-provider-fees-explained: 3 findings, title length 79=1, description length 181=1, 1/2 images missing alt=1

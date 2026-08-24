@@ -82,6 +82,16 @@ function markdownToHtml(md: string): string {
   // Ordered lists
   html = html.replace(/^\d+\. (.+)$/gm, "<li>$1</li>")
 
+  // Images — must run before links so ![alt](src) is not caught by the link rule.
+  // Optional third argument becomes a caption: ![alt](/path.jpg "Caption text")
+  html = html.replace(
+    /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)/g,
+    (_match, alt, src, caption) =>
+      `<figure><img src="${src}" alt="${alt}" loading="lazy" decoding="async" />` +
+      (caption ? `<figcaption>${caption}</figcaption>` : "") +
+      `</figure>`
+  )
+
   // Links
   html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
 
@@ -99,6 +109,8 @@ function markdownToHtml(md: string): string {
       trimmed.startsWith("<ul") ||
       trimmed.startsWith("<ol") ||
       trimmed.startsWith("<li") ||
+      trimmed.startsWith("<figure") ||
+      trimmed.startsWith("<img") ||
       trimmed.startsWith("</")
     ) {
       result.push(trimmed)

@@ -1,0 +1,7 @@
+.t2s-location {
+  --t2s-cream: #f8f9fc;
+}
+
+.t2s-location summary::-webkit-details-marker {
+  display: none;
+}
