@@ -6,6 +6,19 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Bare legal URLs must resolve, not 404. Twilio's A2P vetter (and any
+      // human) may try brokeandfixed.com/privacy without the locale prefix,
+      // and a 404 there reads as "no privacy policy on the website".
+      {
+        source: '/privacy',
+        destination: '/en/privacy',
+        permanent: true,
+      },
+      {
+        source: '/terms',
+        destination: '/en/terms',
+        permanent: true,
+      },
       {
         source: '/review',
         destination: 'https://search.google.com/local/writereview?placeid=ChIJ7VSW8vHbAgMRvNWjsiV5kII',
