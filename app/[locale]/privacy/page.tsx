@@ -110,8 +110,8 @@ export default async function PrivacyPage({
         </p>
         <p className="mt-6 text-[17px] leading-7 text-[#33465f]">
           {t(
-            "This notice explains what happens to information you submit to Broke & Fixed Home Solutions through this website.",
-            "Este aviso explica qué sucede con la información que usted envía a Broke & Fixed Home Solutions mediante este sitio.",
+            "This notice explains what happens to information you submit to Broke & Fixed Home Solutions, a registered DBA of Loadr Solutions LLC, through this website.",
+            "Este aviso explica qué sucede con la información que usted envía a Broke & Fixed Home Solutions, nombre comercial registrado (DBA) de Loadr Solutions LLC, mediante este sitio.",
           )}
         </p>
 
@@ -132,7 +132,7 @@ export default async function PrivacyPage({
           </h2>
           <p className="mt-3 leading-7 text-white/85">
             Broke &amp; Fixed Home Solutions<br />
-            {t("Operated by Loadr Solutions LLC", "Operada por Loadr Solutions LLC")}<br />
+            {t("A registered DBA of Loadr Solutions LLC", "Nombre comercial registrado (DBA) de Loadr Solutions LLC")}<br />
             {t("Service-area business based in Kendall, Florida 33186", "Empresa de área de servicio con base en Kendall, Florida 33186")}<br />
             <a href={`mailto:${EMAIL}`} className="underline underline-offset-2">{EMAIL}</a><br />
             <a href="tel:+17863637039" className="underline underline-offset-2">{PHONE}</a>
