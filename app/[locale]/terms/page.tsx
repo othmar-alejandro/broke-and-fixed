@@ -140,6 +140,35 @@ export default async function TermsPage({
           ))}
         </div>
 
+        <section className="mt-9 rounded-md border border-[#d9e0ea] bg-[#f8f9fc] p-6">
+          <h2 className="font-[family-name:var(--font-barlow-condensed)] text-2xl font-bold uppercase tracking-tight">
+            {t("Text messaging program terms", "Términos del programa de mensajes de texto")}
+          </h2>
+          <p className="mt-3 text-[16.5px] leading-7 text-[#33465f]">
+            {t(
+              "Broke & Fixed Home Solutions sends text messages to people who ask about a project through this website or by phone. Messages cover estimate follow-ups, appointment confirmations, and updates about the project you asked about. Message frequency varies. Message and data rates may apply. Consent to receive text messages is not a condition of any purchase. Carriers are not liable for delayed or undelivered messages.",
+              "Broke & Fixed Home Solutions envía mensajes de texto a personas que preguntan por un proyecto mediante este sitio o por teléfono. Los mensajes cubren seguimientos de estimados, confirmaciones de cita y actualizaciones sobre el proyecto que usted consultó. La frecuencia de mensajes varía. Pueden aplicar cargos de mensajes y datos. El consentimiento para recibir mensajes de texto no es una condición de compra. Las operadoras no son responsables por mensajes demorados o no entregados.",
+            )}
+          </p>
+          <p className="mt-3 text-[16.5px] leading-7 text-[#33465f]">
+            <strong>
+              {t(
+                "Reply STOP at any time to cancel text messages. Reply HELP for help.",
+                "Responda STOP en cualquier momento para cancelar los mensajes de texto. Responda HELP para ayuda.",
+              )}
+            </strong>{" "}
+            {t("You can also reach us at ", "También puede contactarnos en ")}
+            <a href={`mailto:${EMAIL}`} className="underline underline-offset-2">{EMAIL}</a>
+            {t(" or ", " o al ")}
+            <a href="tel:+17863637039" className="underline underline-offset-2">{PHONE}</a>.{" "}
+            {t("How we handle mobile information is described in our ", "Cómo manejamos la información móvil se describe en nuestro ")}
+            <Link href={`/${es ? "es" : "en"}/privacy`} className="font-semibold underline underline-offset-2">
+              {t("Privacy Notice", "Aviso de privacidad")}
+            </Link>
+            {t(". No mobile information is shared with third parties or affiliates for marketing or promotional purposes.", ". Ninguna información móvil se comparte con terceros ni afiliados para fines de marketing o promoción.")}
+          </p>
+        </section>
+
         <p className="mt-9 text-[16.5px] leading-7 text-[#33465f]">
           {t("See also our ", "Vea también nuestro ")}
           <Link
