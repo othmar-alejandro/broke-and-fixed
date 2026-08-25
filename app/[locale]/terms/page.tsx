@@ -186,6 +186,7 @@ export default async function TermsPage({
           </h2>
           <p className="mt-3 leading-7 text-white/85">
             Broke &amp; Fixed Home Solutions<br />
+            {t("Operated by Loadr Solutions LLC", "Operada por Loadr Solutions LLC")}<br />
             {t("Service-area business based in Kendall, Florida 33186", "Empresa de área de servicio con base en Kendall, Florida 33186")}<br />
             <a href={`mailto:${EMAIL}`} className="underline underline-offset-2">{EMAIL}</a><br />
             <a href="tel:+17863637039" className="underline underline-offset-2">{PHONE}</a>

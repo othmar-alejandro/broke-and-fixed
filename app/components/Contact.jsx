@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Phone, Envelope, PaperPlaneTilt } from '@phosphor-icons/react'
 import ScrollReveal from './ScrollReveal'
 import { useTranslation } from 'react-i18next'
+import Link from 'next/link'
 import PhoneLink from '@/components/PhoneLink'
 import { trackFormSubmit } from '@/lib/analytics'
 
@@ -146,11 +147,21 @@ export default function Contact() {
                     <PaperPlaneTilt weight="bold" size={14} />
                   </span>
                 </button>
+
+                <p className="mt-4 text-xs leading-relaxed text-white/40">
+                  {isEs
+                    ? 'Al enviar este formulario, usted acepta que Broke & Fixed Home Solutions pueda llamar y enviar mensajes de texto al número que proporcionó sobre su consulta. La frecuencia de mensajes varía. Pueden aplicar cargos de mensajes y datos. Responda STOP para cancelar, HELP para ayuda. El consentimiento no es una condición de compra. Ninguna información móvil se comparte con terceros ni afiliados para fines de marketing o promoción. '
+                    : 'By submitting this form, you agree that Broke & Fixed Home Solutions may call and send text messages to the number you provided about your inquiry. Message frequency varies. Message and data rates may apply. Reply STOP to cancel, HELP for help. Consent is not a condition of purchase. No mobile information is shared with third parties or affiliates for marketing or promotional purposes. '}
+                  <Link href={isEs ? '/es/privacy' : '/en/privacy'} className="underline underline-offset-2 text-white/60 hover:text-white/80">
+                    {isEs ? 'Aviso de privacidad' : 'Privacy Notice'}
+                  </Link>
+                  <span aria-hidden="true"> &middot; </span>
+                  <Link href={isEs ? '/es/terms' : '/en/terms'} className="underline underline-offset-2 text-white/60 hover:text-white/80">
+                    {isEs ? 'Términos' : 'Terms'}
+                  </Link>
+                </p>
               </form>
               <div className="px-4 pb-4 pt-5 mt-2 border-t border-white/5">
-                <p className="text-center text-xs text-white/40 mb-2">
-                  {isEs ? 'Respetamos tu privacidad. No spam.' : 'We respect your privacy. No spam.'}
-                </p>
                 <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1 text-[11px] text-white/50">
                   <span className="font-semibold text-white/70">Google reviews</span>
                   <span className="text-white/20">&middot;</span>
