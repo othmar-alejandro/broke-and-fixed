@@ -904,6 +904,109 @@ workflow change.
 
 ---
 
+## 10c. Click-by-click build guide
+
+The workflow canvas would not load in an automated browser session on 2026-08-25. The
+list renders, but the table sits behind a permanent spinner and swallows every
+interaction: folder rows, the search box, and `Create workflow` all do nothing. The app
+is a cross-origin iframe at `client-app-automation-workflows.leadconnectorhq.com`, so
+its errors are not readable from the parent page, and loading that URL directly hangs
+forever because it needs the parent's auth handshake. Retrying the same clicks will not
+fix it. Try a different browser or profile, or build it by hand with the steps below.
+
+All 28 templates already exist, so every email step is **select from a list**, never
+compose. Budget about twenty minutes per workflow.
+
+### Common settings for all four
+
+- Automation, Workflows, `+ Create workflow`, `Start from scratch`
+- Name it exactly as written below, so it sorts next to its siblings
+- **Leave every one in Draft.** Do not publish until section 2 and section 10 are done
+- Settings tab: allow re-entry **OFF**, stop on response **ON**
+
+### Language branching, used in all four
+
+Every email step below is a pair. The pattern is the same every time:
+
+1. Add action `If/Else`
+2. Condition: `Contact` `Tag` `is` `lang-es`
+3. **Yes branch** gets the ES template, **No branch** gets the EN template
+4. Rejoin after the branch
+
+Do not use "language" as a contact field. It is the tag that is reliable, because
+`/api/lead` writes `lang-en` or `lang-es` on every submission.
+
+### `T2S | 01 Estimate Lead | Speed to Lead`
+
+Trigger: `Contact Tag`, tag `estimate-request`
+
+1. `Create Opportunity`. Pipeline `Main Pipeline`, stage `New Lead`, name
+   `T2S {{contact.first_name}} {{contact.last_name}} {{contact.project_scope}}`,
+   value `{{contact.planning_range_low}}`, source `Meta tub to shower`
+2. `Internal Notification`, type **Email**, to Omar and Byron, body from section 3.1
+3. `Create Task`. Title `Call {{contact.first_name}} {{contact.last_name}} - 5 min SLA`,
+   assign Omar, due immediately
+4. If/Else on `lang-es` → `T2S-01 Instant Ack ES` / `T2S-01 Instant Ack EN`
+5. `Wait` 15 minutes
+6. If/Else: outbound call logged? No → `Internal Notification` to Byron
+7. `Wait` until 1 hour after entry
+8. If/Else on `lang-es` → `T2S-01 One Hour ES` / `T2S-01 One Hour EN`
+9. `Wait` until 9:00am next business day
+10. If/Else on `lang-es` → `T2S-01 Your Range ES` / `T2S-01 Your Range EN`
+11. `Wait` 2 days
+12. `Add Contact Tag` `t2s-no-contact`
+13. `Add to Workflow` → `T2S | 03 Estimate Nurture`
+
+Exit conditions: appointment booked, contact replies, opportunity past New Lead,
+unsubscribe.
+
+### `T2S | 02 Planning Guide Delivery`
+
+Trigger: `Contact Tag`, tag `planning-guide-lead`
+
+1. If/Else on `lang-es` → `T2S-02 Guide Delivery ES` / `T2S-02 Guide Delivery EN`
+   (no wait in front of this, it goes out immediately)
+2. `Wait` 2 days
+3. If/Else on `lang-es` → `T2S-02 Three Questions ES` / `T2S-02 Three Questions EN`
+4. `Wait` 4 days
+5. `Add to Workflow` → `T2S | 04 Guide to Estimate`
+
+Exit: contact gets `estimate-request`, replies, books, or unsubscribes.
+
+### `T2S | 03 Estimate Nurture`
+
+Trigger: `Contact Tag`, tag `t2s-no-contact`
+
+| Step | Action |
+|---|---|
+| Day 2 | `Create Task` call attempt 2 |
+| Day 3 | If/Else → `T2S-03 Proof ES` / `EN` |
+| Day 5 | `Create Task` call attempt 3 |
+| Day 7 | If/Else → `T2S-03 Permits ES` / `EN` |
+| Day 9 | `Create Task` call attempt 4 |
+| Day 11 | If/Else → `T2S-03 The Week ES` / `EN` |
+| Day 14 | `Create Task` call attempt 5, then If/Else → `T2S-03 Close It Out ES` / `EN` |
+| Day 21 | `Create Task` call attempt 6 final, `Add Contact Tag` `t2s-cold`, move opportunity to Lost |
+
+`t2s-cold` does not exist in the account yet. Create it on first use.
+
+### `T2S | 04 Guide to Estimate`
+
+Trigger: `Contact Tag` `planning-guide-lead`
+Filter: does NOT have tag `estimate-request`
+
+| Day | Action |
+|---|---|
+| 6 | If/Else → `T2S-04 Case Study ES` / `EN` |
+| 10 | If/Else → `T2S-04 Cost Breakdown ES` / `EN` |
+| 14 | If/Else → `T2S-04 Resale ES` / `EN` |
+| 19 | If/Else → `T2S-04 Direct Ask ES` / `EN` |
+| 30 | If/Else → `T2S-04 Re-engage ES` / `EN` |
+
+Exit the moment the contact gets `estimate-request`.
+
+---
+
 ## 11. The one number
 
 Time from form submission to first human contact. Log it by hand for the first month if
