@@ -33,6 +33,44 @@ build those steps yet.
 
 ---
 
+## 0. Voice, and the thing about the visit
+
+Two rules that override anything written elsewhere in this file.
+
+**Write it casual.** These read as one person typing to another person, not a company
+issuing a communication. Contractions. Short sentences. Say "you're looking at" instead
+of "your planning range is." A question on its own line is fine. Homeowners answer
+people, they ignore brands. Do not tidy this into corporate voice on a later pass.
+
+**Sign it `Omar Casilla`.** Full name, every email. Then `Broke & Fixed` on the next
+line, and that is the whole signature. A first name alone reads like a mail merge; the
+full name reads like somebody who will actually pick up.
+
+### The visit is not a measuring appointment
+
+This was wrong in earlier drafts and it matters, because it is the single strongest
+thing this business offers and it was being described as a tape measure.
+
+What actually happens in those fifteen minutes:
+
+1. You tell us what you have in mind.
+2. We design it **right there, on the spot**, so you can see it before deciding anything.
+3. The final quote comes off **that design**, and it stays inside the range already given.
+
+So the promise is not "we will come measure and get back to you." It is "you will see
+your bathroom before you commit, and the price will not move outside the range." Almost
+nobody in this trade does that. Every email that mentions the visit should say it.
+
+Wrong: *"The only way to get a firm number is for one of us to stand in the bathroom
+for fifteen minutes."*
+
+Right: *"It's not just measuring. Tell us what you've got in mind and we'll put a design
+together right there, on the spot, so you can actually see it before you decide
+anything. Your final quote comes off that design, and it stays inside the range you
+just got."*
+
+---
+
 ## 1. What already exists and works
 
 Verified against the live account and the repo, 2026-08-25.
@@ -145,7 +183,7 @@ you know it's me and not a spam call.
 If right now is a bad time, just reply to this email with a better one and I'll work
 around your schedule.
 
-Omar
+Omar Casilla
 Broke & Fixed Home Solutions
 Family owned, fully insured, Miami-Dade
 ```
@@ -165,7 +203,7 @@ que soy yo y no una llamada de spam.
 Si ahora no le queda bien, conteste este correo con una mejor hora y me acomodo a
 su horario.
 
-Omar
+Omar Casilla
 Broke & Fixed Home Solutions
 Empresa familiar y totalmente asegurada, Miami-Dade
 ```
@@ -183,9 +221,12 @@ I tried you a little while ago and didn't catch you. That's normal, everyone is 
 Still want the walk-through on your bathroom? Reply with a time that works and I'll
 call you then. Mornings, evenings, weekends, it doesn't matter to me.
 
-If you changed your mind, that's fine too. Say so and I'll stop.
+And when we come out it's not just measuring. You tell us what you're picturing and
+we'll design it right there so you can see it before you commit to anything.
 
-Omar
+Changed your mind? No problem, just say so and I'll leave you alone.
+
+Omar Casilla
 786-363-7039
 ```
 
@@ -200,9 +241,12 @@ Lo llamé hace un rato y no lo alcancé. Es normal, todo el mundo está ocupado.
 ¿Todavía quiere que revisemos su baño? Contésteme con una hora que le sirva y lo llamo
 a esa hora. En la mañana, en la tarde, el fin de semana, a mí me da igual.
 
-Si cambió de idea, no hay problema. Dígamelo y no lo molesto más.
+Y cuando vamos no es solo tomar medidas. Usted nos dice lo que se está imaginando y se
+lo diseñamos ahí mismo para que lo vea antes de comprometerse a nada.
 
-Omar
+¿Cambió de idea? No hay problema, dígamelo y no lo molesto más.
+
+Omar Casilla
 786-363-7039
 ```
 
@@ -216,26 +260,30 @@ self-contained.
 ```
 {{contact.first_name}},
 
-Based on what you told us, a {{contact.project_scope}} in a bathroom like yours lands
-between ${{contact.planning_range_low}} and ${{contact.planning_range_high}}.
+From what you told us, a {{contact.project_scope}} in a bathroom like yours usually runs
+${{contact.planning_range_low}} to ${{contact.planning_range_high}}.
 
-That is a planning range, not a quote. The only way to get a firm number is for one of
-us to stand in the bathroom for fifteen minutes. That visit is free and there is no
-salesman, it is me or my brother.
+That's a planning range, not your final number. To get you the real one, one of us comes
+out and spends about fifteen minutes in the bathroom with you.
 
-Three things that move the number either direction:
+And it's not just measuring. Tell us what you've got in mind and we'll put a design
+together right there, on the spot, so you can actually see it before you decide
+anything. Your final quote comes off that design, and it stays inside the range you
+just got.
 
-1. Whether the drain and valve stay where they are. If they do, the job is simpler and
-   usually permit free.
-2. What is behind the wall. We do not know until we open it.
-3. Tile choice. The spread between builder grade and something you actually like is
-   smaller than most people expect.
+It's free, and nobody's going to sell you anything. It's me or my brother, that's it.
 
-Reply to this email or call 786-363-7039 and we will find a time.
+Three things that push the number one way or the other:
 
-Omar
-Broke & Fixed Home Solutions
-Fully insured, family owned, Miami-Dade
+1. Whether the drain and valve stay put. If they do, it's a simpler job and usually no permit.
+2. What's behind the wall. Nobody knows until we open it.
+3. Tile. The jump from builder grade to something you actually like is smaller than people think.
+
+Just hit reply, or call me at 786-363-7039.
+
+Omar Casilla
+Broke & Fixed
+Family owned, fully insured, Miami-Dade
 ```
 
 **Spanish.** Subject: `Su rango para la ducha, {{contact.first_name}}`
@@ -244,24 +292,29 @@ Fully insured, family owned, Miami-Dade
 {{contact.first_name}},
 
 Por lo que nos contó, un trabajo de {{contact.project_scope}} en un baño como el suyo
-queda entre ${{contact.planning_range_low}} y ${{contact.planning_range_high}}.
+normalmente sale entre ${{contact.planning_range_low}} y ${{contact.planning_range_high}}.
 
-Eso es un rango para planificar, no una cotización. La única forma de darle un número
-firme es que uno de nosotros esté quince minutos parado en su baño. Esa visita es
-gratis y no va ningún vendedor, voy yo o va mi hermano.
+Ese es un rango para planificar, no su número final. Para darle el de verdad, uno de
+nosotros pasa por su casa y se queda unos quince minutos en el baño con usted.
 
-Tres cosas que mueven el número para arriba o para abajo:
+Y no es solo ir a tomar medidas. Usted nos dice lo que tiene en mente y le armamos un
+diseño ahí mismo, en el lugar, para que lo vea antes de decidir nada. La cotización
+final sale de ese diseño, y queda dentro del rango que le acabamos de dar.
 
-1. Si el desagüe y la válvula se quedan donde están. Si se quedan, el trabajo es más
-   sencillo y por lo general no necesita permiso.
-2. Lo que hay detrás de la pared. Eso no se sabe hasta abrirla.
-3. El porcelanato que escoja. La diferencia entre lo básico y algo que de verdad le
-   guste es menor de lo que la gente piensa.
+Es gratis y nadie le va a vender nada. Voy yo o va mi hermano, nada más.
 
-Conteste este correo o llame al 786-363-7039 y buscamos una hora.
+Tres cosas que mueven el número para un lado o para el otro:
 
-Omar
-Broke & Fixed Home Solutions
+1. Si el desagüe y la válvula se quedan donde están. Si se quedan, es un trabajo más
+   sencillo y por lo general sin permiso.
+2. Lo que hay detrás de la pared. Nadie sabe hasta abrirla.
+3. El porcelanato. La diferencia entre lo básico y algo que de verdad le guste es menor
+   de lo que la gente piensa.
+
+Conteste este correo, o llámeme al 786-363-7039.
+
+Omar Casilla
+Broke & Fixed
 Empresa familiar y totalmente asegurada, Miami-Dade
 ```
 
@@ -344,7 +397,7 @@ https://www.instagram.com/brokeandfixed/
 
 Yours is probably not identical. It is close enough to be useful.
 
-Omar
+Omar Casilla
 786-363-7039
 ```
 
@@ -370,7 +423,7 @@ https://www.instagram.com/brokeandfixed/
 
 El suyo probablemente no es idéntico. Se parece lo suficiente para que le sirva.
 
-Omar
+Omar Casilla
 786-363-7039
 ```
 
@@ -400,7 +453,7 @@ you it always needs one is padding the invoice.
 
 Fifteen minutes and we will know.
 
-Omar
+Omar Casilla
 786-363-7039
 ```
 
@@ -425,7 +478,7 @@ hace falta le está inflando la factura.
 
 Quince minutos y lo sabemos.
 
-Omar
+Omar Casilla
 786-363-7039
 ```
 
@@ -453,7 +506,7 @@ about that up front and plan around it.
 We clean up daily. Not "contractor clean," actually clean, because one of the owners is
 the person standing there.
 
-Omar
+Omar Casilla
 786-363-7039
 ```
 
@@ -477,7 +530,7 @@ el principio y planificamos alrededor de eso.
 Limpiamos todos los días. Limpio de verdad, porque el que está parado ahí es uno de los
 dueños.
 
-Omar
+Omar Casilla
 786-363-7039
 ```
 
@@ -503,7 +556,7 @@ I'll close the file and stop emailing you.
 
 No hard feelings either way.
 
-Omar
+Omar Casilla
 786-363-7039
 ```
 
@@ -524,7 +577,7 @@ dejo de escribirle.
 
 Sin resentimientos de ninguna forma.
 
-Omar
+Omar Casilla
 786-363-7039
 ```
 
@@ -578,7 +631,7 @@ usually a few hundred dollars, not a few thousand.
 Your bathroom is not this bathroom. Two questions and you get your own number:
 https://brokeandfixed.com/en/landing/tub-to-shower
 
-Omar
+Omar Casilla
 ```
 
 **Spanish.** Subject: `En qué se va de verdad el dinero`
@@ -606,7 +659,7 @@ lo general son unos cientos de dólares, no unos miles.
 Su baño no es este baño. Dos preguntas y le damos su propio número:
 https://brokeandfixed.com/es/landing/tub-to-shower
 
-Omar
+Omar Casilla
 ```
 
 ### 6.3 Day 14, the objection nobody says out loud
@@ -631,7 +684,7 @@ as an upgrade rather than a subtraction.
 We are not going to tell you it never matters. It sometimes matters, and it is worth
 fifteen minutes to figure out which one you are.
 
-Omar
+Omar Casilla
 786-363-7039
 ```
 
@@ -656,7 +709,7 @@ mejora y no como algo que le quitaron.
 No le vamos a decir que nunca importa. A veces importa, y vale quince minutos averiguar
 en cuál de los dos casos está usted.
 
-Omar
+Omar Casilla
 786-363-7039
 ```
 
