@@ -1011,11 +1011,18 @@ Include `Reply STOP to opt out` on the first SMS of any sequence. `SMS 4` alread
 
 ## 6. Email sending setup
 
+> **Status: built and verified, 2026-08-25.** This section was written as a
+> plan and has been corrected to match what actually shipped. Two things
+> changed from the original proposal: the sending subdomain is `send.`, not
+> `mail.`, and the `From` address is `quotes@brokeandfixed.com`, not
+> `omar@brokeandfixed.com` (which was never created and does not exist in the
+> Workspace directory). The reasoning below still holds; only the values moved.
+
 ### LC Email vs. a dedicated sending domain
 
 **LC Email** is LeadConnector's shared Mailgun-backed pool. Zero setup, sends today. The cost is that reputation is shared with every other GHL sub-account on that pool, the `From` shows a LeadConnector-owned domain, and Gmail's promotions-tab classification for a shared bulk pool is unkind. For a homeowner who filled a form four minutes ago, the promotions tab is the same as not sending.
 
-**A dedicated sending domain** means the reputation is the client's own and it compounds. The `From` reads `omar@brokeandfixed.com`, which matches the site the person just used.
+**A dedicated sending domain** means the reputation is the client's own and it compounds. The `From` reads `quotes@brokeandfixed.com`, which matches the site the person just used.
 
 The client said explicitly: *"we are going to create dedicated emails."* So the answer is dedicated. The recommendation is on the sequencing.
 
@@ -1027,13 +1034,13 @@ Verify the dedicated domain today, because DNS propagation plus a warm-up is a c
 
 ### The domain to use
 
-Sending subdomain: **`mail.brokeandfixed.com`**. Not the root.
+Sending subdomain: **`send.brokeandfixed.com`**. Not the root.
 
-The root domain runs the website and its MX points at Gmail for `brokeandfixed305@gmail.com`. Handing bulk-sending DNS to the root risks the mailbox the business actually reads. A subdomain isolates sending reputation completely, and a subdomain that starts cold cannot damage a root that already has history.
+The root domain runs the website and its MX points at Google Workspace, which carries the real `@brokeandfixed.com` mailboxes. Handing bulk-sending DNS to the root risks the mail the business actually reads. A subdomain isolates sending reputation completely, and a subdomain that starts cold cannot damage a root that already has history. GHL states this outright in its own setup UI: a subdomain sending domain can still send `From` the root.
 
-- `From`: `omar@brokeandfixed.com` — the root, so it looks right to a human
-- `Reply-To`: `brokeandfixed305@gmail.com` — so replies land in the inbox that is actually read
-- DKIM signs on `mail.brokeandfixed.com`, aligning to the root via relaxed DMARC alignment
+- `From`: `quotes@brokeandfixed.com` — the root, so it looks right to a human
+- Replies land in `admin@brokeandfixed.com`, because `quotes@` is a free alias on that user rather than a mailbox of its own
+- DKIM signs on `send.brokeandfixed.com`, aligning to the root via relaxed DMARC alignment
 
 That is the standard pattern and it is why `adkim=r` below is not optional.
 
@@ -1043,17 +1050,31 @@ Copy the exact selector and key from the GHL UI. The values below are the shapes
 
 | Type | Host | Value | TTL |
 |---|---|---|---|
-| TXT | `mail.brokeandfixed.com` | `v=spf1 include:mailgun.org ~all` | 3600 |
-| TXT | `<selector>._domainkey.mail.brokeandfixed.com` | `k=rsa; p=<paste from GHL>` | 3600 |
-| CNAME | `email.mail.brokeandfixed.com` | `mailgun.org` | 3600 |
-| MX | `mail.brokeandfixed.com` | `10 mxa.mailgun.org` | 3600 |
-| MX | `mail.brokeandfixed.com` | `10 mxb.mailgun.org` | 3600 |
-| TXT | `_dmarc.brokeandfixed.com` | `v=DMARC1; p=none; rua=mailto:dmarc@brokeandfixed.com; fo=1; adkim=r; aspf=r; pct=100` | 3600 |
+| TXT | `send.brokeandfixed.com` | `v=spf1 include:spf.leadconnectorhq.com include:mailgun.org ~all` | 3600 |
+| TXT | `krs._domainkey.send.brokeandfixed.com` | `k=rsa; p=<generated per domain>` | 3600 |
+| CNAME | `email.send.brokeandfixed.com` | `mailgun.org` | 3600 |
+| MX | `send.brokeandfixed.com` | `10 mxa.mailgun.org` | 3600 |
+| MX | `send.brokeandfixed.com` | `10 mxb.mailgun.org` | 3600 |
+| TXT | `_dmarc.send.brokeandfixed.com` | `v=DMARC1;p=none;` | 3600 |
+
+All six live in the **IONOS** DNS zone. The domain is registered and
+DNS-hosted at IONOS (`ns*.ui-dns.*`); Vercel only serves the site via records
+pointed at it. Records entered in any other provider's panel will never
+resolve.
+
+Two things the GHL UI will do to you:
+
+- The manual-records modal **truncates the DKIM host**. It renders
+  `krs._domainkey` when the real value is `krs._domainkey.send`. Read the
+  input value, not the label.
+- The `_dmarc.send` row **does not appear** in the initial record list. It
+  shows up only after the first verify pass, so a setup that looks complete
+  will still report one record unverified.
 
 Notes that prevent the two failures that actually happen:
 
-- **Do not add a second SPF TXT at the root.** If `brokeandfixed.com` already has `v=spf1 include:_spf.google.com ~all` for Gmail, leave it alone. Two SPF records at one host is a permerror and it breaks the existing mail, not just the new sending. The SPF above goes on the **subdomain only**.
-- **`adkim=r` is load-bearing.** With strict alignment, a DKIM signature on `mail.brokeandfixed.com` does not align with a `From` of `@brokeandfixed.com` and every message fails DMARC. Relaxed alignment accepts the organizational-domain match.
+- **Do not add a second SPF TXT at the root.** `brokeandfixed.com` now carries `v=spf1 include:_spf.google.com ~all` for Google Workspace (added 2026-08-25; the root had no SPF at all before that). Leave it alone. Two SPF records at one host is a permerror and it breaks the existing mail, not just the new sending. The SPF above goes on the **subdomain only**.
+- **`adkim=r` is load-bearing.** With strict alignment, a DKIM signature on `send.brokeandfixed.com` does not align with a `From` of `@brokeandfixed.com` and every message fails DMARC. Relaxed alignment accepts the organizational-domain match.
 - The two MX records on the subdomain are for bounce handling. Without them, bounces are invisible and the list rots silently.
 - Start at `p=none`. After 30 days of clean `rua` reports, move to `p=quarantine`. Only then consider `p=reject`.
 
@@ -1136,7 +1157,7 @@ This is the section the client asked for. Ordered by value per hour of work. Not
 1. All five emails in `01`, both languages.
 2. Guide delivery in `02`, which is currently the only thing genuinely blocking the guide funnel, since it has no phone number to fall back on.
 3. Workflows `04` and `05` in full.
-4. The `From` on every message changes from a LeadConnector domain to `omar@brokeandfixed.com`.
+4. The `From` on every message changes from a LeadConnector domain to `quotes@brokeandfixed.com`.
 
 ---
 
