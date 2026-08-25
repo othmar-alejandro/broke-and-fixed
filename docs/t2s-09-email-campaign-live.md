@@ -873,6 +873,37 @@ Nothing here is optional and the order matters.
 
 ---
 
+## 10b. Template inventory, live in the account
+
+All 28 created 2026-08-25 through the documented API. Every one is casual voice, signed
+`Omar Casilla / Broke & Fixed`, sender `Broke & Fixed Home Solutions
+<quotes@brokeandfixed.com>`. Every pair is EN and ES.
+
+| Workflow | Step | Template name |
+|---|---|---|
+| 01 | Instant, on entry | `T2S-01 Instant Ack EN` / `ES` |
+| 01 | 1 hour | `T2S-01 One Hour EN` / `ES` |
+| 01 | 9am next business day | `T2S-01 Your Range EN` / `ES` |
+| 02 | Instant, on entry | `T2S-02 Guide Delivery EN` / `ES` |
+| 02 | Day 2 | `T2S-02 Three Questions EN` / `ES` |
+| 03 | Day 3 | `T2S-03 Proof EN` / `ES` |
+| 03 | Day 7 | `T2S-03 Permits EN` / `ES` |
+| 03 | Day 11 | `T2S-03 The Week EN` / `ES` |
+| 03 | Day 14 | `T2S-03 Close It Out EN` / `ES` |
+| 04 | Day 6 | `T2S-04 Case Study EN` / `ES` |
+| 04 | Day 10 | `T2S-04 Cost Breakdown EN` / `ES` |
+| 04 | Day 14 | `T2S-04 Resale EN` / `ES` |
+| 04 | Day 19 | `T2S-04 Direct Ask EN` / `ES` |
+| 04 | Day 30 | `T2S-04 Re-engage EN` / `ES` |
+
+Two placeholders to replace with real jobs before publishing. `T2S-03 Proof` uses a
+Kendall job at $7,400 and `T2S-04 Case Study` uses a Westchester job at $8,900. Both
+are written in the right shape but the details must be a job that actually happened,
+ideally in or near the lead's ZIP. Swapping them is an edit to the template, not a
+workflow change.
+
+---
+
 ## 11. The one number
 
 Time from form submission to first human contact. Log it by hand for the first month if
