@@ -22,7 +22,7 @@ Everything is **PAUSED**. Nothing has spent a cent.
 | Pixel / dataset | "Brokie" | `1564050852174212` | Active, firing |
 | Facebook Page | Broke and Fixed | `1099333583269076` | |
 | Campaign | `LEADS_TOF_Estimator_US-MIA_202608` | `120255036342850397` | PAUSED, `OUTCOME_LEADS` |
-| Ad set | `BROAD_none_advantage_Lead` | `120255036345770397` | PAUSED, **$50.00/day** |
+| Ad set | `T2S_ZIP14_Age30plus_EN-ES` | `120255036345770397` | PAUSED, **$50.00/day** |
 | Ad 1 | `TYPE_PriceGate_v2_inhouse` | `120255415237020397` | PAUSED, pending review |
 | Ad 2 | `TYPE_Method_v2_inhouse` | `120255415258960397` | PAUSED, pending review |
 | Ad 3 | `PHOTO_BeforeAfter_H10_v2_inhouse-es` | `120255415268580397` | PAUSED, pending review |
@@ -36,7 +36,7 @@ set**. An ad never carries its own budget.
 
 ```
 Campaign  LEADS_TOF_Estimator_US-MIA_202608     no budget (CBO off)
-└── Ad set  BROAD_none_advantage_Lead           $50.00/day  ← the only budget
+└── Ad set  T2S_ZIP14_Age30plus_EN-ES          $50.00/day  ← the only budget
     ├── TYPE_PriceGate_v2_inhouse
     ├── TYPE_Method_v2_inhouse
     └── PHOTO_BeforeAfter_H10_v2_inhouse-es
@@ -86,42 +86,121 @@ $50/day. **Call inside 5 minutes.**
 
 ---
 
-## 3. Targeting, exactly as set
+## 3. Who we are promoting to
 
-Read back from the ad set on 26 Aug 2026.
+Buyer research is in `t2s-06-targeting-spec.md` section 1. Three profiles, one primary.
+
+| | Profile A — PRIMARY | Profile B — volume | Profile C — deprioritised |
+|---|---|---|---|
+| Who | The step-over buyer | Family, dead second bathroom | Recent buyer in project mode |
+| Age | **58 to 75** | 38 to 55 | 32 to 45 |
+| Where | Palmetto Bay, Westchester, Kendall proper, Pinecrest, South Miami Heights, Cutler Bay | West Kendall, The Hammocks, Country Walk, The Crossings, Kendale Lakes | Anywhere in the corridor |
+| House | 1960s–80s, bathroom original or last touched in the 90s | 1990s–2000s planned community, builder-grade tub nobody has used since 2014 | 1980s–90s, just bought |
+| Trigger | **Physical.** Stepping over a 15-inch tub wall got harder, or a spouse slipped | None. Has been meaning to for three years | Punch list |
+| Ticket | **$6,500** (shower plus floor) | $4,500 | $4,500 |
+| Language | **Skews Spanish-dominant hardest** | Mixed | Mixed |
+
+**Profile A is primary because it is the only one with a trigger rather than a
+preference.** Preference projects sit for three years; trigger projects close in three
+weeks. It also maps to the housing stock: Miami-Dade's median year built is **1980** and
+**82% of the county's 1.03M units were built before 2000**, which puts the modal home
+squarely in the 45-year-old-bathroom band.
+
+The service area was picked correctly for a reason worth knowing: **Kendall's
+homeownership rate is 62.2% against the county's 52.2%.** That ten-point gap is the whole
+business. County-wide Miami-Dade is renter-heavy, and renters do not buy a $6,500 shower.
+
+Kendall household income is **$83,664** against a county median of $71,753, which is what
+supports a $4,500–$6,500 ticket without a financing conversation.
+
+> **The important nuance:** these profiles drive the **creative**, not the targeting
+> settings. Under Andromeda you do not hand-build an audience out of interests and
+> behaviours. You give Meta a clean geographic box, a sane age floor, and a real
+> conversion signal, and it finds the buyer. Detailed interest stacking is a pre-2024
+> tactic the vault explicitly flags as out of date. **Detailed targeting is set to none,
+> deliberately.**
+
+## 4. Targeting, exactly as set
+
+Read back from the ad set after the 26 Aug changes.
 
 | Field | Value | Why |
 |---|---|---|
 | Objective | `OUTCOME_LEADS` | Sales/conversions needs pixel volume this account does not have |
-| Optimization goal | `OFFSITE_CONVERSIONS` | Website lead, not instant form. Ticket is $4,500+, and the vault puts website destination above instant form over $1,500 |
-| Conversion event | **`LEAD`**, pixel `1564050852174212` | Attached 26 Aug. Was empty before, which meant Meta was optimizing for a conversion with no pixel named |
-| Bid strategy | Highest volume | Correct at this volume. No cost cap, no bid cap |
-| Attribution | 1-day view, 7-day click | Correct |
-| Age | **40 to 65** | Tub-to-shower buyers are established homeowners |
-| Location | Custom radius, **12 miles** from 25.6793, −80.3173 (Kendall) | Covers 16 of 17 service areas. Vault: a 12-mile radius beats a 30-mile blanket every time |
-| Location type | **Home** | Residents, not people passing through |
-| Placements | Advantage+, all platforms and positions | Manual placement selection starves a local audience. Revisit day 30, not before |
-| Language | Not restricted | Spanish runs as its own ad, not its own ad set. See below |
-| Special Ad Category | **None** | See section 6 |
-| Advantage+ audience | **OFF** | Corrected. See below |
+| Optimization goal | `OFFSITE_CONVERSIONS` | Website lead. Ticket is $4,500+, and the vault puts website above instant form over $1,500. Instant forms give 20–40% more volume; landing pages convert 35–55% lead-to-booked against 15–30% |
+| Conversion event | **`LEAD`**, pixel `1564050852174212` | Attached 26 Aug. Was empty before |
+| **Locations** | **14 ZIP codes** (below) | Changed from a radius pin. See the three fixes |
+| Location type | **People living in this location** | Residents, not visitors |
+| **Age** | **30 to 65+** | `age_max: 65` is Meta's top bucket and means 65 and older, so Profile A's 58–75 is fully covered |
+| Gender | All | |
+| **Languages** | **Blank** | Spanish runs as its own ad, not its own ad set |
+| **Advantage+ audience** | **OFF** | Forced trade-off. See below |
+| Detailed targeting | **None, explicitly** | Interest stacking is out of date and would shrink a pool that needs no shrinking |
+| Placements | Advantage+, all | Manual placement selection starves a local audience |
+| Attribution | 7-day click, 1-day view | Widest Meta offers. Bath remodel runs a 180-day cycle, so 7 days is already too short |
+| Bid strategy | Highest volume | A cost cap on an ad set under 50 events/week simply refuses to spend |
+| Special Ad Category | None | Section 7 |
 
-### Correction: Advantage+ audience stays OFF
+### The 14 ZIPs
 
-`t2s-10` said to turn this on. **That was wrong for this account and I am reversing it.**
+`33133` `33134` `33143` `33156` `33157` `33165` `33174` `33176` `33177` `33183` `33186`
+`33189` `33193` `33196`
 
-The vault's argument for Advantage+ in local service is "local audiences are already
-small, do not shrink them further." That does not apply here. A 12-mile radius in dense
-Miami-Dade is roughly **300k to 800k addressable adults** (vault dense-urban band), and
-the recommended size per ad set is **150k to 400k**. This audience is already at or above
-the top of the useful range. The vault's own line: *above 500k in a local trade you are
-paying to reach people who will never book.*
+Covers Coconut Grove, Coral Gables, South Miami, Pinecrest, Palmetto Bay, Cutler Bay,
+Westchester, Kendall, South Miami Heights, Kendale Lakes, West Kendall, The Crossings,
+The Hammocks and Country Walk.
 
-Turning Advantage+ audience on expands the pool further, in the wrong direction, on a
-$50/day budget, with **zero conversion history for Meta to expand from**. Age 40–65 is
-doing useful work right now. Leave it.
+**Not covered: Doral, most of Sweetwater, and Miami Gardens.** Three of the seventeen
+service areas. Miami Gardens is roughly 20 miles north of the corridor and was always the
+outlier. Doral and Sweetwater are a judgement call the owner should make — adding
+`33172`, `33178`, `33182`, `33126` would bring them in. They are not in yet.
+
+### Three things this fixed
+
+**1. The pin was in the wrong place.** `t2s-06` specifies a centre of
+`25.6795, -80.4072`. The live ad set was set to `25.6793, **-80.3173**`, which at this
+latitude is **5.6 miles east** of the spec. That pushed the circle toward Biscayne Bay
+and away from West Kendall, The Hammocks and Country Walk, where Profile B lives. ZIP
+selection removes the problem rather than moving the pin.
+
+**2. The circle over-covered by about 40%.** A 12-mile radius from that pin holds roughly
+**1.2M adults** against the vault's 400,000 ceiling, and it reached into ZIPs the
+business never listed (33175, 33184, 33185, 33194, 33173, 33155, 33170, 33187 and the
+Tamiami and Fontainebleau edges). The vault's line applies directly: *a circle is the
+wrong shape; where category rules allow it, build the service area from ZIP or city
+selections.* We are not in the Housing category, so ZIP targeting is available. It was
+simply not being used.
+
+**3. Age floor was too high and cut real buyers.** It was 40–65. Profile B starts at 38
+and Profile C at 32, so a floor of 40 removed both. Now 30–65+.
+
+### Advantage+ audience: a forced trade-off, not a preference
+
+`t2s-06` specifies Advantage+ audience **ON** *and* a minimum age of 30. **Meta does not
+permit that combination.** The API rejects it outright:
+
+> "With ad sets that use Advantage+ audience, the minimum age audience control can't be
+> set to higher than 25."
+
+So it is one or the other. Taking the age floor, for three reasons:
+
+1. **There is no conversion history to expand from.** `Lead` has fired zero times.
+   Advantage+ expansion with no signal is uninformed exploration paid for at $50/day.
+2. **Miami-Dade is 52.2% homeowners.** The 25–29 cohort in a renter-heavy county is close
+   to pure waste, and Advantage+ would force the floor down into it.
+3. **The doctrinally correct alternative is unavailable.** The vault prefers *value rules*
+   over age restriction — keep the full pool and weight the good segments. Value rules
+   need conversion-value data, and this account has none.
 
 **Revisit at day 30**, once real `Lead` events exist. Expansion from a trained model is a
 different proposition from expansion from nothing.
+
+Worth noting: the vault's 150k–400k sizing rule exists to control **frequency**, and that
+constraint does not bind here. $50/day buys roughly 37,000–75,000 impressions a month.
+Spread across even 400,000 adults that is a monthly frequency near **0.1**. Frequency 4.0
+is unreachable at this budget on any pool above about 10,000 people. **So the geo decision
+is a waste decision, not a frequency decision** — which is exactly why precise ZIPs beat a
+generous circle here.
 
 ### Why English and Spanish share one ad set
 
@@ -138,7 +217,7 @@ toward whichever language produces cheaper *booked appointments*, never cheaper 
 
 ---
 
-## 4. The three ads, as written
+## 5. The three ads, as written
 
 CTA button on all three: **Get Quote**. Primary text sits in the 250–500 character
 survival band. Headlines are at or under 27 characters so they render whole on Feed.
@@ -214,7 +293,7 @@ a number that exists only in the ad is a price mismatch.
 
 ---
 
-## 5. Retargeting: not yet, and here is the trigger
+## 6. Retargeting: not yet, and here is the trigger
 
 **Do not build retargeting now.** Two independent reasons.
 
@@ -259,7 +338,7 @@ Sequence the retargeting creative:
 
 ---
 
-## 6. Compliance, and the one real rejection risk
+## 7. Compliance, and the one real rejection risk
 
 **Special Ad Category is None, deliberately.** Meta's Housing definition explicitly names
 "housing repairs," and the vault puts full bath remodel in the *genuinely ambiguous*
@@ -291,7 +370,7 @@ not rebuild.** A rebuild resets learning and gets the same answer.
 
 ---
 
-## 7. What to do after launch, by day
+## 8. What to do after launch, by day
 
 **Days 1–7: nothing.** No budget changes, no pausing an ad that looks slow, no new ads,
 no audience edits. Look once on day 4 and take no action. This is the rule that costs the
@@ -336,7 +415,7 @@ qualified rate holds above 40%.
 
 ---
 
-## 8. Still open before this goes live
+## 9. Still open before this goes live
 
 | # | Item | Who |
 |---|---|---|
