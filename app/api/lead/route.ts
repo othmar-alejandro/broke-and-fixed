@@ -297,7 +297,17 @@ async function upsertToGoHighLevel(
       postalCode: lead.zip,
       country: "US",
       source: leadSource("quote", lead.attribution),
-      tags: [LEAD_TAG, "estimate-request", `lang-${lead.locale}`, ...adPlatformTags(lead.attribution)],
+      tags: [
+        LEAD_TAG,
+        "estimate-request",
+        // Language-combined variant. GHL's Contact Tag trigger can filter on
+        // "tag added" but not on "contact has tag", so a workflow cannot
+        // trigger on estimate-request AND filter by lang-*. One tag that
+        // carries both facts lets each language's workflow trigger cleanly.
+        `estimate-request-${lead.locale}`,
+        `lang-${lead.locale}`,
+        ...adPlatformTags(lead.attribution),
+      ],
       customFields: buildCustomFields(lead, startingAt),
     }),
   })
@@ -359,6 +369,9 @@ async function captureGuideRequest({
             // enrolled people it had nothing to say to. The estimator path is
             // keyed on `estimate-request` instead.
             "planning-guide-lead",
+            // Same reason as estimate-request-<locale>: tag triggers cannot
+            // filter on an existing lang-* tag, so the language rides along.
+            `planning-guide-lead-${locale}`,
             `guide-${source}`,
             `lang-${locale}`,
             ...adPlatformTags(attribution),
