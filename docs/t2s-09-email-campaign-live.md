@@ -795,62 +795,207 @@ everything else.
 
 ---
 
-## 9. SMS copy, written and parked
+## 9. SMS, live as of A2P approval
 
-**Do not build these steps.** No Twilio approval, no phone number. This section exists
-so that switching SMS on later is a copy and paste rather than a writing project.
+A2P 10DLC was approved in Twilio on 2026-08-25. LeadConnector is being replaced by the
+client's own Twilio account. SMS goes live once GoHighLevel approves that integration
+and a number is assigned.
 
-Workflow 1, instant, English:
+### 9.1 Who can be texted, and who can never be
+
+| Workflow | Audience | SMS |
+|---|---|---|
+| 01 Speed to Lead | Estimator | Yes |
+| 03 Estimate Nurture | Estimator | Yes |
+| 02 Guide Delivery | Guide opt-in | **Never** |
+| 04 Guide to Estimate | Guide opt-in | **Never** |
+
+This is not a preference. The guide opt-in form collects an email address and nothing
+else. There is no phone number on those contacts, and the consent language that covers
+texting lives on the estimator form, which guide leads never saw. Texting them would be
+a TCPA violation on a campaign that was just approved, and it is the fastest way to lose
+the number.
+
+**Do not add an SMS step to workflows 02 or 04.** If someone later adds a phone field to
+the guide form, the consent copy has to go with it before a single message is sent.
+
+### 9.2 Consent is already handled, and where it lives
+
+`components/landing/QuoteForm.tsx` carries the full disclosure in both languages, next
+to the submit button: call and text, message frequency varies, rates may apply, STOP to
+end, HELP for help, consent not a condition of purchase, no sharing with third parties.
+
+Do not edit that string casually. It is the artifact that gets produced if a carrier or
+a regulator asks why you were texting somebody.
+
+### 9.3 The pairing rule
+
+**SMS leads. Email follows fifteen minutes later. Never both at the same instant.**
+
+Two notifications landing together reads as a blast. Fifteen minutes apart reads as a
+person who texted, then followed up with the details.
+
+The channels do different jobs and the copy should reflect that:
+
+- **SMS** gets them to pick up the phone. One idea, one ask, under 320 characters.
+- **Email** carries the range, the three things that move the number, and what the visit
+  actually is. That will not fit in a text and should not be tried.
+
+### 9.4 Quiet hours, not optional
+
+Every SMS step gets a sending window of **8:00am to 9:00pm** in the contact's local time.
+GHL sets this on the wait step immediately before the send.
+
+A tub to shower lead who submits at 11:40pm gets the internal alert immediately, the
+owner still calls in the morning, and the text waits until 8am. Texting a homeowner at
+midnight is both a violation and the single fastest way to earn a spam report.
+
+### 9.5 Workflow 01, revised for SMS
+
+| # | Step | Change |
+|---|---|---|
+| 1 | Create Opportunity | unchanged |
+| 2 | Internal notification, email | unchanged, fires day or night |
+| 3 | Create Task, 5 min SLA | unchanged |
+| 4 | If/Else `lang-es` | unchanged |
+| 5 | **SMS, immediately** | **new**, window 8am-9pm. Copy in 9.6 |
+| 6 | Wait 15 minutes | **new** |
+| 7 | Email `T2S-01 Instant Ack` | moved from step 5 to here |
+| 8 | Wait to 1 hour | unchanged |
+| 9 | **SMS #2** | **new**, window 8am-9pm |
+| 10 | Wait 15 minutes | **new** |
+| 11 | Email `T2S-01 One Hour` | unchanged |
+| 12 | 9am next business day, Email `T2S-01 Your Range` | unchanged, no SMS |
+
+The range email stays email only. A planning range with three qualifying factors is not
+a text message.
+
+### 9.6 SMS copy, Workflow 01
+
+The first message of any conversation carries the opt-out. Later messages in the same
+thread do not need to repeat it.
+
+**Immediate, English**
 ```
-Hi {{contact.first_name}}, this is Omar with Broke & Fixed. Just got your tub to shower
-request. Your range is ${{contact.planning_range_low}} to ${{contact.planning_range_high}}.
-I'll call you in a few minutes. If now is bad, text me a better time and I'll work around it.
+{{contact.first_name}}, it's Omar Casilla with Broke & Fixed. Got your tub to shower
+request, your range is ${{contact.planning_range_low}} to ${{contact.planning_range_high}}.
+Calling you in a few minutes from this number. Bad time? Text me a better one.
+Reply STOP to opt out.
 ```
 
-Workflow 1, instant, Spanish:
+**Immediate, Spanish**
 ```
-Hola {{contact.first_name}}, le habla Omar de Broke & Fixed. Acabo de recibir su
-solicitud para cambiar la bañera por ducha. Su rango es de ${{contact.planning_range_low}}
-a ${{contact.planning_range_high}}. Le llamo en unos minutos. Si ahora no le queda bien,
-mándeme por texto una mejor hora.
-```
-
-Workflow 1, one hour, English:
-```
-{{contact.first_name}}, tried you earlier. Still want the walk-through on your bathroom?
-Reply with a time that works and I'll call then. If you changed your mind that's fine
-too, just say so and I'll stop.
+{{contact.first_name}}, le habla Omar Casilla de Broke & Fixed. Recibi su solicitud para
+cambiar la banera por ducha, su rango es de ${{contact.planning_range_low}} a
+${{contact.planning_range_high}}. Lo llamo en unos minutos desde este numero. No le queda
+bien? Mandeme una mejor hora. Responda STOP para no recibir mas textos.
 ```
 
-Workflow 1, one hour, Spanish:
+**One hour, English**
 ```
-{{contact.first_name}}, lo llamé hace un rato. ¿Todavía quiere que revisemos su baño?
-Contésteme con una hora que le sirva y lo llamo. Si cambió de idea no hay problema,
-solo dígamelo y no lo molesto más.
+{{contact.first_name}}, tried you earlier and missed you. Still want us to come look at
+the bathroom? Text me a time that works. And it's not just measuring, we design it right
+there so you can see it before you decide anything.
 ```
 
-When A2P clears: add the SMS step immediately **before** each corresponding email, and
-change the email to a fifteen minute delay so the text lands first and the email backs
-it up.
+**One hour, Spanish**
+```
+{{contact.first_name}}, lo llame hace un rato y no lo alcance. Todavia quiere que pasemos
+a ver el bano? Mandeme una hora que le sirva. Y no es solo tomar medidas, se lo disenamos
+ahi mismo para que lo vea antes de decidir nada.
+```
 
----
+Accents are deliberately stripped from the SMS copy. Non-GSM-7 characters silently push
+a message into UCS-2, which cuts the segment length from 160 to 70 characters and can
+triple the cost of a message that looked fine in the editor. The emails keep their
+accents; the texts do not.
+
+### 9.7 SMS copy, Workflow 03
+
+Only on the call-attempt days. The content emails in this sequence stay email only,
+because a cost breakdown and a day by day schedule do not survive being texted.
+
+**Day 2, English**
+```
+{{contact.first_name}}, Omar Casilla again. Want me to just text you the range and leave
+it there, or is it easier to talk for five minutes?
+```
+
+**Day 2, Spanish**
+```
+{{contact.first_name}}, Omar Casilla otra vez. Quiere que le mande el rango por texto y lo
+dejo ahi, o es mas facil hablar cinco minutos?
+```
+
+**Day 9, English**
+```
+{{contact.first_name}}, still here whenever the bathroom comes back up. No rush, these are
+usually six month decisions. Text me when you want the number.
+```
+
+**Day 9, Spanish**
+```
+{{contact.first_name}}, aqui estoy cuando vuelva a pensar en el bano. Sin prisa, esto
+normalmente son decisiones de seis meses. Mandeme un texto cuando quiera el numero.
+```
+
+**Day 21, final, English**
+```
+{{contact.first_name}}, closing out your file so I stop bothering you. If the bathroom
+comes back up, you have my number. Good luck either way.
+```
+
+**Day 21, final, Spanish**
+```
+{{contact.first_name}}, voy a cerrar su archivo para no seguir molestandolo. Si vuelve a
+pensar en el bano, tiene mi numero. Buena suerte de todas formas.
+```
+
+### 9.8 One thing to be careful about during the provider switch
+
+The dedicated sending domain's SPF record includes `spf.leadconnectorhq.com`:
+
+```
+v=spf1 include:spf.leadconnectorhq.com include:mailgun.org ~all
+```
+
+Replacing LeadConnector as the **phone** provider does not touch email. But if anything
+in that migration disconnects **LC Email**, the dedicated domain stops sending and every
+workflow in this document goes quiet without an obvious error.
+
+After the Twilio integration is approved, send one test email through workflow 02 and
+confirm it still arrives from `quotes@brokeandfixed.com`. Two minutes of checking against
+a silent outage that would be very hard to notice.
 
 ## 10. Build checklist
 
 Nothing here is optional and the order matters.
 
 ### Before building
-- [ ] Open `1.1 New Lead (Day 1)`, read the trigger. Confirm it does not fire on any
-      new contact, or add a filter excluding `estimate-request` and `planning-guide-lead`
-- [ ] Same for `2.1 New Lead Alert`
+- [x] ~~Open `1.1 New Lead (Day 1)`, read the trigger~~ **DONE 2026-08-25.** Trigger is
+      `Survey Submitted`, survey is any of `ACTIVE SURVEY`. The estimator posts through
+      `contacts/upsert` and never submits a GHL survey, so T2S leads never enter it.
+      **No collision.**
+- [x] ~~Same for `2.1 New Lead Alert`~~ **DONE.** It has **no trigger at all**. Published
+      but cannot fire. **No collision.**
 - [ ] Resolve `Needs review (1)` in the workflow list
 - [ ] Delete or rename the stray draft `New Workflow : 1786510524396`
 
+### Before turning SMS on
+- [ ] GoHighLevel approves the Twilio integration and a number is assigned
+- [ ] Get a local **305 or 786** number, not toll free
+- [ ] Send one test text to your own phone and confirm the sender shows that number
+- [ ] Reply STOP from that phone, confirm the opt-out registers, then reply START
+- [ ] Confirm every SMS step has the **8am-9pm** window set
+- [ ] Confirm **no** SMS step exists anywhere in workflows 02 or 04
+- [ ] Send one test email through workflow 02 and confirm it still arrives from
+      `quotes@brokeandfixed.com`, proving the LeadConnector swap did not break LC Email
+
 ### Build, all four stay in DRAFT
 - [ ] Create the email templates
-- [ ] Build `T2S | 01 Estimate Lead | Speed to Lead`
+- [ ] Build `T2S | 01 Estimate Lead | Speed to Lead` (SMS + email, section 9.5)
 - [ ] Build `T2S | 02 Planning Guide Delivery`
-- [ ] Build `T2S | 03 Estimate Nurture`
+- [ ] Build `T2S | 03 Estimate Nurture` (SMS on call days only, section 9.7)
 - [ ] Build `T2S | 04 Guide to Estimate`
 
 ### Test before publishing
