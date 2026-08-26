@@ -694,3 +694,190 @@ await methodDiagram(
   },
   "adB-method-en-4x5.jpg",
 )
+
+/* ------------------------------------------------------------------ */
+/* Ad C. TYPE_EntryHeight. The step-over angle, done compliantly       */
+/* ------------------------------------------------------------------ */
+
+/**
+ * This is Profile A's actual trigger, and Profile A is the primary buyer. It is
+ * also the single most policy-exposed angle in the account, so the rule is
+ * absolute:
+ *
+ *   TALK ABOUT THE BATHROOM. NEVER ABOUT THE PERSON.
+ *
+ * "A tub wall is knee high" is a fact about a bathroom. "Is stepping over the
+ * tub getting hard for you?" implies knowledge of the viewer's age, health or
+ * mobility, which is a personal-attributes violation, a rejection, and possibly
+ * an account strike. No variation of this ad may use second person about
+ * ability, name an age, or say senior, elderly, aging, mobility or safety.
+ *
+ * docs/t2s-11-recon-report.md classifies this angle as SATURATED: LJ Stone runs
+ * a "Senior Bathroom Remodel Program" across ~46 ads, American Bath & Shower
+ * sells an aging-in-place guide. The vault's rule for entering a saturated
+ * angle is to bring a materially better hook. Ours is that the whole category
+ * sells the buyer a senior product, which is precisely what that buyer resents.
+ * The landing page already carries the better line, from pillar-content.ts:
+ * "Nobody calls it aging in place when we are standing there. They just call it
+ * smart." That line does the emotional work without ever describing the viewer.
+ *
+ * Height language is the site's own: "one low step, not a tub wall." Never
+ * "curbless", "no step" or "step free" — the built curb is low, not absent, and
+ * the page is careful about that distinction.
+ */
+async function entryHeight(v, outfile) {
+  /* Crop to the band that actually carries the argument, the top of the tub
+     wall down to just past the floor line, then inset it. Full-bleed put the
+     floor line behind the footer and the low orange curb, which is the entire
+     point of the comparison, was almost completely hidden. */
+  const art = await sharp(path.join(ROOT, "public/ads/generated/gen-2-entry.png"))
+    .extract(v.artCrop)
+    .resize({ width: v.artW, kernel: "lanczos3" })
+    .toBuffer()
+
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${v.w}" height="${v.h}">
+  <text x="70" y="${v.y.eyebrow}" font-family="Montserrat" font-weight="700" font-size="24"
+        letter-spacing="3.36" fill="${ORANGE}">THE WALL, NOT THE BATHTUB</text>
+
+  <text x="70" y="${v.y.h1}" font-family="Barlow Condensed" font-weight="700" font-size="${v.head}"
+        fill="${CREAM}">A tub wall is knee high.</text>
+  <text x="70" y="${v.y.h2}" font-family="Barlow Condensed" font-weight="700" font-size="${v.head}"
+        fill="${ORANGE}">Ours is one low step.</text>
+
+  <text x="70" y="${v.y.foot1}" font-family="Inter" font-weight="600" font-size="30"
+        fill="${CREAM}">Nobody calls it aging in place when we are standing</text>
+  <text x="70" y="${v.y.foot2}" font-family="Inter" font-weight="600" font-size="30"
+        fill="${CREAM}">there. They just call it smart.</text>
+  <text x="70" y="${v.y.foot3}" font-family="Inter" font-weight="400" font-size="28"
+        fill="${CREAM}" fill-opacity="0.78">Tub out, tiled walk-in shower in, from $4,500. Bench and grab</text>
+  <text x="70" y="${v.y.foot4}" font-family="Inter" font-weight="400" font-size="28"
+        fill="${CREAM}" fill-opacity="0.78">bar blocking built in if you want them. Fully insured, Kendall.</text>
+</svg>`
+
+  await sharp({ create: { width: v.w, height: v.h, channels: 4, background: NAVY } })
+    .composite([
+      { input: art, top: v.artTop, left: Math.round((v.w - v.artW) / 2) },
+      {
+        input: { create: { width: v.w, height: v.h - v.footTop, channels: 4, background: NAVY } },
+        top: v.footTop,
+        left: 0,
+      },
+      {
+        input: { create: { width: v.w, height: 4, channels: 4, background: ORANGE } },
+        top: v.footTop,
+        left: 0,
+      },
+      { input: typeLayer(svg), top: 0, left: 0 },
+    ])
+    .jpeg({ quality: 92, chromaSubsampling: "4:4:4" })
+    .toFile(path.join(OUT, outfile))
+
+  console.log("built", outfile)
+}
+
+await entryHeight(
+  {
+    w: 1080,
+    h: 1350,
+    head: 82,
+    artCrop: { left: 0, top: 495, width: 1400, height: 956 },
+    artW: 900,
+    artTop: 440,
+    footTop: 1060,
+    y: { eyebrow: 224, h1: 316, h2: 400, foot1: 1130, foot2: 1172, foot3: 1232, foot4: 1272 },
+  },
+  "adC-entry-height-en-4x5.jpg",
+)
+
+/* ------------------------------------------------------------------ */
+/* Ad D. PHOTO_Identity. The dignity angle, with a person in it        */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Two sourced findings drive this creative, not instinct:
+ *
+ * 1. The barrier is not price and it is not awareness. It is that the product
+ *    LOOKS INSTITUTIONAL. Reporting on home-modification adoption is consistent
+ *    that people read grab bars as "institutional" or "old" and avoid them
+ *    until forced, and that stigma leaves them embarrassed to raise it at all.
+ * 2. What moves people past it is normalisation and peer proof, framing the
+ *    work as a proactive, sensible choice rather than a defeat. Fear framing
+ *    triggers exactly the defence it needs to get past.
+ *
+ * That is the vault's IDENTITY angle, which it rates highest on share and save
+ * rate and longest on lifespan. The whole competitive set sells fear: LJ Stone
+ * runs a "Senior Bathroom Remodel Program" with a cartoon of an older woman,
+ * American Bath & Shower sells an aging-in-place guide. Selling dignity instead
+ * is the materially better hook the vault requires to enter a saturated angle.
+ *
+ * > [!danger] This is a MODEL, not a customer, and not a Broke & Fixed job.
+ * > The landing page FAQ promises every photograph on the site is real work, so
+ * > this image may never appear on the site, and no ad copy may present her as a
+ * > customer or the room as one of ours. It is a mood image. That line is the
+ * > whole reason using a generated person here is defensible.
+ *
+ * Same policy rule as adC: the copy describes the ROOM, never the viewer. No
+ * age, no mobility, no health, no second person about ability.
+ */
+async function identityPhoto(v, outfile) {
+  const photo = await crop(
+    path.join(ROOT, "public/ads/generated/gen-3-identity.jpg"),
+    v.src,
+    { width: v.w, height: v.h },
+  )
+
+  const scrimH = v.h - v.scrimTop
+
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${v.w}" height="${v.h}">
+  <text x="70" y="${v.y.h1}" font-family="Barlow Condensed" font-weight="700" font-size="${v.head}"
+        fill="${CREAM}">No step to climb over.</text>
+  <text x="70" y="${v.y.h2}" font-family="Barlow Condensed" font-weight="700" font-size="${v.head}"
+        fill="${ORANGE}">It still looks like a bathroom.</text>
+
+  <text x="70" y="${v.y.s1}" font-family="Inter" font-weight="500" font-size="27"
+        fill="${CREAM}" fill-opacity="0.86">Nobody calls it aging in place when we are standing there.</text>
+  <text x="70" y="${v.y.s2}" font-family="Inter" font-weight="500" font-size="27"
+        fill="${CREAM}" fill-opacity="0.86">They just call it smart.</text>
+
+  <text x="70" y="${v.y.trust}" font-family="Inter" font-weight="600" font-size="26"
+        fill="${ORANGE}">Tub out, tiled walk-in shower in, from $4,500 · Kendall</text>
+</svg>`
+
+  await sharp(photo)
+    .composite([
+      {
+        input: {
+          create: {
+            width: v.w,
+            height: scrimH,
+            channels: 4,
+            background: { r: 30, g: 58, b: 95, alpha: 0.93 },
+          },
+        },
+        top: v.scrimTop,
+        left: 0,
+      },
+      {
+        input: { create: { width: v.w, height: 5, channels: 4, background: ORANGE } },
+        top: v.scrimTop - 5,
+        left: 0,
+      },
+      { input: typeLayer(svg), top: 0, left: 0 },
+    ])
+    .jpeg({ quality: 92, chromaSubsampling: "4:4:4" })
+    .toFile(path.join(OUT, outfile))
+
+  console.log("built", outfile)
+}
+
+await identityPhoto(
+  {
+    w: 1080,
+    h: 1350,
+    src: { left: 0, top: 60, width: 1400, height: 1750 },
+    scrimTop: 930,
+    head: 70,
+    y: { h1: 1024, h2: 1096, s1: 1158, s2: 1194, trust: 1262 },
+  },
+  "adD-identity-en-4x5.jpg",
+)
