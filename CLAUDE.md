@@ -18,6 +18,13 @@ Home remodeling company serving Miami-Dade County. Family owned, fully insured (
 - **Fonts**: Barlow Condensed (display), Inter (body), Montserrat (accents)
 - **Style**: Premium, dense, scannable. Dark sections alternate with light. Orange for CTAs and accents.
 
+## GHL automation work - load these skills FIRST
+- Designing/auditing/debugging any workflow (triggers, if/else, waits, yes/no branching): **`workflow-architect` skill** — framework + GHL reference + recipes + QA checklist. Always run its QA checklist before calling a workflow done.
+- Campaign strategy and copy for this client: **`ghl-campaign` skill**.
+- Reading/creating GHL workflows programmatically: **`ghl-cli` skill** (drafts only; publishing is manual).
+- T2S campaign specs live in `docs/t2s-*.md`; built workflows are drafts in the Broke and Fixed sub-account.
+- Funnel plumbing state + launch runbook: `docs/t2s-13-funnel-e2e-verification.md`. The landing page has NO inbound webhook by design; tags written by `/api/lead` are the workflow triggers. Do not add a webhook.
+
 ## Critical Rules
 
 ### Language - NEVER VIOLATE
