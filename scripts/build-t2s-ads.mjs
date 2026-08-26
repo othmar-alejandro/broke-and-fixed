@@ -820,64 +820,79 @@ await entryHeight(
  * age, no mobility, no health, no second person about ability.
  */
 async function identityPhoto(v, outfile) {
-  const photo = await crop(
-    path.join(ROOT, "public/ads/generated/gen-3-identity.jpg"),
-    v.src,
-    { width: v.w, height: v.h },
-  )
+  const photo = await crop(path.join(ROOT, v.file), v.src, { width: v.w, height: v.h })
 
-  const scrimH = v.h - v.scrimTop
-
+  /* Type sits at the TOP, not over a bottom scrim. The flush tiled floor and
+     the linear drain are the proof this ad is selling, and they live in the
+     lower third. A bottom scrim covered exactly the thing that sells. */
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${v.w}" height="${v.h}">
+  <defs>
+    <linearGradient id="topwash" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="${NAVY}" stop-opacity="0.95"/>
+      <stop offset="0.62" stop-color="${NAVY}" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="${NAVY}" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="${v.w}" height="${v.washH}" fill="url(#topwash)"/>
+
+  <text x="70" y="${v.y.eyebrow}" font-family="Montserrat" font-weight="700" font-size="23"
+        letter-spacing="3.22" fill="${ORANGE}">${esc(v.eyebrow)}</text>
+
   <text x="70" y="${v.y.h1}" font-family="Barlow Condensed" font-weight="700" font-size="${v.head}"
-        fill="${CREAM}">No step to climb over.</text>
+        fill="${CREAM}">${esc(v.h1)}</text>
   <text x="70" y="${v.y.h2}" font-family="Barlow Condensed" font-weight="700" font-size="${v.head}"
-        fill="${ORANGE}">It still looks like a bathroom.</text>
+        fill="${ORANGE}">${esc(v.h2)}</text>
 
-  <text x="70" y="${v.y.s1}" font-family="Inter" font-weight="500" font-size="27"
-        fill="${CREAM}" fill-opacity="0.86">Nobody calls it aging in place when we are standing there.</text>
-  <text x="70" y="${v.y.s2}" font-family="Inter" font-weight="500" font-size="27"
-        fill="${CREAM}" fill-opacity="0.86">They just call it smart.</text>
-
-  <text x="70" y="${v.y.trust}" font-family="Inter" font-weight="600" font-size="26"
-        fill="${ORANGE}">Tub out, tiled walk-in shower in, from $4,500 · Kendall</text>
+  <rect x="0" y="${v.barTop}" width="${v.w}" height="${v.h - v.barTop}" fill="${NAVY}"/>
+  <rect x="0" y="${v.barTop}" width="${v.w}" height="4" fill="${ORANGE}"/>
+  <text x="70" y="${v.y.s1}" font-family="Inter" font-weight="500" font-size="22"
+        fill="${CREAM}" fill-opacity="0.86">${esc(v.s1)} ${esc(v.s2)}</text>
+  <text x="70" y="${v.y.trust}" font-family="Inter" font-weight="600" font-size="24"
+        fill="${ORANGE}">${esc(v.trust)}</text>
 </svg>`
 
   await sharp(photo)
-    .composite([
-      {
-        input: {
-          create: {
-            width: v.w,
-            height: scrimH,
-            channels: 4,
-            background: { r: 30, g: 58, b: 95, alpha: 0.93 },
-          },
-        },
-        top: v.scrimTop,
-        left: 0,
-      },
-      {
-        input: { create: { width: v.w, height: 5, channels: 4, background: ORANGE } },
-        top: v.scrimTop - 5,
-        left: 0,
-      },
-      { input: typeLayer(svg), top: 0, left: 0 },
-    ])
+    .composite([{ input: typeLayer(svg), top: 0, left: 0 }])
     .jpeg({ quality: 92, chromaSubsampling: "4:4:4" })
     .toFile(path.join(OUT, outfile))
 
   console.log("built", outfile)
 }
 
+const IDENTITY_BASE = {
+  w: 1080,
+  h: 1350,
+  src: { left: 0, top: 0, width: 1400, height: 1750 },
+  washH: 360,
+  head: 66,
+  barTop: 1216,
+  y: { eyebrow: 118, h1: 196, h2: 264, s1: 1262, trust: 1310 },
+}
+
 await identityPhoto(
   {
-    w: 1080,
-    h: 1350,
-    src: { left: 0, top: 60, width: 1400, height: 1750 },
-    scrimTop: 930,
-    head: 70,
-    y: { h1: 1024, h2: 1096, s1: 1158, s2: 1194, trust: 1262 },
+    ...IDENTITY_BASE,
+    file: "public/ads/generated/gen-4-identity-en.jpg",
+    eyebrow: "TUB TO SHOWER · MIAMI-DADE",
+    h1: "No step to climb over.",
+    h2: "It still looks like a bathroom.",
+    s1: "Nobody calls it aging in place when we are standing there.",
+    s2: "They just call it smart.",
+    trust: "Tub out, tiled walk-in shower in, from $4,500 · Kendall",
   },
   "adD-identity-en-4x5.jpg",
+)
+
+await identityPhoto(
+  {
+    ...IDENTITY_BASE,
+    file: "public/ads/generated/gen-5-identity-es.jpg",
+    eyebrow: "CONVERSIÓN DE BAÑERA A DUCHA · MIAMI-DADE",
+    h1: "Sin pared que cruzar.",
+    h2: "Y sigue pareciendo un baño.",
+    s1: "Nadie lo llama envejecer en casa cuando estamos ahí parados.",
+    s2: "Solo dicen que es inteligente.",
+    trust: "Sale la bañera, entra la ducha de porcelanato, desde $4,500 · Kendall",
+  },
+  "adD-identity-es-4x5.jpg",
 )
