@@ -363,11 +363,15 @@ async function captureGuideRequest({
           country: "US",
           source: leadSource("guide", attribution),
           tags: [
-            // Deliberately NOT LEAD_TAG. A guide opt-in is an email address and
-            // nothing else: no name, no phone, no ZIP, no price. Tagging it the
-            // same as a completed estimator meant every estimator workflow
-            // enrolled people it had nothing to say to. The estimator path is
-            // keyed on `estimate-request` instead.
+            // LEAD_TAG is back on this path since 26 Aug 2026, for a reason
+            // verified live: the GHL upsert REPLACES the contact's tag array,
+            // so a guide opt-in from someone who already ran the estimator was
+            // wiping tub-to-shower-lead off their record. Workflow 99 (Reply
+            // Exit) and nurture 1.2 both guard on that tag, so losing it meant
+            // a reply no longer stopped their sequences. No workflow triggers
+            // on LEAD_TAG itself; the estimator path stays keyed on
+            // `estimate-request`, the guide path on `planning-guide-lead`.
+            LEAD_TAG,
             "planning-guide-lead",
             // Same reason as estimate-request-<locale>: tag triggers cannot
             // filter on an existing lang-* tag, so the language rides along.
