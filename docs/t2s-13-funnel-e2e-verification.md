@@ -81,6 +81,32 @@ Direct push to main is blocked for the agent, so merging is Omar's click.
   fire on tag-added events, not on existing tags). Safe to delete anytime.
 - One browser Lead pixel event may exist in the dataset from the live test.
 
+## Addendum, same day: PR #1 merged, and a second break found
+
+PR #1 was merged and the production deploy verified: a fresh live-site
+submission (contact `skjD0JUG418bN9hZYUHO`) got `estimate-request-en` from
+production. Runbook step 1 is DONE.
+
+**Second break: GHL contacts/upsert REPLACES the tag array, it does not
+merge.** Verified twice on live contacts. Consequence: an estimator lead
+who later submitted the guide form lost `tub-to-shower-lead`, and workflow
+99 Reply Exit plus the guarded nurture 1.2 branch on that tag, so a reply
+would silently have stopped nothing.
+
+Fix: the guide path now writes LEAD_TAG too, so the identity tag survives
+any submission order. Nothing triggers on LEAD_TAG, so it enrolls no one.
+Verified locally against the live CRM (estimator then guide keeps the tag).
+Commit `f184ee5` on t2s/email-campaign; staged for production as **PR #2**:
+https://github.com/othmar-alejandro/broke-and-fixed/pull/2
+
+Runbook change: merge PR #2 alongside step 1's spot. Everything else
+stands. Residual, accepted: a later guide submission still wipes
+`estimate-request*` off the contact record. Harmless to automation (those
+triggers fire on the add event, and lang-* survives in both sets), but tag
+filters in the CRM undercount estimator leads who also took the guide.
+The full fix would be read-merge before upsert; not worth the latency on
+the lead path today.
+
 ## Gotchas confirmed this session
 
 - The landing page renders blank in automated-browser screenshots while the
