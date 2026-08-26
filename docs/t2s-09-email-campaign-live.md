@@ -1152,6 +1152,25 @@ Exit the moment the contact gets `estimate-request`.
 
 ---
 
+## 14. Build state, 2026-08-26: everything wired, drafts awaiting publish
+
+All thirteen workflows exist with triggers, branching, and settings verified
+programmatically (the trigger table lives in memory and in
+`~/Workflow expert agent/notes/field-notes.md`). 05 EN/ES deliberately have no
+trigger: `T2S | 05 Router` fires on Main Pipeline stage `Showed - Got Estimate`,
+splits on the `lang-es` tag, and enrolls the right language. `stopOnResponse`
+is on for all ten sequences; replies also hit `99 Reply Exit`, which removes
+the contact from every sequence and alerts the owner.
+
+What remains is deliberately human:
+1. Publish in dependency order: 98, 99 → 01 EN/ES, 02 EN/ES → 03 EN/ES,
+   04 EN/ES → 05 Router, 05 EN/ES.
+2. Swap the two placeholder-proof templates before 03/04 publish.
+3. Set the Twilio number as From number once GHL approves the integration.
+4. One EN and one ES test submission, checked end to end, before ads go live.
+
+---
+
 ## 11. The one number
 
 Time from form submission to first human contact. Log it by hand for the first month if
