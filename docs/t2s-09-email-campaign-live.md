@@ -1160,3 +1160,96 @@ you have to.
 It is the highest leverage number in this build and the only one entirely inside your
 control. Every email in this document exists to buy time until somebody picks up a
 phone. None of them outperform the phone call.
+
+---
+
+## 12. Workflow 05: `T2S | 05 Proposal Follow Up`
+
+The hole nobody had filled. `1.8 Got Estimate` exists and is published, but it is a
+two step router: add to workflow, add tag. Once a proposal goes out, **nothing follows
+up.** That is the most expensive silence in the whole funnel, because these people have
+already had somebody standing in their bathroom.
+
+**Trigger:** Opportunity stage changed to `Showed - Got Estimate ✅`
+in `Main Pipeline🚀` (stage `14f62266-e975-48b6-8e54-8d12c5015823`),
+filtered to contacts with tag `estimate-request` so only tub to shower leads enter.
+
+Using the stage rather than a manual tag means it fires off the step Omar already takes.
+Nothing new to remember.
+
+| Day | Channel | Content |
+|---|---|---|
+| 1 | SMS + email 15 min later | `T2S-05 Did It Land` |
+| 3 | Email | `T2S-05 In The Number` |
+| 5 | SMS + call task | |
+| 8 | Email | `T2S-05 Which One Is It` |
+| 12 | Email | `T2S-05 If It Were My House` |
+| 20 | SMS + email | `T2S-05 Closing Your File`, then move opportunity to Lost and drop into long term nurture |
+
+**Exit:** contact replies, opportunity moves to `Showed - Sold 🤑`, or unsubscribe.
+
+### Why these five and not five more case studies
+
+After a proposal the silence is almost never "I need more convincing." It is price,
+spouse, or timing. So the sequence diagnoses instead of sells.
+
+- **Day 1** is a deliverability check that doubles as an open door. Half the non-answers
+  at this stage are a proposal sitting in a spam folder.
+- **Day 3** says what is in the number and what is not, including the honest part: nobody
+  can price what is behind the wall, and you will be shown before it is touched.
+- **Day 8** stops guessing and asks which of three holdups it actually is. You cannot
+  offer the right fix until you know which problem you have.
+- **Day 12** tells them to go get another quote and take it if it is better. That is the
+  strongest email in the set precisely because it is not a sales email.
+- **Day 20** assumes the loss and closes the file. An assumptive close gets answers that
+  a hopeful check-in never will.
+
+### One thing to confirm before publishing 05
+
+Day 8 offers workarounds for money, disruption and scheduling without naming any of
+them. That is deliberate: **do not promise phasing, financing or a price hold in writing
+until Omar confirms the business actually offers them.** The email asks which problem
+they have and invites a reply. Whatever gets offered on that call is a human decision,
+not an automated promise.
+
+---
+
+## 13. Flat structure: one workflow per language
+
+Replaces the language If/Else inside every workflow. Ten workflows instead of five, and
+none of them branch.
+
+**Why.** With SMS added, the branched version of workflow 01 runs about 24 nodes. When a
+lead says they got the wrong message at 8pm, nobody wants to trace two paths through a
+24 node graph. A flat workflow is readable at a glance, roughly half the build steps,
+and either fires or does not.
+
+The cost is real and worth naming: **a copy change has to be made twice.** That is
+acceptable because the copy lives in the 38 email templates, not in the workflows. Edit
+the template and every workflow using it updates.
+
+### The ten
+
+| Workflow | Trigger tag | Plus filter |
+|---|---|---|
+| `T2S \| 01 EN Speed to Lead` | `estimate-request` | tag includes `lang-en` |
+| `T2S \| 01 ES Speed to Lead` | `estimate-request` | tag includes `lang-es` |
+| `T2S \| 02 EN Guide Delivery` | `planning-guide-lead` | tag includes `lang-en` |
+| `T2S \| 02 ES Guide Delivery` | `planning-guide-lead` | tag includes `lang-es` |
+| `T2S \| 03 EN Estimate Nurture` | `t2s-no-contact` | tag includes `lang-en` |
+| `T2S \| 03 ES Estimate Nurture` | `t2s-no-contact` | tag includes `lang-es` |
+| `T2S \| 04 EN Guide to Estimate` | `planning-guide-lead` | not `estimate-request`, tag `lang-en` |
+| `T2S \| 04 ES Guide to Estimate` | `planning-guide-lead` | not `estimate-request`, tag `lang-es` |
+| `T2S \| 05 EN Proposal Follow Up` | stage `Showed - Got Estimate ✅` | tag `estimate-request` + `lang-en` |
+| `T2S \| 05 ES Proposal Follow Up` | stage `Showed - Got Estimate ✅` | tag `estimate-request` + `lang-es` |
+
+Every step inside is linear. No If/Else anywhere. Pick the ES template in the ES
+workflow and the EN template in the EN one.
+
+SMS lives in **01, 03 and 05 only.** Never in 02 or 04, for the reasons in section 9.1.
+
+### Migration note
+
+`T2S | 02 Planning Guide Delivery` (`e26154b5-154e-460a-9f82-c93344cfc2f0`) was built
+with the branched pattern before this decision. It is still in Draft. Either delete it
+and rebuild flat, or keep it as the ES version and strip the branch. Deleting is cleaner.
