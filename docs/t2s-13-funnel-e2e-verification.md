@@ -176,6 +176,51 @@ Ads go through review on activation; delivery starts on approval.
 Deferred to Twilio day: SMS compliance auto-append, From-number config,
 Byron step (pending his number).
 
+## LIVE 2026-08-27, and the launch blocker that nearly hid itself
+
+Ad set activation failed with Meta error **#1870194**, "location targeting
+option that has been removed". It reads like a dead ZIP. It is not. Meta
+retired the granular location-type selector, and this ad set still stored
+`location_types: ["home"]` ("people living in this location"), which is no
+longer publishable.
+
+**The fix, and the trap.** Set `geo_locations.location_types` EXPLICITLY to
+`["home","recent"]`. Omitting the field does NOT clear it: the API keeps
+the stored value, and `updated_fields` echoes the REQUEST, not what was
+saved. The first attempt looked successful and changed nothing. Always
+re-read targeting to confirm a targeting write. After the server is fixed,
+Ads Manager can still show the error from a stale per-user draft: discard
+drafts, hard refresh, then toggle from the list view.
+
+**Verified live state** (API readback, not the UI's summary):
+
+| Entity | State |
+|---|---|
+| Campaign + ad set | ACTIVE, $50.00/day |
+| Ads delivering | Identity v2 tiled, PriceGate, BeforeAfter ES (all past review) |
+| Ads paused on purpose | Identity v1 ES, ZZ_DO-NOT-LAUNCH_Method |
+| Targeting | 14 ZIPs intact, home+recent, age 30-65, WCA_Leads_180d excluded |
+| Delivery errors | none |
+
+The age 35-65 draft sitting in the Ads Manager editor was never published;
+stored age is still 30-65 per spec.
+
+## Meta recommendations: standing posture for this account
+
+Meta's Opportunity Score suggests changes that optimize Meta's delivery,
+not a 14-ZIP service-area business selling a $6,500 job. Current stance,
+all DECLINE until real CPL data exists:
+
+- **Advantage+ creative enhancements** - alters art-directed creative with
+  overlays, text rewrites and visual touch-ups. This brand has a hard rule
+  that every price shown in an image matches the landing page; auto-altered
+  creative can break it. Never turn on for price-bearing creative.
+- **Advantage+ audience** - reaches beyond the deliberate 30-65 range.
+  Renters and non-owners are waste at this ticket.
+- **Reels 9:16 format** - there is no video creative yet. Real opportunity,
+  but it is a production task, not a toggle.
+- **Auto-add music** - wrong register for a trades credibility ad.
+
 ## Gotchas confirmed this session
 
 - The landing page renders blank in automated-browser screenshots while the
