@@ -221,6 +221,55 @@ all DECLINE until real CPL data exists:
   but it is a production task, not a toggle.
 - **Auto-add music** - wrong register for a trades credibility ad.
 
+
+## 2026-08-27 late morning: Twilio number wired + the price merge-field bug
+
+Omar connected Twilio, then reported two things: SMS arriving from a
+Canadian number, and "the client email never came."
+
+**The email was never broken.** Workflow 01 pairs the channels on purpose:
+SMS first, customer email 15 minutes later. His 10:43 submission sent SMS
+at 10:44 and the ack email at 10:59:11, exactly on schedule. Verified by
+message record. If an email looks missing, check the clock before the
+config.
+
+**The wrong from-number, root cause.** Twilio WAS connected (the API stopped
+returning "No Twilio account found") but the location had ZERO numbers
+attached, so GHL fell back to its shared relay +1 289-301-8642. The number
++1 754-297-0029 was sitting in the Twilio account un-imported, showing an
+"Add" button in Settings > Phone System. Added it; it became Default
+Number. API confirms sms/mms/voice true, origin twilio, account active.
+
+**PRICE MERGE-FIELD BUG, customer facing.** Every price sentence read
+"${{contact.planning_range_low}} to ${{contact.planning_range_high}}", and
+range_high is ALWAYS blank by design (the estimator publishes a starting
+price, not a band). Real customers saw "entre $5200 y $". Fixed everywhere
+by switching to {{contact.starting_price_display}}, the field built for
+this, which renders "starts at $6,500" / "empieza en $6,500" and degrades
+correctly to "gets its number once we measure the bathroom" for master
+bathrooms.
+
+Fixed in 5 templates (T2S-01 Instant Ack EN/ES, T2S-01 Your Range EN/ES,
+T2S Internal Alert) and 4 workflow steps (SMS Instant + Owner SMS in 01
+EN/ES). Workflows verified still published, stop-on-response on, triggers
+active, 20 steps. planning_range_low now appears ONLY as the opportunity
+monetary value, which is correct.
+
+**Proof, one live test at 15:05 UTC:**
+
+| When | From | Status | Price rendered |
+|---|---|---|---|
+| 14:43 before fix | +1 289-301-8642 relay | queued | `$5200-$` |
+| 14:59 escalation | no valid number | FAILED | - |
+| 15:05 after fix | +1 754-297-0029 | delivered | `starts at $6,500` |
+
+The 14:59 line is the hidden one: the 15-minute escalation SMS was
+silently FAILING before the number was attached.
+
+Lesson: never render a price from raw numeric custom fields. Use the
+prebuilt display field. And an internal_notification SMS with no default
+number does not error loudly, it just fails.
+
 ## Gotchas confirmed this session
 
 - The landing page renders blank in automated-browser screenshots while the
