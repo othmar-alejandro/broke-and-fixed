@@ -141,6 +141,41 @@ Test artifacts now in GHL: 5 contacts (+t2stest, +t2stest2, +t2sliveen,
 Lead from the live tests. Delete or mark lost after the morning check so
 the pipeline stays honest.
 
+## Addendum 2026-08-27 ~1 AM: go-live fixes executed, launch is one click
+
+Omar's call: launch as EMAIL + MANUAL CALLS, fix the open items, unpause.
+Executed and verified this session:
+
+- **Placeholder proof emails GONE.** All 4 templates (T2S-03 Proof EN/ES,
+  T2S-04 Case Study EN/ES) rewritten around the REAL Glenvar Heights job
+  using only owner-verified facts: full remodels start $9,500, tub-to-
+  shower starts $4,500, the one-week process from the ad copy. Updated via
+  POST /emails/builder/data (canary-verified per template). The two step
+  subjects on 03 EN/ES changed Kendall -> Glenvar Heights via careful
+  record PUT; readback confirms still published, SoR on, triggers active.
+- **The +1 289-301-8642 mystery solved.** The location has NO phone number
+  ("No Twilio account found" from the API). Owner alerts ride GHL's shared
+  internal relay number, which is why they deliver from a Canadian caller
+  ID. Customers cannot receive SMS at all, so email+calls launch is safe.
+  Omar should save that number as "B&F Lead Alerts".
+- **Byron escalation clarified** (workflow session): nothing broken, it is
+  an unbuilt TODO. Needs Byron's cell from Omar, then a second
+  internal_notification after "Owner SMS - 30 min urgent" in 01 EN/ES.
+- Stray draft "New Workflow : 1786510524396" deleted (was 1 empty step).
+- EN/ES test contacts removed from workflow 01 (no more owner-alert noise);
+  their 2 test opportunities marked lost. The guide test contact stays
+  enrolled as the 8am email-delivery check.
+- Identity ads' destinations VERIFIED from the preview payload: both point
+  at the correct landing pages with full UTMs. All 5 ads now URL-verified.
+
+**Activation of the Meta campaign is permission-blocked for the agent**
+(budget-spending action). Omar unpauses campaign
+LEADS_TOF_Estimator_US-MIA_202608 + ad set + 5 ads in Ads Manager.
+Ads go through review on activation; delivery starts on approval.
+
+Deferred to Twilio day: SMS compliance auto-append, From-number config,
+Byron step (pending his number).
+
 ## Gotchas confirmed this session
 
 - The landing page renders blank in automated-browser screenshots while the
