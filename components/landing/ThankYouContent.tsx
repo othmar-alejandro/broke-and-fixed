@@ -211,7 +211,7 @@ export default function ThankYouContent({
                 </a>
                 <div className="mt-8 border-t border-[var(--lp-rule)] pt-6">
                   <h2 className="lp-display text-[1.45rem]">
-                    {t("Want a range for your bathroom?", "¿Quiere un rango para su baño?")}
+                    {t("Want a starting price for your bathroom?", "¿Quiere un precio inicial para su baño?")}
                   </h2>
                   <p className="mt-2 text-[16px] text-[var(--lp-ink-2)]">
                     {t(
@@ -223,7 +223,7 @@ export default function ThankYouContent({
                     href={`/${es ? "es" : "en"}/landing/tub-to-shower#quote`}
                     className="lp-display mt-4 inline-flex min-h-[44px] items-center text-[1.15rem] text-[var(--lp-navy)] underline underline-offset-4"
                   >
-                    {t("Start my price range", "Empezar mi rango de precio")}
+                    {t("See my starting price", "Ver mi precio inicial")}
                   </Link>
                 </div>
               </>
@@ -247,8 +247,8 @@ export default function ThankYouContent({
 
         <p className="mt-8 max-w-[70ch] text-[14.5px] leading-relaxed text-[var(--lp-ink-2)]">
           {t(
-            "Starting figures and estimator ranges are references for planning. Bathroom size, selections, site conditions, and what is found behind the wall can change the final price.",
-            "Los precios iniciales y los rangos del estimador son referencias para planificar. El tamaño del baño, las selecciones, las condiciones del lugar y lo que se encuentre detrás de la pared pueden cambiar el precio final.",
+            "Starting figures are references for planning. Bathroom size, selections, site conditions, and what is found behind the wall can change the final price.",
+            "Los precios iniciales son referencias para planificar. El tamaño del baño, las selecciones, las condiciones del lugar y lo que se encuentre detrás de la pared pueden cambiar el precio final.",
           )}
         </p>
       </div>

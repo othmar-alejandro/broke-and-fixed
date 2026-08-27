@@ -23,8 +23,9 @@ import {
  * Three step quote form for the tub-to-shower landing page.
  *
  * Shape of the thing: two picture questions that anyone can answer from the
- * doorway of their own bathroom, then contact details, then a real computed
- * range. The two picture questions come first on purpose. Asking for a phone
+ * doorway of their own bathroom, then contact details, then the published
+ * starting price for that combination, shown on the spot. The two picture
+ * questions come first on purpose. Asking for a phone
  * number before giving anything back is the pattern every one of our
  * competitors uses and it is why their forms convert badly.
  *
@@ -188,8 +189,8 @@ function validate(values: Record<FieldName, string>, t: T): Errors {
   const digits = values.phone.replace(/\D/g, "")
   if (digits.length === 0) {
     errors.phone = t(
-      "We need a phone number to text you the range.",
-      "Necesitamos un teléfono para mandarle el rango por texto.",
+      "We need a phone number to reach you about your project.",
+      "Necesitamos un teléfono para contactarle sobre su proyecto.",
     )
   } else if (digits.length !== 10 && !(digits.length === 11 && digits.startsWith("1"))) {
     errors.phone = t(
@@ -754,7 +755,7 @@ export default function QuoteForm({
       {/* Announces the step change to a screen reader without stealing focus */}
       <p className="sr-only" aria-live="polite">
         {step === "result"
-          ? t("Your estimated range is ready.", "Su rango estimado está listo.")
+          ? t("Your starting price is ready.", "Su precio inicial está listo.")
           : t(
               `Step ${stepNumber} of ${TOTAL_STEPS}`,
               `Paso ${stepNumber} de ${TOTAL_STEPS}`,
@@ -887,12 +888,12 @@ export default function QuoteForm({
           {step === 3 && (
             <form onSubmit={handleSubmit} noValidate>
               <h3 className="lp-display mb-1 text-[1.7rem] text-[var(--lp-ink)] sm:text-[2.1rem]">
-                {t("Where do we send it?", "¿A dónde se lo mandamos?")}
+                {t("Where do we text you?", "¿A dónde le escribimos?")}
               </h3>
               <p className="mb-5 text-[16.5px] text-[var(--lp-ink-2)]">
                 {t(
-                  "Your range is ready. We text it over and we do not pass your number to anybody else.",
-                  "Su rango está listo. Se lo mandamos por texto y no pasamos su número a nadie más.",
+                  "Your starting price shows on the next screen, right away. Leave your number and one of us texts you the same day. We do not pass it to anybody else.",
+                  "Su precio inicial aparece en la siguiente pantalla, de inmediato. Deje su número y uno de nosotros le escribe el mismo día. No pasamos su número a nadie más.",
                 )}
               </p>
 
@@ -910,8 +911,8 @@ export default function QuoteForm({
                   id={`${uid}-phone`}
                   label={t("Phone number", "Número de teléfono")}
                   hint={t(
-                    "So we can text you the range.",
-                    "Para mandarle el rango por texto.",
+                    "One of us texts you the same day. Me or my brother.",
+                    "Uno de los dos le escribe el mismo día. Mi hermano o yo.",
                   )}
                   type="tel"
                   inputMode="tel"
