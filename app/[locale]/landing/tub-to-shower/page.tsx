@@ -1179,8 +1179,8 @@ export default async function TubToShowerLanding({
               {PHONE}
             </a>
             {t(
-              ", or complete three short steps and we will send your range the same day. ",
-              ", o complete tres pasos cortos y le mandamos su rango el mismo día. ",
+              ", or complete three short steps and see your starting price on the spot. ",
+              ", o complete tres pasos cortos y vea su precio inicial al momento. ",
             )}
             <Link
               href={QUOTE_HREF}
