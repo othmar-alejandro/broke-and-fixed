@@ -107,6 +107,40 @@ filters in the CRM undercount estimator leads who also took the guide.
 The full fix would be read-merge before upsert; not worth the latency on
 the lead path today.
 
+## Addendum 2026-08-27: WORKFLOWS PUBLISHED, live E2E verified at 00:24 EDT
+
+Publish done via the internal API by the workflow-architect session at
+Omar's direction. Independently read back: all 13 published, every trigger
+ACTIVE (publish auto-activates triggers, no UI re-save needed), SoR ON for
+the 10 messaging flows, OFF for 98/99/Router. The earlier settings wipe on
+99/01 EN/01 ES was repaired pre-publish.
+
+Live tests at 00:24-00:30 EDT (the "2am lead" persona), all through the
+production site:
+
+| Check | Result |
+|---|---|
+| EN estimator submit | contact d419YTmkYCirIO2AfQqd, all 5 tags correct |
+| EN enrollment | opportunity in Main Pipeline / New Lead, $6,500, 2s after submit |
+| ES estimator submit | contact 15hECNlCsCzpfEPwsu4P, estimate-request-es + lang-es |
+| ES enrollment | same pipeline/stage/value, seconds after submit |
+| Owner alerts (pre-gate, 24/7) | email to brokeandfixed305@gmail.com + owner SMS record, both tests |
+| Send window (8am-9pm gate) | customer SMS/email correctly HELD overnight, zero outbound to test contacts |
+| Guide path | +t2sliveguide submitted; 02 EN delivery email due after 8am |
+
+Due after 8:00 AM ET: SMS Instant attempts (WILL FAIL, no phone provider
+until Twilio lands - not a workflow bug), Email Instant Ack EN+ES
+(~8:16), guide delivery email. Verify in the oacdigitalinnovations inbox.
+
+Cosmetic finding: owner alert renders the range as "$6500 to $" because
+rangeHigh is deliberately blank. Swap those merge fields for
+startingPriceDisplay when convenient.
+
+Test artifacts now in GHL: 5 contacts (+t2stest, +t2stest2, +t2sliveen,
++t2slivees, +t2sliveguide) and 2 OPEN opportunities in Main Pipeline/New
+Lead from the live tests. Delete or mark lost after the morning check so
+the pipeline stays honest.
+
 ## Gotchas confirmed this session
 
 - The landing page renders blank in automated-browser screenshots while the
