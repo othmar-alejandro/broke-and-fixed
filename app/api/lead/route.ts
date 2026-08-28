@@ -1,3 +1,5 @@
+import { createHash } from "node:crypto"
+
 import { NextResponse } from "next/server"
 
 import {
@@ -263,12 +265,16 @@ function buildCustomFields(lead: Lead, startingAt: number | null) {
  *
  * The endpoint, field IDs and location ID were verified against the connected
  * Broke and Fixed Home Solutions sub-account on 10 Aug 2026.
+ *
+ * Returns the GHL contact id when the response carries one, because the
+ * Conversions API call downstream wants it as external_id. Null is fine:
+ * the CAPI event still sends, just with one less match key.
  */
 async function upsertToGoHighLevel(
   lead: Lead,
   startingAt: number | null,
   signal: AbortSignal,
-): Promise<void> {
+): Promise<string | null> {
   const token = process.env.GHL_API_KEY
   const locationId = process.env.GHL_LOCATION_ID
 
@@ -317,6 +323,12 @@ async function upsertToGoHighLevel(
     const detail = await response.text().catch(() => "")
     throw new Error(`GHL responded ${response.status}: ${detail.slice(0, 300)}`)
   }
+
+  const data = (await response.json().catch(() => null)) as
+    | { contact?: { id?: unknown } }
+    | null
+  const contactId = data?.contact?.id
+  return typeof contactId === "string" && contactId ? contactId : null
 }
 
 /* ------------------------------------------------------------------ */
@@ -504,6 +516,182 @@ async function fireInboundWebhook(
 }
 
 /* ------------------------------------------------------------------ */
+/* Meta Conversions API: server-side Lead with dedup                    */
+/* ------------------------------------------------------------------ */
+
+/**
+ * The server twin of the browser Lead the thank-you page fires. Spec:
+ * docs/t2s-15-capi-wiring.md, Phase 2.
+ *
+ * Both sides carry the same event_id (the eventId the form generated at
+ * submit), so Meta collapses the pair into ONE conversion. That id is the
+ * entire reason this call is allowed to exist: a server Lead without it would
+ * double count every lead and halve the reported CPL. Which is also why a
+ * request that arrives with no eventId sends nothing at all.
+ *
+ * What this buys: the browser event dies with ad blockers and Safari's cookie
+ * lifetime; this one does not. Typical recovery is 10 to 30% of attributed
+ * conversions, plus better match quality from hashed contact fields the pixel
+ * never sees.
+ *
+ * Inert until META_CAPI_ACCESS_TOKEN exists in the environment (Events
+ * Manager, dataset Brokie, Settings, Conversions API, Generate access token;
+ * then a Vercel env var, same handling as GHL_API_KEY). Unset is a valid
+ * state and costs one log line per lead.
+ *
+ * Never throws, never blocks the lead. Same contract as the webhook above.
+ */
+
+const META_PIXEL_ID = "1564050852174212"
+const META_CAPI_URL = `https://graph.facebook.com/v23.0/${META_PIXEL_ID}/events`
+
+/** Lowercase hex SHA-256, the only normalization Meta accepts for PII keys. */
+function sha256(value: string): string {
+  return createHash("sha256").update(value).digest("hex")
+}
+
+/** Request-scoped browser facts the route used to discard. EMQ inputs. */
+type RequestContext = {
+  clientIp: string
+  userAgent: string
+}
+
+function readRequestContext(request: Request): RequestContext {
+  // First hop of x-forwarded-for is the visitor; the rest are proxies.
+  const forwarded = request.headers.get("x-forwarded-for") ?? ""
+  return {
+    clientIp: forwarded.split(",")[0]?.trim() ?? "",
+    userAgent: request.headers.get("user-agent") ?? "",
+  }
+}
+
+async function fireMetaCapiLead(
+  lead: Lead,
+  startingAt: number | null,
+  ghlContactId: string | null,
+  context: RequestContext,
+): Promise<void> {
+  const token = process.env.META_CAPI_ACCESS_TOKEN
+  if (!token) {
+    console.info("[lead] path=capi outcome=skipped reason=not-configured")
+    return
+  }
+
+  if (!lead.eventId) {
+    // No shared key means the browser event cannot dedup against this one.
+    // Sending anyway would double count, the exact failure t2s-15 forbids.
+    console.info("[lead] path=capi outcome=skipped reason=no-event-id")
+    return
+  }
+
+  /*
+   * PII is hashed before it leaves the process: email trimmed and lowercased,
+   * phone as digits with country code, names lowercased, ZIP as typed. fbp
+   * and fbc stay RAW, hashing those two kills Meta's matching.
+   *
+   * When the _fbc cookie never got set but the click id survived in the URL,
+   * Meta documents rebuilding fbc as fb.1.<now-ms>.<fbclid>. The vault calls
+   * that one of the highest-leverage fixes on lead-gen sites.
+   */
+  const fbc =
+    lead.metaCookies.fbc ||
+    (lead.attribution.fbclid
+      ? `fb.1.${Date.now()}.${lead.attribution.fbclid}`
+      : "")
+
+  const { firstName, lastName } = splitName(lead.name)
+
+  const userData: Record<string, unknown> = {
+    ph: [sha256(`1${lead.phone}`)],
+    zp: [sha256(lead.zip)],
+    ...(lead.email ? { em: [sha256(lead.email.trim().toLowerCase())] } : {}),
+    ...(firstName ? { fn: [sha256(firstName.trim().toLowerCase())] } : {}),
+    ...(lastName ? { ln: [sha256(lastName.trim().toLowerCase())] } : {}),
+    ...(lead.metaCookies.fbp ? { fbp: lead.metaCookies.fbp } : {}),
+    ...(fbc ? { fbc } : {}),
+    ...(context.clientIp ? { client_ip_address: context.clientIp } : {}),
+    ...(context.userAgent ? { client_user_agent: context.userAgent } : {}),
+    // Raw on purpose. It is an opaque CRM id, not PII, and raw is what GHL
+    // would send if its actions ever carry an external id, so raw matches.
+    ...(ghlContactId ? { external_id: ghlContactId } : {}),
+  }
+
+  const event = {
+    event_name: "Lead",
+    event_time: Math.floor(Date.now() / 1000),
+    event_id: lead.eventId,
+    action_source: "website",
+    event_source_url:
+      lead.attribution.landingPage ||
+      `https://brokeandfixed.com/${lead.locale}/landing/tub-to-shower`,
+    user_data: userData,
+    custom_data: {
+      content_name: "tub-to-shower",
+      // Value is omitted when the job gets measured before pricing, exactly
+      // like the browser event, so the deduped pair never disagrees.
+      ...(typeof startingAt === "number"
+        ? { value: startingAt, currency: "USD" }
+        : {}),
+    },
+  }
+
+  /*
+   * Set META_CAPI_TEST_EVENT_CODE (Events Manager, Test Events tab) while
+   * verifying, then unset it. The spec's "remove before production" is an env
+   * var here instead of a code edit, so verification needs no deploy.
+   */
+  const testEventCode = process.env.META_CAPI_TEST_EVENT_CODE
+
+  const body = JSON.stringify({
+    data: [event],
+    // In the body, not the query string, so the token never lands in a
+    // request log. The Graph API reads parameters from a JSON body fine.
+    access_token: token,
+    ...(testEventCode ? { test_event_code: testEventCode } : {}),
+  })
+
+  // One retry, its own clock per attempt, same reasoning as the webhook.
+  for (let attempt = 1; attempt <= 2; attempt += 1) {
+    const controller = new AbortController()
+    const timeout = setTimeout(() => controller.abort(), UPSTREAM_TIMEOUT_MS)
+
+    try {
+      const response = await fetch(META_CAPI_URL, {
+        method: "POST",
+        signal: controller.signal,
+        headers: { "Content-Type": "application/json" },
+        body,
+      })
+
+      if (response.ok) {
+        const result = (await response.json().catch(() => null)) as {
+          events_received?: number
+          fbtrace_id?: string
+        } | null
+        console.info(
+          `[lead] path=capi outcome=ok received=${result?.events_received ?? "?"} trace=${result?.fbtrace_id ?? ""}`,
+        )
+        return
+      }
+
+      // 4xx is a payload or token problem; retrying resends the same mistake.
+      const detail = await response.text().catch(() => "")
+      console.warn(
+        `[lead] path=capi outcome=fail status=${response.status} attempt=${attempt} ${detail.slice(0, 200)}`,
+      )
+      if (response.status < 500) return
+    } catch (error) {
+      console.warn(
+        `[lead] path=capi outcome=error attempt=${attempt}`,
+        error instanceof Error ? error.message : error,
+      )
+    } finally {
+      clearTimeout(timeout)
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
 /* Handler                                                             */
 /* ------------------------------------------------------------------ */
 
@@ -636,15 +824,22 @@ export async function POST(request: Request) {
    */
   const startingAt = startingPrice(layout, scope)
 
+  /*
+   * Read before the upstream calls, off the incoming request. These are EMQ
+   * match keys for the Conversions API; the route used to discard both.
+   */
+  const requestContext = readRequestContext(request)
+
   const controller = new AbortController()
   const timeout = setTimeout(() => controller.abort(), UPSTREAM_TIMEOUT_MS)
 
   try {
-    await upsertToGoHighLevel(lead, startingAt, controller.signal)
+    const ghlContactId = await upsertToGoHighLevel(lead, startingAt, controller.signal)
     console.info(`[lead] path=ghl outcome=ok zip=${zip} scope=${scope} layout=${layout}`)
 
-    // Contact is saved. Starting the sequence is best effort from here.
+    // Contact is saved. Everything from here is best effort.
     await fireInboundWebhook(lead, startingAt)
+    await fireMetaCapiLead(lead, startingAt, ghlContactId, requestContext)
 
     return NextResponse.json({ ok: true, startingAt })
   } catch (fallbackError) {
