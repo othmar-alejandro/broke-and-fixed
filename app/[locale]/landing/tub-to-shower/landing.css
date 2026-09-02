@@ -455,6 +455,33 @@ html:has(.lp) { scroll-behavior: auto; }
   }
 }
 
+/*
+  Quote form plan drawings.
+
+  Below lg the drawing renders about 120px wide instead of 300px, beside the
+  card text rather than above it. The two labels inside the drawing are sized
+  and positioned in SVG user units for the 300px drawing: at 120px they land
+  near 6px on screen, and scaling them up to stay readable makes them collide
+  with the tub and the wall, because their coordinates assume small text.
+  So drop them at the compact size. They are aria-hidden decoration, and the
+  card title and body already say "wall to wall" and "gap at one end" in
+  words. The orange dimension line and the dashed gap zone still read as
+  shapes, which is all the drawing has to do at this size.
+*/
+@media (max-width: 1023.98px) {
+  .lp-plan text { display: none; }
+}
+
+/*
+  The #quote section puts the form column first below md, so the section's
+  standard 4.5rem top padding is dead dark space between the sticky bar and
+  the form after a #quote jump. Trim it on phones only; the desktop two
+  column layout keeps the full section rhythm.
+*/
+@media (max-width: 767.98px) {
+  #quote { padding-top: 1.75rem; }
+}
+
 /* Section rhythm */
 .lp-section { padding: 4.5rem 0; }
 @media (min-width: 768px) { .lp-section { padding: 6rem 0; } }

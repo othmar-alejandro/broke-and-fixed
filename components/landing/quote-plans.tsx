@@ -252,7 +252,7 @@ export function BathroomPlan({
   return (
     <svg
       viewBox={PLAN_VIEWBOX}
-      className="mx-auto block h-auto w-full max-w-[300px]"
+      className="lp-plan mx-auto block h-auto w-full max-w-[300px]"
       aria-hidden="true"
       focusable="false"
     >
@@ -336,7 +336,7 @@ export function ScopePlan({ level }: { level: ScopeCoverage }) {
   return (
     <svg
       viewBox={SCOPE_VIEWBOX}
-      className="mx-auto block h-auto w-full max-w-[300px]"
+      className="lp-plan mx-auto block h-auto w-full max-w-[300px]"
       aria-hidden="true"
       focusable="false"
     >

@@ -265,9 +265,17 @@ function ChoiceCard({
         onChange={onSelect}
         className="peer sr-only"
       />
+      {/* Below lg the drawing sits beside the text instead of above it.
+          Stacked, three cards ran 341px each and pushed Continue 608px under
+          the fold on a 375x812 phone, which is where step 1 was losing people
+          (measured 29 Aug 2026). Side by side each card is about a third of
+          that. Grid, not flex, so the badge can span both columns on the
+          narrow layout and the lg layout stays exactly the stacked DOM order
+          it always was. */}
       <span
         className={[
-          "flex h-full flex-col rounded-[4px] border-2 bg-white p-3 text-left transition-colors duration-150",
+          "grid h-full grid-cols-[120px_1fr] items-center gap-x-3 rounded-[4px] border-2 bg-white p-3 text-left transition-colors duration-150",
+          "lg:grid-cols-1 lg:items-stretch",
           "peer-focus-visible:outline peer-focus-visible:outline-[3px] peer-focus-visible:outline-offset-[3px] peer-focus-visible:outline-[var(--lp-navy)]",
           checked
             ? "border-[var(--lp-orange)] bg-[rgba(240,122,26,0.07)]"
@@ -275,7 +283,7 @@ function ChoiceCard({
         ].join(" ")}
       >
         {badge ? (
-          <span className="lp-label mb-2 self-start rounded-[3px] bg-[var(--lp-orange)] px-2 py-1 text-[var(--lp-on-orange)]">
+          <span className="lp-label col-span-2 mb-2 justify-self-start rounded-[3px] bg-[var(--lp-orange)] px-2 py-1 text-[var(--lp-on-orange)] lg:col-span-1">
             {badge}
           </span>
         ) : null}
@@ -284,7 +292,7 @@ function ChoiceCard({
           {children}
         </span>
 
-        <span className="mt-3 flex items-start gap-2">
+        <span className="flex min-w-0 items-start gap-2 lg:mt-3">
           <span
             aria-hidden="true"
             className={[
@@ -307,11 +315,11 @@ function ChoiceCard({
               {title}
             </span>
             {price ? (
-              <span className="mt-1 block text-[17px] font-bold text-[var(--lp-orange-text)]">
+              <span className="mt-1 block whitespace-nowrap text-[17px] font-bold text-[var(--lp-orange-text)]">
                 {priceIntro} {price}
               </span>
             ) : null}
-            <span className="mt-1 block text-[15.5px] leading-snug text-[var(--lp-ink-2)]">
+            <span className="mt-1 block text-[14px] leading-[1.35] text-[var(--lp-ink-2)] lg:text-[15.5px] lg:leading-snug">
               {body}
             </span>
           </span>
@@ -784,7 +792,7 @@ export default function QuoteForm({
                 )}
               </p>
 
-              <div className="grid gap-3 sm:grid-cols-3">
+              <div className="grid gap-3 lg:grid-cols-3">
                 {layoutOptions(t).map((option) => (
                   <ChoiceCard
                     key={option.id}
@@ -845,7 +853,7 @@ export default function QuoteForm({
                 )}
               </p>
 
-              <div className="grid gap-3 sm:grid-cols-3">
+              <div className="grid gap-3 lg:grid-cols-3">
                 {scopeOptions(t).map((option) => (
                   <ChoiceCard
                     key={option.id}
