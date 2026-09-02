@@ -1200,10 +1200,17 @@ export default async function TubToShowerLanding({
           owner on site daily means one job at a time, and that books out. */}
       <CapacityBand locale={locale} />
 
-      {/* FINAL CTA + the three step quote form. */}
+      {/* FINAL CTA + the three step quote form.
+          Below md this grid is one column and the anchor targets the section
+          top, so the form has to come first or a paid click lands on copy.
+          Measured 29 Aug 2026 at 375x812: first radio 168px below the fold,
+          Continue 1218px below it. Explicit md order restores source order,
+          so the two column layout is unchanged. This works only while the
+          copy column has no focusable elements. Add a link there and tab
+          order stops matching the screen. */}
       <section id="quote" className="lp-section lp-dark scroll-mt-16">
         <div className="lp-wrap grid gap-10 md:grid-cols-2 md:items-center">
-          <Reveal>
+          <Reveal className="order-2 md:order-1">
             <h2 className="lp-display lp-h-arg">
               {t("Tell us about your bathroom", "Cuéntenos de su baño")}
             </h2>
@@ -1255,7 +1262,7 @@ export default async function TubToShowerLanding({
             </p>
           </Reveal>
 
-          <Reveal delay={0.08}>
+          <Reveal delay={0.08} className="order-1 md:order-2">
             <QuoteForm phone={PHONE} tel={TEL} locale={locale} />
           </Reveal>
         </div>
