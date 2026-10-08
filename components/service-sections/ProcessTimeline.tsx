@@ -1,4 +1,5 @@
-import ImagePlaceholder from "@/components/ImagePlaceholder"
+import Image from "next/image"
+import { processPhotos } from "@/lib/data/service-photos"
 
 export interface ProcessStep {
   step: number
@@ -46,28 +47,27 @@ export default function ProcessTimeline({
           <div className="flex flex-col gap-12 md:gap-16">
             {steps.map((step, i) => {
               const isEven = i % 2 === 0
-              const imagePath = `/images/services/${serviceSlug}/process/step-${step.step}.jpg`
+              const photo = processPhotos[serviceSlug]?.[step.step]
               return (
                 <div
                   key={step.step}
-                  className={`relative grid md:grid-cols-2 gap-8 md:gap-16 items-center ${
-                    isEven ? "" : "md:[direction:rtl]"
-                  }`}
+                  className={`relative grid gap-8 md:gap-16 items-center ${
+                    photo ? "md:grid-cols-2" : "max-w-2xl mx-auto bg-white"
+                  } ${isEven ? "" : "md:[direction:rtl]"}`}
                 >
-                  <div className={`relative ${isEven ? "" : "md:[direction:ltr]"}`}>
-                    <div className="rounded-2xl overflow-hidden ring-1 ring-espresso/10">
-                      <ImagePlaceholder
-                        src={imagePath}
-                        alt={`${step.title} step illustration`}
-                        ratio="video"
-                        fill={false}
-                        width={800}
-                        height={450}
-                        className="w-full h-auto"
-                        label={`Step ${step.step}`}
-                      />
+                  {photo && (
+                    <div className={`relative ${isEven ? "" : "md:[direction:ltr]"}`}>
+                      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden ring-1 ring-espresso/10">
+                        <Image
+                          src={photo.src}
+                          alt={photo.alt}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="object-cover"
+                        />
+                      </div>
                     </div>
-                  </div>
+                  )}
                   <div className={isEven ? "" : "md:[direction:ltr]"}>
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-12 h-12 rounded-full bg-espresso text-white font-display font-bold text-lg flex items-center justify-center shrink-0">

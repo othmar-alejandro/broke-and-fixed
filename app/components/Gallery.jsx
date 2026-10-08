@@ -23,13 +23,13 @@ const projects = [
   {
     titleKey: 'Bathroom Transformation',
     category: 'Glenvar Heights',
-    image: '/images/glenvar-after-1.jpg',
+    image: '/images/glenvar-after-1.jpeg',
     alt: 'Completed luxury bathroom remodel with marble porcelain tile walls and LED backlit mirror in Glenvar Heights',
     description: 'A complete custom spa bathroom renovation in Glenvar Heights. Replaced a dated tub with an open walk-in shower featuring custom black hex mosaic accents and frameless glass. Installed a floating navy double vanity, backlit LED mirror, and large-format white marble porcelain wall slabs.',
     additionalImages: [
-      '/images/glenvar-after-2.jpg',
-      '/images/glenvar-after-4.jpg',
-      '/images/glenvar-after-3.jpg',
+      '/images/glenvar-after-2.jpeg',
+      '/images/glenvar-after-4.jpeg',
+      '/images/glenvar-after-3.jpeg',
       '/images/glenvar-before-3.jpg',
     ],
     span: '',
@@ -42,7 +42,7 @@ const projects = [
     description: 'Complete gut and remodel including new custom cabinetry, quartz countertops, and a modern subway tile backsplash. Upgraded lighting and plumbing fixtures to breathe new life into the heart of this South Miami Heights home.',
     additionalImages: [
       '/Home Remodeling - South Miami Heights /kitchen rennovation - south miami heights /kitchen-rennovation-in-process-setting-appliances.jpeg',
-      '/Home Remodeling - South Miami Heights /kitchen-countertop-cutting-and-leveling.jpeg',
+      '/Home Remodeling - South Miami Heights /kitchen rennovation - south miami heights /kitchen-countertop-cutting-and-leveling.jpeg',
     ],
     span: 'row-span-2',
   },

@@ -5,7 +5,10 @@
     "service": "kitchen",
     "location": "Lakes of the Meadow",
     "photoCount": 5,
-    "phases": ["before", "after"],
+    "phases": [
+      "before",
+      "after"
+    ],
     "photos": [
       {
         "filename": "lakes-meadows-kitchen-before-1.jpg",
@@ -46,7 +49,9 @@
     "service": "bathroom",
     "location": "Kendall",
     "photoCount": 1,
-    "phases": ["after"],
+    "phases": [
+      "after"
+    ],
     "photos": [
       {
         "filename": "bathroom-kendall-hex.jpg",
@@ -62,8 +67,12 @@
     "name": "Full Spa Bath Transformation",
     "service": "bathroom",
     "location": "Glenvar Heights",
-    "photoCount": 7,
-    "phases": ["before", "after"],
+    "photoCount": 9,
+    "phases": [
+      "before",
+      "progress",
+      "after"
+    ],
     "photos": [
       {
         "filename": "glenvar-before-1.jpg",
@@ -84,30 +93,577 @@
         "url": "/images/glenvar-before-3.jpg"
       },
       {
-        "filename": "glenvar-after-1.jpg",
+        "filename": "glenvar-progress-1.jpg",
+        "phase": "progress",
+        "note": "Gutted to the studs, cement board up and seams waterproofed.",
+        "url": "/images/glenvar-progress-1.jpg"
+      },
+      {
+        "filename": "glenvar-progress-2.jpg",
+        "phase": "progress",
+        "note": "Large-format porcelain going up with leveling clips.",
+        "url": "/images/glenvar-progress-2.jpg"
+      },
+      {
+        "filename": "glenvar-after-1.jpeg",
         "phase": "after",
         "note": "Completed bathroom with new custom vanity and LED backlit mirror.",
-        "url": "/images/glenvar-after-1.jpg"
+        "url": "/images/glenvar-after-1.jpeg"
       },
       {
-        "filename": "glenvar-after-2.jpg",
+        "filename": "glenvar-after-2.jpeg",
         "phase": "after",
         "note": "Modern walk-in glass shower enclosure and porcelain walls.",
-        "url": "/images/glenvar-after-2.jpg"
+        "url": "/images/glenvar-after-2.jpeg"
       },
       {
-        "filename": "glenvar-after-3.jpg",
+        "filename": "glenvar-after-3.jpeg",
         "phase": "after",
         "note": "Detail of the custom black hex mosaic shower niche.",
-        "url": "/images/glenvar-after-3.jpg"
+        "url": "/images/glenvar-after-3.jpeg"
       },
       {
-        "filename": "glenvar-after-4.jpg",
+        "filename": "glenvar-after-4.jpeg",
         "phase": "after",
         "note": "Overview of the finished walk-in shower with black hex tiles and linear drain.",
-        "url": "/images/glenvar-after-4.jpg"
+        "url": "/images/glenvar-after-4.jpeg"
       }
     ],
     "created": "2026-06-22"
+  },
+  {
+    "slug": "white-shaker-kitchen-rebuild",
+    "name": "White Shaker Kitchen Rebuild",
+    "service": "kitchen",
+    "location": "South Miami Heights",
+    "photoCount": 7,
+    "phases": [
+      "before",
+      "progress",
+      "after"
+    ],
+    "photos": [
+      {
+        "filename": "white-shaker-kitchen-rebuild-before-1.jpg",
+        "phase": "before",
+        "note": "Original kitchen with worn wood-grain cabinets and laminate tops.",
+        "url": "/images/white-shaker-kitchen-rebuild-before-1.jpg"
+      },
+      {
+        "filename": "kitchen-before-with-mold.jpeg",
+        "phase": "before",
+        "note": "Water damage and mold behind the base cabinets.",
+        "url": "/Home Remodeling - South Miami Heights /kitchen-before-with-mold.jpeg"
+      },
+      {
+        "filename": "kitchen-drywall-installed.jpeg",
+        "phase": "progress",
+        "note": "Damaged drywall cut out and replaced with moisture-resistant board.",
+        "url": "/Home Remodeling - South Miami Heights /kitchen-drywall-installed.jpeg"
+      },
+      {
+        "filename": "kitchen-rennovation-in-process.jpeg",
+        "phase": "progress",
+        "note": "New white shaker cabinets set and leveled.",
+        "url": "/Home Remodeling - South Miami Heights /kitchen rennovation - south miami heights /kitchen-rennovation-in-process.jpeg"
+      },
+      {
+        "filename": "kitchen-countertop-cutting-and-leveling.jpeg",
+        "phase": "progress",
+        "note": "Countertop cut and leveled on site.",
+        "url": "/Home Remodeling - South Miami Heights /kitchen rennovation - south miami heights /kitchen-countertop-cutting-and-leveling.jpeg"
+      },
+      {
+        "filename": "kitchen-rennovation-with-appliances-in-process.jpeg",
+        "phase": "progress",
+        "note": "Appliances going in.",
+        "url": "/Home Remodeling - South Miami Heights /kitchen rennovation - south miami heights /kitchen-rennovation-with-appliances-in-process.jpeg"
+      },
+      {
+        "filename": "white-shaker-kitchen-rebuild-after-1.jpg",
+        "phase": "after",
+        "note": "New white shaker cabinets, marble-look tops, stainless appliances and fresh paint.",
+        "url": "/images/white-shaker-kitchen-rebuild-after-1.jpg"
+      }
+    ],
+    "created": "2026-10-08"
+  },
+  {
+    "slug": "two-story-wall-repair-paint",
+    "name": "Two-Story Wall Repair and Paint",
+    "service": "paint",
+    "location": "",
+    "photoCount": 6,
+    "phases": [
+      "before",
+      "progress",
+      "after"
+    ],
+    "photos": [
+      {
+        "filename": "two-story-wall-repair-paint-before-1.jpg",
+        "phase": "before",
+        "note": "Damaged wall stripped down to the block around the tall window.",
+        "url": "/images/two-story-wall-repair-paint-before-1.jpg"
+      },
+      {
+        "filename": "two-story-wall-repair-paint-before-2.jpg",
+        "phase": "before",
+        "note": "Floors covered and the room sealed off before the rebuild.",
+        "url": "/images/two-story-wall-repair-paint-before-2.jpg"
+      },
+      {
+        "filename": "two-story-wall-repair-paint-progress-1.jpg",
+        "phase": "progress",
+        "note": "New drywall hung and taped up the full height of the wall.",
+        "url": "/images/two-story-wall-repair-paint-progress-1.jpg"
+      },
+      {
+        "filename": "two-story-wall-repair-paint-progress-2.jpg",
+        "phase": "progress",
+        "note": "Skim coat going on from the lift.",
+        "url": "/images/two-story-wall-repair-paint-progress-2.jpg"
+      },
+      {
+        "filename": "two-story-wall-repair-paint-after-1.jpg",
+        "phase": "after",
+        "note": "Finished wall, painted, with the chandelier back up.",
+        "url": "/images/two-story-wall-repair-paint-after-1.jpg"
+      },
+      {
+        "filename": "two-story-wall-repair-paint-after-2.jpg",
+        "phase": "after",
+        "note": "Smooth ceiling and upper walls after paint.",
+        "url": "/images/two-story-wall-repair-paint-after-2.jpg"
+      }
+    ],
+    "created": "2026-10-08"
+  },
+  {
+    "slug": "porcelain-floor-install",
+    "name": "Marble-Look Porcelain Floor",
+    "service": "tile",
+    "location": "",
+    "photoCount": 3,
+    "phases": [
+      "before",
+      "progress",
+      "after"
+    ],
+    "photos": [
+      {
+        "filename": "porcelain-floor-install-before-1.jpg",
+        "phase": "before",
+        "note": "Old floor removed and the slab ground down.",
+        "url": "/images/porcelain-floor-install-before-1.jpg"
+      },
+      {
+        "filename": "porcelain-floor-install-progress-1.jpg",
+        "phase": "progress",
+        "note": "Walls painted and slab prepped for tile.",
+        "url": "/images/porcelain-floor-install-progress-1.jpg"
+      },
+      {
+        "filename": "porcelain-floor-install-after-1.jpg",
+        "phase": "after",
+        "note": "Large-format marble-look porcelain set, with baseboards going back on.",
+        "url": "/images/porcelain-floor-install-after-1.jpg"
+      }
+    ],
+    "created": "2026-10-08"
+  },
+  {
+    "slug": "covered-patio-tile",
+    "name": "Covered Patio Tile",
+    "service": "tile",
+    "location": "",
+    "photoCount": 3,
+    "phases": [
+      "progress",
+      "after"
+    ],
+    "photos": [
+      {
+        "filename": "covered-patio-tile-progress-1.jpg",
+        "phase": "progress",
+        "note": "Setting the first rows and checking level along the door.",
+        "url": "/images/covered-patio-tile-progress-1.jpg"
+      },
+      {
+        "filename": "covered-patio-tile-after-1.jpg",
+        "phase": "after",
+        "note": "Finished patio floor in stone-look porcelain.",
+        "url": "/images/covered-patio-tile-after-1.jpg"
+      },
+      {
+        "filename": "covered-patio-tile-after-2.jpg",
+        "phase": "after",
+        "note": "Tile carried around the column and out to the edge.",
+        "url": "/images/covered-patio-tile-after-2.jpg"
+      }
+    ],
+    "created": "2026-10-08"
+  },
+  {
+    "slug": "bedroom-ceiling-paint",
+    "name": "Bedroom Repaint with Dark Green Ceiling",
+    "service": "paint",
+    "location": "",
+    "photoCount": 3,
+    "phases": [
+      "before",
+      "progress",
+      "after"
+    ],
+    "photos": [
+      {
+        "filename": "bedroom-ceiling-paint-before-1.jpg",
+        "phase": "before",
+        "note": "Bedroom before paint, with color samples on the wall.",
+        "url": "/images/bedroom-ceiling-paint-before-1.jpg"
+      },
+      {
+        "filename": "bedroom-ceiling-paint-progress-1.jpg",
+        "phase": "progress",
+        "note": "Furniture wrapped and the ceiling cut in by hand.",
+        "url": "/images/bedroom-ceiling-paint-progress-1.jpg"
+      },
+      {
+        "filename": "bedroom-ceiling-paint-after-1.jpg",
+        "phase": "after",
+        "note": "Dark green ceiling done, walls next.",
+        "url": "/images/bedroom-ceiling-paint-after-1.jpg"
+      }
+    ],
+    "created": "2026-10-08"
+  },
+  {
+    "slug": "tiki-hut-paver-pad",
+    "name": "Paver Pad Under the Tiki Hut",
+    "service": "exterior",
+    "location": "",
+    "photoCount": 3,
+    "phases": [
+      "before",
+      "progress",
+      "after"
+    ],
+    "photos": [
+      {
+        "filename": "tiki-hut-paver-pad-before-1.jpg",
+        "phase": "before",
+        "note": "Bare dirt under the tiki hut.",
+        "url": "/images/tiki-hut-paver-pad-before-1.jpg"
+      },
+      {
+        "filename": "tiki-hut-paver-pad-progress-1.jpg",
+        "phase": "progress",
+        "note": "Base leveled and pavers going down.",
+        "url": "/images/tiki-hut-paver-pad-progress-1.jpg"
+      },
+      {
+        "filename": "tiki-hut-paver-pad-after-1.jpg",
+        "phase": "after",
+        "note": "Finished paver pad, ready for furniture.",
+        "url": "/images/tiki-hut-paver-pad-after-1.jpg"
+      }
+    ],
+    "created": "2026-10-08"
+  },
+  {
+    "slug": "walk-in-shower-sliding-glass",
+    "name": "Walk-In Shower with Sliding Glass",
+    "service": "bathroom",
+    "location": "Killian",
+    "photoCount": 1,
+    "phases": [
+      "after"
+    ],
+    "photos": [
+      {
+        "filename": "walk-in-shower-sliding-glass-after-1.jpg",
+        "phase": "after",
+        "note": "Marble-look tile shower with sliding glass doors and a new vanity.",
+        "url": "/images/walk-in-shower-sliding-glass-after-1.jpg"
+      }
+    ],
+    "created": "2026-10-08"
+  },
+  {
+    "slug": "low-threshold-shower-grab-bars",
+    "name": "Low-Threshold Shower with Grab Bars",
+    "service": "bathroom",
+    "location": "",
+    "photoCount": 1,
+    "phases": [
+      "after"
+    ],
+    "photos": [
+      {
+        "filename": "low-threshold-shower-grab-bars-after-1.jpg",
+        "phase": "after",
+        "note": "Low-threshold shower with grab bars, a tiled niche and sliding glass.",
+        "url": "/images/low-threshold-shower-grab-bars-after-1.jpg"
+      }
+    ],
+    "created": "2026-10-08"
+  },
+  {
+    "slug": "laundry-room-cabinets",
+    "name": "Laundry Room Cabinets",
+    "service": "cabinet",
+    "location": "",
+    "photoCount": 1,
+    "phases": [
+      "after"
+    ],
+    "photos": [
+      {
+        "filename": "laundry-room-cabinets-after-1.jpg",
+        "phase": "after",
+        "note": "White uppers, green base cabinets, butcher block top and a new sink.",
+        "url": "/images/laundry-room-cabinets-after-1.jpg"
+      }
+    ],
+    "created": "2026-10-08"
+  },
+  {
+    "slug": "south-miami-heights-drywall-paint",
+    "name": "Water Damage Drywall Repair and Paint",
+    "service": "paint",
+    "location": "South Miami Heights",
+    "photoCount": 5,
+    "phases": [
+      "before",
+      "demo",
+      "progress",
+      "after"
+    ],
+    "photos": [
+      {
+        "filename": "livingroom-before.jpeg",
+        "phase": "before",
+        "note": "Living room before the repair.",
+        "url": "/Home Remodeling - South Miami Heights /livingroom-before.jpeg"
+      },
+      {
+        "filename": "demolishing-drywall-with-mold.jpeg",
+        "phase": "demo",
+        "note": "Wet, moldy drywall cut out along the bottom of the walls.",
+        "url": "/Home Remodeling - South Miami Heights /demolishing-drywall-with-mold.jpeg"
+      },
+      {
+        "filename": "drywall-installation-living-room.jpeg",
+        "phase": "progress",
+        "note": "New moisture-resistant drywall hung.",
+        "url": "/Home Remodeling - South Miami Heights /drywall-installation-living-room.jpeg"
+      },
+      {
+        "filename": "drywall-compunding.jpeg",
+        "phase": "progress",
+        "note": "Joints taped and compounded.",
+        "url": "/Home Remodeling - South Miami Heights /drywall-compunding.jpeg"
+      },
+      {
+        "filename": "diningroom2-painted.jpeg",
+        "phase": "after",
+        "note": "Walls finished and painted white.",
+        "url": "/Home Remodeling - South Miami Heights /diningroom2-painted.jpeg"
+      }
+    ],
+    "created": "2026-10-08"
+  },
+  {
+    "slug": "south-miami-heights-hall-bath",
+    "name": "Hall Bath Valve and Tile Repair",
+    "service": "bathroom",
+    "location": "South Miami Heights",
+    "photoCount": 3,
+    "phases": [
+      "before",
+      "progress",
+      "after"
+    ],
+    "photos": [
+      {
+        "filename": "bathroom2-before.jpeg",
+        "phase": "before",
+        "note": "Hall bathroom before the work.",
+        "url": "/Home Remodeling - South Miami Heights /bathroom2-before.jpeg"
+      },
+      {
+        "filename": "bathroom-faucets-replacement.jpeg",
+        "phase": "progress",
+        "note": "Wall opened to replace the old shower valves.",
+        "url": "/Home Remodeling - South Miami Heights /bathroom-faucets-replacement.jpeg"
+      },
+      {
+        "filename": "bathroom2-shower-after.jpeg",
+        "phase": "after",
+        "note": "New valves in and the wall closed with a patterned tile strip.",
+        "url": "/Home Remodeling - South Miami Heights /bathroom2-shower-after.jpeg"
+      }
+    ],
+    "created": "2026-10-08"
+  },
+  {
+    "slug": "hammocks-exterior-paint",
+    "name": "Exterior Repaint",
+    "service": "exterior-paint",
+    "location": "The Hammocks",
+    "photoCount": 2,
+    "phases": [
+      "progress",
+      "after"
+    ],
+    "photos": [
+      {
+        "filename": "Garage-door-painting-hammocks2.jpeg",
+        "phase": "progress",
+        "note": "Garage door getting its new color.",
+        "url": "/exterior paint - the hammocks 2/Garage-door-painting-hammocks2.jpeg"
+      },
+      {
+        "filename": "exterior-paint-hammocks-2-tall-entrance.jpeg",
+        "phase": "after",
+        "note": "Front entrance after paint.",
+        "url": "/exterior paint - the hammocks 2/exterior-paint-hammocks-2-tall-entrance.jpeg"
+      }
+    ],
+    "created": "2026-10-08"
+  },
+  {
+    "slug": "hammocks-roof-cleaning-paint-prep",
+    "name": "Roof Cleaning and Paint Prep",
+    "service": "exterior-paint",
+    "location": "The Hammocks",
+    "photoCount": 5,
+    "phases": [
+      "before",
+      "progress",
+      "after"
+    ],
+    "photos": [
+      {
+        "filename": "roof-before-1.jpeg",
+        "phase": "before",
+        "note": "Tile roof before cleaning.",
+        "url": "/exterior painting - the hammocks/roof-before-1.jpeg"
+      },
+      {
+        "filename": "washing-walls-before-painting.jpeg",
+        "phase": "before",
+        "note": "Mildew on the side wall before washing.",
+        "url": "/exterior painting - the hammocks/washing-walls-before-painting.jpeg"
+      },
+      {
+        "filename": "roof-pressure-cleaning-in-process.jpeg",
+        "phase": "progress",
+        "note": "Pressure cleaning the roof tiles.",
+        "url": "/exterior painting - the hammocks/roof-pressure-cleaning-in-process.jpeg"
+      },
+      {
+        "filename": "painting-house-process.jpeg",
+        "phase": "progress",
+        "note": "House washed and paint going on.",
+        "url": "/exterior painting - the hammocks/painting-house-process.jpeg"
+      },
+      {
+        "filename": "roof-pressure-cleaning.jpeg",
+        "phase": "after",
+        "note": "Clean roof tile.",
+        "url": "/exterior painting - the hammocks/roof-pressure-cleaning.jpeg"
+      }
+    ],
+    "created": "2026-10-08"
+  },
+  {
+    "slug": "paver-driveway-clear-coat",
+    "name": "Paver Driveway Clear Coat",
+    "service": "exterior",
+    "location": "",
+    "photoCount": 2,
+    "phases": [
+      "progress",
+      "after"
+    ],
+    "photos": [
+      {
+        "filename": "driveway-sealant.jpg",
+        "phase": "progress",
+        "note": "Sealer going on the pavers.",
+        "url": "/driveway clear coating/driveway-sealant.jpg"
+      },
+      {
+        "filename": "driveway-sealant-completed.jpg",
+        "phase": "after",
+        "note": "Driveway sealed with a wet-look finish.",
+        "url": "/driveway clear coating/driveway-sealant-completed.jpg"
+      }
+    ],
+    "created": "2026-10-08"
+  },
+  {
+    "slug": "miami-gardens-interior-demolition",
+    "name": "Whole-Home Interior Demolition",
+    "service": "demolition",
+    "location": "Miami Gardens",
+    "photoCount": 8,
+    "phases": [
+      "before",
+      "progress",
+      "after"
+    ],
+    "photos": [
+      {
+        "filename": "Kitchen-demolition-before.jpeg",
+        "phase": "before",
+        "note": "Kitchen before demolition.",
+        "url": "/demolition project - miami gardens/Kitchen-demolition-before.jpeg"
+      },
+      {
+        "filename": "bathroom1-demolition-before.jpeg",
+        "phase": "before",
+        "note": "Bathroom before demolition.",
+        "url": "/demolition project - miami gardens/bathroom1-demolition-before.jpeg"
+      },
+      {
+        "filename": "hallway-demolition-before.jpeg",
+        "phase": "before",
+        "note": "Hallway with the old wood floor.",
+        "url": "/demolition project - miami gardens/hallway-demolition-before.jpeg"
+      },
+      {
+        "filename": "kitchen-demolition-in-process.jpeg",
+        "phase": "progress",
+        "note": "Cabinets and backsplash coming out.",
+        "url": "/demolition project - miami gardens/kitchen-demolition-in-process.jpeg"
+      },
+      {
+        "filename": "room2-demolition-in-process.jpeg",
+        "phase": "progress",
+        "note": "Wood flooring pulled up.",
+        "url": "/demolition project - miami gardens/room2-demolition-in-process.jpeg"
+      },
+      {
+        "filename": "kitchen-demolition-after.jpeg",
+        "phase": "after",
+        "note": "Kitchen cleared to bare walls and slab.",
+        "url": "/demolition project - miami gardens/kitchen-demolition-after.jpeg"
+      },
+      {
+        "filename": "bathroom2-demolition-after.jpeg",
+        "phase": "after",
+        "note": "Bathroom stripped and ready for the rebuild.",
+        "url": "/demolition project - miami gardens/bathroom2-demolition-after.jpeg"
+      },
+      {
+        "filename": "hallway-demolition-after-good-one.jpeg",
+        "phase": "after",
+        "note": "Hallway down to clean slab.",
+        "url": "/demolition project - miami gardens/hallway-demolition-after-good-one.jpeg"
+      }
+    ],
+    "created": "2026-10-08"
   }
 ]

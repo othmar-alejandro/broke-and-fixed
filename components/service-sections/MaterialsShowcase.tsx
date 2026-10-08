@@ -1,5 +1,3 @@
-import ImagePlaceholder from "@/components/ImagePlaceholder"
-
 export interface MaterialOption {
   category: string
   categoryEs: string
@@ -31,19 +29,10 @@ const priceLevelEs: Record<string, string> = {
   Luxury: "Lujo",
 }
 
-function slugify(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, "")
-    .trim()
-    .replace(/\s+/g, "-")
-}
-
 export default function MaterialsShowcase({
   materials,
   locale,
   intro,
-  serviceSlug,
 }: MaterialsShowcaseProps) {
   const isEs = locale === "es"
 
@@ -76,33 +65,22 @@ export default function MaterialsShowcase({
               <h3 className="font-display text-2xl font-bold text-espresso mb-5">{category}</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {items.map((mat, i) => {
-                  const imagePath = `/images/services/${serviceSlug}/materials/${slugify(mat.name)}.jpg`
                   return (
                     <div
                       key={i}
                       className="bg-white rounded-2xl overflow-hidden ring-1 ring-espresso/5 hover:ring-sage/40 hover:-translate-y-1 transition-all duration-300 group"
                     >
-                      <div className="relative">
-                        <ImagePlaceholder
-                          src={imagePath}
-                          alt={`${mat.name} material option`}
-                          ratio="video"
-                          fill={false}
-                          width={600}
-                          height={338}
-                          className="w-full h-auto object-cover"
-                          label={mat.category}
-                        />
-                        <span
-                          className={`absolute top-3 right-3 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ring-1 ${priceLevelStyles[mat.priceLevel]}`}
-                        >
-                          {isEs ? priceLevelEs[mat.priceLevel] : mat.priceLevel}
-                        </span>
-                      </div>
                       <div className="p-5">
-                        <h4 className="font-display text-lg font-bold text-espresso mb-1.5 leading-tight">
-                          {isEs ? mat.nameEs : mat.name}
-                        </h4>
+                        <div className="flex items-start justify-between gap-3 mb-1.5">
+                          <h4 className="font-display text-lg font-bold text-espresso leading-tight">
+                            {isEs ? mat.nameEs : mat.name}
+                          </h4>
+                          <span
+                            className={`shrink-0 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ring-1 ${priceLevelStyles[mat.priceLevel]}`}
+                          >
+                            {isEs ? priceLevelEs[mat.priceLevel] : mat.priceLevel}
+                          </span>
+                        </div>
                         <p className="text-warm-gray text-sm leading-relaxed">
                           {isEs ? mat.descriptionEs : mat.description}
                         </p>
