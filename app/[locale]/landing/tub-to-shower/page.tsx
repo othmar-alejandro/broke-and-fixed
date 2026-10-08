@@ -102,7 +102,7 @@ const REVIEWS = [
  */
 const PHOTO = {
   before: "/images/glenvar-before-3.jpg",
-  afterWide: "/images/glenvar-after-1.jpg",
+  afterWide: "/images/glenvar-after-1.jpeg",
   // Slider-only crops of the two shots above, cut down to the tub/shower
   // wall. In the full frames both subjects sit on the LEFT, so a 50% wipe
   // composited old tub + new vanity. These crops make every handle position

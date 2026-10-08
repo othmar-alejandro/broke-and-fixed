@@ -4,6 +4,7 @@ import { notFound } from "next/navigation"
 import { services } from "@/lib/data/services"
 import { locations } from "@/lib/data/locations"
 import { serviceImages } from "@/lib/data/images"
+import { serviceHeroPhotos } from "@/lib/data/service-photos"
 import { faqs } from "@/lib/data/faqs"
 import { servicePageRich } from "@/lib/data/service-page-rich"
 import JsonLd from "@/components/seo/JsonLd"
@@ -228,6 +229,7 @@ export default async function ServicePage({
           timeline={service.timeline}
           timelineEs={service.timeline}
           locale={localeNarrow}
+          heroImagePath={serviceHeroPhotos[service.slug]}
         />
       ) : (
         // Fallback hero for services without rich data yet

@@ -31,7 +31,7 @@ export const authors: Record<string, Author> = {
     title: "Miami-Dade Remodeling Team",
     bio: "The Broke & Fixed team has completed remodels across Kendall, Coral Gables, Pinecrest, Doral, and all of Miami-Dade. Family owned, fully insured, bilingual EN/ES.",
     bioEs: "El equipo de Broke & Fixed ha completado remodelaciones en Kendall, Coral Gables, Pinecrest, Doral y todo Miami-Dade. Empresa familiar, totalmente asegurada, bilingüe EN/ES.",
-    image: "/logo.png",
+    image: "/logo-160.webp",
     links: {
       instagram: "https://www.instagram.com/brokeandfixed/",
     },

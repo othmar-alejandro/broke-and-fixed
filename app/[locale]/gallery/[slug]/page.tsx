@@ -35,7 +35,7 @@ export async function generateMetadata({
 
   return {
     title,
-    description: `${project.service} project in ${project.location || "Miami-Dade"}. ${project.photoCount} photos showing the full transformation.`,
+    description: `${project.service.replace("-", " ")} project in ${project.location || "Miami-Dade"}. ${project.photoCount} photos showing the full transformation.`,
     alternates: {
       canonical: `https://brokeandfixed.com/${locale}/gallery/${slug}`,
       languages: {
@@ -90,7 +90,7 @@ export default async function ProjectGalleryPage({
 
         <div className="py-8">
           <div className="text-trade-orange font-accent font-medium text-sm uppercase mb-2">
-            {project.service}
+            {project.service.replace("-", " ")}
           </div>
           <h1 className="font-display text-4xl md:text-5xl font-bold text-espresso mb-2">
             {project.name}

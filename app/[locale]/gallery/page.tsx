@@ -30,6 +30,7 @@ export async function generateMetadata({
       languages: {
         en: "/en/gallery",
         es: "/es/gallery",
+        "x-default": "/en/gallery",
       },
     },
     openGraph: {
@@ -46,11 +47,15 @@ const serviceLabels: Record<string, { en: string; es: string }> = {
   bathroom: { en: "Bathroom", es: "Bano" },
   kitchen: { en: "Kitchen", es: "Cocina" },
   tile: { en: "Tile Work", es: "Trabajo de Azulejo" },
-  paint: { en: "Painting", es: "Pintura" },
-  exterior: { en: "Exterior", es: "Exterior" },
+  paint: { en: "Interior Painting", es: "Pintura Interior" },
+  "exterior-paint": { en: "Exterior Painting", es: "Pintura Exterior" },
+  exterior: { en: "Exterior Repairs", es: "Reparaciones Exteriores" },
+  demolition: { en: "Demolition", es: "Demolicion" },
   cabinet: { en: "Cabinets", es: "Gabinetes" },
   countertop: { en: "Countertops", es: "Encimeras" },
 }
+
+const serviceOrder = ["bathroom", "kitchen", "tile", "paint", "exterior-paint", "cabinet", "exterior", "demolition"]
 
 export default async function GalleryPage({
   params,
@@ -86,8 +91,13 @@ export default async function GalleryPage({
             {isEs ? "Proyectos proximamente." : "Projects coming soon."}
           </p>
         ) : (
+          serviceOrder.filter((svc) => projects.some((p) => p.service === svc)).map((svc) => (
+          <section key={svc} id={svc} className="mb-14 scroll-mt-24">
+            <h2 className="font-display text-3xl font-bold text-espresso mb-5">
+              {isEs ? serviceLabels[svc].es : serviceLabels[svc].en}
+            </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project) => {
+            {projects.filter((p) => p.service === svc).map((project) => {
               const coverPhoto = project.photos.find((p) => p.phase === "after")
                 || project.photos[project.photos.length - 1]
               const svcLabel = serviceLabels[project.service]
@@ -121,9 +131,9 @@ export default async function GalleryPage({
                     <div className="text-xs text-trade-orange font-accent font-medium uppercase mb-1">
                       {serviceName}
                     </div>
-                    <h2 className="font-display text-xl font-bold text-espresso mb-1">
+                    <h3 className="font-display text-xl font-bold text-espresso mb-1">
                       {project.name}
-                    </h2>
+                    </h3>
                     <p className="text-warm-gray text-sm">
                       {project.photoCount} {isEs ? "fotos" : "photos"}
                       {project.location ? ` | ${project.location}` : ""}
@@ -133,6 +143,8 @@ export default async function GalleryPage({
               )
             })}
           </div>
+          </section>
+          ))
         )}
       </div>
     </main>

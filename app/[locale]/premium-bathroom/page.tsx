@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import {
   Phone,
   ShieldCheck,
@@ -532,6 +533,13 @@ function UpgradeIcon({ icon }: { icon: string }) {
 /*  Page component                                                             */
 /* ========================================================================== */
 
+const realBathPhotos = [
+  { slug: "glenvar-heights-bathroom-remodel", src: "/images/glenvar-after-1.jpeg", place: "Glenvar Heights" },
+  { slug: "green-tiles-bathroom-kendall", src: "/images/bathroom-kendall-hex.jpg", place: "Kendall" },
+  { slug: "walk-in-shower-sliding-glass", src: "/images/walk-in-shower-sliding-glass-after-1.jpg", place: "Killian" },
+  { slug: "south-miami-heights-hall-bath", src: "/Home Remodeling - South Miami Heights /bathroom2-shower-after.jpeg", place: "South Miami Heights" },
+]
+
 export default async function PremiumBathroomPage({
   params,
 }: {
@@ -786,6 +794,28 @@ export default async function PremiumBathroomPage({
               {t.transformHeadline}
             </h2>
             <p className="text-warm-gray text-lg">{t.transformSub}</p>
+          </div>
+
+          {/* Real job photos, each links to its full gallery project */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto mb-12">
+            {realBathPhotos.map((p) => (
+              <Link
+                key={p.slug}
+                href={`/${locale}/gallery/${p.slug}`}
+                className="group relative aspect-[3/4] rounded-2xl overflow-hidden ring-1 ring-espresso/10"
+              >
+                <Image
+                  src={p.src}
+                  alt={`${isEs ? "Remodelación de baño en" : "Bathroom remodeling in"} ${p.place}`}
+                  fill
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent text-white text-sm font-semibold px-3 pt-8 pb-2.5">
+                  {p.place}
+                </span>
+              </Link>
+            ))}
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8 max-w-5xl mx-auto">

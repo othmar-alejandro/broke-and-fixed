@@ -57,6 +57,30 @@ export default function StartClient({ locale }: StartClientProps) {
     show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 100, damping: 15 } }
   }
 
+  const recentWork = [
+    {
+      slug: "white-shaker-kitchen-rebuild",
+      img: "kitchen",
+      alt: isEs ? "Remodelación de cocina en Miami" : "Kitchen remodeling in Miami",
+      title: isEs ? "Cocina reconstruida" : "Kitchen rebuild",
+      text: isEs ? "Gabinetes shaker blancos, encimeras nuevas y pintura." : "White shaker cabinets, new tops, and fresh paint.",
+    },
+    {
+      slug: "glenvar-heights-bathroom-remodel",
+      img: "bath",
+      alt: isEs ? "Remodelación de baño en Glenvar Heights" : "Bathroom remodeling in Glenvar Heights",
+      title: isEs ? "Bañera a ducha abierta" : "Tub to walk-in shower",
+      text: isEs ? "Baño completo en Glenvar Heights. Porcelanato, vidrio y vanidad nueva." : "Full bathroom in Glenvar Heights. Porcelain walls, glass, and a new vanity.",
+    },
+    {
+      slug: "porcelain-floor-install",
+      img: "floor",
+      alt: isEs ? "Instalación de pisos de porcelanato en Miami" : "Porcelain tile floor installation in Miami",
+      title: isEs ? "Piso de porcelanato" : "Porcelain floor",
+      text: isEs ? "Piso viejo removido y porcelanato de gran formato instalado." : "Old floor out, large-format porcelain in.",
+    },
+  ]
+
   const linkGroups = [
     {
       href: `/${locale}#contact`,
@@ -70,21 +94,21 @@ export default function StartClient({ locale }: StartClientProps) {
       href: `/${locale}/services/${isEs ? "remodelacion-de-cocinas" : "kitchen-remodeling"}`,
       label: isEs ? "Remodelación de cocinas" : "Kitchen remodeling",
       subtext: isEs ? "Gabinetes nuevos, encimeras de cuarzo y distribuciones modernas" : "New cabinets, quartz tops, and custom layouts",
-      image: "/images/design-ideas/kitchen-concept-1.png",
+      image: "/images/start/kitchen-remodel-miami.webp",
       glow: "rgba(240, 122, 26, 0.15)"
     },
     {
       href: `/${locale}/premium-bathroom`,
       label: isEs ? "Remodelación de baños" : "Bathroom remodeling",
       subtext: isEs ? "Duchas abiertas, vanidades flotantes y azulejos premium" : "Walk-in showers, quartz vanities, and custom tile",
-      image: "/images/design-ideas/bathroom-concept-1.png",
+      image: "/images/start/bathroom-remodel-miami.webp",
       glow: "rgba(240, 122, 26, 0.15)"
     },
     {
       href: `/${locale}/services/${isEs ? "instalacion-de-pisos" : "tile-work"}`,
       label: isEs ? "Instalación de pisos" : "Tile work & flooring",
       subtext: isEs ? "Colocación de porcelanato, cerámica y gran formato" : "Porcelain, ceramic, and large-format tile installation",
-      image: "/images/design-ideas/tile-work-concept.png",
+      image: "/images/start/tile-shower-miami.webp",
       glow: "rgba(240, 122, 26, 0.15)"
     },
     {
@@ -360,6 +384,55 @@ export default function StartClient({ locale }: StartClientProps) {
             )
           })}
         </motion.nav>
+
+        {/* Recent work - real before & after pairs, each links to its gallery project */}
+        <section className="mt-8 w-full">
+          <h2 className="font-display text-xl font-black uppercase tracking-wide text-[#1E3A5F]">
+            {isEs ? "Trabajos recientes" : "Recent work"}
+          </h2>
+          <p className="mt-1 text-[12px] text-slate-600 leading-snug">
+            {isEs
+              ? "Fotos reales de nuestros trabajos en Miami-Dade. Toque uno para ver el proyecto completo."
+              : "Real photos from our jobs across Miami-Dade. Tap one to see the full project."}
+          </p>
+          <div className="mt-3 flex flex-col gap-3">
+            {recentWork.map((w) => (
+              <a
+                key={w.slug}
+                href={`/${locale}/gallery/${w.slug}`}
+                className="group block rounded-2xl p-2.5 backdrop-blur-lg glass-card-interactive"
+              >
+                <div className="grid grid-cols-2 gap-1.5">
+                  {(["before", "after"] as const).map((phase) => (
+                    <div key={phase} className="relative aspect-[3/4] overflow-hidden rounded-xl">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={`/images/start/${w.img}-${phase}.webp`}
+                        alt={`${w.alt}, ${phase === "before" ? (isEs ? "antes" : "before") : (isEs ? "después" : "after")}`}
+                        loading="lazy"
+                        className="object-cover w-full h-full"
+                      />
+                      <span className={`absolute top-1.5 left-1.5 rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white ${phase === "after" ? "bg-[#F07A1A]" : "bg-[#0F1F35]/80"}`}>
+                        {phase === "before" ? (isEs ? "Antes" : "Before") : (isEs ? "Después" : "After")}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-2 px-1 pb-0.5">
+                  <span className="font-display text-[16px] font-bold text-[#1E3A5F] leading-tight">{w.title}</span>
+                  <span className="block text-[11px] text-slate-500 mt-0.5 leading-snug">{w.text}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+          <a
+            href={`/${locale}/gallery`}
+            className="mt-3 flex items-center justify-center gap-1.5 text-[13px] font-bold text-[#F07A1A]"
+          >
+            {isEs ? "Ver todos los proyectos" : "See the full portfolio"}
+            <ArrowRight size={12} weight="bold" />
+          </a>
+        </section>
 
         {/* Footer Brand Badging */}
         <motion.div

@@ -9,9 +9,9 @@ export const serviceImages: Record<string, ServiceImageData> = {
   bathroom: {
     hero: "/Home Remodeling - South Miami Heights /bathroom2-shower-after.jpeg",
     gallery: [
-      "/images/glenvar-after-1.jpg",
-      "/images/glenvar-after-2.jpg",
-      "/images/glenvar-after-4.jpg",
+      "/images/glenvar-after-1.jpeg",
+      "/images/glenvar-after-2.jpeg",
+      "/images/glenvar-after-4.jpeg",
       "/images/bathroom-kendall-hex.jpg",
       "/Home Remodeling - South Miami Heights /bathroom-faucets-replacement.jpeg",
       "/Home Remodeling - South Miami Heights /bathroom-plumbing-and-tile-renewal.jpeg",
