@@ -2,6 +2,8 @@ import { MetadataRoute } from 'next'
 import { services } from '@/lib/data/services'
 import { locations } from '@/lib/data/locations'
 import { hoaCommunities } from '@/lib/data/hoa-communities'
+import { kingTideAreas, KING_TIDE_UPDATED } from '@/lib/data/king-tide-areas'
+import { kingTideQuestions } from '@/lib/data/king-tide-questions'
 import { getAllPosts } from '@/lib/blog'
 import { getAllProjects } from '@/lib/gallery'
 import { getAllCostPageSlugs, getCostPageData } from '@/lib/data/cost-page-data'
@@ -327,8 +329,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ])
 
+  // King tide flood damage (hub + per-area, EN + ES)
+  const kingTidePages: MetadataRoute.Sitemap = [
+    '',
+    ...kingTideAreas.map((a) => `/${a.slug}`),
+    ...kingTideQuestions.map((q) => `/questions/${q.slug}`),
+  ].flatMap((path) =>
+    ['en', 'es'].map((locale) => ({
+      url: `${BASE_URL}/${locale}/king-tide-flooding${path}`,
+      lastModified: new Date(KING_TIDE_UPDATED),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    })),
+  )
+
   return [
     ...homepages,
+    ...kingTidePages,
     ...legalPages,
     ...servicePages,
     ...locationPages,
