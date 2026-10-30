@@ -154,6 +154,7 @@ export default function Footer() {
               <li><a href="#gallery" className="text-sm text-warm-gray transition-colors duration-300 hover:text-espresso">{t('footer.links.gallery')}</a></li>
               <li><a href="#process" className="text-sm text-warm-gray transition-colors duration-300 hover:text-espresso">{t('footer.links.process')}</a></li>
               <li><a href="#contact" className="text-sm text-warm-gray transition-colors duration-300 hover:text-espresso">{t('footer.links.contact')}</a></li>
+              <li><a href={`/${locale}/king-tide-flooding`} className="text-sm text-warm-gray transition-colors duration-300 hover:text-espresso">{locale === 'es' ? 'Daños por marea rey' : 'King tide flood repair'}</a></li>
             </ul>
           </div>
         </div>
